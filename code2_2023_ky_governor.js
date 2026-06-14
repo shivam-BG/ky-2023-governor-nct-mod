@@ -1,0 +1,24762 @@
+// 2023 Kentucky Governor - Code 2
+// Paste this into the New Campaign Trail Code 2 box after Code 1.
+// This file includes 25 questions, two playable candidates, county baselines, answer effects, endings, and issue-map hooks.
+(function () {
+  const root = typeof window !== "undefined" ? window : globalThis;
+  root.campaignTrail_temp = root.campaignTrail_temp || {};
+  const campaignTrail_temp = root.campaignTrail_temp;
+
+  const KY2023_MOD = {
+  "id": 20,
+  "candidates": {
+    "beshear": 201,
+    "cameron": 200
+  },
+  "running_mates": {
+    "beshear": 209,
+    "cameron": 204
+  },
+  "counties": [
+    {
+      "fips": "21001",
+      "county": "Adair",
+      "region": "South Central / rural",
+      "census_area_sqmi": 405.283,
+      "beshear_pct": 31.94,
+      "beshear_votes": 1688,
+      "cameron_pct": 68.06,
+      "cameron_votes": 3597,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -36.12,
+      "gov_margin_votes": -1909,
+      "total_2023": 5285,
+      "trump_votes": 7276,
+      "trump_pct": 82.98,
+      "biden_votes": 1392,
+      "biden_pct": 15.88,
+      "other_2020_votes": 100,
+      "other_2020_pct": 1.14,
+      "pres_margin_trump_votes": 5884,
+      "pres_margin_trump_pct": 67.1,
+      "total_2020": 8768,
+      "beshear_margin": -36.12,
+      "biden_margin": -67.1,
+      "beshear_over_2020_biden": 30.98,
+      "turnout_share_2023": 0.003998,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 36.2,
+      "pres_2020_margin": -67.1,
+      "economy": 48.6,
+      "social_conservative": 94.9,
+      "disaster_response": 26.0,
+      "coal_energy": 28.7,
+      "education_teachers": 47.0,
+      "cameron_alignment": 76.4,
+      "flags": []
+    },
+    {
+      "fips": "21003",
+      "county": "Allen",
+      "region": "South Central / rural",
+      "census_area_sqmi": 344.338,
+      "beshear_pct": 29.6,
+      "beshear_votes": 1513,
+      "cameron_pct": 70.4,
+      "cameron_votes": 3599,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -40.81,
+      "gov_margin_votes": -2086,
+      "total_2023": 5112,
+      "trump_votes": 7587,
+      "trump_pct": 81.02,
+      "biden_votes": 1642,
+      "biden_pct": 17.54,
+      "other_2020_votes": 135,
+      "other_2020_pct": 1.44,
+      "pres_margin_trump_votes": 5945,
+      "pres_margin_trump_pct": 63.48,
+      "total_2020": 9364,
+      "beshear_margin": -40.8,
+      "biden_margin": -63.48,
+      "beshear_over_2020_biden": 22.68,
+      "turnout_share_2023": 0.003867,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 33.0,
+      "pres_2020_margin": -63.48,
+      "economy": 47.1,
+      "social_conservative": 93.0,
+      "disaster_response": 26.0,
+      "coal_energy": 28.2,
+      "education_teachers": 45.6,
+      "cameron_alignment": 77.3,
+      "flags": []
+    },
+    {
+      "fips": "21005",
+      "county": "Anderson",
+      "region": "Bluegrass",
+      "census_area_sqmi": 201.832,
+      "beshear_pct": 45.34,
+      "beshear_votes": 4212,
+      "cameron_pct": 54.66,
+      "cameron_votes": 5078,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -9.32,
+      "gov_margin_votes": -866,
+      "total_2023": 9290,
+      "trump_votes": 9661,
+      "trump_pct": 72.89,
+      "biden_votes": 3348,
+      "biden_pct": 25.26,
+      "other_2020_votes": 245,
+      "other_2020_pct": 1.85,
+      "pres_margin_trump_votes": 6313,
+      "pres_margin_trump_pct": 47.63,
+      "total_2020": 13254,
+      "beshear_margin": -9.32,
+      "biden_margin": -47.63,
+      "beshear_over_2020_biden": 38.31,
+      "turnout_share_2023": 0.007028,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 48.4,
+      "pres_2020_margin": -47.63,
+      "economy": 49.9,
+      "social_conservative": 84.8,
+      "disaster_response": 26.7,
+      "coal_energy": 25.6,
+      "education_teachers": 48.1,
+      "cameron_alignment": 63.7,
+      "flags": []
+    },
+    {
+      "fips": "21007",
+      "county": "Ballard",
+      "region": "Western Kentucky",
+      "census_area_sqmi": 246.659,
+      "beshear_pct": 36.28,
+      "beshear_votes": 963,
+      "cameron_pct": 63.72,
+      "cameron_votes": 1691,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -27.43,
+      "gov_margin_votes": -728,
+      "total_2023": 2654,
+      "trump_votes": 3356,
+      "trump_pct": 79.43,
+      "biden_votes": 825,
+      "biden_pct": 19.53,
+      "other_2020_votes": 44,
+      "other_2020_pct": 1.04,
+      "pres_margin_trump_votes": 2531,
+      "pres_margin_trump_pct": 59.9,
+      "total_2020": 4225,
+      "beshear_margin": -27.44,
+      "biden_margin": -59.9,
+      "beshear_over_2020_biden": 32.46,
+      "turnout_share_2023": 0.002008,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 40.0,
+      "pres_2020_margin": -59.9,
+      "economy": 48.8,
+      "social_conservative": 91.1,
+      "disaster_response": 31.0,
+      "coal_energy": 37.6,
+      "education_teachers": 47.2,
+      "cameron_alignment": 72.1,
+      "flags": []
+    },
+    {
+      "fips": "21009",
+      "county": "Barren",
+      "region": "South Central / rural",
+      "census_area_sqmi": 487.541,
+      "beshear_pct": 41.78,
+      "beshear_votes": 4965,
+      "cameron_pct": 58.21,
+      "cameron_votes": 6918,
+      "writein_pct": 0.01,
+      "writein_votes": 1,
+      "gov_margin_beshear": -16.43,
+      "gov_margin_votes": -1953,
+      "total_2023": 11884,
+      "trump_votes": 14654,
+      "trump_pct": 73.04,
+      "biden_votes": 5127,
+      "biden_pct": 25.55,
+      "other_2020_votes": 283,
+      "other_2020_pct": 1.41,
+      "pres_margin_trump_votes": 9527,
+      "pres_margin_trump_pct": 47.49,
+      "total_2020": 20064,
+      "beshear_margin": -16.43,
+      "biden_margin": -47.49,
+      "beshear_over_2020_biden": 31.06,
+      "turnout_share_2023": 0.00899,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 44.4,
+      "pres_2020_margin": -47.49,
+      "economy": 48.6,
+      "social_conservative": 84.7,
+      "disaster_response": 26.0,
+      "coal_energy": 25.6,
+      "education_teachers": 47.0,
+      "cameron_alignment": 66.1,
+      "flags": []
+    },
+    {
+      "fips": "21011",
+      "county": "Bath",
+      "region": "South Central / rural",
+      "census_area_sqmi": 278.792,
+      "beshear_pct": 55.81,
+      "beshear_votes": 1913,
+      "cameron_pct": 44.19,
+      "cameron_votes": 1515,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 11.61,
+      "gov_margin_votes": 398,
+      "total_2023": 3428,
+      "trump_votes": 3986,
+      "trump_pct": 70.84,
+      "biden_votes": 1573,
+      "biden_pct": 27.95,
+      "other_2020_votes": 68,
+      "other_2020_pct": 1.21,
+      "pres_margin_trump_votes": 2413,
+      "pres_margin_trump_pct": 42.89,
+      "total_2020": 5627,
+      "beshear_margin": 11.62,
+      "biden_margin": -42.89,
+      "beshear_over_2020_biden": 54.51,
+      "turnout_share_2023": 0.002593,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 59.5,
+      "pres_2020_margin": -42.89,
+      "economy": 52.8,
+      "social_conservative": 82.3,
+      "disaster_response": 30.3,
+      "coal_energy": 24.9,
+      "education_teachers": 50.7,
+      "cameron_alignment": 55.8,
+      "flags": []
+    },
+    {
+      "fips": "21013",
+      "county": "Bell",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 359.0,
+      "beshear_pct": 40.24,
+      "beshear_votes": 2281,
+      "cameron_pct": 59.74,
+      "cameron_votes": 3386,
+      "writein_pct": 0.02,
+      "writein_votes": 1,
+      "gov_margin_beshear": -19.5,
+      "gov_margin_votes": -1105,
+      "total_2023": 5668,
+      "trump_votes": 8140,
+      "trump_pct": 81.04,
+      "biden_votes": 1789,
+      "biden_pct": 17.81,
+      "other_2020_votes": 115,
+      "other_2020_pct": 1.15,
+      "pres_margin_trump_votes": 6351,
+      "pres_margin_trump_pct": 63.23,
+      "total_2020": 10044,
+      "beshear_margin": -19.5,
+      "biden_margin": -63.23,
+      "beshear_over_2020_biden": 43.73,
+      "turnout_share_2023": 0.004288,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 44.9,
+      "pres_2020_margin": -63.23,
+      "economy": 46.9,
+      "social_conservative": 99.9,
+      "disaster_response": 38.9,
+      "coal_energy": 92.1,
+      "education_teachers": 49.0,
+      "cameron_alignment": 75.0,
+      "flags": [
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21015",
+      "county": "Boone",
+      "region": "Northern Kentucky",
+      "census_area_sqmi": 246.359,
+      "beshear_pct": 43.96,
+      "beshear_votes": 17575,
+      "cameron_pct": 56.03,
+      "cameron_votes": 22399,
+      "writein_pct": 0.01,
+      "writein_votes": 4,
+      "gov_margin_beshear": -12.07,
+      "gov_margin_votes": -4824,
+      "total_2023": 39978,
+      "trump_votes": 44814,
+      "trump_pct": 66.89,
+      "biden_votes": 20901,
+      "biden_pct": 31.2,
+      "other_2020_votes": 1283,
+      "other_2020_pct": 1.91,
+      "pres_margin_trump_votes": 23913,
+      "pres_margin_trump_pct": 35.69,
+      "total_2020": 66998,
+      "beshear_margin": -12.07,
+      "biden_margin": -35.69,
+      "beshear_over_2020_biden": 23.62,
+      "turnout_share_2023": 0.030242,
+      "urban_weight": 1.0,
+      "suburban_weight": 1.0,
+      "rural_score": 15.0,
+      "beshear_approval": 50.2,
+      "pres_2020_margin": -35.69,
+      "economy": 76.3,
+      "social_conservative": 49.8,
+      "disaster_response": 26.0,
+      "coal_energy": 23.7,
+      "education_teachers": 63.8,
+      "cameron_alignment": 58.5,
+      "flags": [
+        "suburban",
+        "urban"
+      ]
+    },
+    {
+      "fips": "21017",
+      "county": "Bourbon",
+      "region": "Bluegrass",
+      "census_area_sqmi": 289.719,
+      "beshear_pct": 53.96,
+      "beshear_votes": 3265,
+      "cameron_pct": 46.04,
+      "cameron_votes": 2786,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 7.92,
+      "gov_margin_votes": 479,
+      "total_2023": 6051,
+      "trump_votes": 6190,
+      "trump_pct": 64.16,
+      "biden_votes": 3296,
+      "biden_pct": 34.16,
+      "other_2020_votes": 162,
+      "other_2020_pct": 1.68,
+      "pres_margin_trump_votes": 2894,
+      "pres_margin_trump_pct": 30.0,
+      "total_2020": 9648,
+      "beshear_margin": 7.92,
+      "biden_margin": -30.0,
+      "beshear_over_2020_biden": 37.92,
+      "turnout_share_2023": 0.004577,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 55.6,
+      "pres_2020_margin": -30.0,
+      "economy": 49.8,
+      "social_conservative": 75.6,
+      "disaster_response": 26.6,
+      "coal_energy": 22.8,
+      "education_teachers": 48.1,
+      "cameron_alignment": 50.7,
+      "flags": []
+    },
+    {
+      "fips": "21019",
+      "county": "Boyd",
+      "region": "South Central / rural",
+      "census_area_sqmi": 159.864,
+      "beshear_pct": 51.52,
+      "beshear_votes": 6068,
+      "cameron_pct": 48.48,
+      "cameron_votes": 5710,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 3.04,
+      "gov_margin_votes": 358,
+      "total_2023": 11778,
+      "trump_votes": 14295,
+      "trump_pct": 65.72,
+      "biden_votes": 7083,
+      "biden_pct": 32.56,
+      "other_2020_votes": 373,
+      "other_2020_pct": 1.72,
+      "pres_margin_trump_votes": 7212,
+      "pres_margin_trump_pct": 33.16,
+      "total_2020": 21751,
+      "beshear_margin": 3.04,
+      "biden_margin": -33.16,
+      "beshear_over_2020_biden": 36.2,
+      "turnout_share_2023": 0.00891,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 57.3,
+      "pres_2020_margin": -33.16,
+      "economy": 55.5,
+      "social_conservative": 77.2,
+      "disaster_response": 26.3,
+      "coal_energy": 23.3,
+      "education_teachers": 65.8,
+      "cameron_alignment": 52.9,
+      "flags": [
+        "college"
+      ]
+    },
+    {
+      "fips": "21021",
+      "county": "Boyle",
+      "region": "Bluegrass",
+      "census_area_sqmi": 180.169,
+      "beshear_pct": 52.89,
+      "beshear_votes": 5040,
+      "cameron_pct": 47.11,
+      "cameron_votes": 4489,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 5.78,
+      "gov_margin_votes": 551,
+      "total_2023": 9529,
+      "trump_votes": 8872,
+      "trump_pct": 61.28,
+      "biden_votes": 5298,
+      "biden_pct": 36.59,
+      "other_2020_votes": 308,
+      "other_2020_pct": 2.13,
+      "pres_margin_trump_votes": 3574,
+      "pres_margin_trump_pct": 24.69,
+      "total_2020": 14478,
+      "beshear_margin": 5.78,
+      "biden_margin": -24.69,
+      "beshear_over_2020_biden": 30.47,
+      "turnout_share_2023": 0.007208,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 53.7,
+      "pres_2020_margin": -24.69,
+      "economy": 48.5,
+      "social_conservative": 72.8,
+      "disaster_response": 26.0,
+      "coal_energy": 22.0,
+      "education_teachers": 46.9,
+      "cameron_alignment": 50.5,
+      "flags": []
+    },
+    {
+      "fips": "21023",
+      "county": "Bracken",
+      "region": "Northern Kentucky",
+      "census_area_sqmi": 205.612,
+      "beshear_pct": 39.86,
+      "beshear_votes": 939,
+      "cameron_pct": 60.14,
+      "cameron_votes": 1417,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -20.29,
+      "gov_margin_votes": -478,
+      "total_2023": 2356,
+      "trump_votes": 3398,
+      "trump_pct": 80.03,
+      "biden_votes": 800,
+      "biden_pct": 18.84,
+      "other_2020_votes": 48,
+      "other_2020_pct": 1.13,
+      "pres_margin_trump_votes": 2598,
+      "pres_margin_trump_pct": 61.19,
+      "total_2020": 4246,
+      "beshear_margin": -20.28,
+      "biden_margin": -61.19,
+      "beshear_over_2020_biden": 40.91,
+      "turnout_share_2023": 0.001782,
+      "urban_weight": 0.0,
+      "suburban_weight": 1.0,
+      "rural_score": 70.0,
+      "beshear_approval": 44.2,
+      "pres_2020_margin": -61.19,
+      "economy": 65.4,
+      "social_conservative": 89.4,
+      "disaster_response": 27.3,
+      "coal_energy": 27.8,
+      "education_teachers": 55.5,
+      "cameron_alignment": 69.9,
+      "flags": [
+        "suburban"
+      ]
+    },
+    {
+      "fips": "21025",
+      "county": "Breathitt",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 492.413,
+      "beshear_pct": 61.17,
+      "beshear_votes": 1763,
+      "cameron_pct": 38.83,
+      "cameron_votes": 1119,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 22.35,
+      "gov_margin_votes": 644,
+      "total_2023": 2882,
+      "trump_votes": 4265,
+      "trump_pct": 75.34,
+      "biden_votes": 1301,
+      "biden_pct": 22.98,
+      "other_2020_votes": 95,
+      "other_2020_pct": 1.68,
+      "pres_margin_trump_votes": 2964,
+      "pres_margin_trump_pct": 52.36,
+      "total_2020": 5661,
+      "beshear_margin": 22.34,
+      "biden_margin": -52.36,
+      "beshear_over_2020_biden": 74.7,
+      "turnout_share_2023": 0.00218,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 75.8,
+      "pres_2020_margin": -52.36,
+      "economy": 52.4,
+      "social_conservative": 94.2,
+      "disaster_response": 89.7,
+      "coal_energy": 90.4,
+      "education_teachers": 54.0,
+      "cameron_alignment": 58.8,
+      "flags": [
+        "eastern_coal",
+        "flood_response"
+      ]
+    },
+    {
+      "fips": "21027",
+      "county": "Breckinridge",
+      "region": "South Central / rural",
+      "census_area_sqmi": 567.172,
+      "beshear_pct": 41.96,
+      "beshear_votes": 2608,
+      "cameron_pct": 58.04,
+      "cameron_votes": 3607,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -16.07,
+      "gov_margin_votes": -999,
+      "total_2023": 6215,
+      "trump_votes": 7701,
+      "trump_pct": 75.49,
+      "biden_votes": 2350,
+      "biden_pct": 23.04,
+      "other_2020_votes": 150,
+      "other_2020_pct": 1.47,
+      "pres_margin_trump_votes": 5351,
+      "pres_margin_trump_pct": 52.45,
+      "total_2020": 10201,
+      "beshear_margin": -16.08,
+      "biden_margin": -52.45,
+      "beshear_over_2020_biden": 36.37,
+      "turnout_share_2023": 0.004701,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 45.3,
+      "pres_2020_margin": -52.45,
+      "economy": 49.5,
+      "social_conservative": 87.3,
+      "disaster_response": 26.3,
+      "coal_energy": 26.4,
+      "education_teachers": 47.8,
+      "cameron_alignment": 66.9,
+      "flags": []
+    },
+    {
+      "fips": "21029",
+      "county": "Bullitt",
+      "region": "Louisville metro",
+      "census_area_sqmi": 297.024,
+      "beshear_pct": 42.96,
+      "beshear_votes": 10723,
+      "cameron_pct": 57.04,
+      "cameron_votes": 14235,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -14.07,
+      "gov_margin_votes": -3512,
+      "total_2023": 24958,
+      "trump_votes": 30708,
+      "trump_pct": 73.12,
+      "biden_votes": 10552,
+      "biden_pct": 25.13,
+      "other_2020_votes": 738,
+      "other_2020_pct": 1.75,
+      "pres_margin_trump_votes": 20156,
+      "pres_margin_trump_pct": 47.99,
+      "total_2020": 41998,
+      "beshear_margin": -14.08,
+      "biden_margin": -47.99,
+      "beshear_over_2020_biden": 33.91,
+      "turnout_share_2023": 0.01888,
+      "urban_weight": 1.0,
+      "suburban_weight": 1.0,
+      "rural_score": 15.0,
+      "beshear_approval": 50.8,
+      "pres_2020_margin": -47.99,
+      "economy": 78.1,
+      "social_conservative": 56.2,
+      "disaster_response": 26.0,
+      "coal_energy": 25.7,
+      "education_teachers": 65.4,
+      "cameron_alignment": 61.4,
+      "flags": [
+        "suburban",
+        "urban"
+      ]
+    },
+    {
+      "fips": "21031",
+      "county": "Butler",
+      "region": "South Central / rural",
+      "census_area_sqmi": 426.088,
+      "beshear_pct": 32.15,
+      "beshear_votes": 1173,
+      "cameron_pct": 67.85,
+      "cameron_votes": 2475,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -35.69,
+      "gov_margin_votes": -1302,
+      "total_2023": 3648,
+      "trump_votes": 4960,
+      "trump_pct": 80.98,
+      "biden_votes": 1079,
+      "biden_pct": 17.62,
+      "other_2020_votes": 86,
+      "other_2020_pct": 1.4,
+      "pres_margin_trump_votes": 3881,
+      "pres_margin_trump_pct": 63.36,
+      "total_2020": 6125,
+      "beshear_margin": -35.7,
+      "biden_margin": -63.36,
+      "beshear_over_2020_biden": 27.66,
+      "turnout_share_2023": 0.00276,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 35.9,
+      "pres_2020_margin": -63.36,
+      "economy": 48.0,
+      "social_conservative": 92.9,
+      "disaster_response": 26.0,
+      "coal_energy": 28.1,
+      "education_teachers": 46.4,
+      "cameron_alignment": 75.5,
+      "flags": []
+    },
+    {
+      "fips": "21033",
+      "county": "Caldwell",
+      "region": "South Central / rural",
+      "census_area_sqmi": 344.791,
+      "beshear_pct": 39.99,
+      "beshear_votes": 1519,
+      "cameron_pct": 60.01,
+      "cameron_votes": 2279,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -20.01,
+      "gov_margin_votes": -760,
+      "total_2023": 3798,
+      "trump_votes": 4906,
+      "trump_pct": 76.25,
+      "biden_votes": 1433,
+      "biden_pct": 22.27,
+      "other_2020_votes": 95,
+      "other_2020_pct": 1.48,
+      "pres_margin_trump_votes": 3473,
+      "pres_margin_trump_pct": 53.98,
+      "total_2020": 6434,
+      "beshear_margin": -20.02,
+      "biden_margin": -53.98,
+      "beshear_over_2020_biden": 33.96,
+      "turnout_share_2023": 0.002873,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 52.3,
+      "pres_2020_margin": -53.98,
+      "economy": 49.1,
+      "social_conservative": 88.1,
+      "disaster_response": 70.0,
+      "coal_energy": 26.6,
+      "education_teachers": 47.4,
+      "cameron_alignment": 68.5,
+      "flags": [
+        "tornado_response"
+      ]
+    },
+    {
+      "fips": "21035",
+      "county": "Calloway",
+      "region": "Western Kentucky",
+      "census_area_sqmi": 385.021,
+      "beshear_pct": 46.26,
+      "beshear_votes": 5211,
+      "cameron_pct": 53.74,
+      "cameron_votes": 6054,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -7.48,
+      "gov_margin_votes": -843,
+      "total_2023": 11265,
+      "trump_votes": 11352,
+      "trump_pct": 65.03,
+      "biden_votes": 5797,
+      "biden_pct": 33.21,
+      "other_2020_votes": 308,
+      "other_2020_pct": 1.76,
+      "pres_margin_trump_votes": 5555,
+      "pres_margin_trump_pct": 31.82,
+      "total_2020": 17457,
+      "beshear_margin": -7.48,
+      "biden_margin": -31.82,
+      "beshear_over_2020_biden": 24.34,
+      "turnout_share_2023": 0.008522,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 51.3,
+      "pres_2020_margin": -31.82,
+      "economy": 53.4,
+      "social_conservative": 76.5,
+      "disaster_response": 31.0,
+      "coal_energy": 33.1,
+      "education_teachers": 63.9,
+      "cameron_alignment": 56.3,
+      "flags": [
+        "college"
+      ]
+    },
+    {
+      "fips": "21037",
+      "county": "Campbell",
+      "region": "Northern Kentucky",
+      "census_area_sqmi": 151.308,
+      "beshear_pct": 54.19,
+      "beshear_votes": 16885,
+      "cameron_pct": 45.8,
+      "cameron_votes": 14271,
+      "writein_pct": 0.01,
+      "writein_votes": 4,
+      "gov_margin_beshear": 8.39,
+      "gov_margin_votes": 2614,
+      "total_2023": 31160,
+      "trump_votes": 28482,
+      "trump_pct": 58.27,
+      "biden_votes": 19374,
+      "biden_pct": 39.64,
+      "other_2020_votes": 1022,
+      "other_2020_pct": 2.09,
+      "pres_margin_trump_votes": 9108,
+      "pres_margin_trump_pct": 18.63,
+      "total_2020": 48878,
+      "beshear_margin": 8.39,
+      "biden_margin": -18.63,
+      "beshear_over_2020_biden": 27.02,
+      "turnout_share_2023": 0.023571,
+      "urban_weight": 1.0,
+      "suburban_weight": 1.0,
+      "rural_score": 15.0,
+      "beshear_approval": 59.3,
+      "pres_2020_margin": -18.63,
+      "economy": 71.9,
+      "social_conservative": 40.9,
+      "disaster_response": 26.0,
+      "coal_energy": 21.0,
+      "education_teachers": 64.3,
+      "cameron_alignment": 48.5,
+      "flags": [
+        "suburban",
+        "urban"
+      ]
+    },
+    {
+      "fips": "21039",
+      "county": "Carlisle",
+      "region": "Western Kentucky",
+      "census_area_sqmi": 189.434,
+      "beshear_pct": 30.33,
+      "beshear_votes": 545,
+      "cameron_pct": 69.67,
+      "cameron_votes": 1252,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -39.34,
+      "gov_margin_votes": -707,
+      "total_2023": 1797,
+      "trump_votes": 2159,
+      "trump_pct": 81.84,
+      "biden_votes": 463,
+      "biden_pct": 17.55,
+      "other_2020_votes": 16,
+      "other_2020_pct": 0.61,
+      "pres_margin_trump_votes": 1696,
+      "pres_margin_trump_pct": 64.29,
+      "total_2020": 2638,
+      "beshear_margin": -39.34,
+      "biden_margin": -64.29,
+      "beshear_over_2020_biden": 24.95,
+      "turnout_share_2023": 0.001359,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 34.0,
+      "pres_2020_margin": -64.29,
+      "economy": 47.5,
+      "social_conservative": 93.4,
+      "disaster_response": 31.0,
+      "coal_energy": 38.3,
+      "education_teachers": 46.0,
+      "cameron_alignment": 76.9,
+      "flags": []
+    },
+    {
+      "fips": "21041",
+      "county": "Carroll",
+      "region": "Northern Kentucky",
+      "census_area_sqmi": 128.569,
+      "beshear_pct": 47.95,
+      "beshear_votes": 1112,
+      "cameron_pct": 52.05,
+      "cameron_votes": 1207,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -4.1,
+      "gov_margin_votes": -95,
+      "total_2023": 2319,
+      "trump_votes": 2954,
+      "trump_pct": 71.42,
+      "biden_votes": 1116,
+      "biden_pct": 26.98,
+      "other_2020_votes": 66,
+      "other_2020_pct": 1.6,
+      "pres_margin_trump_votes": 1838,
+      "pres_margin_trump_pct": 44.44,
+      "total_2020": 4136,
+      "beshear_margin": -4.1,
+      "biden_margin": -44.44,
+      "beshear_over_2020_biden": 40.34,
+      "turnout_share_2023": 0.001754,
+      "urban_weight": 0.0,
+      "suburban_weight": 1.0,
+      "rural_score": 70.0,
+      "beshear_approval": 50.9,
+      "pres_2020_margin": -44.44,
+      "economy": 65.3,
+      "social_conservative": 80.7,
+      "disaster_response": 27.2,
+      "coal_energy": 25.1,
+      "education_teachers": 55.5,
+      "cameron_alignment": 61.4,
+      "flags": [
+        "suburban"
+      ]
+    },
+    {
+      "fips": "21043",
+      "county": "Carter",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 409.496,
+      "beshear_pct": 47.27,
+      "beshear_votes": 2978,
+      "cameron_pct": 52.71,
+      "cameron_votes": 3321,
+      "writein_pct": 0.02,
+      "writein_votes": 1,
+      "gov_margin_beshear": -5.44,
+      "gov_margin_votes": -343,
+      "total_2023": 6300,
+      "trump_votes": 8775,
+      "trump_pct": 75.74,
+      "biden_votes": 2642,
+      "biden_pct": 22.8,
+      "other_2020_votes": 169,
+      "other_2020_pct": 1.46,
+      "pres_margin_trump_votes": 6133,
+      "pres_margin_trump_pct": 52.94,
+      "total_2020": 11586,
+      "beshear_margin": -5.44,
+      "biden_margin": -52.94,
+      "beshear_over_2020_biden": 47.5,
+      "turnout_share_2023": 0.004766,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 51.4,
+      "pres_2020_margin": -52.94,
+      "economy": 47.5,
+      "social_conservative": 94.5,
+      "disaster_response": 39.8,
+      "coal_energy": 90.5,
+      "education_teachers": 49.6,
+      "cameron_alignment": 68.4,
+      "flags": [
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21045",
+      "county": "Casey",
+      "region": "South Central / rural",
+      "census_area_sqmi": 444.23,
+      "beshear_pct": 26.08,
+      "beshear_votes": 1129,
+      "cameron_pct": 73.92,
+      "cameron_votes": 3200,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -47.84,
+      "gov_margin_votes": -2071,
+      "total_2023": 4329,
+      "trump_votes": 6179,
+      "trump_pct": 86.17,
+      "biden_votes": 918,
+      "biden_pct": 12.8,
+      "other_2020_votes": 74,
+      "other_2020_pct": 1.03,
+      "pres_margin_trump_votes": 5261,
+      "pres_margin_trump_pct": 73.37,
+      "total_2020": 7171,
+      "beshear_margin": -47.84,
+      "biden_margin": -73.37,
+      "beshear_over_2020_biden": 25.53,
+      "turnout_share_2023": 0.003275,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 30.5,
+      "pres_2020_margin": -73.37,
+      "economy": 47.6,
+      "social_conservative": 98.2,
+      "disaster_response": 26.0,
+      "coal_energy": 29.7,
+      "education_teachers": 46.1,
+      "cameron_alignment": 81.5,
+      "flags": []
+    },
+    {
+      "fips": "21047",
+      "county": "Christian",
+      "region": "Western Kentucky",
+      "census_area_sqmi": 717.503,
+      "beshear_pct": 42.68,
+      "beshear_votes": 5135,
+      "cameron_pct": 57.3,
+      "cameron_votes": 6893,
+      "writein_pct": 0.02,
+      "writein_votes": 2,
+      "gov_margin_beshear": -14.61,
+      "gov_margin_votes": -1758,
+      "total_2023": 12030,
+      "trump_votes": 15080,
+      "trump_pct": 63.19,
+      "biden_votes": 8296,
+      "biden_pct": 34.77,
+      "other_2020_votes": 487,
+      "other_2020_pct": 2.04,
+      "pres_margin_trump_votes": 6784,
+      "pres_margin_trump_pct": 28.42,
+      "total_2020": 23863,
+      "beshear_margin": -14.62,
+      "biden_margin": -28.42,
+      "beshear_over_2020_biden": 13.8,
+      "turnout_share_2023": 0.0091,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 51.8,
+      "pres_2020_margin": -28.42,
+      "economy": 41.5,
+      "social_conservative": 81.8,
+      "disaster_response": 75.0,
+      "coal_energy": 90.5,
+      "education_teachers": 44.2,
+      "cameron_alignment": 67.1,
+      "flags": [
+        "tornado_response",
+        "western_coal"
+      ]
+    },
+    {
+      "fips": "21049",
+      "county": "Clark",
+      "region": "Bluegrass",
+      "census_area_sqmi": 252.463,
+      "beshear_pct": 51.63,
+      "beshear_votes": 5938,
+      "cameron_pct": 48.35,
+      "cameron_votes": 5561,
+      "writein_pct": 0.03,
+      "writein_votes": 3,
+      "gov_margin_beshear": 3.28,
+      "gov_margin_votes": 377,
+      "total_2023": 11502,
+      "trump_votes": 11811,
+      "trump_pct": 65.11,
+      "biden_votes": 6004,
+      "biden_pct": 33.1,
+      "other_2020_votes": 324,
+      "other_2020_pct": 1.79,
+      "pres_margin_trump_votes": 5807,
+      "pres_margin_trump_pct": 32.01,
+      "total_2020": 18139,
+      "beshear_margin": 3.28,
+      "biden_margin": -32.01,
+      "beshear_over_2020_biden": 35.29,
+      "turnout_share_2023": 0.008701,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 53.3,
+      "pres_2020_margin": -32.01,
+      "economy": 49.4,
+      "social_conservative": 76.6,
+      "disaster_response": 26.1,
+      "coal_energy": 23.1,
+      "education_teachers": 47.6,
+      "cameron_alignment": 52.6,
+      "flags": []
+    },
+    {
+      "fips": "21051",
+      "county": "Clay",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 469.247,
+      "beshear_pct": 35.63,
+      "beshear_votes": 1441,
+      "cameron_pct": 64.37,
+      "cameron_votes": 2603,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -28.73,
+      "gov_margin_votes": -1162,
+      "total_2023": 4044,
+      "trump_votes": 6677,
+      "trump_pct": 87.96,
+      "biden_votes": 831,
+      "biden_pct": 10.95,
+      "other_2020_votes": 83,
+      "other_2020_pct": 1.09,
+      "pres_margin_trump_votes": 5846,
+      "pres_margin_trump_pct": 77.01,
+      "total_2020": 7591,
+      "beshear_margin": -28.74,
+      "biden_margin": -77.01,
+      "beshear_over_2020_biden": 48.27,
+      "turnout_share_2023": 0.003059,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 50.7,
+      "pres_2020_margin": -77.01,
+      "economy": 47.7,
+      "social_conservative": 100,
+      "disaster_response": 83.9,
+      "coal_energy": 94.3,
+      "education_teachers": 49.7,
+      "cameron_alignment": 80.6,
+      "flags": [
+        "eastern_coal",
+        "flood_response"
+      ]
+    },
+    {
+      "fips": "21053",
+      "county": "Clinton",
+      "region": "South Central / rural",
+      "census_area_sqmi": 197.246,
+      "beshear_pct": 24.33,
+      "beshear_votes": 607,
+      "cameron_pct": 75.67,
+      "cameron_votes": 1888,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -51.34,
+      "gov_margin_votes": -1281,
+      "total_2023": 2495,
+      "trump_votes": 4280,
+      "trump_pct": 86.78,
+      "biden_votes": 603,
+      "biden_pct": 12.23,
+      "other_2020_votes": 49,
+      "other_2020_pct": 0.99,
+      "pres_margin_trump_votes": 3677,
+      "pres_margin_trump_pct": 74.55,
+      "total_2020": 4932,
+      "beshear_margin": -51.34,
+      "biden_margin": -74.55,
+      "beshear_over_2020_biden": 23.21,
+      "turnout_share_2023": 0.001887,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 28.7,
+      "pres_2020_margin": -74.55,
+      "economy": 47.2,
+      "social_conservative": 98.8,
+      "disaster_response": 26.0,
+      "coal_energy": 29.9,
+      "education_teachers": 45.7,
+      "cameron_alignment": 82.9,
+      "flags": []
+    },
+    {
+      "fips": "21055",
+      "county": "Crittenden",
+      "region": "Western Kentucky",
+      "census_area_sqmi": 359.952,
+      "beshear_pct": 34.07,
+      "beshear_votes": 858,
+      "cameron_pct": 65.93,
+      "cameron_votes": 1660,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -31.85,
+      "gov_margin_votes": -802,
+      "total_2023": 2518,
+      "trump_votes": 3451,
+      "trump_pct": 81.35,
+      "biden_votes": 731,
+      "biden_pct": 17.23,
+      "other_2020_votes": 60,
+      "other_2020_pct": 1.42,
+      "pres_margin_trump_votes": 2720,
+      "pres_margin_trump_pct": 64.12,
+      "total_2020": 4242,
+      "beshear_margin": -31.86,
+      "biden_margin": -64.12,
+      "beshear_over_2020_biden": 32.26,
+      "turnout_share_2023": 0.001905,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 38.1,
+      "pres_2020_margin": -64.12,
+      "economy": 44.8,
+      "social_conservative": 100,
+      "disaster_response": 31.0,
+      "coal_energy": 96.3,
+      "education_teachers": 47.2,
+      "cameron_alignment": 79.4,
+      "flags": [
+        "western_coal"
+      ]
+    },
+    {
+      "fips": "21057",
+      "county": "Cumberland",
+      "region": "South Central / rural",
+      "census_area_sqmi": 305.182,
+      "beshear_pct": 26.43,
+      "beshear_votes": 503,
+      "cameron_pct": 73.57,
+      "cameron_votes": 1400,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -47.14,
+      "gov_margin_votes": -897,
+      "total_2023": 1903,
+      "trump_votes": 2769,
+      "trump_pct": 83.68,
+      "biden_votes": 508,
+      "biden_pct": 15.35,
+      "other_2020_votes": 32,
+      "other_2020_pct": 0.97,
+      "pres_margin_trump_votes": 2261,
+      "pres_margin_trump_pct": 68.33,
+      "total_2020": 3309,
+      "beshear_margin": -47.14,
+      "biden_margin": -68.33,
+      "beshear_over_2020_biden": 21.19,
+      "turnout_share_2023": 0.00144,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 30.2,
+      "pres_2020_margin": -68.33,
+      "economy": 46.8,
+      "social_conservative": 95.5,
+      "disaster_response": 26.0,
+      "coal_energy": 28.9,
+      "education_teachers": 45.4,
+      "cameron_alignment": 80.3,
+      "flags": []
+    },
+    {
+      "fips": "21059",
+      "county": "Daviess",
+      "region": "Western coalfield",
+      "census_area_sqmi": 458.346,
+      "beshear_pct": 51.11,
+      "beshear_votes": 15572,
+      "cameron_pct": 48.89,
+      "cameron_votes": 14895,
+      "writein_pct": 0.01,
+      "writein_votes": 2,
+      "gov_margin_beshear": 2.22,
+      "gov_margin_votes": 677,
+      "total_2023": 30469,
+      "trump_votes": 31025,
+      "trump_pct": 62.95,
+      "biden_votes": 17286,
+      "biden_pct": 35.07,
+      "other_2020_votes": 976,
+      "other_2020_pct": 1.98,
+      "pres_margin_trump_votes": 13739,
+      "pres_margin_trump_pct": 27.88,
+      "total_2020": 49287,
+      "beshear_margin": 2.22,
+      "biden_margin": -27.88,
+      "beshear_over_2020_biden": 30.1,
+      "turnout_share_2023": 0.023049,
+      "urban_weight": 1.0,
+      "suburban_weight": 0.0,
+      "rural_score": 51.0,
+      "beshear_approval": 61.1,
+      "pres_2020_margin": -27.88,
+      "economy": 59.4,
+      "social_conservative": 55.6,
+      "disaster_response": 31.0,
+      "coal_energy": 90.5,
+      "education_teachers": 75.8,
+      "cameron_alignment": 57.3,
+      "flags": [
+        "college",
+        "urban",
+        "western_coal"
+      ]
+    },
+    {
+      "fips": "21061",
+      "county": "Edmonson",
+      "region": "South Central / rural",
+      "census_area_sqmi": 302.883,
+      "beshear_pct": 37.38,
+      "beshear_votes": 1358,
+      "cameron_pct": 62.54,
+      "cameron_votes": 2272,
+      "writein_pct": 0.08,
+      "writein_votes": 3,
+      "gov_margin_beshear": -25.16,
+      "gov_margin_votes": -914,
+      "total_2023": 3633,
+      "trump_votes": 4828,
+      "trump_pct": 78.73,
+      "biden_votes": 1227,
+      "biden_pct": 20.01,
+      "other_2020_votes": 77,
+      "other_2020_pct": 1.26,
+      "pres_margin_trump_votes": 3601,
+      "pres_margin_trump_pct": 58.72,
+      "total_2020": 6132,
+      "beshear_margin": -25.16,
+      "biden_margin": -58.72,
+      "beshear_over_2020_biden": 33.56,
+      "turnout_share_2023": 0.002748,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 41.1,
+      "pres_2020_margin": -58.72,
+      "economy": 49.0,
+      "social_conservative": 90.5,
+      "disaster_response": 26.0,
+      "coal_energy": 27.4,
+      "education_teachers": 47.4,
+      "cameron_alignment": 71.1,
+      "flags": []
+    },
+    {
+      "fips": "21063",
+      "county": "Elliott",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 234.315,
+      "beshear_pct": 53.48,
+      "beshear_votes": 875,
+      "cameron_pct": 46.52,
+      "cameron_votes": 761,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 6.97,
+      "gov_margin_votes": 114,
+      "total_2023": 1636,
+      "trump_votes": 2246,
+      "trump_pct": 74.99,
+      "biden_votes": 712,
+      "biden_pct": 23.77,
+      "other_2020_votes": 37,
+      "other_2020_pct": 1.24,
+      "pres_margin_trump_votes": 1534,
+      "pres_margin_trump_pct": 51.22,
+      "total_2020": 2995,
+      "beshear_margin": 6.96,
+      "biden_margin": -51.22,
+      "beshear_over_2020_biden": 58.18,
+      "turnout_share_2023": 0.001238,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 58.1,
+      "pres_2020_margin": -51.22,
+      "economy": 49.5,
+      "social_conservative": 93.6,
+      "disaster_response": 42.1,
+      "coal_energy": 90.2,
+      "education_teachers": 51.3,
+      "cameron_alignment": 63.9,
+      "flags": [
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21065",
+      "county": "Estill",
+      "region": "South Central / rural",
+      "census_area_sqmi": 253.078,
+      "beshear_pct": 42.17,
+      "beshear_votes": 1509,
+      "cameron_pct": 57.83,
+      "cameron_votes": 2069,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -15.65,
+      "gov_margin_votes": -560,
+      "total_2023": 3578,
+      "trump_votes": 5100,
+      "trump_pct": 77.98,
+      "biden_votes": 1355,
+      "biden_pct": 20.72,
+      "other_2020_votes": 85,
+      "other_2020_pct": 1.3,
+      "pres_margin_trump_votes": 3745,
+      "pres_margin_trump_pct": 57.26,
+      "total_2020": 6540,
+      "beshear_margin": -15.66,
+      "biden_margin": -57.26,
+      "beshear_over_2020_biden": 41.6,
+      "turnout_share_2023": 0.002707,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 46.2,
+      "pres_2020_margin": -57.26,
+      "economy": 50.5,
+      "social_conservative": 89.8,
+      "disaster_response": 27.5,
+      "coal_energy": 27.2,
+      "education_teachers": 48.7,
+      "cameron_alignment": 67.6,
+      "flags": []
+    },
+    {
+      "fips": "21067",
+      "county": "Fayette",
+      "region": "Bluegrass",
+      "census_area_sqmi": 283.649,
+      "beshear_pct": 71.75,
+      "beshear_votes": 74298,
+      "cameron_pct": 28.24,
+      "cameron_votes": 29239,
+      "writein_pct": 0.01,
+      "writein_votes": 8,
+      "gov_margin_beshear": 43.52,
+      "gov_margin_votes": 45059,
+      "total_2023": 103545,
+      "trump_votes": 58860,
+      "trump_pct": 38.49,
+      "biden_votes": 90600,
+      "biden_pct": 59.25,
+      "other_2020_votes": 3452,
+      "other_2020_pct": 2.26,
+      "pres_margin_trump_votes": -31740,
+      "pres_margin_trump_pct": -20.76,
+      "total_2020": 152912,
+      "beshear_margin": 43.51,
+      "biden_margin": 20.76,
+      "beshear_over_2020_biden": 22.75,
+      "turnout_share_2023": 0.078328,
+      "urban_weight": 1.0,
+      "suburban_weight": 1.0,
+      "rural_score": 15.0,
+      "beshear_approval": 77.5,
+      "pres_2020_margin": 20.76,
+      "economy": 82.1,
+      "social_conservative": 20.4,
+      "disaster_response": 26.0,
+      "coal_energy": 14.7,
+      "education_teachers": 81.6,
+      "cameron_alignment": 29.5,
+      "flags": [
+        "college",
+        "suburban",
+        "urban"
+      ]
+    },
+    {
+      "fips": "21069",
+      "county": "Fleming",
+      "region": "South Central / rural",
+      "census_area_sqmi": 348.542,
+      "beshear_pct": 42.13,
+      "beshear_votes": 1865,
+      "cameron_pct": 57.87,
+      "cameron_votes": 2562,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -15.74,
+      "gov_margin_votes": -697,
+      "total_2023": 4427,
+      "trump_votes": 5534,
+      "trump_pct": 78.3,
+      "biden_votes": 1474,
+      "biden_pct": 20.85,
+      "other_2020_votes": 60,
+      "other_2020_pct": 0.85,
+      "pres_margin_trump_votes": 4060,
+      "pres_margin_trump_pct": 57.45,
+      "total_2020": 7068,
+      "beshear_margin": -15.74,
+      "biden_margin": -57.45,
+      "beshear_over_2020_biden": 41.71,
+      "turnout_share_2023": 0.003349,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 46.2,
+      "pres_2020_margin": -57.45,
+      "economy": 50.5,
+      "social_conservative": 89.9,
+      "disaster_response": 27.5,
+      "coal_energy": 27.2,
+      "education_teachers": 48.7,
+      "cameron_alignment": 67.7,
+      "flags": []
+    },
+    {
+      "fips": "21071",
+      "county": "Floyd",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 393.345,
+      "beshear_pct": 57.14,
+      "beshear_votes": 5136,
+      "cameron_pct": 42.85,
+      "cameron_votes": 3852,
+      "writein_pct": 0.01,
+      "writein_votes": 1,
+      "gov_margin_beshear": 14.28,
+      "gov_margin_votes": 1284,
+      "total_2023": 8989,
+      "trump_votes": 12250,
+      "trump_pct": 74.91,
+      "biden_votes": 3884,
+      "biden_pct": 23.75,
+      "other_2020_votes": 219,
+      "other_2020_pct": 1.34,
+      "pres_margin_trump_votes": 8366,
+      "pres_margin_trump_pct": 51.16,
+      "total_2020": 16353,
+      "beshear_margin": 14.29,
+      "biden_margin": -51.16,
+      "beshear_over_2020_biden": 65.45,
+      "turnout_share_2023": 0.0068,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 71.2,
+      "pres_2020_margin": -51.16,
+      "economy": 50.8,
+      "social_conservative": 93.6,
+      "disaster_response": 87.7,
+      "coal_energy": 90.2,
+      "education_teachers": 52.5,
+      "cameron_alignment": 61.3,
+      "flags": [
+        "eastern_coal",
+        "flood_response"
+      ]
+    },
+    {
+      "fips": "21073",
+      "county": "Franklin",
+      "region": "Bluegrass",
+      "census_area_sqmi": 207.747,
+      "beshear_pct": 68.52,
+      "beshear_votes": 13500,
+      "cameron_pct": 31.48,
+      "cameron_votes": 6201,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 37.05,
+      "gov_margin_votes": 7299,
+      "total_2023": 19701,
+      "trump_votes": 12900,
+      "trump_pct": 49.48,
+      "biden_votes": 12652,
+      "biden_pct": 48.53,
+      "other_2020_votes": 520,
+      "other_2020_pct": 1.99,
+      "pres_margin_trump_votes": 248,
+      "pres_margin_trump_pct": 0.95,
+      "total_2020": 26072,
+      "beshear_margin": 37.04,
+      "biden_margin": -0.95,
+      "beshear_over_2020_biden": 37.99,
+      "turnout_share_2023": 0.014903,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 71.9,
+      "pres_2020_margin": -0.95,
+      "economy": 55.8,
+      "social_conservative": 60.5,
+      "disaster_response": 26.7,
+      "coal_energy": 18.2,
+      "education_teachers": 66.1,
+      "cameron_alignment": 35.6,
+      "flags": [
+        "college"
+      ]
+    },
+    {
+      "fips": "21075",
+      "county": "Fulton",
+      "region": "Western Kentucky",
+      "census_area_sqmi": 205.504,
+      "beshear_pct": 44.89,
+      "beshear_votes": 615,
+      "cameron_pct": 55.11,
+      "cameron_votes": 755,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -10.22,
+      "gov_margin_votes": -140,
+      "total_2023": 1370,
+      "trump_votes": 1606,
+      "trump_pct": 66.2,
+      "biden_votes": 794,
+      "biden_pct": 32.73,
+      "other_2020_votes": 26,
+      "other_2020_pct": 1.07,
+      "pres_margin_trump_votes": 812,
+      "pres_margin_trump_pct": 33.47,
+      "total_2020": 2426,
+      "beshear_margin": -10.22,
+      "biden_margin": -33.47,
+      "beshear_over_2020_biden": 23.25,
+      "turnout_share_2023": 0.001036,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 55.0,
+      "pres_2020_margin": -33.47,
+      "economy": 47.2,
+      "social_conservative": 77.4,
+      "disaster_response": 75.0,
+      "coal_energy": 33.4,
+      "education_teachers": 45.7,
+      "cameron_alignment": 57.5,
+      "flags": [
+        "tornado_response"
+      ]
+    },
+    {
+      "fips": "21077",
+      "county": "Gallatin",
+      "region": "Northern Kentucky",
+      "census_area_sqmi": 101.234,
+      "beshear_pct": 40.71,
+      "beshear_votes": 865,
+      "cameron_pct": 59.29,
+      "cameron_votes": 1260,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -18.59,
+      "gov_margin_votes": -395,
+      "total_2023": 2125,
+      "trump_votes": 2955,
+      "trump_pct": 76.77,
+      "biden_votes": 822,
+      "biden_pct": 21.36,
+      "other_2020_votes": 72,
+      "other_2020_pct": 1.87,
+      "pres_margin_trump_votes": 2133,
+      "pres_margin_trump_pct": 55.41,
+      "total_2020": 3849,
+      "beshear_margin": -18.58,
+      "biden_margin": -55.41,
+      "beshear_over_2020_biden": 36.83,
+      "turnout_share_2023": 0.001607,
+      "urban_weight": 0.0,
+      "suburban_weight": 1.0,
+      "rural_score": 70.0,
+      "beshear_approval": 44.4,
+      "pres_2020_margin": -55.41,
+      "economy": 64.6,
+      "social_conservative": 86.4,
+      "disaster_response": 26.4,
+      "coal_energy": 26.9,
+      "education_teachers": 54.9,
+      "cameron_alignment": 68.3,
+      "flags": [
+        "suburban"
+      ]
+    },
+    {
+      "fips": "21079",
+      "county": "Garrard",
+      "region": "Bluegrass",
+      "census_area_sqmi": 230.077,
+      "beshear_pct": 37.69,
+      "beshear_votes": 2141,
+      "cameron_pct": 62.31,
+      "cameron_votes": 3539,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -24.61,
+      "gov_margin_votes": -1398,
+      "total_2023": 5680,
+      "trump_votes": 6754,
+      "trump_pct": 77.58,
+      "biden_votes": 1830,
+      "biden_pct": 21.02,
+      "other_2020_votes": 122,
+      "other_2020_pct": 1.4,
+      "pres_margin_trump_votes": 4924,
+      "pres_margin_trump_pct": 56.56,
+      "total_2020": 8706,
+      "beshear_margin": -24.62,
+      "biden_margin": -56.56,
+      "beshear_over_2020_biden": 31.94,
+      "turnout_share_2023": 0.004297,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 41.1,
+      "pres_2020_margin": -56.56,
+      "economy": 48.7,
+      "social_conservative": 89.4,
+      "disaster_response": 26.0,
+      "coal_energy": 27.0,
+      "education_teachers": 47.1,
+      "cameron_alignment": 70.6,
+      "flags": []
+    },
+    {
+      "fips": "21081",
+      "county": "Grant",
+      "region": "Northern Kentucky",
+      "census_area_sqmi": 257.965,
+      "beshear_pct": 35.16,
+      "beshear_votes": 2220,
+      "cameron_pct": 64.82,
+      "cameron_votes": 4093,
+      "writein_pct": 0.02,
+      "writein_votes": 1,
+      "gov_margin_beshear": -29.66,
+      "gov_margin_votes": -1873,
+      "total_2023": 6314,
+      "trump_votes": 8725,
+      "trump_pct": 78.55,
+      "biden_votes": 2205,
+      "biden_pct": 19.85,
+      "other_2020_votes": 178,
+      "other_2020_pct": 1.6,
+      "pres_margin_trump_votes": 6520,
+      "pres_margin_trump_pct": 58.7,
+      "total_2020": 11108,
+      "beshear_margin": -29.66,
+      "biden_margin": -58.7,
+      "beshear_over_2020_biden": 29.04,
+      "turnout_share_2023": 0.004776,
+      "urban_weight": 0.0,
+      "suburban_weight": 1.0,
+      "rural_score": 70.0,
+      "beshear_approval": 38.6,
+      "pres_2020_margin": -58.7,
+      "economy": 63.2,
+      "social_conservative": 88.1,
+      "disaster_response": 26.0,
+      "coal_energy": 27.4,
+      "education_teachers": 53.6,
+      "cameron_alignment": 72.6,
+      "flags": [
+        "suburban"
+      ]
+    },
+    {
+      "fips": "21083",
+      "county": "Graves",
+      "region": "Western Kentucky",
+      "census_area_sqmi": 551.743,
+      "beshear_pct": 36.49,
+      "beshear_votes": 3885,
+      "cameron_pct": 63.51,
+      "cameron_votes": 6763,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -27.03,
+      "gov_margin_votes": -2878,
+      "total_2023": 10648,
+      "trump_votes": 13206,
+      "trump_pct": 77.6,
+      "biden_votes": 3560,
+      "biden_pct": 20.92,
+      "other_2020_votes": 253,
+      "other_2020_pct": 1.48,
+      "pres_margin_trump_votes": 9646,
+      "pres_margin_trump_pct": 56.68,
+      "total_2020": 17019,
+      "beshear_margin": -27.02,
+      "biden_margin": -56.68,
+      "beshear_over_2020_biden": 29.66,
+      "turnout_share_2023": 0.008055,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 48.8,
+      "pres_2020_margin": -56.68,
+      "economy": 48.3,
+      "social_conservative": 89.5,
+      "disaster_response": 75.0,
+      "coal_energy": 37.1,
+      "education_teachers": 46.7,
+      "cameron_alignment": 71.4,
+      "flags": [
+        "tornado_response"
+      ]
+    },
+    {
+      "fips": "21085",
+      "county": "Grayson",
+      "region": "South Central / rural",
+      "census_area_sqmi": 496.698,
+      "beshear_pct": 36.07,
+      "beshear_votes": 2514,
+      "cameron_pct": 63.91,
+      "cameron_votes": 4454,
+      "writein_pct": 0.01,
+      "writein_votes": 1,
+      "gov_margin_beshear": -27.84,
+      "gov_margin_votes": -1940,
+      "total_2023": 6969,
+      "trump_votes": 9453,
+      "trump_pct": 78.87,
+      "biden_votes": 2400,
+      "biden_pct": 20.03,
+      "other_2020_votes": 132,
+      "other_2020_pct": 1.1,
+      "pres_margin_trump_votes": 7053,
+      "pres_margin_trump_pct": 58.84,
+      "total_2020": 11985,
+      "beshear_margin": -27.84,
+      "biden_margin": -58.84,
+      "beshear_over_2020_biden": 31.0,
+      "turnout_share_2023": 0.005272,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 39.6,
+      "pres_2020_margin": -58.84,
+      "economy": 48.6,
+      "social_conservative": 90.6,
+      "disaster_response": 26.0,
+      "coal_energy": 27.4,
+      "education_teachers": 47.0,
+      "cameron_alignment": 72.0,
+      "flags": []
+    },
+    {
+      "fips": "21087",
+      "county": "Green",
+      "region": "South Central / rural",
+      "census_area_sqmi": 286.034,
+      "beshear_pct": 29.63,
+      "beshear_votes": 1082,
+      "cameron_pct": 70.35,
+      "cameron_votes": 2569,
+      "writein_pct": 0.03,
+      "writein_votes": 1,
+      "gov_margin_beshear": -40.72,
+      "gov_margin_votes": -1487,
+      "total_2023": 3652,
+      "trump_votes": 4838,
+      "trump_pct": 83.24,
+      "biden_votes": 920,
+      "biden_pct": 15.83,
+      "other_2020_votes": 54,
+      "other_2020_pct": 0.93,
+      "pres_margin_trump_votes": 3918,
+      "pres_margin_trump_pct": 67.41,
+      "total_2020": 5812,
+      "beshear_margin": -40.72,
+      "biden_margin": -67.41,
+      "beshear_over_2020_biden": 26.69,
+      "turnout_share_2023": 0.002763,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 33.6,
+      "pres_2020_margin": -67.41,
+      "economy": 47.8,
+      "social_conservative": 95.1,
+      "disaster_response": 26.0,
+      "coal_energy": 28.8,
+      "education_teachers": 46.3,
+      "cameron_alignment": 78.0,
+      "flags": []
+    },
+    {
+      "fips": "21089",
+      "county": "Greenup",
+      "region": "South Central / rural",
+      "census_area_sqmi": 344.397,
+      "beshear_pct": 45.74,
+      "beshear_votes": 4498,
+      "cameron_pct": 54.26,
+      "cameron_votes": 5336,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -8.52,
+      "gov_margin_votes": -838,
+      "total_2023": 9834,
+      "trump_votes": 13064,
+      "trump_pct": 71.88,
+      "biden_votes": 4873,
+      "biden_pct": 26.81,
+      "other_2020_votes": 239,
+      "other_2020_pct": 1.31,
+      "pres_margin_trump_votes": 8191,
+      "pres_margin_trump_pct": 45.07,
+      "total_2020": 18176,
+      "beshear_margin": -8.52,
+      "biden_margin": -45.07,
+      "beshear_over_2020_biden": 36.55,
+      "turnout_share_2023": 0.007439,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 48.5,
+      "pres_2020_margin": -45.07,
+      "economy": 49.6,
+      "social_conservative": 83.4,
+      "disaster_response": 26.3,
+      "coal_energy": 25.2,
+      "education_teachers": 47.8,
+      "cameron_alignment": 63.0,
+      "flags": []
+    },
+    {
+      "fips": "21091",
+      "county": "Hancock",
+      "region": "South Central / rural",
+      "census_area_sqmi": 187.652,
+      "beshear_pct": 49.41,
+      "beshear_votes": 1464,
+      "cameron_pct": 50.59,
+      "cameron_votes": 1499,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -1.18,
+      "gov_margin_votes": -35,
+      "total_2023": 2963,
+      "trump_votes": 3145,
+      "trump_pct": 68.56,
+      "biden_votes": 1351,
+      "biden_pct": 29.45,
+      "other_2020_votes": 91,
+      "other_2020_pct": 1.99,
+      "pres_margin_trump_votes": 1794,
+      "pres_margin_trump_pct": 39.11,
+      "total_2020": 4587,
+      "beshear_margin": -1.18,
+      "biden_margin": -39.11,
+      "beshear_over_2020_biden": 37.93,
+      "turnout_share_2023": 0.002241,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 51.8,
+      "pres_2020_margin": -39.11,
+      "economy": 49.8,
+      "social_conservative": 80.3,
+      "disaster_response": 26.6,
+      "coal_energy": 24.3,
+      "education_teachers": 48.1,
+      "cameron_alignment": 59.4,
+      "flags": []
+    },
+    {
+      "fips": "21093",
+      "county": "Hardin",
+      "region": "South Central / rural",
+      "census_area_sqmi": 623.278,
+      "beshear_pct": 49.7,
+      "beshear_votes": 14336,
+      "cameron_pct": 50.3,
+      "cameron_votes": 14511,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -0.61,
+      "gov_margin_votes": -175,
+      "total_2023": 28847,
+      "trump_votes": 29832,
+      "trump_pct": 60.96,
+      "biden_votes": 18101,
+      "biden_pct": 36.99,
+      "other_2020_votes": 1008,
+      "other_2020_pct": 2.05,
+      "pres_margin_trump_votes": 11731,
+      "pres_margin_trump_pct": 23.97,
+      "total_2020": 48941,
+      "beshear_margin": -0.6,
+      "biden_margin": -23.97,
+      "beshear_over_2020_biden": 23.37,
+      "turnout_share_2023": 0.021822,
+      "urban_weight": 1.0,
+      "suburban_weight": 1.0,
+      "rural_score": 15.0,
+      "beshear_approval": 55.0,
+      "pres_2020_margin": -23.97,
+      "economy": 76.2,
+      "social_conservative": 43.7,
+      "disaster_response": 26.0,
+      "coal_energy": 21.8,
+      "education_teachers": 63.7,
+      "cameron_alignment": 52.5,
+      "flags": [
+        "suburban",
+        "urban"
+      ]
+    },
+    {
+      "fips": "21095",
+      "county": "Harlan",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 465.828,
+      "beshear_pct": 33.96,
+      "beshear_votes": 1904,
+      "cameron_pct": 66.04,
+      "cameron_votes": 3702,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -32.07,
+      "gov_margin_votes": -1798,
+      "total_2023": 5606,
+      "trump_votes": 9367,
+      "trump_pct": 85.38,
+      "biden_votes": 1494,
+      "biden_pct": 13.62,
+      "other_2020_votes": 110,
+      "other_2020_pct": 1.0,
+      "pres_margin_trump_votes": 7873,
+      "pres_margin_trump_pct": 71.76,
+      "total_2020": 10971,
+      "beshear_margin": -32.08,
+      "biden_margin": -71.76,
+      "beshear_over_2020_biden": 39.68,
+      "turnout_share_2023": 0.004241,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 39.1,
+      "pres_2020_margin": -71.76,
+      "economy": 46.1,
+      "social_conservative": 100,
+      "disaster_response": 38.0,
+      "coal_energy": 93.5,
+      "education_teachers": 48.3,
+      "cameron_alignment": 80.8,
+      "flags": [
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21097",
+      "county": "Harrison",
+      "region": "Bluegrass",
+      "census_area_sqmi": 306.364,
+      "beshear_pct": 49.09,
+      "beshear_votes": 2775,
+      "cameron_pct": 50.91,
+      "cameron_votes": 2878,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -1.82,
+      "gov_margin_votes": -103,
+      "total_2023": 5653,
+      "trump_votes": 6334,
+      "trump_pct": 71.5,
+      "biden_votes": 2400,
+      "biden_pct": 27.09,
+      "other_2020_votes": 125,
+      "other_2020_pct": 1.41,
+      "pres_margin_trump_votes": 3934,
+      "pres_margin_trump_pct": 44.41,
+      "total_2020": 8859,
+      "beshear_margin": -1.82,
+      "biden_margin": -44.41,
+      "beshear_over_2020_biden": 42.59,
+      "turnout_share_2023": 0.004276,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 52.2,
+      "pres_2020_margin": -44.41,
+      "economy": 50.7,
+      "social_conservative": 83.1,
+      "disaster_response": 27.7,
+      "coal_energy": 25.1,
+      "education_teachers": 48.8,
+      "cameron_alignment": 60.6,
+      "flags": []
+    },
+    {
+      "fips": "21099",
+      "county": "Hart",
+      "region": "South Central / rural",
+      "census_area_sqmi": 412.086,
+      "beshear_pct": 38.62,
+      "beshear_votes": 1920,
+      "cameron_pct": 61.38,
+      "cameron_votes": 3051,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -22.75,
+      "gov_margin_votes": -1131,
+      "total_2023": 4971,
+      "trump_votes": 6345,
+      "trump_pct": 75.81,
+      "biden_votes": 1908,
+      "biden_pct": 22.8,
+      "other_2020_votes": 117,
+      "other_2020_pct": 1.39,
+      "pres_margin_trump_votes": 4437,
+      "pres_margin_trump_pct": 53.01,
+      "total_2020": 8370,
+      "beshear_margin": -22.76,
+      "biden_margin": -53.01,
+      "beshear_over_2020_biden": 30.25,
+      "turnout_share_2023": 0.00376,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 41.7,
+      "pres_2020_margin": -53.01,
+      "economy": 48.4,
+      "social_conservative": 87.6,
+      "disaster_response": 26.0,
+      "coal_energy": 26.5,
+      "education_teachers": 46.8,
+      "cameron_alignment": 69.3,
+      "flags": []
+    },
+    {
+      "fips": "21101",
+      "county": "Henderson",
+      "region": "Western coalfield",
+      "census_area_sqmi": 436.669,
+      "beshear_pct": 55.77,
+      "beshear_votes": 7048,
+      "cameron_pct": 44.22,
+      "cameron_votes": 5589,
+      "writein_pct": 0.01,
+      "writein_votes": 1,
+      "gov_margin_beshear": 11.54,
+      "gov_margin_votes": 1459,
+      "total_2023": 12638,
+      "trump_votes": 12730,
+      "trump_pct": 61.51,
+      "biden_votes": 7639,
+      "biden_pct": 36.91,
+      "other_2020_votes": 328,
+      "other_2020_pct": 1.58,
+      "pres_margin_trump_votes": 5091,
+      "pres_margin_trump_pct": 24.6,
+      "total_2020": 20697,
+      "beshear_margin": 11.55,
+      "biden_margin": -24.6,
+      "beshear_over_2020_biden": 36.15,
+      "turnout_share_2023": 0.00956,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 56.9,
+      "pres_2020_margin": -24.6,
+      "economy": 45.5,
+      "social_conservative": 79.8,
+      "disaster_response": 31.3,
+      "coal_energy": 89.9,
+      "education_teachers": 47.8,
+      "cameron_alignment": 53.5,
+      "flags": [
+        "western_coal"
+      ]
+    },
+    {
+      "fips": "21103",
+      "county": "Henry",
+      "region": "South Central / rural",
+      "census_area_sqmi": 286.276,
+      "beshear_pct": 44.97,
+      "beshear_votes": 2325,
+      "cameron_pct": 55.01,
+      "cameron_votes": 2844,
+      "writein_pct": 0.02,
+      "writein_votes": 1,
+      "gov_margin_beshear": -10.04,
+      "gov_margin_votes": -519,
+      "total_2023": 5170,
+      "trump_votes": 5843,
+      "trump_pct": 72.05,
+      "biden_votes": 2142,
+      "biden_pct": 26.41,
+      "other_2020_votes": 125,
+      "other_2020_pct": 1.54,
+      "pres_margin_trump_votes": 3701,
+      "pres_margin_trump_pct": 45.64,
+      "total_2020": 8110,
+      "beshear_margin": -10.04,
+      "biden_margin": -45.64,
+      "beshear_over_2020_biden": 35.6,
+      "turnout_share_2023": 0.003911,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 47.8,
+      "pres_2020_margin": -45.64,
+      "economy": 49.4,
+      "social_conservative": 83.7,
+      "disaster_response": 26.1,
+      "coal_energy": 25.3,
+      "education_teachers": 47.7,
+      "cameron_alignment": 63.6,
+      "flags": []
+    },
+    {
+      "fips": "21105",
+      "county": "Hickman",
+      "region": "Western Kentucky",
+      "census_area_sqmi": 242.274,
+      "beshear_pct": 33.03,
+      "beshear_votes": 470,
+      "cameron_pct": 66.97,
+      "cameron_votes": 953,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -33.94,
+      "gov_margin_votes": -483,
+      "total_2023": 1423,
+      "trump_votes": 1714,
+      "trump_pct": 77.94,
+      "biden_votes": 458,
+      "biden_pct": 20.83,
+      "other_2020_votes": 27,
+      "other_2020_pct": 1.23,
+      "pres_margin_trump_votes": 1256,
+      "pres_margin_trump_pct": 57.11,
+      "total_2020": 2199,
+      "beshear_margin": -33.94,
+      "biden_margin": -57.11,
+      "beshear_over_2020_biden": 23.17,
+      "turnout_share_2023": 0.001076,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 36.0,
+      "pres_2020_margin": -57.11,
+      "economy": 47.2,
+      "social_conservative": 89.7,
+      "disaster_response": 31.0,
+      "coal_energy": 37.1,
+      "education_teachers": 45.7,
+      "cameron_alignment": 73.8,
+      "flags": []
+    },
+    {
+      "fips": "21107",
+      "county": "Hopkins",
+      "region": "Western coalfield",
+      "census_area_sqmi": 541.995,
+      "beshear_pct": 45.5,
+      "beshear_votes": 5762,
+      "cameron_pct": 54.5,
+      "cameron_votes": 6901,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -8.99,
+      "gov_margin_votes": -1139,
+      "total_2023": 12663,
+      "trump_votes": 15757,
+      "trump_pct": 73.25,
+      "biden_votes": 5439,
+      "biden_pct": 25.28,
+      "other_2020_votes": 316,
+      "other_2020_pct": 1.47,
+      "pres_margin_trump_votes": 10318,
+      "pres_margin_trump_pct": 47.97,
+      "total_2020": 21512,
+      "beshear_margin": -9.0,
+      "biden_margin": -47.97,
+      "beshear_over_2020_biden": 38.97,
+      "turnout_share_2023": 0.009579,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 57.7,
+      "pres_2020_margin": -47.97,
+      "economy": 46.0,
+      "social_conservative": 91.9,
+      "disaster_response": 75.9,
+      "coal_energy": 93.7,
+      "education_teachers": 48.2,
+      "cameron_alignment": 68.7,
+      "flags": [
+        "tornado_response",
+        "western_coal"
+      ]
+    },
+    {
+      "fips": "21109",
+      "county": "Jackson",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 345.201,
+      "beshear_pct": 22.91,
+      "beshear_votes": 743,
+      "cameron_pct": 77.06,
+      "cameron_votes": 2499,
+      "writein_pct": 0.03,
+      "writein_votes": 1,
+      "gov_margin_beshear": -54.15,
+      "gov_margin_votes": -1756,
+      "total_2023": 3243,
+      "trump_votes": 5453,
+      "trump_pct": 89.2,
+      "biden_votes": 605,
+      "biden_pct": 9.9,
+      "other_2020_votes": 55,
+      "other_2020_pct": 0.9,
+      "pres_margin_trump_votes": 4848,
+      "pres_margin_trump_pct": 79.3,
+      "total_2020": 6113,
+      "beshear_margin": -54.15,
+      "biden_margin": -79.3,
+      "beshear_over_2020_biden": 25.15,
+      "turnout_share_2023": 0.002453,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 27.8,
+      "pres_2020_margin": -79.3,
+      "economy": 43.5,
+      "social_conservative": 100,
+      "disaster_response": 37.0,
+      "coal_energy": 94.7,
+      "education_teachers": 46.0,
+      "cameron_alignment": 89.7,
+      "flags": [
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21111",
+      "county": "Jefferson",
+      "region": "Louisville metro",
+      "census_area_sqmi": 380.416,
+      "beshear_pct": 70.04,
+      "beshear_votes": 179854,
+      "cameron_pct": 29.95,
+      "cameron_votes": 76908,
+      "writein_pct": 0.0,
+      "writein_votes": 11,
+      "gov_margin_beshear": 40.09,
+      "gov_margin_votes": 102946,
+      "total_2023": 256773,
+      "trump_votes": 150646,
+      "trump_pct": 38.84,
+      "biden_votes": 228358,
+      "biden_pct": 58.87,
+      "other_2020_votes": 8866,
+      "other_2020_pct": 2.29,
+      "pres_margin_trump_votes": -77712,
+      "pres_margin_trump_pct": -20.03,
+      "total_2020": 387870,
+      "beshear_margin": 40.09,
+      "biden_margin": 20.03,
+      "beshear_over_2020_biden": 20.06,
+      "turnout_share_2023": 0.19424,
+      "urban_weight": 1.0,
+      "suburban_weight": 1.0,
+      "rural_score": 15.0,
+      "beshear_approval": 75.6,
+      "pres_2020_margin": 20.03,
+      "economy": 81.6,
+      "social_conservative": 20.8,
+      "disaster_response": 26.0,
+      "coal_energy": 14.8,
+      "education_teachers": 81.2,
+      "cameron_alignment": 30.8,
+      "flags": [
+        "college",
+        "suburban",
+        "urban"
+      ]
+    },
+    {
+      "fips": "21113",
+      "county": "Jessamine",
+      "region": "Bluegrass",
+      "census_area_sqmi": 172.116,
+      "beshear_pct": 46.79,
+      "beshear_votes": 8007,
+      "cameron_pct": 53.2,
+      "cameron_votes": 9104,
+      "writein_pct": 0.01,
+      "writein_votes": 1,
+      "gov_margin_beshear": -6.41,
+      "gov_margin_votes": -1097,
+      "total_2023": 17112,
+      "trump_votes": 17096,
+      "trump_pct": 65.05,
+      "biden_votes": 8567,
+      "biden_pct": 32.6,
+      "other_2020_votes": 617,
+      "other_2020_pct": 2.35,
+      "pres_margin_trump_votes": 8529,
+      "pres_margin_trump_pct": 32.45,
+      "total_2020": 26280,
+      "beshear_margin": -6.41,
+      "biden_margin": -32.45,
+      "beshear_over_2020_biden": 26.04,
+      "turnout_share_2023": 0.012945,
+      "urban_weight": 1.0,
+      "suburban_weight": 1.0,
+      "rural_score": 15.0,
+      "beshear_approval": 53.0,
+      "pres_2020_margin": -32.45,
+      "economy": 76.7,
+      "social_conservative": 48.1,
+      "disaster_response": 26.0,
+      "coal_energy": 23.2,
+      "education_teachers": 64.2,
+      "cameron_alignment": 56.0,
+      "flags": [
+        "suburban",
+        "urban"
+      ]
+    },
+    {
+      "fips": "21115",
+      "county": "Johnson",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 261.953,
+      "beshear_pct": 37.08,
+      "beshear_votes": 1898,
+      "cameron_pct": 62.92,
+      "cameron_votes": 3220,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -25.83,
+      "gov_margin_votes": -1322,
+      "total_2023": 5118,
+      "trump_votes": 8450,
+      "trump_pct": 82.91,
+      "biden_votes": 1608,
+      "biden_pct": 15.78,
+      "other_2020_votes": 134,
+      "other_2020_pct": 1.31,
+      "pres_margin_trump_votes": 6842,
+      "pres_margin_trump_pct": 67.13,
+      "total_2020": 10192,
+      "beshear_margin": -25.84,
+      "biden_margin": -67.13,
+      "beshear_over_2020_biden": 41.29,
+      "turnout_share_2023": 0.003872,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 50.9,
+      "pres_2020_margin": -67.13,
+      "economy": 46.4,
+      "social_conservative": 100,
+      "disaster_response": 82.4,
+      "coal_energy": 92.7,
+      "education_teachers": 48.6,
+      "cameron_alignment": 77.9,
+      "flags": [
+        "eastern_coal",
+        "flood_response"
+      ]
+    },
+    {
+      "fips": "21117",
+      "county": "Kenton",
+      "region": "Northern Kentucky",
+      "census_area_sqmi": 160.25,
+      "beshear_pct": 52.8,
+      "beshear_votes": 26066,
+      "cameron_pct": 47.2,
+      "cameron_votes": 23301,
+      "writein_pct": 0.01,
+      "writein_votes": 4,
+      "gov_margin_beshear": 5.6,
+      "gov_margin_votes": 2765,
+      "total_2023": 49371,
+      "trump_votes": 48129,
+      "trump_pct": 58.55,
+      "biden_votes": 32271,
+      "biden_pct": 39.26,
+      "other_2020_votes": 1798,
+      "other_2020_pct": 2.19,
+      "pres_margin_trump_votes": 15858,
+      "pres_margin_trump_pct": 19.29,
+      "total_2020": 82198,
+      "beshear_margin": 5.6,
+      "biden_margin": -19.29,
+      "beshear_over_2020_biden": 24.89,
+      "turnout_share_2023": 0.037347,
+      "urban_weight": 1.0,
+      "suburban_weight": 1.0,
+      "rural_score": 15.0,
+      "beshear_approval": 57.8,
+      "pres_2020_margin": -19.29,
+      "economy": 76.5,
+      "social_conservative": 41.2,
+      "disaster_response": 26.0,
+      "coal_energy": 21.1,
+      "education_teachers": 64.0,
+      "cameron_alignment": 49.6,
+      "flags": [
+        "suburban",
+        "urban"
+      ]
+    },
+    {
+      "fips": "21119",
+      "county": "Knott",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 351.518,
+      "beshear_pct": 54.45,
+      "beshear_votes": 1847,
+      "cameron_pct": 45.55,
+      "cameron_votes": 1545,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 8.9,
+      "gov_margin_votes": 302,
+      "total_2023": 3392,
+      "trump_votes": 4780,
+      "trump_pct": 76.46,
+      "biden_votes": 1412,
+      "biden_pct": 22.58,
+      "other_2020_votes": 60,
+      "other_2020_pct": 0.96,
+      "pres_margin_trump_votes": 3368,
+      "pres_margin_trump_pct": 53.88,
+      "total_2020": 6252,
+      "beshear_margin": 8.9,
+      "biden_margin": -53.88,
+      "beshear_over_2020_biden": 62.78,
+      "turnout_share_2023": 0.002566,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 68.5,
+      "pres_2020_margin": -53.88,
+      "economy": 50.3,
+      "social_conservative": 95.0,
+      "disaster_response": 87.1,
+      "coal_energy": 90.6,
+      "education_teachers": 52.0,
+      "cameron_alignment": 63.7,
+      "flags": [
+        "eastern_coal",
+        "flood_response"
+      ]
+    },
+    {
+      "fips": "21121",
+      "county": "Knox",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 386.297,
+      "beshear_pct": 34.54,
+      "beshear_votes": 2286,
+      "cameron_pct": 65.46,
+      "cameron_votes": 4333,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -30.93,
+      "gov_margin_votes": -2047,
+      "total_2023": 6619,
+      "trump_votes": 11012,
+      "trump_pct": 82.97,
+      "biden_votes": 2114,
+      "biden_pct": 15.93,
+      "other_2020_votes": 147,
+      "other_2020_pct": 1.1,
+      "pres_margin_trump_votes": 8898,
+      "pres_margin_trump_pct": 67.04,
+      "total_2020": 13273,
+      "beshear_margin": -30.92,
+      "biden_margin": -67.04,
+      "beshear_over_2020_biden": 36.12,
+      "turnout_share_2023": 0.005007,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 39.1,
+      "pres_2020_margin": -67.04,
+      "economy": 45.5,
+      "social_conservative": 100,
+      "disaster_response": 37.2,
+      "coal_energy": 92.7,
+      "education_teachers": 47.8,
+      "cameron_alignment": 79.6,
+      "flags": [
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21123",
+      "county": "LaRue",
+      "region": "South Central / rural",
+      "census_area_sqmi": 261.519,
+      "beshear_pct": 38.57,
+      "beshear_votes": 1756,
+      "cameron_pct": 61.41,
+      "cameron_votes": 2796,
+      "writein_pct": 0.02,
+      "writein_votes": 1,
+      "gov_margin_beshear": -22.84,
+      "gov_margin_votes": -1040,
+      "total_2023": 4553,
+      "trump_votes": 5685,
+      "trump_pct": 77.87,
+      "biden_votes": 1504,
+      "biden_pct": 20.6,
+      "other_2020_votes": 112,
+      "other_2020_pct": 1.53,
+      "pres_margin_trump_votes": 4181,
+      "pres_margin_trump_pct": 57.27,
+      "total_2020": 7301,
+      "beshear_margin": -22.84,
+      "biden_margin": -57.27,
+      "beshear_over_2020_biden": 34.43,
+      "turnout_share_2023": 0.003444,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 42.2,
+      "pres_2020_margin": -57.27,
+      "economy": 49.2,
+      "social_conservative": 89.8,
+      "disaster_response": 26.0,
+      "coal_energy": 27.2,
+      "education_teachers": 47.5,
+      "cameron_alignment": 70.1,
+      "flags": []
+    },
+    {
+      "fips": "21125",
+      "county": "Laurel",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 433.953,
+      "beshear_pct": 31.41,
+      "beshear_votes": 4974,
+      "cameron_pct": 68.59,
+      "cameron_votes": 10862,
+      "writein_pct": 0.01,
+      "writein_votes": 1,
+      "gov_margin_beshear": -37.18,
+      "gov_margin_votes": -5888,
+      "total_2023": 15837,
+      "trump_votes": 23237,
+      "trump_pct": 82.66,
+      "biden_votes": 4475,
+      "biden_pct": 15.92,
+      "other_2020_votes": 399,
+      "other_2020_pct": 1.42,
+      "pres_margin_trump_votes": 18762,
+      "pres_margin_trump_pct": 66.74,
+      "total_2020": 28111,
+      "beshear_margin": -37.18,
+      "biden_margin": -66.74,
+      "beshear_over_2020_biden": 29.56,
+      "turnout_share_2023": 0.01198,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 35.5,
+      "pres_2020_margin": -66.74,
+      "economy": 44.3,
+      "social_conservative": 100,
+      "disaster_response": 37.0,
+      "coal_energy": 92.7,
+      "education_teachers": 46.7,
+      "cameron_alignment": 81.7,
+      "flags": [
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21127",
+      "county": "Lawrence",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 415.595,
+      "beshear_pct": 37.31,
+      "beshear_votes": 1361,
+      "cameron_pct": 62.69,
+      "cameron_votes": 2287,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -25.38,
+      "gov_margin_votes": -926,
+      "total_2023": 3648,
+      "trump_votes": 5633,
+      "trump_pct": 80.99,
+      "biden_votes": 1238,
+      "biden_pct": 17.8,
+      "other_2020_votes": 84,
+      "other_2020_pct": 1.21,
+      "pres_margin_trump_votes": 4395,
+      "pres_margin_trump_pct": 63.19,
+      "total_2020": 6955,
+      "beshear_margin": -25.38,
+      "biden_margin": -63.19,
+      "beshear_over_2020_biden": 37.81,
+      "turnout_share_2023": 0.00276,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 41.6,
+      "pres_2020_margin": -63.19,
+      "economy": 45.8,
+      "social_conservative": 99.9,
+      "disaster_response": 37.6,
+      "coal_energy": 92.1,
+      "education_teachers": 48.0,
+      "cameron_alignment": 77.0,
+      "flags": [
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21129",
+      "county": "Lee",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 208.857,
+      "beshear_pct": 46.32,
+      "beshear_votes": 705,
+      "cameron_pct": 53.68,
+      "cameron_votes": 817,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -7.36,
+      "gov_margin_votes": -112,
+      "total_2023": 1522,
+      "trump_votes": 2273,
+      "trump_pct": 81.15,
+      "biden_votes": 481,
+      "biden_pct": 17.17,
+      "other_2020_votes": 47,
+      "other_2020_pct": 1.68,
+      "pres_margin_trump_votes": 1792,
+      "pres_margin_trump_pct": 63.98,
+      "total_2020": 2801,
+      "beshear_margin": -7.36,
+      "biden_margin": -63.98,
+      "beshear_over_2020_biden": 56.62,
+      "turnout_share_2023": 0.001151,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 51.8,
+      "pres_2020_margin": -63.98,
+      "economy": 49.2,
+      "social_conservative": 100,
+      "disaster_response": 41.8,
+      "coal_energy": 92.2,
+      "education_teachers": 51.1,
+      "cameron_alignment": 71.0,
+      "flags": [
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21131",
+      "county": "Leslie",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 400.844,
+      "beshear_pct": 30.36,
+      "beshear_votes": 667,
+      "cameron_pct": 69.64,
+      "cameron_votes": 1530,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -39.28,
+      "gov_margin_votes": -863,
+      "total_2023": 2197,
+      "trump_votes": 4321,
+      "trump_pct": 89.78,
+      "biden_votes": 446,
+      "biden_pct": 9.27,
+      "other_2020_votes": 46,
+      "other_2020_pct": 0.95,
+      "pres_margin_trump_votes": 3875,
+      "pres_margin_trump_pct": 80.51,
+      "total_2020": 4813,
+      "beshear_margin": -39.28,
+      "biden_margin": -80.51,
+      "beshear_over_2020_biden": 41.23,
+      "turnout_share_2023": 0.001662,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 45.3,
+      "pres_2020_margin": -80.51,
+      "economy": 46.4,
+      "social_conservative": 100,
+      "disaster_response": 82.4,
+      "coal_energy": 94.9,
+      "education_teachers": 48.6,
+      "cameron_alignment": 84.8,
+      "flags": [
+        "eastern_coal",
+        "flood_response"
+      ]
+    },
+    {
+      "fips": "21133",
+      "county": "Letcher",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 337.914,
+      "beshear_pct": 52.33,
+      "beshear_votes": 2205,
+      "cameron_pct": 47.67,
+      "cameron_votes": 2009,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 4.65,
+      "gov_margin_votes": 196,
+      "total_2023": 4214,
+      "trump_votes": 7226,
+      "trump_pct": 79.1,
+      "biden_votes": 1799,
+      "biden_pct": 19.69,
+      "other_2020_votes": 110,
+      "other_2020_pct": 1.21,
+      "pres_margin_trump_votes": 5427,
+      "pres_margin_trump_pct": 59.41,
+      "total_2020": 9135,
+      "beshear_margin": 4.66,
+      "biden_margin": -59.41,
+      "beshear_over_2020_biden": 64.07,
+      "turnout_share_2023": 0.003188,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 66.9,
+      "pres_2020_margin": -59.41,
+      "economy": 50.5,
+      "social_conservative": 97.9,
+      "disaster_response": 87.4,
+      "coal_energy": 91.5,
+      "education_teachers": 52.3,
+      "cameron_alignment": 66.1,
+      "flags": [
+        "eastern_coal",
+        "flood_response"
+      ]
+    },
+    {
+      "fips": "21135",
+      "county": "Lewis",
+      "region": "South Central / rural",
+      "census_area_sqmi": 482.836,
+      "beshear_pct": 31.64,
+      "beshear_votes": 911,
+      "cameron_pct": 68.36,
+      "cameron_votes": 1968,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -36.71,
+      "gov_margin_votes": -1057,
+      "total_2023": 2879,
+      "trump_votes": 4986,
+      "trump_pct": 84.75,
+      "biden_votes": 823,
+      "biden_pct": 13.99,
+      "other_2020_votes": 74,
+      "other_2020_pct": 1.26,
+      "pres_margin_trump_votes": 4163,
+      "pres_margin_trump_pct": 70.76,
+      "total_2020": 5883,
+      "beshear_margin": -36.72,
+      "biden_margin": -70.76,
+      "beshear_over_2020_biden": 34.04,
+      "turnout_share_2023": 0.002178,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 36.3,
+      "pres_2020_margin": -70.76,
+      "economy": 49.1,
+      "social_conservative": 96.8,
+      "disaster_response": 26.0,
+      "coal_energy": 29.3,
+      "education_teachers": 47.4,
+      "cameron_alignment": 77.2,
+      "flags": []
+    },
+    {
+      "fips": "21137",
+      "county": "Lincoln",
+      "region": "Bluegrass",
+      "census_area_sqmi": 334.095,
+      "beshear_pct": 37.82,
+      "beshear_votes": 2586,
+      "cameron_pct": 62.18,
+      "cameron_votes": 4252,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -24.36,
+      "gov_margin_votes": -1666,
+      "total_2023": 6838,
+      "trump_votes": 8489,
+      "trump_pct": 77.78,
+      "biden_votes": 2254,
+      "biden_pct": 20.65,
+      "other_2020_votes": 171,
+      "other_2020_pct": 1.57,
+      "pres_margin_trump_votes": 7235,
+      "pres_margin_trump_pct": 57.13,
+      "total_2020": 10914,
+      "beshear_margin": -24.36,
+      "biden_margin": -57.13,
+      "beshear_over_2020_biden": 32.77,
+      "turnout_share_2023": 0.005173,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 41.4,
+      "pres_2020_margin": -57.13,
+      "economy": 48.9,
+      "social_conservative": 89.7,
+      "disaster_response": 26.0,
+      "coal_energy": 27.1,
+      "education_teachers": 47.2,
+      "cameron_alignment": 70.6,
+      "flags": []
+    },
+    {
+      "fips": "21139",
+      "county": "Livingston",
+      "region": "Western Kentucky",
+      "census_area_sqmi": 313.127,
+      "beshear_pct": 36.62,
+      "beshear_votes": 1061,
+      "cameron_pct": 63.38,
+      "cameron_votes": 1836,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -26.75,
+      "gov_margin_votes": -775,
+      "total_2023": 2897,
+      "trump_votes": 4010,
+      "trump_pct": 80.14,
+      "biden_votes": 939,
+      "biden_pct": 18.76,
+      "other_2020_votes": 55,
+      "other_2020_pct": 1.1,
+      "pres_margin_trump_votes": 3071,
+      "pres_margin_trump_pct": 61.38,
+      "total_2020": 5004,
+      "beshear_margin": -26.76,
+      "biden_margin": -61.38,
+      "beshear_over_2020_biden": 34.62,
+      "turnout_share_2023": 0.002191,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 40.6,
+      "pres_2020_margin": -61.38,
+      "economy": 45.2,
+      "social_conservative": 98.9,
+      "disaster_response": 31.0,
+      "coal_energy": 95.8,
+      "education_teachers": 47.5,
+      "cameron_alignment": 77.1,
+      "flags": [
+        "western_coal"
+      ]
+    },
+    {
+      "fips": "21141",
+      "county": "Logan",
+      "region": "South Central / rural",
+      "census_area_sqmi": 552.131,
+      "beshear_pct": 37.35,
+      "beshear_votes": 2449,
+      "cameron_pct": 62.6,
+      "cameron_votes": 4105,
+      "writein_pct": 0.05,
+      "writein_votes": 3,
+      "gov_margin_beshear": -25.26,
+      "gov_margin_votes": -1656,
+      "total_2023": 6557,
+      "trump_votes": 9067,
+      "trump_pct": 73.42,
+      "biden_votes": 3094,
+      "biden_pct": 25.05,
+      "other_2020_votes": 189,
+      "other_2020_pct": 1.53,
+      "pres_margin_trump_votes": 5973,
+      "pres_margin_trump_pct": 48.37,
+      "total_2020": 12350,
+      "beshear_margin": -25.25,
+      "biden_margin": -48.37,
+      "beshear_over_2020_biden": 23.12,
+      "turnout_share_2023": 0.00496,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 39.6,
+      "pres_2020_margin": -48.37,
+      "economy": 47.2,
+      "social_conservative": 85.2,
+      "disaster_response": 26.0,
+      "coal_energy": 25.7,
+      "education_teachers": 45.7,
+      "cameron_alignment": 69.3,
+      "flags": []
+    },
+    {
+      "fips": "21143",
+      "county": "Lyon",
+      "region": "Western Kentucky",
+      "census_area_sqmi": 213.84,
+      "beshear_pct": 42.99,
+      "beshear_votes": 1221,
+      "cameron_pct": 57.01,
+      "cameron_votes": 1619,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -14.01,
+      "gov_margin_votes": -398,
+      "total_2023": 2840,
+      "trump_votes": 3100,
+      "trump_pct": 73.32,
+      "biden_votes": 1092,
+      "biden_pct": 25.83,
+      "other_2020_votes": 36,
+      "other_2020_pct": 0.85,
+      "pres_margin_trump_votes": 2008,
+      "pres_margin_trump_pct": 47.49,
+      "total_2020": 4228,
+      "beshear_margin": -14.02,
+      "biden_margin": -47.49,
+      "beshear_over_2020_biden": 33.47,
+      "turnout_share_2023": 0.002148,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 54.8,
+      "pres_2020_margin": -47.49,
+      "economy": 49.0,
+      "social_conservative": 84.7,
+      "disaster_response": 75.0,
+      "coal_energy": 35.6,
+      "education_teachers": 47.4,
+      "cameron_alignment": 65.3,
+      "flags": [
+        "tornado_response"
+      ]
+    },
+    {
+      "fips": "21151",
+      "county": "Madison",
+      "region": "Bluegrass",
+      "census_area_sqmi": 437.293,
+      "beshear_pct": 51.72,
+      "beshear_votes": 14012,
+      "cameron_pct": 48.28,
+      "cameron_votes": 13080,
+      "writein_pct": 0.0,
+      "writein_votes": 1,
+      "gov_margin_beshear": 3.44,
+      "gov_margin_votes": 932,
+      "total_2023": 27093,
+      "trump_votes": 27356,
+      "trump_pct": 62.23,
+      "biden_votes": 15581,
+      "biden_pct": 35.45,
+      "other_2020_votes": 1020,
+      "other_2020_pct": 2.32,
+      "pres_margin_trump_votes": 11775,
+      "pres_margin_trump_pct": 26.78,
+      "total_2020": 43957,
+      "beshear_margin": 3.44,
+      "biden_margin": -26.78,
+      "beshear_over_2020_biden": 30.22,
+      "turnout_share_2023": 0.020495,
+      "urban_weight": 1.0,
+      "suburban_weight": 1.0,
+      "rural_score": 15.0,
+      "beshear_approval": 61.7,
+      "pres_2020_margin": -26.78,
+      "economy": 83.4,
+      "social_conservative": 45.1,
+      "disaster_response": 26.0,
+      "coal_energy": 22.3,
+      "education_teachers": 82.8,
+      "cameron_alignment": 51.7,
+      "flags": [
+        "college",
+        "suburban",
+        "urban"
+      ]
+    },
+    {
+      "fips": "21153",
+      "county": "Magoffin",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 308.444,
+      "beshear_pct": 50.38,
+      "beshear_votes": 1577,
+      "cameron_pct": 49.62,
+      "cameron_votes": 1553,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 0.77,
+      "gov_margin_votes": 24,
+      "total_2023": 3130,
+      "trump_votes": 4174,
+      "trump_pct": 76.63,
+      "biden_votes": 1214,
+      "biden_pct": 22.29,
+      "other_2020_votes": 59,
+      "other_2020_pct": 1.08,
+      "pres_margin_trump_votes": 2960,
+      "pres_margin_trump_pct": 54.34,
+      "total_2020": 5447,
+      "beshear_margin": 0.76,
+      "biden_margin": -54.34,
+      "beshear_over_2020_biden": 55.1,
+      "turnout_share_2023": 0.002368,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 64.0,
+      "pres_2020_margin": -54.34,
+      "economy": 48.9,
+      "social_conservative": 95.3,
+      "disaster_response": 85.4,
+      "coal_energy": 90.7,
+      "education_teachers": 50.8,
+      "cameron_alignment": 66.5,
+      "flags": [
+        "eastern_coal",
+        "flood_response"
+      ]
+    },
+    {
+      "fips": "21155",
+      "county": "Marion",
+      "region": "South Central / rural",
+      "census_area_sqmi": 343.008,
+      "beshear_pct": 52.14,
+      "beshear_votes": 2891,
+      "cameron_pct": 47.84,
+      "cameron_votes": 2653,
+      "writein_pct": 0.02,
+      "writein_votes": 1,
+      "gov_margin_beshear": 4.29,
+      "gov_margin_votes": 238,
+      "total_2023": 5545,
+      "trump_votes": 6113,
+      "trump_pct": 68.47,
+      "biden_votes": 2722,
+      "biden_pct": 30.49,
+      "other_2020_votes": 93,
+      "other_2020_pct": 1.04,
+      "pres_margin_trump_votes": 3391,
+      "pres_margin_trump_pct": 37.98,
+      "total_2020": 8928,
+      "beshear_margin": 4.3,
+      "biden_margin": -37.98,
+      "beshear_over_2020_biden": 42.28,
+      "turnout_share_2023": 0.004195,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 54.7,
+      "pres_2020_margin": -37.98,
+      "economy": 50.6,
+      "social_conservative": 79.7,
+      "disaster_response": 27.6,
+      "coal_energy": 24.1,
+      "education_teachers": 48.8,
+      "cameron_alignment": 53.4,
+      "flags": []
+    },
+    {
+      "fips": "21157",
+      "county": "Marshall",
+      "region": "Western Kentucky",
+      "census_area_sqmi": 301.253,
+      "beshear_pct": 39.94,
+      "beshear_votes": 4610,
+      "cameron_pct": 60.05,
+      "cameron_votes": 6932,
+      "writein_pct": 0.01,
+      "writein_votes": 1,
+      "gov_margin_beshear": -20.12,
+      "gov_margin_votes": -2322,
+      "total_2023": 11543,
+      "trump_votes": 13297,
+      "trump_pct": 75.54,
+      "biden_votes": 4071,
+      "biden_pct": 23.13,
+      "other_2020_votes": 235,
+      "other_2020_pct": 1.33,
+      "pres_margin_trump_votes": 9226,
+      "pres_margin_trump_pct": 52.41,
+      "total_2020": 17603,
+      "beshear_margin": -20.11,
+      "biden_margin": -52.41,
+      "beshear_over_2020_biden": 32.3,
+      "turnout_share_2023": 0.008732,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 52.1,
+      "pres_2020_margin": -52.41,
+      "economy": 48.8,
+      "social_conservative": 87.3,
+      "disaster_response": 75.0,
+      "coal_energy": 36.4,
+      "education_teachers": 47.2,
+      "cameron_alignment": 68.3,
+      "flags": [
+        "tornado_response"
+      ]
+    },
+    {
+      "fips": "21159",
+      "county": "Martin",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 229.605,
+      "beshear_pct": 29.81,
+      "beshear_votes": 513,
+      "cameron_pct": 70.19,
+      "cameron_votes": 1208,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -40.38,
+      "gov_margin_votes": -695,
+      "total_2023": 1721,
+      "trump_votes": 3496,
+      "trump_pct": 88.82,
+      "biden_votes": 403,
+      "biden_pct": 10.24,
+      "other_2020_votes": 37,
+      "other_2020_pct": 0.94,
+      "pres_margin_trump_votes": 3093,
+      "pres_margin_trump_pct": 78.71,
+      "total_2020": 3936,
+      "beshear_margin": -40.38,
+      "biden_margin": -78.58,
+      "beshear_over_2020_biden": 38.2,
+      "turnout_share_2023": 0.001302,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 44.4,
+      "pres_2020_margin": -78.58,
+      "economy": 45.9,
+      "social_conservative": 100,
+      "disaster_response": 81.7,
+      "coal_energy": 94.6,
+      "education_teachers": 48.1,
+      "cameron_alignment": 84.9,
+      "flags": [
+        "eastern_coal",
+        "flood_response"
+      ]
+    },
+    {
+      "fips": "21161",
+      "county": "Mason",
+      "region": "Northern Kentucky",
+      "census_area_sqmi": 240.128,
+      "beshear_pct": 46.68,
+      "beshear_votes": 2247,
+      "cameron_pct": 53.3,
+      "cameron_votes": 2566,
+      "writein_pct": 0.02,
+      "writein_votes": 1,
+      "gov_margin_beshear": -6.63,
+      "gov_margin_votes": -319,
+      "total_2023": 4814,
+      "trump_votes": 5477,
+      "trump_pct": 68.82,
+      "biden_votes": 2362,
+      "biden_pct": 29.68,
+      "other_2020_votes": 119,
+      "other_2020_pct": 1.5,
+      "pres_margin_trump_votes": 3115,
+      "pres_margin_trump_pct": 39.14,
+      "total_2020": 7958,
+      "beshear_margin": -6.62,
+      "biden_margin": -39.14,
+      "beshear_over_2020_biden": 32.52,
+      "turnout_share_2023": 0.003642,
+      "urban_weight": 0.0,
+      "suburban_weight": 1.0,
+      "rural_score": 70.0,
+      "beshear_approval": 48.8,
+      "pres_2020_margin": -39.14,
+      "economy": 63.9,
+      "social_conservative": 78.0,
+      "disaster_response": 26.0,
+      "coal_energy": 24.3,
+      "education_teachers": 54.2,
+      "cameron_alignment": 57.3,
+      "flags": [
+        "suburban"
+      ]
+    },
+    {
+      "fips": "21145",
+      "county": "McCracken",
+      "region": "Western Kentucky",
+      "census_area_sqmi": 248.744,
+      "beshear_pct": 47.06,
+      "beshear_votes": 9867,
+      "cameron_pct": 52.94,
+      "cameron_votes": 11099,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -5.88,
+      "gov_margin_votes": -1232,
+      "total_2023": 20966,
+      "trump_votes": 21820,
+      "trump_pct": 65.04,
+      "biden_votes": 11195,
+      "biden_pct": 33.37,
+      "other_2020_votes": 534,
+      "other_2020_pct": 1.59,
+      "pres_margin_trump_votes": 10625,
+      "pres_margin_trump_pct": 31.67,
+      "total_2020": 33549,
+      "beshear_margin": -5.88,
+      "biden_margin": -31.67,
+      "beshear_over_2020_biden": 25.79,
+      "turnout_share_2023": 0.01586,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 52.1,
+      "pres_2020_margin": -31.67,
+      "economy": 53.6,
+      "social_conservative": 76.5,
+      "disaster_response": 31.0,
+      "coal_energy": 33.1,
+      "education_teachers": 64.1,
+      "cameron_alignment": 55.7,
+      "flags": [
+        "college"
+      ]
+    },
+    {
+      "fips": "21147",
+      "county": "McCreary",
+      "region": "South Central / rural",
+      "census_area_sqmi": 426.803,
+      "beshear_pct": 28.21,
+      "beshear_votes": 853,
+      "cameron_pct": 71.76,
+      "cameron_votes": 2170,
+      "writein_pct": 0.03,
+      "writein_votes": 1,
+      "gov_margin_beshear": -43.55,
+      "gov_margin_votes": -1317,
+      "total_2023": 3024,
+      "trump_votes": 5664,
+      "trump_pct": 87.98,
+      "biden_votes": 725,
+      "biden_pct": 11.26,
+      "other_2020_votes": 49,
+      "other_2020_pct": 0.76,
+      "pres_margin_trump_votes": 4939,
+      "pres_margin_trump_pct": 76.72,
+      "total_2020": 6438,
+      "beshear_margin": -43.55,
+      "biden_margin": -76.72,
+      "beshear_over_2020_biden": 33.17,
+      "turnout_share_2023": 0.002288,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 33.4,
+      "pres_2020_margin": -76.72,
+      "economy": 49.0,
+      "social_conservative": 99.9,
+      "disaster_response": 26.0,
+      "coal_energy": 30.3,
+      "education_teachers": 47.3,
+      "cameron_alignment": 80.6,
+      "flags": []
+    },
+    {
+      "fips": "21149",
+      "county": "McLean",
+      "region": "Western coalfield",
+      "census_area_sqmi": 252.474,
+      "beshear_pct": 41.59,
+      "beshear_votes": 1238,
+      "cameron_pct": 58.41,
+      "cameron_votes": 1739,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -16.83,
+      "gov_margin_votes": -501,
+      "total_2023": 2977,
+      "trump_votes": 3633,
+      "trump_pct": 75.97,
+      "biden_votes": 1074,
+      "biden_pct": 22.46,
+      "other_2020_votes": 75,
+      "other_2020_pct": 1.57,
+      "pres_margin_trump_votes": 2559,
+      "pres_margin_trump_pct": 53.51,
+      "total_2020": 4782,
+      "beshear_margin": -16.82,
+      "biden_margin": -53.51,
+      "beshear_over_2020_biden": 36.69,
+      "turnout_share_2023": 0.002252,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 45.1,
+      "pres_2020_margin": -53.51,
+      "economy": 45.6,
+      "social_conservative": 94.8,
+      "disaster_response": 31.4,
+      "coal_energy": 94.6,
+      "education_teachers": 47.9,
+      "cameron_alignment": 72.4,
+      "flags": [
+        "western_coal"
+      ]
+    },
+    {
+      "fips": "21163",
+      "county": "Meade",
+      "region": "South Central / rural",
+      "census_area_sqmi": 305.423,
+      "beshear_pct": 43.13,
+      "beshear_votes": 3599,
+      "cameron_pct": 56.83,
+      "cameron_votes": 4742,
+      "writein_pct": 0.04,
+      "writein_votes": 3,
+      "gov_margin_beshear": -13.7,
+      "gov_margin_votes": -1143,
+      "total_2023": 8344,
+      "trump_votes": 10185,
+      "trump_pct": 72.17,
+      "biden_votes": 3632,
+      "biden_pct": 25.74,
+      "other_2020_votes": 296,
+      "other_2020_pct": 2.09,
+      "pres_margin_trump_votes": 6553,
+      "pres_margin_trump_pct": 46.43,
+      "total_2020": 14113,
+      "beshear_margin": -13.7,
+      "biden_margin": -46.43,
+      "beshear_over_2020_biden": 32.73,
+      "turnout_share_2023": 0.006312,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 45.8,
+      "pres_2020_margin": -46.43,
+      "economy": 48.9,
+      "social_conservative": 84.1,
+      "disaster_response": 26.0,
+      "coal_energy": 25.4,
+      "education_teachers": 47.2,
+      "cameron_alignment": 65.0,
+      "flags": []
+    },
+    {
+      "fips": "21165",
+      "county": "Menifee",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 203.585,
+      "beshear_pct": 45.88,
+      "beshear_votes": 862,
+      "cameron_pct": 54.07,
+      "cameron_votes": 1016,
+      "writein_pct": 0.05,
+      "writein_votes": 1,
+      "gov_margin_beshear": -8.2,
+      "gov_margin_votes": -154,
+      "total_2023": 1879,
+      "trump_votes": 2311,
+      "trump_pct": 74.5,
+      "biden_votes": 750,
+      "biden_pct": 24.18,
+      "other_2020_votes": 41,
+      "other_2020_pct": 1.32,
+      "pres_margin_trump_votes": 1561,
+      "pres_margin_trump_pct": 50.32,
+      "total_2020": 3102,
+      "beshear_margin": -8.19,
+      "biden_margin": -50.32,
+      "beshear_over_2020_biden": 42.13,
+      "turnout_share_2023": 0.001421,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 49.5,
+      "pres_2020_margin": -50.32,
+      "economy": 46.6,
+      "social_conservative": 93.2,
+      "disaster_response": 38.6,
+      "coal_energy": 90.1,
+      "education_teachers": 48.7,
+      "cameron_alignment": 68.8,
+      "flags": [
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21167",
+      "county": "Mercer",
+      "region": "Bluegrass",
+      "census_area_sqmi": 248.797,
+      "beshear_pct": 44.26,
+      "beshear_votes": 3399,
+      "cameron_pct": 55.72,
+      "cameron_votes": 4279,
+      "writein_pct": 0.01,
+      "writein_votes": 1,
+      "gov_margin_beshear": -11.46,
+      "gov_margin_votes": -880,
+      "total_2023": 7679,
+      "trump_votes": 8506,
+      "trump_pct": 72.48,
+      "biden_votes": 3033,
+      "biden_pct": 25.85,
+      "other_2020_votes": 196,
+      "other_2020_pct": 1.67,
+      "pres_margin_trump_votes": 5473,
+      "pres_margin_trump_pct": 46.63,
+      "total_2020": 11735,
+      "beshear_margin": -11.46,
+      "biden_margin": -46.63,
+      "beshear_over_2020_biden": 35.17,
+      "turnout_share_2023": 0.005809,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 47.1,
+      "pres_2020_margin": -46.63,
+      "economy": 49.3,
+      "social_conservative": 84.2,
+      "disaster_response": 26.0,
+      "coal_energy": 25.5,
+      "education_teachers": 47.6,
+      "cameron_alignment": 64.3,
+      "flags": []
+    },
+    {
+      "fips": "21169",
+      "county": "Metcalfe",
+      "region": "South Central / rural",
+      "census_area_sqmi": 289.645,
+      "beshear_pct": 40.99,
+      "beshear_votes": 1242,
+      "cameron_pct": 59.01,
+      "cameron_votes": 1788,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -18.02,
+      "gov_margin_votes": -546,
+      "total_2023": 3030,
+      "trump_votes": 3959,
+      "trump_pct": 78.99,
+      "biden_votes": 975,
+      "biden_pct": 19.45,
+      "other_2020_votes": 78,
+      "other_2020_pct": 1.56,
+      "pres_margin_trump_votes": 2984,
+      "pres_margin_trump_pct": 59.54,
+      "total_2020": 5012,
+      "beshear_margin": -18.02,
+      "biden_margin": -59.54,
+      "beshear_over_2020_biden": 41.52,
+      "turnout_share_2023": 0.002292,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 45.2,
+      "pres_2020_margin": -59.54,
+      "economy": 50.5,
+      "social_conservative": 91.0,
+      "disaster_response": 27.4,
+      "coal_energy": 27.5,
+      "education_teachers": 48.6,
+      "cameron_alignment": 68.8,
+      "flags": []
+    },
+    {
+      "fips": "21171",
+      "county": "Monroe",
+      "region": "South Central / rural",
+      "census_area_sqmi": 329.373,
+      "beshear_pct": 25.27,
+      "beshear_votes": 1023,
+      "cameron_pct": 74.73,
+      "cameron_votes": 3025,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -49.46,
+      "gov_margin_votes": -2002,
+      "total_2023": 4048,
+      "trump_votes": 4628,
+      "trump_pct": 86.83,
+      "biden_votes": 657,
+      "biden_pct": 12.33,
+      "other_2020_votes": 45,
+      "other_2020_pct": 0.84,
+      "pres_margin_trump_votes": 3971,
+      "pres_margin_trump_pct": 74.5,
+      "total_2020": 5330,
+      "beshear_margin": -49.46,
+      "biden_margin": -74.5,
+      "beshear_over_2020_biden": 25.04,
+      "turnout_share_2023": 0.003062,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 29.7,
+      "pres_2020_margin": -74.5,
+      "economy": 47.5,
+      "social_conservative": 98.7,
+      "disaster_response": 26.0,
+      "coal_energy": 29.9,
+      "education_teachers": 46.0,
+      "cameron_alignment": 82.2,
+      "flags": []
+    },
+    {
+      "fips": "21173",
+      "county": "Montgomery",
+      "region": "South Central / rural",
+      "census_area_sqmi": 197.366,
+      "beshear_pct": 49.31,
+      "beshear_votes": 3962,
+      "cameron_pct": 50.69,
+      "cameron_votes": 4073,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -1.38,
+      "gov_margin_votes": -111,
+      "total_2023": 8035,
+      "trump_votes": 8993,
+      "trump_pct": 70.03,
+      "biden_votes": 3630,
+      "biden_pct": 28.27,
+      "other_2020_votes": 219,
+      "other_2020_pct": 1.7,
+      "pres_margin_trump_votes": 5363,
+      "pres_margin_trump_pct": 41.76,
+      "total_2020": 12842,
+      "beshear_margin": -1.38,
+      "biden_margin": -41.76,
+      "beshear_over_2020_biden": 40.38,
+      "turnout_share_2023": 0.006078,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 52.1,
+      "pres_2020_margin": -41.76,
+      "economy": 50.3,
+      "social_conservative": 81.7,
+      "disaster_response": 27.2,
+      "coal_energy": 24.7,
+      "education_teachers": 48.5,
+      "cameron_alignment": 60.0,
+      "flags": []
+    },
+    {
+      "fips": "21175",
+      "county": "Morgan",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 381.127,
+      "beshear_pct": 47.18,
+      "beshear_votes": 1630,
+      "cameron_pct": 52.79,
+      "cameron_votes": 1824,
+      "writein_pct": 0.03,
+      "writein_votes": 1,
+      "gov_margin_beshear": -5.62,
+      "gov_margin_votes": -194,
+      "total_2023": 3455,
+      "trump_votes": 4301,
+      "trump_pct": 77.58,
+      "biden_votes": 1175,
+      "biden_pct": 21.19,
+      "other_2020_votes": 68,
+      "other_2020_pct": 1.23,
+      "pres_margin_trump_votes": 3126,
+      "pres_margin_trump_pct": 56.39,
+      "total_2020": 5544,
+      "beshear_margin": -5.61,
+      "biden_margin": -56.39,
+      "beshear_over_2020_biden": 50.78,
+      "turnout_share_2023": 0.002614,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 51.8,
+      "pres_2020_margin": -56.39,
+      "economy": 48.1,
+      "social_conservative": 96.3,
+      "disaster_response": 40.5,
+      "coal_energy": 91.0,
+      "education_teachers": 50.1,
+      "cameron_alignment": 69.0,
+      "flags": [
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21177",
+      "county": "Muhlenberg",
+      "region": "Western coalfield",
+      "census_area_sqmi": 467.079,
+      "beshear_pct": 46.45,
+      "beshear_votes": 3833,
+      "cameron_pct": 53.55,
+      "cameron_votes": 4419,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -7.1,
+      "gov_margin_votes": -586,
+      "total_2023": 8252,
+      "trump_votes": 10497,
+      "trump_pct": 73.74,
+      "biden_votes": 3545,
+      "biden_pct": 24.9,
+      "other_2020_votes": 193,
+      "other_2020_pct": 1.36,
+      "pres_margin_trump_votes": 6952,
+      "pres_margin_trump_pct": 48.84,
+      "total_2020": 14235,
+      "beshear_margin": -7.1,
+      "biden_margin": -48.84,
+      "beshear_over_2020_biden": 41.74,
+      "turnout_share_2023": 0.006242,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 58.9,
+      "pres_2020_margin": -48.84,
+      "economy": 46.5,
+      "social_conservative": 92.4,
+      "disaster_response": 76.5,
+      "coal_energy": 93.8,
+      "education_teachers": 48.7,
+      "cameron_alignment": 68.2,
+      "flags": [
+        "tornado_response",
+        "western_coal"
+      ]
+    },
+    {
+      "fips": "21179",
+      "county": "Nelson",
+      "region": "South Central / rural",
+      "census_area_sqmi": 417.512,
+      "beshear_pct": 50.63,
+      "beshear_votes": 7562,
+      "cameron_pct": 49.37,
+      "cameron_votes": 7375,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 1.25,
+      "gov_margin_votes": 187,
+      "total_2023": 14937,
+      "trump_votes": 15703,
+      "trump_pct": 67.52,
+      "biden_votes": 7188,
+      "biden_pct": 30.91,
+      "other_2020_votes": 365,
+      "other_2020_pct": 1.57,
+      "pres_margin_trump_votes": 8515,
+      "pres_margin_trump_pct": 36.61,
+      "total_2020": 23256,
+      "beshear_margin": 1.26,
+      "biden_margin": -36.61,
+      "beshear_over_2020_biden": 37.87,
+      "turnout_share_2023": 0.011299,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 52.8,
+      "pres_2020_margin": -36.61,
+      "economy": 49.8,
+      "social_conservative": 79.0,
+      "disaster_response": 26.6,
+      "coal_energy": 23.9,
+      "education_teachers": 48.1,
+      "cameron_alignment": 54.2,
+      "flags": []
+    },
+    {
+      "fips": "21181",
+      "county": "Nicholas",
+      "region": "Bluegrass",
+      "census_area_sqmi": 195.171,
+      "beshear_pct": 56.01,
+      "beshear_votes": 1142,
+      "cameron_pct": 43.99,
+      "cameron_votes": 897,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 12.02,
+      "gov_margin_votes": 245,
+      "total_2023": 2039,
+      "trump_votes": 2408,
+      "trump_pct": 70.91,
+      "biden_votes": 955,
+      "biden_pct": 28.12,
+      "other_2020_votes": 33,
+      "other_2020_pct": 0.97,
+      "pres_margin_trump_votes": 1453,
+      "pres_margin_trump_pct": 42.79,
+      "total_2020": 3396,
+      "beshear_margin": 12.02,
+      "biden_margin": -42.79,
+      "beshear_over_2020_biden": 54.81,
+      "turnout_share_2023": 0.001542,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 59.7,
+      "pres_2020_margin": -42.79,
+      "economy": 52.9,
+      "social_conservative": 82.3,
+      "disaster_response": 30.4,
+      "coal_energy": 24.8,
+      "education_teachers": 50.8,
+      "cameron_alignment": 55.6,
+      "flags": []
+    },
+    {
+      "fips": "21183",
+      "county": "Ohio",
+      "region": "Western coalfield",
+      "census_area_sqmi": 587.274,
+      "beshear_pct": 39.24,
+      "beshear_votes": 2479,
+      "cameron_pct": 60.76,
+      "cameron_votes": 3839,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -21.53,
+      "gov_margin_votes": -1360,
+      "total_2023": 6318,
+      "trump_votes": 8582,
+      "trump_pct": 77.11,
+      "biden_votes": 2404,
+      "biden_pct": 21.6,
+      "other_2020_votes": 143,
+      "other_2020_pct": 1.29,
+      "pres_margin_trump_votes": 6178,
+      "pres_margin_trump_pct": 55.51,
+      "total_2020": 11129,
+      "beshear_margin": -21.52,
+      "biden_margin": -55.51,
+      "beshear_over_2020_biden": 33.99,
+      "turnout_share_2023": 0.004779,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 42.7,
+      "pres_2020_margin": -55.51,
+      "economy": 45.1,
+      "social_conservative": 95.9,
+      "disaster_response": 31.0,
+      "coal_energy": 94.9,
+      "education_teachers": 47.4,
+      "cameron_alignment": 74.3,
+      "flags": [
+        "western_coal"
+      ]
+    },
+    {
+      "fips": "21185",
+      "county": "Oldham",
+      "region": "Louisville metro",
+      "census_area_sqmi": 187.218,
+      "beshear_pct": 49.57,
+      "beshear_votes": 12952,
+      "cameron_pct": 50.43,
+      "cameron_votes": 13177,
+      "writein_pct": 0.0,
+      "writein_votes": 1,
+      "gov_margin_beshear": -0.86,
+      "gov_margin_votes": -225,
+      "total_2023": 26130,
+      "trump_votes": 22654,
+      "trump_pct": 59.65,
+      "biden_votes": 14505,
+      "biden_pct": 38.2,
+      "other_2020_votes": 817,
+      "other_2020_pct": 2.15,
+      "pres_margin_trump_votes": 8149,
+      "pres_margin_trump_pct": 21.45,
+      "total_2020": 37976,
+      "beshear_margin": -0.86,
+      "biden_margin": -21.45,
+      "beshear_over_2020_biden": 20.59,
+      "turnout_share_2023": 0.019766,
+      "urban_weight": 1.0,
+      "suburban_weight": 1.0,
+      "rural_score": 15.0,
+      "beshear_approval": 54.5,
+      "pres_2020_margin": -21.45,
+      "economy": 75.7,
+      "social_conservative": 42.4,
+      "disaster_response": 26.0,
+      "coal_energy": 21.4,
+      "education_teachers": 63.3,
+      "cameron_alignment": 52.2,
+      "flags": [
+        "suburban",
+        "urban"
+      ]
+    },
+    {
+      "fips": "21187",
+      "county": "Owen",
+      "region": "Northern Kentucky",
+      "census_area_sqmi": 351.103,
+      "beshear_pct": 40.55,
+      "beshear_votes": 1494,
+      "cameron_pct": 59.45,
+      "cameron_votes": 2190,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -18.89,
+      "gov_margin_votes": -696,
+      "total_2023": 3684,
+      "trump_votes": 4292,
+      "trump_pct": 78.64,
+      "biden_votes": 1098,
+      "biden_pct": 20.12,
+      "other_2020_votes": 68,
+      "other_2020_pct": 1.24,
+      "pres_margin_trump_votes": 3194,
+      "pres_margin_trump_pct": 58.52,
+      "total_2020": 5458,
+      "beshear_margin": -18.9,
+      "biden_margin": -58.52,
+      "beshear_over_2020_biden": 39.62,
+      "turnout_share_2023": 0.002787,
+      "urban_weight": 0.0,
+      "suburban_weight": 1.0,
+      "rural_score": 70.0,
+      "beshear_approval": 44.6,
+      "pres_2020_margin": -58.52,
+      "economy": 65.1,
+      "social_conservative": 88.0,
+      "disaster_response": 27.0,
+      "coal_energy": 27.4,
+      "education_teachers": 55.3,
+      "cameron_alignment": 69.0,
+      "flags": [
+        "suburban"
+      ]
+    },
+    {
+      "fips": "21189",
+      "county": "Owsley",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 197.407,
+      "beshear_pct": 40.84,
+      "beshear_votes": 381,
+      "cameron_pct": 59.16,
+      "cameron_votes": 552,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -18.33,
+      "gov_margin_votes": -171,
+      "total_2023": 933,
+      "trump_votes": 1671,
+      "trump_pct": 88.13,
+      "biden_votes": 216,
+      "biden_pct": 11.39,
+      "other_2020_votes": 9,
+      "other_2020_pct": 0.48,
+      "pres_margin_trump_votes": 1455,
+      "pres_margin_trump_pct": 76.74,
+      "total_2020": 1896,
+      "beshear_margin": -18.32,
+      "biden_margin": -76.74,
+      "beshear_over_2020_biden": 58.42,
+      "turnout_share_2023": 0.000706,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 56.5,
+      "pres_2020_margin": -76.74,
+      "economy": 49.5,
+      "social_conservative": 100,
+      "disaster_response": 86.2,
+      "coal_energy": 94.3,
+      "education_teachers": 51.3,
+      "cameron_alignment": 77.0,
+      "flags": [
+        "eastern_coal",
+        "flood_response"
+      ]
+    },
+    {
+      "fips": "21191",
+      "county": "Pendleton",
+      "region": "Northern Kentucky",
+      "census_area_sqmi": 277.157,
+      "beshear_pct": 38.2,
+      "beshear_votes": 1511,
+      "cameron_pct": 61.8,
+      "cameron_votes": 2444,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -23.59,
+      "gov_margin_votes": -933,
+      "total_2023": 3955,
+      "trump_votes": 5515,
+      "trump_pct": 79.64,
+      "biden_votes": 1322,
+      "biden_pct": 19.09,
+      "other_2020_votes": 88,
+      "other_2020_pct": 1.27,
+      "pres_margin_trump_votes": 4193,
+      "pres_margin_trump_pct": 60.55,
+      "total_2020": 6925,
+      "beshear_margin": -23.6,
+      "biden_margin": -60.55,
+      "beshear_over_2020_biden": 36.95,
+      "turnout_share_2023": 0.002992,
+      "urban_weight": 0.0,
+      "suburban_weight": 1.0,
+      "rural_score": 70.0,
+      "beshear_approval": 42.3,
+      "pres_2020_margin": -60.55,
+      "economy": 64.7,
+      "social_conservative": 89.1,
+      "disaster_response": 26.4,
+      "coal_energy": 27.7,
+      "education_teachers": 54.9,
+      "cameron_alignment": 70.9,
+      "flags": [
+        "suburban"
+      ]
+    },
+    {
+      "fips": "21193",
+      "county": "Perry",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 339.67,
+      "beshear_pct": 55.79,
+      "beshear_votes": 3121,
+      "cameron_pct": 44.21,
+      "cameron_votes": 2473,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 11.58,
+      "gov_margin_votes": 648,
+      "total_2023": 5594,
+      "trump_votes": 8129,
+      "trump_pct": 76.5,
+      "biden_votes": 2356,
+      "biden_pct": 22.17,
+      "other_2020_votes": 141,
+      "other_2020_pct": 1.33,
+      "pres_margin_trump_votes": 5773,
+      "pres_margin_trump_pct": 54.33,
+      "total_2020": 10626,
+      "beshear_margin": 11.58,
+      "biden_margin": -54.33,
+      "beshear_over_2020_biden": 65.91,
+      "turnout_share_2023": 0.004232,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 70.1,
+      "pres_2020_margin": -54.33,
+      "economy": 50.9,
+      "social_conservative": 95.3,
+      "disaster_response": 87.8,
+      "coal_energy": 90.7,
+      "education_teachers": 52.5,
+      "cameron_alignment": 62.8,
+      "flags": [
+        "eastern_coal",
+        "flood_response"
+      ]
+    },
+    {
+      "fips": "21195",
+      "county": "Pike",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 786.833,
+      "beshear_pct": 45.46,
+      "beshear_votes": 5797,
+      "cameron_pct": 54.54,
+      "cameron_votes": 6954,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -9.07,
+      "gov_margin_votes": -1157,
+      "total_2023": 12751,
+      "trump_votes": 20284,
+      "trump_pct": 79.87,
+      "biden_votes": 4866,
+      "biden_pct": 19.16,
+      "other_2020_votes": 245,
+      "other_2020_pct": 0.97,
+      "pres_margin_trump_votes": 15418,
+      "pres_margin_trump_pct": 60.71,
+      "total_2020": 25395,
+      "beshear_margin": -9.08,
+      "biden_margin": -60.71,
+      "beshear_over_2020_biden": 51.63,
+      "turnout_share_2023": 0.009646,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 59.4,
+      "pres_2020_margin": -60.71,
+      "economy": 48.3,
+      "social_conservative": 98.6,
+      "disaster_response": 84.7,
+      "coal_energy": 91.7,
+      "education_teachers": 50.3,
+      "cameron_alignment": 71.0,
+      "flags": [
+        "eastern_coal",
+        "flood_response"
+      ]
+    },
+    {
+      "fips": "21197",
+      "county": "Powell",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 178.979,
+      "beshear_pct": 50.02,
+      "beshear_votes": 1518,
+      "cameron_pct": 49.98,
+      "cameron_votes": 1517,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 0.03,
+      "gov_margin_votes": 1,
+      "total_2023": 3035,
+      "trump_votes": 4041,
+      "trump_pct": 73.41,
+      "biden_votes": 1367,
+      "biden_pct": 24.83,
+      "other_2020_votes": 97,
+      "other_2020_pct": 1.76,
+      "pres_margin_trump_votes": 2674,
+      "pres_margin_trump_pct": 48.58,
+      "total_2020": 5505,
+      "beshear_margin": 0.04,
+      "biden_margin": -48.58,
+      "beshear_over_2020_biden": 48.62,
+      "turnout_share_2023": 0.002296,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 53.8,
+      "pres_2020_margin": -48.58,
+      "economy": 47.8,
+      "social_conservative": 92.3,
+      "disaster_response": 40.0,
+      "coal_energy": 89.8,
+      "education_teachers": 49.8,
+      "cameron_alignment": 65.7,
+      "flags": [
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21199",
+      "county": "Pulaski",
+      "region": "South Central / rural",
+      "census_area_sqmi": 658.408,
+      "beshear_pct": 32.15,
+      "beshear_votes": 6139,
+      "cameron_pct": 67.85,
+      "cameron_votes": 12957,
+      "writein_pct": 0.01,
+      "writein_votes": 1,
+      "gov_margin_beshear": -35.7,
+      "gov_margin_votes": -6818,
+      "total_2023": 19097,
+      "trump_votes": 25442,
+      "trump_pct": 80.62,
+      "biden_votes": 5666,
+      "biden_pct": 17.95,
+      "other_2020_votes": 449,
+      "other_2020_pct": 1.43,
+      "pres_margin_trump_votes": 19776,
+      "pres_margin_trump_pct": 62.67,
+      "total_2020": 31557,
+      "beshear_margin": -35.7,
+      "biden_margin": -62.67,
+      "beshear_over_2020_biden": 26.97,
+      "turnout_share_2023": 0.014446,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 35.8,
+      "pres_2020_margin": -62.67,
+      "economy": 47.9,
+      "social_conservative": 92.6,
+      "disaster_response": 26.0,
+      "coal_energy": 28.0,
+      "education_teachers": 46.3,
+      "cameron_alignment": 75.4,
+      "flags": []
+    },
+    {
+      "fips": "21201",
+      "county": "Robertson",
+      "region": "Northern Kentucky",
+      "census_area_sqmi": 99.911,
+      "beshear_pct": 44.17,
+      "beshear_votes": 307,
+      "cameron_pct": 55.83,
+      "cameron_votes": 388,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -11.65,
+      "gov_margin_votes": -81,
+      "total_2023": 695,
+      "trump_votes": 884,
+      "trump_pct": 77.14,
+      "biden_votes": 253,
+      "biden_pct": 22.08,
+      "other_2020_votes": 9,
+      "other_2020_pct": 0.78,
+      "pres_margin_trump_votes": 631,
+      "pres_margin_trump_pct": 55.06,
+      "total_2020": 1146,
+      "beshear_margin": -11.66,
+      "biden_margin": -55.06,
+      "beshear_over_2020_biden": 43.4,
+      "turnout_share_2023": 0.000526,
+      "urban_weight": 0.0,
+      "suburban_weight": 1.0,
+      "rural_score": 70.0,
+      "beshear_approval": 48.2,
+      "pres_2020_margin": -55.06,
+      "economy": 65.8,
+      "social_conservative": 86.2,
+      "disaster_response": 27.8,
+      "coal_energy": 26.8,
+      "education_teachers": 55.9,
+      "cameron_alignment": 65.9,
+      "flags": [
+        "suburban"
+      ]
+    },
+    {
+      "fips": "21203",
+      "county": "Rockcastle",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 316.545,
+      "beshear_pct": 29.11,
+      "beshear_votes": 1244,
+      "cameron_pct": 70.89,
+      "cameron_votes": 3029,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -41.77,
+      "gov_margin_votes": -1785,
+      "total_2023": 4273,
+      "trump_votes": 6577,
+      "trump_pct": 84.49,
+      "biden_votes": 1134,
+      "biden_pct": 14.57,
+      "other_2020_votes": 73,
+      "other_2020_pct": 0.94,
+      "pres_margin_trump_votes": 5443,
+      "pres_margin_trump_pct": 69.92,
+      "total_2020": 7784,
+      "beshear_margin": -41.78,
+      "biden_margin": -69.92,
+      "beshear_over_2020_biden": 28.14,
+      "turnout_share_2023": 0.003232,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 33.4,
+      "pres_2020_margin": -69.92,
+      "economy": 44.1,
+      "social_conservative": 100,
+      "disaster_response": 37.0,
+      "coal_energy": 93.2,
+      "education_teachers": 46.5,
+      "cameron_alignment": 83.8,
+      "flags": [
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21205",
+      "county": "Rowan",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 279.795,
+      "beshear_pct": 60.75,
+      "beshear_votes": 3907,
+      "cameron_pct": 39.25,
+      "cameron_votes": 2524,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 21.51,
+      "gov_margin_votes": 1383,
+      "total_2023": 6431,
+      "trump_votes": 5994,
+      "trump_pct": 59.55,
+      "biden_votes": 3880,
+      "biden_pct": 38.55,
+      "other_2020_votes": 191,
+      "other_2020_pct": 1.9,
+      "pres_margin_trump_votes": 2114,
+      "pres_margin_trump_pct": 21.0,
+      "total_2020": 10065,
+      "beshear_margin": 21.5,
+      "biden_margin": -21.0,
+      "beshear_over_2020_biden": 42.5,
+      "turnout_share_2023": 0.004865,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 66.0,
+      "pres_2020_margin": -21.0,
+      "economy": 52.6,
+      "social_conservative": 77.9,
+      "disaster_response": 38.6,
+      "coal_energy": 85.4,
+      "education_teachers": 66.8,
+      "cameron_alignment": 49.5,
+      "flags": [
+        "college",
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21207",
+      "county": "Russell",
+      "region": "South Central / rural",
+      "census_area_sqmi": 253.657,
+      "beshear_pct": 30.03,
+      "beshear_votes": 1604,
+      "cameron_pct": 69.97,
+      "cameron_votes": 3737,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -39.94,
+      "gov_margin_votes": -2133,
+      "total_2023": 5341,
+      "trump_votes": 7519,
+      "trump_pct": 83.96,
+      "biden_votes": 1331,
+      "biden_pct": 14.86,
+      "other_2020_votes": 105,
+      "other_2020_pct": 1.18,
+      "pres_margin_trump_votes": 6188,
+      "pres_margin_trump_pct": 69.1,
+      "total_2020": 8955,
+      "beshear_margin": -39.94,
+      "biden_margin": -69.1,
+      "beshear_over_2020_biden": 29.16,
+      "turnout_share_2023": 0.00404,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 34.3,
+      "pres_2020_margin": -69.1,
+      "economy": 48.2,
+      "social_conservative": 95.9,
+      "disaster_response": 26.0,
+      "coal_energy": 29.1,
+      "education_teachers": 46.7,
+      "cameron_alignment": 78.0,
+      "flags": []
+    },
+    {
+      "fips": "21209",
+      "county": "Scott",
+      "region": "Bluegrass",
+      "census_area_sqmi": 281.766,
+      "beshear_pct": 54.58,
+      "beshear_votes": 10575,
+      "cameron_pct": 45.42,
+      "cameron_votes": 8801,
+      "writein_pct": 0.01,
+      "writein_votes": 1,
+      "gov_margin_beshear": 9.16,
+      "gov_margin_votes": 1774,
+      "total_2023": 19377,
+      "trump_votes": 17767,
+      "trump_pct": 61.33,
+      "biden_votes": 10567,
+      "biden_pct": 36.48,
+      "other_2020_votes": 635,
+      "other_2020_pct": 2.19,
+      "pres_margin_trump_votes": 7200,
+      "pres_margin_trump_pct": 24.85,
+      "total_2020": 28969,
+      "beshear_margin": 9.16,
+      "biden_margin": -24.85,
+      "beshear_over_2020_biden": 34.01,
+      "turnout_share_2023": 0.014658,
+      "urban_weight": 1.0,
+      "suburban_weight": 1.0,
+      "rural_score": 15.0,
+      "beshear_approval": 60.6,
+      "pres_2020_margin": -24.85,
+      "economy": 78.1,
+      "social_conservative": 44.1,
+      "disaster_response": 26.0,
+      "coal_energy": 22.0,
+      "education_teachers": 65.4,
+      "cameron_alignment": 49.4,
+      "flags": [
+        "suburban",
+        "urban"
+      ]
+    },
+    {
+      "fips": "21211",
+      "county": "Shelby",
+      "region": "Louisville metro",
+      "census_area_sqmi": 379.636,
+      "beshear_pct": 47.58,
+      "beshear_votes": 7946,
+      "cameron_pct": 52.4,
+      "cameron_votes": 8751,
+      "writein_pct": 0.02,
+      "writein_votes": 4,
+      "gov_margin_beshear": -4.82,
+      "gov_margin_votes": -805,
+      "total_2023": 16701,
+      "trump_votes": 15055,
+      "trump_pct": 63.93,
+      "biden_votes": 8077,
+      "biden_pct": 34.3,
+      "other_2020_votes": 418,
+      "other_2020_pct": 1.77,
+      "pres_margin_trump_votes": 6978,
+      "pres_margin_trump_pct": 29.63,
+      "total_2020": 23550,
+      "beshear_margin": -4.82,
+      "biden_margin": -29.63,
+      "beshear_over_2020_biden": 24.81,
+      "turnout_share_2023": 0.012634,
+      "urban_weight": 0.0,
+      "suburban_weight": 1.0,
+      "rural_score": 70.0,
+      "beshear_approval": 48.4,
+      "pres_2020_margin": -29.63,
+      "economy": 67.5,
+      "social_conservative": 73.0,
+      "disaster_response": 26.0,
+      "coal_energy": 22.7,
+      "education_teachers": 53.0,
+      "cameron_alignment": 55.0,
+      "flags": [
+        "suburban"
+      ]
+    },
+    {
+      "fips": "21213",
+      "county": "Simpson",
+      "region": "South Central / rural",
+      "census_area_sqmi": 234.204,
+      "beshear_pct": 41.21,
+      "beshear_votes": 1905,
+      "cameron_pct": 58.79,
+      "cameron_votes": 2718,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -17.59,
+      "gov_margin_votes": -813,
+      "total_2023": 4623,
+      "trump_votes": 5888,
+      "trump_pct": 67.43,
+      "biden_votes": 2681,
+      "biden_pct": 30.7,
+      "other_2020_votes": 163,
+      "other_2020_pct": 1.87,
+      "pres_margin_trump_votes": 3207,
+      "pres_margin_trump_pct": 36.73,
+      "total_2020": 8732,
+      "beshear_margin": -17.58,
+      "biden_margin": -36.73,
+      "beshear_over_2020_biden": 19.15,
+      "turnout_share_2023": 0.003497,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 42.3,
+      "pres_2020_margin": -36.73,
+      "economy": 46.4,
+      "social_conservative": 79.1,
+      "disaster_response": 26.0,
+      "coal_energy": 23.9,
+      "education_teachers": 45.1,
+      "cameron_alignment": 60.6,
+      "flags": []
+    },
+    {
+      "fips": "21215",
+      "county": "Spencer",
+      "region": "South Central / rural",
+      "census_area_sqmi": 186.677,
+      "beshear_pct": 37.04,
+      "beshear_votes": 2752,
+      "cameron_pct": 62.96,
+      "cameron_votes": 4677,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -25.91,
+      "gov_margin_votes": -1925,
+      "total_2023": 7429,
+      "trump_votes": 8737,
+      "trump_pct": 76.42,
+      "biden_votes": 2530,
+      "biden_pct": 22.13,
+      "other_2020_votes": 166,
+      "other_2020_pct": 1.45,
+      "pres_margin_trump_votes": 6207,
+      "pres_margin_trump_pct": 54.29,
+      "total_2020": 11433,
+      "beshear_margin": -25.92,
+      "biden_margin": -54.29,
+      "beshear_over_2020_biden": 28.37,
+      "turnout_share_2023": 0.00562,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 40.1,
+      "pres_2020_margin": -54.29,
+      "economy": 48.1,
+      "social_conservative": 88.2,
+      "disaster_response": 26.0,
+      "coal_energy": 26.7,
+      "education_teachers": 46.5,
+      "cameron_alignment": 70.6,
+      "flags": []
+    },
+    {
+      "fips": "21217",
+      "county": "Taylor",
+      "region": "South Central / rural",
+      "census_area_sqmi": 266.327,
+      "beshear_pct": 40.8,
+      "beshear_votes": 3198,
+      "cameron_pct": 59.2,
+      "cameron_votes": 4641,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -18.41,
+      "gov_margin_votes": -1443,
+      "total_2023": 7839,
+      "trump_votes": 9376,
+      "trump_pct": 74.91,
+      "biden_votes": 2963,
+      "biden_pct": 23.67,
+      "other_2020_votes": 178,
+      "other_2020_pct": 1.42,
+      "pres_margin_trump_votes": 6413,
+      "pres_margin_trump_pct": 51.24,
+      "total_2020": 12517,
+      "beshear_margin": -18.4,
+      "biden_margin": -51.24,
+      "beshear_over_2020_biden": 32.84,
+      "turnout_share_2023": 0.00593,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 52.9,
+      "pres_2020_margin": -51.24,
+      "economy": 48.9,
+      "social_conservative": 86.6,
+      "disaster_response": 70.0,
+      "coal_energy": 26.2,
+      "education_teachers": 47.3,
+      "cameron_alignment": 67.5,
+      "flags": [
+        "tornado_response"
+      ]
+    },
+    {
+      "fips": "21219",
+      "county": "Todd",
+      "region": "South Central / rural",
+      "census_area_sqmi": 374.496,
+      "beshear_pct": 34.07,
+      "beshear_votes": 907,
+      "cameron_pct": 65.85,
+      "cameron_votes": 1753,
+      "writein_pct": 0.08,
+      "writein_votes": 2,
+      "gov_margin_beshear": -31.78,
+      "gov_margin_votes": -846,
+      "total_2023": 2662,
+      "trump_votes": 4062,
+      "trump_pct": 75.74,
+      "biden_votes": 1205,
+      "biden_pct": 22.47,
+      "other_2020_votes": 96,
+      "other_2020_pct": 1.79,
+      "pres_margin_trump_votes": 2857,
+      "pres_margin_trump_pct": 53.27,
+      "total_2020": 5363,
+      "beshear_margin": -31.78,
+      "biden_margin": -53.27,
+      "beshear_over_2020_biden": 21.49,
+      "turnout_share_2023": 0.002014,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 36.7,
+      "pres_2020_margin": -53.27,
+      "economy": 46.9,
+      "social_conservative": 87.7,
+      "disaster_response": 26.0,
+      "coal_energy": 26.5,
+      "education_teachers": 45.4,
+      "cameron_alignment": 72.4,
+      "flags": []
+    },
+    {
+      "fips": "21221",
+      "county": "Trigg",
+      "region": "Western Kentucky",
+      "census_area_sqmi": 441.433,
+      "beshear_pct": 37.16,
+      "beshear_votes": 1532,
+      "cameron_pct": 62.84,
+      "cameron_votes": 2591,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -25.69,
+      "gov_margin_votes": -1059,
+      "total_2023": 4123,
+      "trump_votes": 5487,
+      "trump_pct": 74.39,
+      "biden_votes": 1791,
+      "biden_pct": 24.28,
+      "other_2020_votes": 98,
+      "other_2020_pct": 1.33,
+      "pres_margin_trump_votes": 3696,
+      "pres_margin_trump_pct": 50.11,
+      "total_2020": 7376,
+      "beshear_margin": -25.68,
+      "biden_margin": -50.11,
+      "beshear_over_2020_biden": 24.43,
+      "turnout_share_2023": 0.003119,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 39.6,
+      "pres_2020_margin": -50.11,
+      "economy": 47.4,
+      "social_conservative": 86.1,
+      "disaster_response": 31.0,
+      "coal_energy": 36.0,
+      "education_teachers": 45.9,
+      "cameron_alignment": 69.8,
+      "flags": []
+    },
+    {
+      "fips": "21223",
+      "county": "Trimble",
+      "region": "South Central / rural",
+      "census_area_sqmi": 151.648,
+      "beshear_pct": 44.09,
+      "beshear_votes": 1108,
+      "cameron_pct": 55.91,
+      "cameron_votes": 1405,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -11.82,
+      "gov_margin_votes": -297,
+      "total_2023": 2513,
+      "trump_votes": 3227,
+      "trump_pct": 74.7,
+      "biden_votes": 1012,
+      "biden_pct": 23.43,
+      "other_2020_votes": 81,
+      "other_2020_pct": 1.87,
+      "pres_margin_trump_votes": 2215,
+      "pres_margin_trump_pct": 51.27,
+      "total_2020": 4320,
+      "beshear_margin": -11.82,
+      "biden_margin": -51.27,
+      "beshear_over_2020_biden": 39.45,
+      "turnout_share_2023": 0.001901,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 47.6,
+      "pres_2020_margin": -51.27,
+      "economy": 50.1,
+      "social_conservative": 86.7,
+      "disaster_response": 27.0,
+      "coal_energy": 26.2,
+      "education_teachers": 48.3,
+      "cameron_alignment": 65.2,
+      "flags": []
+    },
+    {
+      "fips": "21225",
+      "county": "Union",
+      "region": "Western Kentucky",
+      "census_area_sqmi": 342.849,
+      "beshear_pct": 44.97,
+      "beshear_votes": 1722,
+      "cameron_pct": 55.03,
+      "cameron_votes": 2107,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -10.05,
+      "gov_margin_votes": -385,
+      "total_2023": 3829,
+      "trump_votes": 4965,
+      "trump_pct": 75.49,
+      "biden_votes": 1529,
+      "biden_pct": 23.25,
+      "other_2020_votes": 83,
+      "other_2020_pct": 1.26,
+      "pres_margin_trump_votes": 3436,
+      "pres_margin_trump_pct": 52.24,
+      "total_2020": 6577,
+      "beshear_margin": -10.06,
+      "biden_margin": -52.24,
+      "beshear_over_2020_biden": 42.18,
+      "turnout_share_2023": 0.002897,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 48.7,
+      "pres_2020_margin": -52.24,
+      "economy": 46.6,
+      "social_conservative": 94.2,
+      "disaster_response": 32.6,
+      "coal_energy": 94.4,
+      "education_teachers": 48.7,
+      "cameron_alignment": 69.8,
+      "flags": [
+        "western_coal"
+      ]
+    },
+    {
+      "fips": "21227",
+      "county": "Warren",
+      "region": "South Central / rural",
+      "census_area_sqmi": 541.6,
+      "beshear_pct": 52.12,
+      "beshear_votes": 18165,
+      "cameron_pct": 47.87,
+      "cameron_votes": 16685,
+      "writein_pct": 0.01,
+      "writein_votes": 5,
+      "gov_margin_beshear": 4.25,
+      "gov_margin_votes": 1480,
+      "total_2023": 34855,
+      "trump_votes": 31791,
+      "trump_pct": 57.38,
+      "biden_votes": 22479,
+      "biden_pct": 40.58,
+      "other_2020_votes": 1131,
+      "other_2020_pct": 2.04,
+      "pres_margin_trump_votes": 9312,
+      "pres_margin_trump_pct": 16.8,
+      "total_2020": 55401,
+      "beshear_margin": 4.25,
+      "biden_margin": -16.8,
+      "beshear_over_2020_biden": 21.05,
+      "turnout_share_2023": 0.026367,
+      "urban_weight": 1.0,
+      "suburban_weight": 1.0,
+      "rural_score": 15.0,
+      "beshear_approval": 69.7,
+      "pres_2020_margin": -16.8,
+      "economy": 81.8,
+      "social_conservative": 39.9,
+      "disaster_response": 70.0,
+      "coal_energy": 20.7,
+      "education_teachers": 81.4,
+      "cameron_alignment": 49.6,
+      "flags": [
+        "college",
+        "suburban",
+        "tornado_response",
+        "urban"
+      ]
+    },
+    {
+      "fips": "21229",
+      "county": "Washington",
+      "region": "South Central / rural",
+      "census_area_sqmi": 297.266,
+      "beshear_pct": 43.02,
+      "beshear_votes": 1772,
+      "cameron_pct": 56.96,
+      "cameron_votes": 2346,
+      "writein_pct": 0.02,
+      "writein_votes": 1,
+      "gov_margin_beshear": -13.94,
+      "gov_margin_votes": -574,
+      "total_2023": 4119,
+      "trump_votes": 4482,
+      "trump_pct": 72.0,
+      "biden_votes": 1644,
+      "biden_pct": 26.41,
+      "other_2020_votes": 99,
+      "other_2020_pct": 1.59,
+      "pres_margin_trump_votes": 3838,
+      "pres_margin_trump_pct": 45.59,
+      "total_2020": 6225,
+      "beshear_margin": -13.94,
+      "biden_margin": -45.59,
+      "beshear_over_2020_biden": 31.65,
+      "turnout_share_2023": 0.003116,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 45.6,
+      "pres_2020_margin": -45.59,
+      "economy": 48.7,
+      "social_conservative": 83.7,
+      "disaster_response": 26.0,
+      "coal_energy": 25.3,
+      "education_teachers": 47.1,
+      "cameron_alignment": 64.9,
+      "flags": []
+    },
+    {
+      "fips": "21231",
+      "county": "Wayne",
+      "region": "South Central / rural",
+      "census_area_sqmi": 458.17,
+      "beshear_pct": 37.81,
+      "beshear_votes": 1754,
+      "cameron_pct": 62.19,
+      "cameron_votes": 2885,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -24.38,
+      "gov_margin_votes": -1131,
+      "total_2023": 4639,
+      "trump_votes": 7430,
+      "trump_pct": 80.41,
+      "biden_votes": 1700,
+      "biden_pct": 18.4,
+      "other_2020_votes": 110,
+      "other_2020_pct": 1.19,
+      "pres_margin_trump_votes": 5730,
+      "pres_margin_trump_pct": 62.01,
+      "total_2020": 9240,
+      "beshear_margin": -24.38,
+      "biden_margin": -62.01,
+      "beshear_over_2020_biden": 37.63,
+      "turnout_share_2023": 0.003509,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 42.0,
+      "pres_2020_margin": -62.01,
+      "economy": 49.8,
+      "social_conservative": 92.2,
+      "disaster_response": 26.6,
+      "coal_energy": 27.9,
+      "education_teachers": 48.0,
+      "cameron_alignment": 71.5,
+      "flags": []
+    },
+    {
+      "fips": "21233",
+      "county": "Webster",
+      "region": "Western coalfield",
+      "census_area_sqmi": 331.943,
+      "beshear_pct": 41.32,
+      "beshear_votes": 1425,
+      "cameron_pct": 58.68,
+      "cameron_votes": 2024,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -17.37,
+      "gov_margin_votes": -599,
+      "total_2023": 3449,
+      "trump_votes": 4506,
+      "trump_pct": 75.19,
+      "biden_votes": 1412,
+      "biden_pct": 23.56,
+      "other_2020_votes": 75,
+      "other_2020_pct": 1.25,
+      "pres_margin_trump_votes": 3094,
+      "pres_margin_trump_pct": 51.63,
+      "total_2020": 5993,
+      "beshear_margin": -17.36,
+      "biden_margin": -51.63,
+      "beshear_over_2020_biden": 34.27,
+      "turnout_share_2023": 0.002609,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 44.5,
+      "pres_2020_margin": -51.63,
+      "economy": 45.2,
+      "social_conservative": 93.8,
+      "disaster_response": 31.0,
+      "coal_energy": 94.3,
+      "education_teachers": 47.5,
+      "cameron_alignment": 72.2,
+      "flags": [
+        "western_coal"
+      ]
+    },
+    {
+      "fips": "21235",
+      "county": "Whitley",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 437.83,
+      "beshear_pct": 32.74,
+      "beshear_votes": 2697,
+      "cameron_pct": 67.26,
+      "cameron_votes": 5540,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": -34.51,
+      "gov_margin_votes": -2843,
+      "total_2023": 8237,
+      "trump_votes": 12567,
+      "trump_pct": 81.84,
+      "biden_votes": 2552,
+      "biden_pct": 16.62,
+      "other_2020_votes": 237,
+      "other_2020_pct": 1.54,
+      "pres_margin_trump_votes": 10015,
+      "pres_margin_trump_pct": 65.22,
+      "total_2020": 15356,
+      "beshear_margin": -34.52,
+      "biden_margin": -65.22,
+      "beshear_over_2020_biden": 30.7,
+      "turnout_share_2023": 0.006231,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 36.8,
+      "pres_2020_margin": -65.22,
+      "economy": 44.5,
+      "social_conservative": 100,
+      "disaster_response": 37.0,
+      "coal_energy": 92.4,
+      "education_teachers": 46.9,
+      "cameron_alignment": 80.5,
+      "flags": [
+        "eastern_coal"
+      ]
+    },
+    {
+      "fips": "21237",
+      "county": "Wolfe",
+      "region": "Eastern Kentucky",
+      "census_area_sqmi": 222.171,
+      "beshear_pct": 57.26,
+      "beshear_votes": 1010,
+      "cameron_pct": 42.74,
+      "cameron_votes": 754,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 14.51,
+      "gov_margin_votes": 256,
+      "total_2023": 1764,
+      "trump_votes": 2097,
+      "trump_pct": 70.39,
+      "biden_votes": 839,
+      "biden_pct": 28.16,
+      "other_2020_votes": 43,
+      "other_2020_pct": 1.45,
+      "pres_margin_trump_votes": 1258,
+      "pres_margin_trump_pct": 42.23,
+      "total_2020": 2979,
+      "beshear_margin": 14.52,
+      "biden_margin": -42.23,
+      "beshear_over_2020_biden": 56.75,
+      "turnout_share_2023": 0.001334,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 70.0,
+      "pres_2020_margin": -42.23,
+      "economy": 49.2,
+      "social_conservative": 89.0,
+      "disaster_response": 85.8,
+      "coal_energy": 88.8,
+      "education_teachers": 51.1,
+      "cameron_alignment": 59.7,
+      "flags": [
+        "eastern_coal",
+        "flood_response"
+      ]
+    },
+    {
+      "fips": "21239",
+      "county": "Woodford",
+      "region": "Bluegrass",
+      "census_area_sqmi": 188.784,
+      "beshear_pct": 59.25,
+      "beshear_votes": 6414,
+      "cameron_pct": 40.75,
+      "cameron_votes": 4411,
+      "writein_pct": 0.0,
+      "writein_votes": 0,
+      "gov_margin_beshear": 18.5,
+      "gov_margin_votes": 2003,
+      "total_2023": 10825,
+      "trump_votes": 8362,
+      "trump_pct": 54.97,
+      "biden_votes": 6530,
+      "biden_pct": 42.93,
+      "other_2020_votes": 319,
+      "other_2020_pct": 2.1,
+      "pres_margin_trump_votes": 1832,
+      "pres_margin_trump_pct": 12.04,
+      "total_2020": 15211,
+      "beshear_margin": 18.5,
+      "biden_margin": -12.04,
+      "beshear_over_2020_biden": 30.54,
+      "turnout_share_2023": 0.008189,
+      "urban_weight": 0.0,
+      "suburban_weight": 0.0,
+      "rural_score": 100,
+      "beshear_approval": 59.0,
+      "pres_2020_margin": -12.04,
+      "economy": 48.5,
+      "social_conservative": 66.3,
+      "disaster_response": 26.0,
+      "coal_energy": 19.9,
+      "education_teachers": 46.9,
+      "cameron_alignment": 43.9,
+      "flags": []
+    }
+  ],
+  "questions_json": [
+    {
+      "model": "campaign_trail.question",
+      "pk": 81001,
+      "fields": {
+        "priority": 1,
+        "description": "The rematch-free 2023 race begins with an unusual contrast: a Democratic governor with high personal approval in a red state against a Republican attorney general with national conservative support. How do you frame the race?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81002,
+      "fields": {
+        "priority": 2,
+        "description": "National figures hover over the contest. Biden is unpopular in Kentucky, while Trump remains dominant in GOP primaries but polarizing in the suburbs. What is your posture toward the national parties?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81003,
+      "fields": {
+        "priority": 3,
+        "description": "Kentucky's near-total abortion ban and the absence of rape and incest exceptions are central after Dobbs. How hard do you press the issue?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81004,
+      "fields": {
+        "priority": 4,
+        "description": "Beshear touts record economic development announcements, while Cameron argues that families still feel inflation and high costs. What is your economic argument?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81005,
+      "fields": {
+        "priority": 5,
+        "description": "Public schools, teacher pay, school choice, and culture-war fights all have traction. Where do you put the emphasis?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81006,
+      "fields": {
+        "priority": 6,
+        "description": "The 2021 western Kentucky tornadoes and 2022 eastern Kentucky floods shaped Beshear's public image. How should the campaign handle disaster recovery?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81007,
+      "fields": {
+        "priority": 7,
+        "description": "Public safety is usually favorable terrain for a Republican attorney general, but Beshear can point to bipartisan law-enforcement funding. What do you do?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81008,
+      "fields": {
+        "priority": 8,
+        "description": "Opioids and fentanyl remain personal in many Kentucky communities. How does the campaign address addiction?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81009,
+      "fields": {
+        "priority": 9,
+        "description": "Medicaid, rural hospitals, mental health, and pandemic memories all touch the health care debate. What is your message?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81010,
+      "fields": {
+        "priority": 10,
+        "description": "Republican legislators pushed income-tax reductions, while Beshear emphasized services and targeted relief. How should the tax fight sound?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81011,
+      "fields": {
+        "priority": 11,
+        "description": "Coal country is deeply Republican federally, but Beshear improved in eastern Kentucky after disasters. Cameron wants to tie Democrats to Biden's energy policy. What is the play?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81012,
+      "fields": {
+        "priority": 12,
+        "description": "Beshear has a large fundraising edge, while outside Republican groups can help Cameron close the air war. How do you allocate resources?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81013,
+      "fields": {
+        "priority": 13,
+        "description": "A televised debate gives both campaigns a chance to change perceptions. What is your debate strategy?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81014,
+      "fields": {
+        "priority": 14,
+        "description": "Cameron's record as attorney general includes conservative lawsuits, public safety work, and controversy around the Breonna Taylor case. How do you handle it?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81015,
+      "fields": {
+        "priority": 15,
+        "description": "COVID-era school and business restrictions remain divisive. Do you revisit that period?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81016,
+      "fields": {
+        "priority": 16,
+        "description": "The legislature's 2023 social-policy fights, including LGBTQ school issues and gender-affirming care restrictions, could energize conservatives or repel moderates. What is your tone?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81017,
+      "fields": {
+        "priority": 17,
+        "description": "Roads, bridges, water systems, broadband, and federal infrastructure dollars are practical issues across Kentucky. How do you use them?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81018,
+      "fields": {
+        "priority": 18,
+        "description": "Kentucky legalized sports betting in 2023. It is not the biggest issue, but it is a visible bipartisan win. How do you handle it?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81019,
+      "fields": {
+        "priority": 19,
+        "description": "Teacher groups, building trades, public employees, and right-to-work politics still matter in an off-year electorate. What is your labor pitch?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81020,
+      "fields": {
+        "priority": 20,
+        "description": "Both candidates speak openly about faith. In Kentucky, faith language can soften partisanship or sharpen cultural divides. How do you use it?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81021,
+      "fields": {
+        "priority": 21,
+        "description": "Jacqueline Coleman and Robby Mills can either reinforce the ticket or disappear into the background. How do you deploy the running mate?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81022,
+      "fields": {
+        "priority": 22,
+        "description": "Jefferson and Fayette counties gave Beshear massive margins. Cameron cannot win them, but he can try to cut the damage. What is your metro strategy?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81023,
+      "fields": {
+        "priority": 23,
+        "description": "Boone, Kenton, and Campbell are Republican-leaning but full of persuadable suburban voters. What is your Northern Kentucky plan?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81024,
+      "fields": {
+        "priority": 24,
+        "description": "Eastern Kentucky is one of the reddest regions in federal politics, yet Beshear has unusual goodwill after floods and family ties to the region. How do you compete there?",
+        "likelihood": 1
+      }
+    },
+    {
+      "model": "campaign_trail.question",
+      "pk": 81025,
+      "fields": {
+        "priority": 25,
+        "description": "It is the final weekend. Early votes are in, the airwaves are saturated, and both campaigns need one last message. What is the closing argument?",
+        "likelihood": 1
+      }
+    }
+  ],
+  "answers_json": [
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82001,
+      "fields": {
+        "question": 81001,
+        "candidate": 201,
+        "description": "Make it about competent, Kentucky-first governing: jobs, roads, schools, and showing up after disasters."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82002,
+      "fields": {
+        "question": 81001,
+        "candidate": 201,
+        "description": "Warn that Cameron would import Washington-style politics and roll back progress."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82003,
+      "fields": {
+        "question": 81001,
+        "candidate": 201,
+        "description": "Lean into reproductive freedom immediately; make the abortion ban the defining choice."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82004,
+      "fields": {
+        "question": 81001,
+        "candidate": 201,
+        "description": "Avoid labels altogether and run a personal campaign about faith, family, and the Golden Rule."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82005,
+      "fields": {
+        "question": 81001,
+        "candidate": 200,
+        "description": "Nationalize the race around Biden, inflation, and a state that voted heavily for Trump."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82006,
+      "fields": {
+        "question": 81001,
+        "candidate": 200,
+        "description": "Offer a generational-change message: conservative, serious, and ready after four years of Beshear."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82007,
+      "fields": {
+        "question": 81001,
+        "candidate": 200,
+        "description": "Start by litigating Beshear's COVID restrictions and school closures."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82008,
+      "fields": {
+        "question": 81001,
+        "candidate": 200,
+        "description": "Tell your biography: Elizabethtown roots, McConnell aide, historic attorney general, prosecutor."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82009,
+      "fields": {
+        "question": 81002,
+        "candidate": 201,
+        "description": "Keep Biden at arm's length and emphasize bipartisan appearances with McConnell and local officials."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82010,
+      "fields": {
+        "question": 81002,
+        "candidate": 201,
+        "description": "Attack Cameron as Trump's handpicked candidate and make the race about extremism."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82011,
+      "fields": {
+        "question": 81002,
+        "candidate": 201,
+        "description": "Invite national Democrats to fund ads, but do not put them on stage with you."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82012,
+      "fields": {
+        "question": 81002,
+        "candidate": 201,
+        "description": "Welcome Biden for a major infrastructure event and dare Republicans to oppose the money."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82013,
+      "fields": {
+        "question": 81002,
+        "candidate": 200,
+        "description": "Tie Beshear to Biden in every ad: prices, Washington Democrats, and the border."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82014,
+      "fields": {
+        "question": 81002,
+        "candidate": 200,
+        "description": "Campaign with Trump in the final stretch and make MAGA turnout the whole game."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82015,
+      "fields": {
+        "question": 81002,
+        "candidate": 200,
+        "description": "Use national Republicans for fundraising while keeping your own events Kentucky-focused."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82016,
+      "fields": {
+        "question": 81002,
+        "candidate": 200,
+        "description": "Run against both parties' dysfunction and say Frankfort needs a conservative who can execute."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82017,
+      "fields": {
+        "question": 81003,
+        "candidate": 201,
+        "description": "Center the exceptions argument: rape, incest, nonviable pregnancies, and doctors making emergency decisions."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82018,
+      "fields": {
+        "question": 81003,
+        "candidate": 201,
+        "description": "Call for broad abortion rights and nationalize the fight around Dobbs."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82019,
+      "fields": {
+        "question": 81003,
+        "candidate": 201,
+        "description": "Talk about personal freedom but pivot quickly to health care and jobs."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82020,
+      "fields": {
+        "question": 81003,
+        "candidate": 201,
+        "description": "Avoid the issue except when asked; say voters know where you stand."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82021,
+      "fields": {
+        "question": 81003,
+        "candidate": 200,
+        "description": "Defend the law as pro-life and accuse Beshear of supporting abortion without limits."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82022,
+      "fields": {
+        "question": 81003,
+        "candidate": 200,
+        "description": "Say you are pro-life but open to legislative conversations on exceptions."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82023,
+      "fields": {
+        "question": 81003,
+        "candidate": 200,
+        "description": "Change the subject to inflation, crime, and schools whenever abortion arises."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82024,
+      "fields": {
+        "question": 81003,
+        "candidate": 200,
+        "description": "Attack Beshear's abortion ads as fearmongering and feature faith leaders."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82025,
+      "fields": {
+        "question": 81004,
+        "candidate": 201,
+        "description": "Tour EV battery, manufacturing, and infrastructure projects as proof that Kentucky is moving forward."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82026,
+      "fields": {
+        "question": 81004,
+        "candidate": 201,
+        "description": "Focus on kitchen-table costs and blame corporate greed and national supply chains."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82027,
+      "fields": {
+        "question": 81004,
+        "candidate": 201,
+        "description": "Promise targeted tax relief without embracing the GOP income-tax phaseout."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82028,
+      "fields": {
+        "question": 81004,
+        "candidate": 201,
+        "description": "Say the economy is booming and voters should feel it already."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82029,
+      "fields": {
+        "question": 81004,
+        "candidate": 200,
+        "description": "Make inflation the core message: Beshear smiles at ribbon cuttings while families pay more."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82030,
+      "fields": {
+        "question": 81004,
+        "candidate": 200,
+        "description": "Credit Republican legislative tax cuts and say Beshear is taking credit for conservative policy."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82031,
+      "fields": {
+        "question": 81004,
+        "candidate": 200,
+        "description": "Release a detailed workforce plan on permitting, child care, and technical training."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82032,
+      "fields": {
+        "question": 81004,
+        "candidate": 200,
+        "description": "Attack EV battery plants as green boondoggles tied to Biden."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82033,
+      "fields": {
+        "question": 81005,
+        "candidate": 201,
+        "description": "Promise teacher raises, universal pre-K steps, and respect for public schools."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82034,
+      "fields": {
+        "question": 81005,
+        "candidate": 201,
+        "description": "Attack Cameron for voucher-style policies and tying schools to national culture fights."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82035,
+      "fields": {
+        "question": 81005,
+        "candidate": 201,
+        "description": "Focus on career and technical education linked to new manufacturing jobs."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82036,
+      "fields": {
+        "question": 81005,
+        "candidate": 201,
+        "description": "Avoid schools because the legislature controls most education policy."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82037,
+      "fields": {
+        "question": 81005,
+        "candidate": 200,
+        "description": "Argue parents need more control and students need discipline, transparency, and basics."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82038,
+      "fields": {
+        "question": 81005,
+        "candidate": 200,
+        "description": "Go all in for school choice and public funding following students."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82039,
+      "fields": {
+        "question": 81005,
+        "candidate": 200,
+        "description": "Offer a teacher-retention and literacy plan while criticizing Beshear's school closures."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82040,
+      "fields": {
+        "question": 81005,
+        "candidate": 200,
+        "description": "Make transgender school policies the education centerpiece."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82041,
+      "fields": {
+        "question": 81006,
+        "candidate": 201,
+        "description": "Visit recovery counties repeatedly with local officials and survivors, emphasizing promises kept."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82042,
+      "fields": {
+        "question": 81006,
+        "candidate": 201,
+        "description": "Use disaster response in ads statewide as proof of compassionate leadership."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82043,
+      "fields": {
+        "question": 81006,
+        "candidate": 201,
+        "description": "Attack Cameron for being absent during recovery fights."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82044,
+      "fields": {
+        "question": 81006,
+        "candidate": 201,
+        "description": "Move on; voters care more about prices now."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82045,
+      "fields": {
+        "question": 81006,
+        "candidate": 200,
+        "description": "Praise first responders, avoid criticizing survivors, and argue recovery still needs better execution."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82046,
+      "fields": {
+        "question": 81006,
+        "candidate": 200,
+        "description": "Say Beshear used disasters for photo ops and failed to rebuild fast enough."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82047,
+      "fields": {
+        "question": 81006,
+        "candidate": 200,
+        "description": "Pivot from disasters to inflation and long-term infrastructure resilience."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82048,
+      "fields": {
+        "question": 81006,
+        "candidate": 200,
+        "description": "Campaign in flood counties with local Republican judges and talk about federal red tape."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82049,
+      "fields": {
+        "question": 81007,
+        "candidate": 201,
+        "description": "Highlight raises and equipment for police while pairing it with addiction treatment and reentry."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82050,
+      "fields": {
+        "question": 81007,
+        "candidate": 201,
+        "description": "Accuse Cameron of politicizing crime and ignoring root causes."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82051,
+      "fields": {
+        "question": 81007,
+        "candidate": 201,
+        "description": "Lean on sheriffs and county officials in ads rather than national Democrats."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82052,
+      "fields": {
+        "question": 81007,
+        "candidate": 201,
+        "description": "Avoid crime because Cameron owns the issue."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82053,
+      "fields": {
+        "question": 81007,
+        "candidate": 200,
+        "description": "Run as the attorney general: fentanyl, violent crime, and support for law enforcement."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82054,
+      "fields": {
+        "question": 81007,
+        "candidate": 200,
+        "description": "Tie crime to Biden's border and national Democrats."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82055,
+      "fields": {
+        "question": 81007,
+        "candidate": 200,
+        "description": "Offer a detailed anti-fentanyl plan with treatment, interdiction, and prosecutors."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82056,
+      "fields": {
+        "question": 81007,
+        "candidate": 200,
+        "description": "Attack Louisville relentlessly as proof Democrats cannot govern."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82057,
+      "fields": {
+        "question": 81008,
+        "candidate": 201,
+        "description": "Emphasize treatment beds, recovery programs, and settlement dollars going to communities."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82058,
+      "fields": {
+        "question": 81008,
+        "candidate": 201,
+        "description": "Make it a law-enforcement issue and compete directly with Cameron."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82059,
+      "fields": {
+        "question": 81008,
+        "candidate": 201,
+        "description": "Feature families in recovery and faith-based providers."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82060,
+      "fields": {
+        "question": 81008,
+        "candidate": 201,
+        "description": "Fold opioids into a larger health care speech and move on."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82061,
+      "fields": {
+        "question": 81008,
+        "candidate": 200,
+        "description": "Lead with fentanyl enforcement and lawsuits against traffickers and bad actors."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82062,
+      "fields": {
+        "question": 81008,
+        "candidate": 200,
+        "description": "Pair enforcement with recovery courts and treatment partnerships."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82063,
+      "fields": {
+        "question": 81008,
+        "candidate": 200,
+        "description": "Blame Biden's border policies for fentanyl in Kentucky."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82064,
+      "fields": {
+        "question": 81008,
+        "candidate": 200,
+        "description": "Avoid the subject because Beshear has settlement-money announcements."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82065,
+      "fields": {
+        "question": 81009,
+        "candidate": 201,
+        "description": "Protect Medicaid expansion and rural hospitals while promising more mental-health investment."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82066,
+      "fields": {
+        "question": 81009,
+        "candidate": 201,
+        "description": "Focus on COVID leadership and say you made hard calls to save lives."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82067,
+      "fields": {
+        "question": 81009,
+        "candidate": 201,
+        "description": "Use health care to reinforce abortion exceptions and doctors' judgment."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82068,
+      "fields": {
+        "question": 81009,
+        "candidate": 201,
+        "description": "Avoid health care and stay on economic development."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82069,
+      "fields": {
+        "question": 81009,
+        "candidate": 200,
+        "description": "Say Beshear's COVID rules hurt families and small businesses."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82070,
+      "fields": {
+        "question": 81009,
+        "candidate": 200,
+        "description": "Promise to protect rural hospitals while improving cost transparency and choice."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82071,
+      "fields": {
+        "question": 81009,
+        "candidate": 200,
+        "description": "Attack Medicaid expansion as costly and inefficient."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82072,
+      "fields": {
+        "question": 81009,
+        "candidate": 200,
+        "description": "Talk about mental health, addiction, and family support instead of relitigating COVID."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82073,
+      "fields": {
+        "question": 81010,
+        "candidate": 201,
+        "description": "Support responsible relief but warn against blowing holes in schools, health care, and pensions."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82074,
+      "fields": {
+        "question": 81010,
+        "candidate": 201,
+        "description": "Attack the GOP tax plan as helping the wealthy while sales taxes rise."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82075,
+      "fields": {
+        "question": 81010,
+        "candidate": 201,
+        "description": "Promise property-tax and utility-bill relief for seniors and working families."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82076,
+      "fields": {
+        "question": 81010,
+        "candidate": 201,
+        "description": "Avoid taxes because the legislature drove the policy."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82077,
+      "fields": {
+        "question": 81010,
+        "candidate": 200,
+        "description": "Take ownership of the income-tax phaseout and promise to keep Kentucky competitive."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82078,
+      "fields": {
+        "question": 81010,
+        "candidate": 200,
+        "description": "Argue Beshear would spend away the surplus and slow tax relief."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82079,
+      "fields": {
+        "question": 81010,
+        "candidate": 200,
+        "description": "Offer a targeted affordability plan on groceries, gas, and utilities."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82080,
+      "fields": {
+        "question": 81010,
+        "candidate": 200,
+        "description": "Go full supply-side and promise rapid elimination regardless of revenue triggers."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82081,
+      "fields": {
+        "question": 81011,
+        "candidate": 201,
+        "description": "Defend coal workers, tout infrastructure and reclamation jobs, and separate yourself from national Democrats."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82082,
+      "fields": {
+        "question": 81011,
+        "candidate": 201,
+        "description": "Focus on new energy jobs and EV batteries as the future."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82083,
+      "fields": {
+        "question": 81011,
+        "candidate": 201,
+        "description": "Attack Cameron for offering slogans instead of jobs and recovery money."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82084,
+      "fields": {
+        "question": 81011,
+        "candidate": 201,
+        "description": "Avoid coal because it is unwinnable Republican terrain."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82085,
+      "fields": {
+        "question": 81011,
+        "candidate": 200,
+        "description": "Hammer Biden's war on coal and say Beshear cannot stand up to his party."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82086,
+      "fields": {
+        "question": 81011,
+        "candidate": 200,
+        "description": "Pair coal defense with a broader all-of-the-above energy plan."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82087,
+      "fields": {
+        "question": 81011,
+        "candidate": 200,
+        "description": "Attack EV projects as liberal climate spending."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82088,
+      "fields": {
+        "question": 81011,
+        "candidate": 200,
+        "description": "Spend little time on energy and focus on crime and taxes."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82089,
+      "fields": {
+        "question": 81012,
+        "candidate": 201,
+        "description": "Saturate early with positive biographical and disaster-response ads before attacks define the race."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82090,
+      "fields": {
+        "question": 81012,
+        "candidate": 201,
+        "description": "Save money for a late negative blitz on Cameron's abortion position."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82091,
+      "fields": {
+        "question": 81012,
+        "candidate": 201,
+        "description": "Invest heavily in field and county-level validators instead of more TV."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82092,
+      "fields": {
+        "question": 81012,
+        "candidate": 201,
+        "description": "Spend mostly in Louisville and Lexington to maximize base turnout."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82093,
+      "fields": {
+        "question": 81012,
+        "candidate": 200,
+        "description": "Let outside groups attack while your campaign runs positive biography and affordability ads."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82094,
+      "fields": {
+        "question": 81012,
+        "candidate": 200,
+        "description": "Put nearly everything into anti-Beshear Biden/inflation ads."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82095,
+      "fields": {
+        "question": 81012,
+        "candidate": 200,
+        "description": "Build a late field operation in rural counties to maximize Republican drop-off voters."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82096,
+      "fields": {
+        "question": 81012,
+        "candidate": 200,
+        "description": "Conserve money and rely on Kentucky's partisan lean."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82097,
+      "fields": {
+        "question": 81013,
+        "candidate": 201,
+        "description": "Stay calm, local, and empathetic; force Cameron to defend no exceptions on abortion."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82098,
+      "fields": {
+        "question": 81013,
+        "candidate": 201,
+        "description": "Aggressively prosecute Cameron's record as attorney general."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82099,
+      "fields": {
+        "question": 81013,
+        "candidate": 201,
+        "description": "Turn every answer back to jobs and disaster recovery."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82100,
+      "fields": {
+        "question": 81013,
+        "candidate": 201,
+        "description": "Avoid direct contrast and simply recite achievements."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82101,
+      "fields": {
+        "question": 81013,
+        "candidate": 200,
+        "description": "Look steady and prosecutorial, but not angry; keep returning to affordability."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82102,
+      "fields": {
+        "question": 81013,
+        "candidate": 200,
+        "description": "Relentlessly call Beshear a Biden liberal."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82103,
+      "fields": {
+        "question": 81013,
+        "candidate": 200,
+        "description": "Offer a sharp answer on abortion exceptions to defuse the issue."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82104,
+      "fields": {
+        "question": 81013,
+        "candidate": 200,
+        "description": "Attack Beshear personally for using tragedy and fear."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82105,
+      "fields": {
+        "question": 81014,
+        "candidate": 201,
+        "description": "Question Cameron's judgment and independence without making the whole campaign about one case."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82106,
+      "fields": {
+        "question": 81014,
+        "candidate": 201,
+        "description": "Center the Breonna Taylor controversy in Louisville and statewide ads."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82107,
+      "fields": {
+        "question": 81014,
+        "candidate": 201,
+        "description": "Argue Cameron used the office for national partisan lawsuits instead of Kentucky problems."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82108,
+      "fields": {
+        "question": 81014,
+        "candidate": 201,
+        "description": "Do not attack the AG record; focus only on your own administration."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82109,
+      "fields": {
+        "question": 81014,
+        "candidate": 200,
+        "description": "Lean into the AG record: public safety, opioid lawsuits, and fighting federal overreach."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82110,
+      "fields": {
+        "question": 81014,
+        "candidate": 200,
+        "description": "Treat Breonna Taylor questions solemnly, avoid defensiveness, and pivot to public trust."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82111,
+      "fields": {
+        "question": 81014,
+        "candidate": 200,
+        "description": "Attack critics as anti-police radicals."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82112,
+      "fields": {
+        "question": 81014,
+        "candidate": 200,
+        "description": "Ignore the AG record and run solely as an outsider change candidate."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82113,
+      "fields": {
+        "question": 81015,
+        "candidate": 201,
+        "description": "Say you made the best decisions possible, saved lives, and would always put people first."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82114,
+      "fields": {
+        "question": 81015,
+        "candidate": 201,
+        "description": "Acknowledge hardship, emphasize lessons learned, and pivot to recovery."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82115,
+      "fields": {
+        "question": 81015,
+        "candidate": 201,
+        "description": "Attack Cameron for undermining public health."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82116,
+      "fields": {
+        "question": 81015,
+        "candidate": 201,
+        "description": "Avoid the issue entirely."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82117,
+      "fields": {
+        "question": 81015,
+        "candidate": 200,
+        "description": "Use COVID restrictions as an example of Beshear overreach."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82118,
+      "fields": {
+        "question": 81015,
+        "candidate": 200,
+        "description": "Acknowledge the pandemic was hard, then focus on future emergency powers and accountability."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82119,
+      "fields": {
+        "question": 81015,
+        "candidate": 200,
+        "description": "Make school closures the center of the closing month."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82120,
+      "fields": {
+        "question": 81015,
+        "candidate": 200,
+        "description": "Drop COVID entirely; voters have moved on."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82121,
+      "fields": {
+        "question": 81016,
+        "candidate": 201,
+        "description": "Frame vetoes around parental love, medical privacy, and keeping government out of personal decisions."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82122,
+      "fields": {
+        "question": 81016,
+        "candidate": 201,
+        "description": "Denounce the bills as bigotry and make civil rights central."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82123,
+      "fields": {
+        "question": 81016,
+        "candidate": 201,
+        "description": "Say these debates distract from jobs, roads, and schools."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82124,
+      "fields": {
+        "question": 81016,
+        "candidate": 201,
+        "description": "Avoid the issue and hope it fades."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82125,
+      "fields": {
+        "question": 81016,
+        "candidate": 200,
+        "description": "Support the bills as protecting children and parents' rights."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82126,
+      "fields": {
+        "question": 81016,
+        "candidate": 200,
+        "description": "Use softer language: parents, age-appropriate policy, and compassion for every child."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82127,
+      "fields": {
+        "question": 81016,
+        "candidate": 200,
+        "description": "Make culture issues the centerpiece of the final month."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82128,
+      "fields": {
+        "question": 81016,
+        "candidate": 200,
+        "description": "Avoid culture issues and stay on affordability."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82129,
+      "fields": {
+        "question": 81017,
+        "candidate": 201,
+        "description": "Hold county-level events with local Republican officials and focus on delivered projects."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82130,
+      "fields": {
+        "question": 81017,
+        "candidate": 201,
+        "description": "Credit federal Democrats for bringing money to Kentucky."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82131,
+      "fields": {
+        "question": 81017,
+        "candidate": 201,
+        "description": "Tie infrastructure to disaster resilience and rural broadband."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82132,
+      "fields": {
+        "question": 81017,
+        "candidate": 201,
+        "description": "Avoid ribbon cuttings because they look staged."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82133,
+      "fields": {
+        "question": 81017,
+        "candidate": 200,
+        "description": "Say infrastructure matters, but Kentucky needs a governor who manages projects efficiently."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82134,
+      "fields": {
+        "question": 81017,
+        "candidate": 200,
+        "description": "Call the federal infrastructure law wasteful Biden spending."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82135,
+      "fields": {
+        "question": 81017,
+        "candidate": 200,
+        "description": "Focus on broadband, roads, and permitting for rural economic growth."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82136,
+      "fields": {
+        "question": 81017,
+        "candidate": 200,
+        "description": "Ignore infrastructure and keep the race ideological."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82137,
+      "fields": {
+        "question": 81018,
+        "candidate": 201,
+        "description": "Celebrate it as a bipartisan freedom-and-revenue win, then pivot to broader cooperation."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82138,
+      "fields": {
+        "question": 81018,
+        "candidate": 201,
+        "description": "Make it a major campaign theme about modernizing Kentucky."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82139,
+      "fields": {
+        "question": 81018,
+        "candidate": 201,
+        "description": "Avoid it in socially conservative areas while mentioning it in media markets where it is popular."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82140,
+      "fields": {
+        "question": 81018,
+        "candidate": 201,
+        "description": "Attack Republicans who opposed it as out of touch."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82141,
+      "fields": {
+        "question": 81018,
+        "candidate": 200,
+        "description": "Say you respect the bipartisan result and pivot to taxes and jobs."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82142,
+      "fields": {
+        "question": 81018,
+        "candidate": 200,
+        "description": "Criticize Beshear for overhyping gambling while families struggle."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82143,
+      "fields": {
+        "question": 81018,
+        "candidate": 200,
+        "description": "Come out against sports betting expansion on moral grounds."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82144,
+      "fields": {
+        "question": 81018,
+        "candidate": 200,
+        "description": "Ignore it completely."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82145,
+      "fields": {
+        "question": 81019,
+        "candidate": 201,
+        "description": "Stand with teachers, public workers, and building trades while emphasizing results over ideology."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82146,
+      "fields": {
+        "question": 81019,
+        "candidate": 201,
+        "description": "Promise to repeal right-to-work and make labor law central."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82147,
+      "fields": {
+        "question": 81019,
+        "candidate": 201,
+        "description": "Focus on apprenticeship, union construction jobs, and project labor peace."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82148,
+      "fields": {
+        "question": 81019,
+        "candidate": 201,
+        "description": "Keep labor at arm's length to look moderate."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82149,
+      "fields": {
+        "question": 81019,
+        "candidate": 200,
+        "description": "Defend right-to-work and say job growth comes from a pro-business climate."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82150,
+      "fields": {
+        "question": 81019,
+        "candidate": 200,
+        "description": "Court building trades on infrastructure and workforce training without changing labor law."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82151,
+      "fields": {
+        "question": 81019,
+        "candidate": 200,
+        "description": "Attack teachers' unions as left-wing special interests."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82152,
+      "fields": {
+        "question": 81019,
+        "candidate": 200,
+        "description": "Avoid labor and stay on family budgets."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82153,
+      "fields": {
+        "question": 81020,
+        "candidate": 201,
+        "description": "Speak about the Golden Rule, service, and protecting children without attacking anyone's faith."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82154,
+      "fields": {
+        "question": 81020,
+        "candidate": 201,
+        "description": "Argue that faith requires opposing harsh abortion and LGBTQ policies."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82155,
+      "fields": {
+        "question": 81020,
+        "candidate": 201,
+        "description": "Keep religion private and focus on secular policy."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82156,
+      "fields": {
+        "question": 81020,
+        "candidate": 201,
+        "description": "Use faith leaders in a statewide ad about disaster recovery and compassion."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82157,
+      "fields": {
+        "question": 81020,
+        "candidate": 200,
+        "description": "Speak about faith, family, and service while keeping the tone hopeful."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82158,
+      "fields": {
+        "question": 81020,
+        "candidate": 200,
+        "description": "Make the race a battle for Christian values against liberal elites."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82159,
+      "fields": {
+        "question": 81020,
+        "candidate": 200,
+        "description": "Feature pastors and law enforcement together on crime and addiction."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82160,
+      "fields": {
+        "question": 81020,
+        "candidate": 200,
+        "description": "Avoid faith talk to focus on competence."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82161,
+      "fields": {
+        "question": 81021,
+        "candidate": 201,
+        "description": "Send Coleman to schools, western Kentucky, and events focused on families and teachers."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82162,
+      "fields": {
+        "question": 81021,
+        "candidate": 201,
+        "description": "Keep the ticket centered almost entirely on Beshear."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82163,
+      "fields": {
+        "question": 81021,
+        "candidate": 201,
+        "description": "Use Coleman as the main attack messenger on abortion and Cameron."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82164,
+      "fields": {
+        "question": 81021,
+        "candidate": 201,
+        "description": "Pair Beshear and Coleman at rural bipartisan events as a governing team."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82165,
+      "fields": {
+        "question": 81021,
+        "candidate": 200,
+        "description": "Use Mills to shore up western Kentucky conservatives and talk business and legislature ties."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82166,
+      "fields": {
+        "question": 81021,
+        "candidate": 200,
+        "description": "Keep Mills mostly invisible and make the ticket all about Cameron."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82167,
+      "fields": {
+        "question": 81021,
+        "candidate": 200,
+        "description": "Have Mills attack Beshear while Cameron stays positive."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82168,
+      "fields": {
+        "question": 81021,
+        "candidate": 200,
+        "description": "Use the ticket to project a full conservative governing team with legislative relationships."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82169,
+      "fields": {
+        "question": 81022,
+        "candidate": 201,
+        "description": "Run up turnout with abortion, education, and anti-extremism messaging while keeping the tone gubernatorial."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82170,
+      "fields": {
+        "question": 81022,
+        "candidate": 201,
+        "description": "Spend less in the metros and chase rural crossover voters."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82171,
+      "fields": {
+        "question": 81022,
+        "candidate": 201,
+        "description": "Focus metro ads on crime reduction and economic development to reassure moderates."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82172,
+      "fields": {
+        "question": 81022,
+        "candidate": 201,
+        "description": "Let national Democrats handle metro mobilization."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82173,
+      "fields": {
+        "question": 81022,
+        "candidate": 200,
+        "description": "Campaign in the suburbs of Louisville and Lexington, not just the city cores."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82174,
+      "fields": {
+        "question": 81022,
+        "candidate": 200,
+        "description": "Write off the metros and maximize rural counties."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82175,
+      "fields": {
+        "question": 81022,
+        "candidate": 200,
+        "description": "Talk public safety and affordability in Louisville media."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82176,
+      "fields": {
+        "question": 81022,
+        "candidate": 200,
+        "description": "Bring national conservative figures into Louisville to rally Republicans."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82177,
+      "fields": {
+        "question": 81023,
+        "candidate": 201,
+        "description": "Talk bridges, Brent Spence infrastructure, jobs, and bipartisan delivery."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82178,
+      "fields": {
+        "question": 81023,
+        "candidate": 201,
+        "description": "Make abortion and schools the main message in the suburbs."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82179,
+      "fields": {
+        "question": 81023,
+        "candidate": 201,
+        "description": "Treat Northern Kentucky as too Republican and spend elsewhere."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82180,
+      "fields": {
+        "question": 81023,
+        "candidate": 201,
+        "description": "Campaign with local Republican mayors and business leaders."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82181,
+      "fields": {
+        "question": 81023,
+        "candidate": 200,
+        "description": "Make Northern Kentucky the persuasion centerpiece: affordability, schools, and competent conservatism."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82182,
+      "fields": {
+        "question": 81023,
+        "candidate": 200,
+        "description": "Lean hard into Trump and national Republicans in the Cincinnati market."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82183,
+      "fields": {
+        "question": 81023,
+        "candidate": 200,
+        "description": "Attack Beshear over Biden while crediting GOP work on the Brent Spence project."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82184,
+      "fields": {
+        "question": 81023,
+        "candidate": 200,
+        "description": "Ignore Northern Kentucky and trust straight-ticket Republicans."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82185,
+      "fields": {
+        "question": 81024,
+        "candidate": 201,
+        "description": "Spend real time in flood counties, talk recovery, broadband, roads, and respect for coal communities."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82186,
+      "fields": {
+        "question": 81024,
+        "candidate": 201,
+        "description": "Use ads about your father's legacy and your own visits after floods."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82187,
+      "fields": {
+        "question": 81024,
+        "candidate": 201,
+        "description": "Focus only on metro turnout because eastern Kentucky is too Republican."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82188,
+      "fields": {
+        "question": 81024,
+        "candidate": 201,
+        "description": "Attack Cameron as a national Republican who does not understand mountain counties."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82189,
+      "fields": {
+        "question": 81024,
+        "candidate": 200,
+        "description": "Campaign heavily in coal and flood counties with a respectful recovery message plus anti-Biden energy attacks."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82190,
+      "fields": {
+        "question": 81024,
+        "candidate": 200,
+        "description": "Focus entirely on Biden's energy policy and ignore disaster goodwill."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82191,
+      "fields": {
+        "question": 81024,
+        "candidate": 200,
+        "description": "Bring local officials to say recovery has been too slow and needs new management."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82192,
+      "fields": {
+        "question": 81024,
+        "candidate": 200,
+        "description": "Spend little time there because it is already Republican."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82193,
+      "fields": {
+        "question": 81025,
+        "candidate": 201,
+        "description": "Move forward, not left or right: jobs, compassion, freedom from extremism, and Kentucky-first leadership."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82194,
+      "fields": {
+        "question": 81025,
+        "candidate": 201,
+        "description": "Warn that Cameron and the legislature would take Kentucky backward on abortion, schools, and health care."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82195,
+      "fields": {
+        "question": 81025,
+        "candidate": 201,
+        "description": "Make a pure turnout appeal to Democrats against Trump Republicanism."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82196,
+      "fields": {
+        "question": 81025,
+        "candidate": 201,
+        "description": "Coast on incumbency and thank voters for trusting you."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82197,
+      "fields": {
+        "question": 81025,
+        "candidate": 200,
+        "description": "Kentucky is ready for change: safer streets, lower costs, parental rights, and conservative leadership with a steady hand."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82198,
+      "fields": {
+        "question": 81025,
+        "candidate": 200,
+        "description": "Make it a referendum on Biden and say a vote for Beshear enables Washington Democrats."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82199,
+      "fields": {
+        "question": 81025,
+        "candidate": 200,
+        "description": "Close positive with biography, faith, family, and the history of electing a new generation."
+      }
+    },
+    {
+      "model": "campaign_trail.answer",
+      "pk": 82200,
+      "fields": {
+        "question": 81025,
+        "candidate": 200,
+        "description": "Throw every attack at Beshear in the final 72 hours."
+      }
+    }
+  ],
+  "answer_feedback_json": [
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82501,
+      "fields": {
+        "answer": 82001,
+        "candidate": 201,
+        "answer_feedback": "A steady opening. You give persuadable Republicans permission to split their tickets."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82502,
+      "fields": {
+        "answer": 82002,
+        "candidate": 201,
+        "answer_feedback": "This wakes up Democrats, though it risks sounding national in the places you need to keep local."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82503,
+      "fields": {
+        "answer": 82003,
+        "candidate": 201,
+        "answer_feedback": "Powerful in suburbs and metros, but it starts a fight on Cameron's strongest cultural terrain."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82504,
+      "fields": {
+        "answer": 82004,
+        "candidate": 201,
+        "answer_feedback": "It fits your brand and travels well east of I-65, though progressive donors want sharper contrast."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82505,
+      "fields": {
+        "answer": 82005,
+        "candidate": 200,
+        "answer_feedback": "That is the Republican muscle memory, and it fires up the base. The risk is that Beshear is not Biden."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82506,
+      "fields": {
+        "answer": 82006,
+        "candidate": 200,
+        "answer_feedback": "A cleaner opening. You look like a governor, not merely an opposition brief."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82507,
+      "fields": {
+        "answer": 82007,
+        "candidate": 200,
+        "answer_feedback": "The base likes the fight, but voters who moved on may hear 2020 instead of 2023."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82508,
+      "fields": {
+        "answer": 82008,
+        "candidate": 200,
+        "answer_feedback": "Humanizing you early helps in the suburbs and blunts attacks on experience."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82509,
+      "fields": {
+        "answer": 82009,
+        "candidate": 201,
+        "answer_feedback": "Exactly the kind of separation you need in a Trump +26 state."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82510,
+      "fields": {
+        "answer": 82010,
+        "candidate": 201,
+        "answer_feedback": "Good for Democrats and some college suburbs, less useful in the deep-red counties you need to lose respectably."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82511,
+      "fields": {
+        "answer": 82011,
+        "candidate": 201,
+        "answer_feedback": "The money helps; the distance is plausible enough."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82512,
+      "fields": {
+        "answer": 82012,
+        "candidate": 201,
+        "answer_feedback": "There is a policy case here, but it hands Cameron the picture he wants."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82513,
+      "fields": {
+        "answer": 82013,
+        "candidate": 200,
+        "answer_feedback": "It is blunt, but Kentucky partisanship is blunt too."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82514,
+      "fields": {
+        "answer": 82014,
+        "candidate": 200,
+        "answer_feedback": "You juice the base, but the Beshear-Cameron race is won in crossover territory."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82515,
+      "fields": {
+        "answer": 82015,
+        "candidate": 200,
+        "answer_feedback": "A disciplined middle course. The money comes in without overwhelming your image."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82516,
+      "fields": {
+        "answer": 82016,
+        "candidate": 200,
+        "answer_feedback": "It sounds gubernatorial, though some activists may want sharper partisan language."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82517,
+      "fields": {
+        "answer": 82017,
+        "candidate": 201,
+        "answer_feedback": "This is the strongest version of the issue for you: specific, moral, and hard to caricature."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82518,
+      "fields": {
+        "answer": 82018,
+        "candidate": 201,
+        "answer_feedback": "You gain energy in Louisville and Lexington but risk losing the careful Kentucky framing."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82519,
+      "fields": {
+        "answer": 82019,
+        "candidate": 201,
+        "answer_feedback": "This avoids backlash, but it leaves some persuasive power unused."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82520,
+      "fields": {
+        "answer": 82020,
+        "candidate": 201,
+        "answer_feedback": "Too cautious. Cameron's position is a vulnerability, and silence lets him muddy it."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82521,
+      "fields": {
+        "answer": 82021,
+        "candidate": 200,
+        "answer_feedback": "The base hears you clearly. Suburban voters who dislike the current ban may hear rigidity."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82522,
+      "fields": {
+        "answer": 82022,
+        "candidate": 200,
+        "answer_feedback": "This is a necessary softening for the general election, though activists may grumble."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82523,
+      "fields": {
+        "answer": 82023,
+        "candidate": 200,
+        "answer_feedback": "You limit damage for a while, but evasion becomes a story if pressed in debates."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82524,
+      "fields": {
+        "answer": 82024,
+        "candidate": 200,
+        "answer_feedback": "It stabilizes conservative counties, but it may amplify the issue in the suburbs."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82525,
+      "fields": {
+        "answer": 82025,
+        "candidate": 201,
+        "answer_feedback": "A strong incumbent message, especially around growth corridors."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82526,
+      "fields": {
+        "answer": 82026,
+        "candidate": 201,
+        "answer_feedback": "It is empathetic but muddies your ownership of the economy."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82527,
+      "fields": {
+        "answer": 82027,
+        "candidate": 201,
+        "answer_feedback": "A moderate answer that blunts attacks without sounding like a Republican."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82528,
+      "fields": {
+        "answer": 82028,
+        "candidate": 201,
+        "answer_feedback": "Too rosy. A lot of voters still notice prices first."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82529,
+      "fields": {
+        "answer": 82029,
+        "candidate": 200,
+        "answer_feedback": "This is your cleanest pocketbook contrast."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82530,
+      "fields": {
+        "answer": 82030,
+        "candidate": 200,
+        "answer_feedback": "A useful Frankfort argument, especially with regular Republican voters."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82531,
+      "fields": {
+        "answer": 82031,
+        "candidate": 200,
+        "answer_feedback": "It is less punchy, but it helps you look prepared to govern."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82532,
+      "fields": {
+        "answer": 82032,
+        "candidate": 200,
+        "answer_feedback": "Risky in counties that like jobs more than ideological purity."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82533,
+      "fields": {
+        "answer": 82033,
+        "candidate": 201,
+        "answer_feedback": "Teachers remain a real Beshear coalition piece, especially around metros and county seats."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82534,
+      "fields": {
+        "answer": 82034,
+        "candidate": 201,
+        "answer_feedback": "A good contrast, though too much culture-war language can become a mirror image."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82535,
+      "fields": {
+        "answer": 82035,
+        "candidate": 201,
+        "answer_feedback": "This travels well across party lines."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82536,
+      "fields": {
+        "answer": 82036,
+        "candidate": 201,
+        "answer_feedback": "That sounds procedural, not gubernatorial."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82537,
+      "fields": {
+        "answer": 82037,
+        "candidate": 200,
+        "answer_feedback": "A strong Republican education frame with broad-ish appeal."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82538,
+      "fields": {
+        "answer": 82038,
+        "candidate": 200,
+        "answer_feedback": "The base likes it, but rural counties are protective of their local public schools."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82539,
+      "fields": {
+        "answer": 82039,
+        "candidate": 200,
+        "answer_feedback": "This is a more complete education message."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82540,
+      "fields": {
+        "answer": 82040,
+        "candidate": 200,
+        "answer_feedback": "It fires up activists but narrows the message."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82541,
+      "fields": {
+        "answer": 82041,
+        "candidate": 201,
+        "answer_feedback": "This is the heart of your cross-partisan appeal."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82542,
+      "fields": {
+        "answer": 82042,
+        "candidate": 201,
+        "answer_feedback": "Good, but the message is strongest when grounded locally."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82543,
+      "fields": {
+        "answer": 82043,
+        "candidate": 201,
+        "answer_feedback": "Some voters will accept it, but over-politicizing tragedy can backfire."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82544,
+      "fields": {
+        "answer": 82044,
+        "candidate": 201,
+        "answer_feedback": "A mistake. You are leaving your strongest personal proof point unused."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82545,
+      "fields": {
+        "answer": 82045,
+        "candidate": 200,
+        "answer_feedback": "This is careful and credible enough to compete on a tough issue."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82546,
+      "fields": {
+        "answer": 82046,
+        "candidate": 200,
+        "answer_feedback": "It is aggressive, but voters tend to give him credit here."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82547,
+      "fields": {
+        "answer": 82047,
+        "candidate": 200,
+        "answer_feedback": "A reasonable escape route that does not look callous."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82548,
+      "fields": {
+        "answer": 82048,
+        "candidate": 200,
+        "answer_feedback": "This localizes the criticism and softens the partisan edge."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82549,
+      "fields": {
+        "answer": 82049,
+        "candidate": 201,
+        "answer_feedback": "A balanced law-and-order message that fits a Democratic governor in Kentucky."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82550,
+      "fields": {
+        "answer": 82050,
+        "candidate": 201,
+        "answer_feedback": "Democrats like it, but you sound less focused on safety."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82551,
+      "fields": {
+        "answer": 82051,
+        "candidate": 201,
+        "answer_feedback": "Smart. Local validators matter here."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82552,
+      "fields": {
+        "answer": 82052,
+        "candidate": 201,
+        "answer_feedback": "Conceding the topic lets him define you."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82553,
+      "fields": {
+        "answer": 82053,
+        "candidate": 200,
+        "answer_feedback": "This is one of your clearest credentials."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82554,
+      "fields": {
+        "answer": 82054,
+        "candidate": 200,
+        "answer_feedback": "It helps in red counties but can sound canned in a governor race."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82555,
+      "fields": {
+        "answer": 82055,
+        "candidate": 200,
+        "answer_feedback": "The extra detail helps you look serious and humane."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82556,
+      "fields": {
+        "answer": 82056,
+        "candidate": 200,
+        "answer_feedback": "It may backfire in the state's biggest vote bank and sounds less statewide."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82557,
+      "fields": {
+        "answer": 82057,
+        "candidate": 201,
+        "answer_feedback": "A compassionate and executive-minded answer."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82558,
+      "fields": {
+        "answer": 82058,
+        "candidate": 201,
+        "answer_feedback": "Useful, but you should not sound like a copy of the attorney general."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82559,
+      "fields": {
+        "answer": 82059,
+        "candidate": 201,
+        "answer_feedback": "Very Kentucky. It makes the issue human without sounding partisan."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82560,
+      "fields": {
+        "answer": 82060,
+        "candidate": 201,
+        "answer_feedback": "Too thin for communities that live this crisis."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82561,
+      "fields": {
+        "answer": 82061,
+        "candidate": 200,
+        "answer_feedback": "Strong and natural for your office."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82562,
+      "fields": {
+        "answer": 82062,
+        "candidate": 200,
+        "answer_feedback": "This broadens your appeal beyond punitive politics."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82563,
+      "fields": {
+        "answer": 82063,
+        "candidate": 200,
+        "answer_feedback": "A base hit, but it can feel distant from local treatment needs."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82564,
+      "fields": {
+        "answer": 82064,
+        "candidate": 200,
+        "answer_feedback": "You are attorney general; silence looks strange."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82565,
+      "fields": {
+        "answer": 82065,
+        "candidate": 201,
+        "answer_feedback": "A strong Democratic advantage wrapped in local terms."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82566,
+      "fields": {
+        "answer": 82066,
+        "candidate": 201,
+        "answer_feedback": "It helps with loyal supporters, but reopens a polarizing chapter."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82567,
+      "fields": {
+        "answer": 82067,
+        "candidate": 201,
+        "answer_feedback": "A good issue bridge for suburban voters."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82568,
+      "fields": {
+        "answer": 82068,
+        "candidate": 201,
+        "answer_feedback": "You leave a natural strength underdeveloped."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82569,
+      "fields": {
+        "answer": 82069,
+        "candidate": 200,
+        "answer_feedback": "Still potent with conservatives, but less fresh in 2023."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82570,
+      "fields": {
+        "answer": 82070,
+        "candidate": 200,
+        "answer_feedback": "This is a governor-like health care message."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82571,
+      "fields": {
+        "answer": 82071,
+        "candidate": 200,
+        "answer_feedback": "That is dangerous in Kentucky, especially in rural counties with hospital anxiety."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82572,
+      "fields": {
+        "answer": 82072,
+        "candidate": 200,
+        "answer_feedback": "A softer and smarter path."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82573,
+      "fields": {
+        "answer": 82073,
+        "candidate": 201,
+        "answer_feedback": "A careful fiscal message that fits an incumbent."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82574,
+      "fields": {
+        "answer": 82074,
+        "candidate": 201,
+        "answer_feedback": "Clear Democratic contrast, though it may sound national."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82575,
+      "fields": {
+        "answer": 82075,
+        "candidate": 201,
+        "answer_feedback": "Specific pocketbook relief is useful."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82576,
+      "fields": {
+        "answer": 82076,
+        "candidate": 201,
+        "answer_feedback": "Again, voters expect a governor to have a position."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82577,
+      "fields": {
+        "answer": 82077,
+        "candidate": 200,
+        "answer_feedback": "A familiar Republican winner, especially with the base."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82578,
+      "fields": {
+        "answer": 82078,
+        "candidate": 200,
+        "answer_feedback": "This contrast is useful and easy to understand."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82579,
+      "fields": {
+        "answer": 82079,
+        "candidate": 200,
+        "answer_feedback": "Good general-election politics; it softens the ideological edge."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82580,
+      "fields": {
+        "answer": 82080,
+        "candidate": 200,
+        "answer_feedback": "Too risky; Beshear can make it about school cuts."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82581,
+      "fields": {
+        "answer": 82081,
+        "candidate": 201,
+        "answer_feedback": "Necessary and smart in the mountains."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82582,
+      "fields": {
+        "answer": 82082,
+        "candidate": 201,
+        "answer_feedback": "Good around growth corridors, weaker in coal counties if unbalanced."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82583,
+      "fields": {
+        "answer": 82083,
+        "candidate": 201,
+        "answer_feedback": "Potentially effective, especially where recovery is tangible."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82584,
+      "fields": {
+        "answer": 82084,
+        "candidate": 201,
+        "answer_feedback": "You do not need to win coal counties, but you cannot collapse there."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82585,
+      "fields": {
+        "answer": 82085,
+        "candidate": 200,
+        "answer_feedback": "Strong in coal country and easy to repeat."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82586,
+      "fields": {
+        "answer": 82086,
+        "candidate": 200,
+        "answer_feedback": "This sounds more gubernatorial and less like a bumper sticker."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82587,
+      "fields": {
+        "answer": 82087,
+        "candidate": 200,
+        "answer_feedback": "You may be attacking jobs in counties you need."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82588,
+      "fields": {
+        "answer": 82088,
+        "candidate": 200,
+        "answer_feedback": "You miss a chance to bind Beshear to national Democrats."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82589,
+      "fields": {
+        "answer": 82089,
+        "candidate": 201,
+        "answer_feedback": "Using your money to define the atmosphere is exactly right."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82590,
+      "fields": {
+        "answer": 82090,
+        "candidate": 201,
+        "answer_feedback": "The late hit lands, but you risk letting him recover ground first."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82591,
+      "fields": {
+        "answer": 82091,
+        "candidate": 201,
+        "answer_feedback": "Useful in a lower-turnout off-year, though you still need air cover."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82592,
+      "fields": {
+        "answer": 82092,
+        "candidate": 201,
+        "answer_feedback": "You need those votes, but this race is won by margins everywhere else."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82593,
+      "fields": {
+        "answer": 82093,
+        "candidate": 200,
+        "answer_feedback": "A sensible division of labor."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82594,
+      "fields": {
+        "answer": 82094,
+        "candidate": 200,
+        "answer_feedback": "It may narrow the race, but voters also need to know you."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82595,
+      "fields": {
+        "answer": 82095,
+        "candidate": 200,
+        "answer_feedback": "Off-year turnout matters, especially in red counties."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82596,
+      "fields": {
+        "answer": 82096,
+        "candidate": 200,
+        "answer_feedback": "Beshear is too popular for autopilot."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82597,
+      "fields": {
+        "answer": 82097,
+        "candidate": 201,
+        "answer_feedback": "That is the contrast you want voters to remember."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82598,
+      "fields": {
+        "answer": 82098,
+        "candidate": 201,
+        "answer_feedback": "You may land hits, but too much aggression cuts against your brand."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82599,
+      "fields": {
+        "answer": 82099,
+        "candidate": 201,
+        "answer_feedback": "A disciplined incumbent performance."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82600,
+      "fields": {
+        "answer": 82100,
+        "candidate": 201,
+        "answer_feedback": "A little contrast is needed. Otherwise Cameron can look like the only candidate demanding change."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82601,
+      "fields": {
+        "answer": 82101,
+        "candidate": 200,
+        "answer_feedback": "This is the performance you need."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82602,
+      "fields": {
+        "answer": 82102,
+        "candidate": 200,
+        "answer_feedback": "Memorable, but it can feel evasive on state-specific questions."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82603,
+      "fields": {
+        "answer": 82103,
+        "candidate": 200,
+        "answer_feedback": "If done well, this is one of the highest-upside moments of the race."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82604,
+      "fields": {
+        "answer": 82104,
+        "candidate": 200,
+        "answer_feedback": "Too harsh. You risk confirming doubts about tone."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82605,
+      "fields": {
+        "answer": 82105,
+        "candidate": 201,
+        "answer_feedback": "Measured criticism works better than overreach."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82606,
+      "fields": {
+        "answer": 82106,
+        "candidate": 201,
+        "answer_feedback": "It may mobilize some voters, but statewide persuasion is less certain."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82607,
+      "fields": {
+        "answer": 82107,
+        "candidate": 201,
+        "answer_feedback": "A useful governing contrast."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82608,
+      "fields": {
+        "answer": 82108,
+        "candidate": 201,
+        "answer_feedback": "Too gentle. Cameron's credentials need scrutiny."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82609,
+      "fields": {
+        "answer": 82109,
+        "candidate": 200,
+        "answer_feedback": "This reminds voters why Republicans nominated you."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82610,
+      "fields": {
+        "answer": 82110,
+        "candidate": 200,
+        "answer_feedback": "A difficult issue handled with care can limit damage."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82611,
+      "fields": {
+        "answer": 82111,
+        "candidate": 200,
+        "answer_feedback": "This may work with the base but is too inflammatory statewide."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82612,
+      "fields": {
+        "answer": 82112,
+        "candidate": 200,
+        "answer_feedback": "You are not an outsider, and your office is your strongest qualification."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82613,
+      "fields": {
+        "answer": 82113,
+        "candidate": 201,
+        "answer_feedback": "Honest, but it still invites a fight on old wounds."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82614,
+      "fields": {
+        "answer": 82114,
+        "candidate": 201,
+        "answer_feedback": "This is the safest and most mature answer."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82615,
+      "fields": {
+        "answer": 82115,
+        "candidate": 201,
+        "answer_feedback": "Too polarizing for the voters you need."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82616,
+      "fields": {
+        "answer": 82116,
+        "candidate": 201,
+        "answer_feedback": "Evasion lets Cameron define it."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82617,
+      "fields": {
+        "answer": 82117,
+        "candidate": 200,
+        "answer_feedback": "Still strong with the base, especially small-business conservatives."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82618,
+      "fields": {
+        "answer": 82118,
+        "candidate": 200,
+        "answer_feedback": "This broadens the argument beyond grievance."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82619,
+      "fields": {
+        "answer": 82119,
+        "candidate": 200,
+        "answer_feedback": "It hits some parents, but it can feel dated."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82620,
+      "fields": {
+        "answer": 82120,
+        "candidate": 200,
+        "answer_feedback": "You lose a contrast, but at least you avoid looking backward."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82621,
+      "fields": {
+        "answer": 82121,
+        "candidate": 201,
+        "answer_feedback": "A values-based defense is stronger than jargon."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82622,
+      "fields": {
+        "answer": 82122,
+        "candidate": 201,
+        "answer_feedback": "Morally clear, but it may narrow your persuasion target."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82623,
+      "fields": {
+        "answer": 82123,
+        "candidate": 201,
+        "answer_feedback": "A smart pivot for a red-state Democrat."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82624,
+      "fields": {
+        "answer": 82124,
+        "candidate": 201,
+        "answer_feedback": "Cameron and the legislature will not let it fade."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82625,
+      "fields": {
+        "answer": 82125,
+        "candidate": 200,
+        "answer_feedback": "Strong with conservatives, but watch the suburbs."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82626,
+      "fields": {
+        "answer": 82126,
+        "candidate": 200,
+        "answer_feedback": "This is much better for a general electorate."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82627,
+      "fields": {
+        "answer": 82127,
+        "candidate": 200,
+        "answer_feedback": "The base roars; persuadable voters may tune out."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82628,
+      "fields": {
+        "answer": 82128,
+        "candidate": 200,
+        "answer_feedback": "You may disappoint activists, but you keep the race on stronger general-election turf."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82629,
+      "fields": {
+        "answer": 82129,
+        "candidate": 201,
+        "answer_feedback": "Very strong. This makes bipartisanship tangible."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82630,
+      "fields": {
+        "answer": 82130,
+        "candidate": 201,
+        "answer_feedback": "Technically true, politically risky."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82631,
+      "fields": {
+        "answer": 82131,
+        "candidate": 201,
+        "answer_feedback": "Good statewide policy with extra bite in recovery counties."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82632,
+      "fields": {
+        "answer": 82132,
+        "candidate": 201,
+        "answer_feedback": "Ribbon cuttings are an incumbent's native habitat for a reason."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82633,
+      "fields": {
+        "answer": 82133,
+        "candidate": 200,
+        "answer_feedback": "A reasonable contrast that does not attack popular investments."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82634,
+      "fields": {
+        "answer": 82134,
+        "candidate": 200,
+        "answer_feedback": "Dangerous when local counties like the projects."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82635,
+      "fields": {
+        "answer": 82135,
+        "candidate": 200,
+        "answer_feedback": "This works well outside the big metros."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82636,
+      "fields": {
+        "answer": 82136,
+        "candidate": 200,
+        "answer_feedback": "You miss a chance to look like an executive."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82637,
+      "fields": {
+        "answer": 82137,
+        "candidate": 201,
+        "answer_feedback": "A nice small proof point for your brand."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82638,
+      "fields": {
+        "answer": 82138,
+        "candidate": 201,
+        "answer_feedback": "Too small to carry the race."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82639,
+      "fields": {
+        "answer": 82139,
+        "candidate": 201,
+        "answer_feedback": "Smart targeting."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82640,
+      "fields": {
+        "answer": 82140,
+        "candidate": 201,
+        "answer_feedback": "Unnecessary; it was a bipartisan bill."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82641,
+      "fields": {
+        "answer": 82141,
+        "candidate": 200,
+        "answer_feedback": "Fine. No need to fight a settled side issue."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82642,
+      "fields": {
+        "answer": 82142,
+        "candidate": 200,
+        "answer_feedback": "This has a pocketbook angle, but do not sound joyless."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82643,
+      "fields": {
+        "answer": 82143,
+        "candidate": 200,
+        "answer_feedback": "It helps some social conservatives and hurts with younger voters."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82644,
+      "fields": {
+        "answer": 82144,
+        "candidate": 200,
+        "answer_feedback": "Acceptable, though you miss a low-risk chance to sound bipartisan."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82645,
+      "fields": {
+        "answer": 82145,
+        "candidate": 201,
+        "answer_feedback": "This keeps the Beshear coalition's practical-labor piece alive."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82646,
+      "fields": {
+        "answer": 82146,
+        "candidate": 201,
+        "answer_feedback": "Labor likes it, but the legislature makes it look unrealistic."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82647,
+      "fields": {
+        "answer": 82147,
+        "candidate": 201,
+        "answer_feedback": "A strong, concrete version of a labor message."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82648,
+      "fields": {
+        "answer": 82148,
+        "candidate": 201,
+        "answer_feedback": "That demobilizes people who helped make you competitive."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82649,
+      "fields": {
+        "answer": 82149,
+        "candidate": 200,
+        "answer_feedback": "Solid Republican orthodoxy."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82650,
+      "fields": {
+        "answer": 82150,
+        "candidate": 200,
+        "answer_feedback": "A savvy play for split-ticket workers."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82651,
+      "fields": {
+        "answer": 82151,
+        "candidate": 200,
+        "answer_feedback": "Risky in Kentucky, where teachers have broad community ties."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82652,
+      "fields": {
+        "answer": 82152,
+        "candidate": 200,
+        "answer_feedback": "Not bad, but it leaves Beshear's validators unchallenged."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82653,
+      "fields": {
+        "answer": 82153,
+        "candidate": 201,
+        "answer_feedback": "This is central to your red-state Democratic voice."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82654,
+      "fields": {
+        "answer": 82154,
+        "candidate": 201,
+        "answer_feedback": "It is authentic for some voters but invites theological combat."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82655,
+      "fields": {
+        "answer": 82155,
+        "candidate": 201,
+        "answer_feedback": "You lose an important bridge to persuadable conservatives."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82656,
+      "fields": {
+        "answer": 82156,
+        "candidate": 201,
+        "answer_feedback": "A strong and gentle validator strategy."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82657,
+      "fields": {
+        "answer": 82157,
+        "candidate": 200,
+        "answer_feedback": "This helps voters see you as more than a partisan warrior."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82658,
+      "fields": {
+        "answer": 82158,
+        "candidate": 200,
+        "answer_feedback": "Base turnout rises, but so does suburban discomfort."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82659,
+      "fields": {
+        "answer": 82159,
+        "candidate": 200,
+        "answer_feedback": "A good Kentucky-specific coalition image."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82660,
+      "fields": {
+        "answer": 82160,
+        "candidate": 200,
+        "answer_feedback": "Not fatal, but it misses part of your natural appeal."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82661,
+      "fields": {
+        "answer": 82161,
+        "candidate": 201,
+        "answer_feedback": "Coleman is a real asset where education and empathy matter."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82662,
+      "fields": {
+        "answer": 82162,
+        "candidate": 201,
+        "answer_feedback": "Understandable, but it underuses a credible lieutenant governor."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82663,
+      "fields": {
+        "answer": 82163,
+        "candidate": 201,
+        "answer_feedback": "Some contrast helps, but do not turn her into only a negative surrogate."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82664,
+      "fields": {
+        "answer": 82164,
+        "candidate": 201,
+        "answer_feedback": "This reinforces continuity and competence."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82665,
+      "fields": {
+        "answer": 82165,
+        "candidate": 200,
+        "answer_feedback": "A useful regional and governing validator."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82666,
+      "fields": {
+        "answer": 82166,
+        "candidate": 200,
+        "answer_feedback": "You miss a chance to reassure legislative Republicans."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82667,
+      "fields": {
+        "answer": 82167,
+        "candidate": 200,
+        "answer_feedback": "A classic split that can work if controlled."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82668,
+      "fields": {
+        "answer": 82168,
+        "candidate": 200,
+        "answer_feedback": "This helps answer the experience question."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82669,
+      "fields": {
+        "answer": 82169,
+        "candidate": 201,
+        "answer_feedback": "You need huge margins here, and this does it without sounding detached statewide."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82670,
+      "fields": {
+        "answer": 82170,
+        "candidate": 201,
+        "answer_feedback": "You need both. Starving the base is dangerous."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82671,
+      "fields": {
+        "answer": 82171,
+        "candidate": 201,
+        "answer_feedback": "Good for turnout and persuasion at once."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82672,
+      "fields": {
+        "answer": 82172,
+        "candidate": 201,
+        "answer_feedback": "That risks nationalizing the race and losing message control."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82673,
+      "fields": {
+        "answer": 82173,
+        "candidate": 200,
+        "answer_feedback": "That is where damage control can pay off."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82674,
+      "fields": {
+        "answer": 82174,
+        "candidate": 200,
+        "answer_feedback": "You need rural margins, but Jefferson and Fayette can bury you."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82675,
+      "fields": {
+        "answer": 82175,
+        "candidate": 200,
+        "answer_feedback": "This is your best metro message."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82676,
+      "fields": {
+        "answer": 82176,
+        "candidate": 200,
+        "answer_feedback": "It may get attention, but not necessarily the kind you need."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82677,
+      "fields": {
+        "answer": 82177,
+        "candidate": 201,
+        "answer_feedback": "Excellent for the Cincinnati media market."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82678,
+      "fields": {
+        "answer": 82178,
+        "candidate": 201,
+        "answer_feedback": "Useful, but do not forget the infrastructure proof point."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82679,
+      "fields": {
+        "answer": 82179,
+        "candidate": 201,
+        "answer_feedback": "A costly mistake. These margins matter."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82680,
+      "fields": {
+        "answer": 82180,
+        "candidate": 201,
+        "answer_feedback": "The bipartisan imagery is potent here."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82681,
+      "fields": {
+        "answer": 82181,
+        "candidate": 200,
+        "answer_feedback": "This is exactly where you need to sound less ideological."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82682,
+      "fields": {
+        "answer": 82182,
+        "candidate": 200,
+        "answer_feedback": "The base is there, but so are the defectors."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82683,
+      "fields": {
+        "answer": 82183,
+        "candidate": 200,
+        "answer_feedback": "A mixed but useful message."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82684,
+      "fields": {
+        "answer": 82184,
+        "candidate": 200,
+        "answer_feedback": "Beshear's path depends on overperforming here; do not let him."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82685,
+      "fields": {
+        "answer": 82185,
+        "candidate": 201,
+        "answer_feedback": "This is the Beshear path in miniature: lose red counties by less."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82686,
+      "fields": {
+        "answer": 82186,
+        "candidate": 201,
+        "answer_feedback": "Family memory and showing up both matter here."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82687,
+      "fields": {
+        "answer": 82187,
+        "candidate": 201,
+        "answer_feedback": "That gives back the overperformance that makes the statewide math work."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82688,
+      "fields": {
+        "answer": 82188,
+        "candidate": 201,
+        "answer_feedback": "Maybe, but positive presence works better than pure attack here."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82689,
+      "fields": {
+        "answer": 82189,
+        "candidate": 200,
+        "answer_feedback": "Strong. You need to restore normal Republican margins without seeming callous."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82690,
+      "fields": {
+        "answer": 82190,
+        "candidate": 200,
+        "answer_feedback": "You hit the partisan note but fail to answer why voters like Beshear."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82691,
+      "fields": {
+        "answer": 82191,
+        "candidate": 200,
+        "answer_feedback": "This is the most credible anti-Beshear version."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82692,
+      "fields": {
+        "answer": 82192,
+        "candidate": 200,
+        "answer_feedback": "Margins are the game. This complacency helps Beshear."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82693,
+      "fields": {
+        "answer": 82193,
+        "candidate": 201,
+        "answer_feedback": "A strong closer that synthesizes the whole campaign."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82694,
+      "fields": {
+        "answer": 82194,
+        "candidate": 201,
+        "answer_feedback": "A solid contrast, though slightly less expansive."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82695,
+      "fields": {
+        "answer": 82195,
+        "candidate": 201,
+        "answer_feedback": "The base responds, but Kentucky requires crossover voters."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82696,
+      "fields": {
+        "answer": 82196,
+        "candidate": 201,
+        "answer_feedback": "Too soft for a competitive final weekend."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82697,
+      "fields": {
+        "answer": 82197,
+        "candidate": 200,
+        "answer_feedback": "Your best closing message is broad but still Republican."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82698,
+      "fields": {
+        "answer": 82198,
+        "candidate": 200,
+        "answer_feedback": "A powerful partisan close, but it can miss Beshear's personal appeal."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82699,
+      "fields": {
+        "answer": 82199,
+        "candidate": 200,
+        "answer_feedback": "This is humanizing and may be underrated."
+      }
+    },
+    {
+      "model": "campaign_trail.answer_feedback",
+      "pk": 82700,
+      "fields": {
+        "answer": 82200,
+        "candidate": 200,
+        "answer_feedback": "A noisy finish can look desperate."
+      }
+    }
+  ],
+  "answer_effects": [
+    {
+      "answer_pk": 82001,
+      "question_pk": 81001,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 1,
+      "letter": "A",
+      "effect": {
+        "base": 1.2,
+        "approval": 1.1,
+        "economy": 0.7,
+        "rural": 0.2
+      },
+      "avg_swing": 2.284
+    },
+    {
+      "answer_pk": 82002,
+      "question_pk": 81001,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 1,
+      "letter": "B",
+      "effect": {
+        "base": 0.4,
+        "urban": 1.0,
+        "social_low": 0.5,
+        "rural": -0.7
+      },
+      "avg_swing": -0.035
+    },
+    {
+      "answer_pk": 82003,
+      "question_pk": 81001,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 1,
+      "letter": "C",
+      "effect": {
+        "base": 0.3,
+        "urban": 0.9,
+        "suburban": 0.9,
+        "social_high": -1.1
+      },
+      "avg_swing": -0.372
+    },
+    {
+      "answer_pk": 82004,
+      "question_pk": 81001,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 1,
+      "letter": "D",
+      "effect": {
+        "base": 0.8,
+        "rural": 0.7,
+        "approval": 0.9,
+        "urban": -0.2
+      },
+      "avg_swing": 1.84
+    },
+    {
+      "answer_pk": 82005,
+      "question_pk": 81001,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 1,
+      "letter": "A",
+      "effect": {
+        "base": 0.5,
+        "trump": 1.2,
+        "social_high": 0.5,
+        "approval": -0.8
+      },
+      "avg_swing": 1.235
+    },
+    {
+      "answer_pk": 82006,
+      "question_pk": 81001,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 1,
+      "letter": "B",
+      "effect": {
+        "base": 1.0,
+        "economy": 0.5,
+        "suburban": 0.5,
+        "urban": 0.1
+      },
+      "avg_swing": 1.362
+    },
+    {
+      "answer_pk": 82007,
+      "question_pk": 81001,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 1,
+      "letter": "C",
+      "effect": {
+        "base": 0.2,
+        "social_high": 0.8,
+        "education": -0.5,
+        "urban": -0.8
+      },
+      "avg_swing": 0.53
+    },
+    {
+      "answer_pk": 82008,
+      "question_pk": 81001,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 1,
+      "letter": "D",
+      "effect": {
+        "base": 0.9,
+        "suburban": 0.7,
+        "urban": 0.3,
+        "trump": -0.2
+      },
+      "avg_swing": 0.938
+    },
+    {
+      "answer_pk": 82009,
+      "question_pk": 81002,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 2,
+      "letter": "A",
+      "effect": {
+        "base": 1.0,
+        "suburban": 0.8,
+        "trump": 0.5,
+        "urban": -0.1
+      },
+      "avg_swing": 1.422
+    },
+    {
+      "answer_pk": 82010,
+      "question_pk": 81002,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 2,
+      "letter": "B",
+      "effect": {
+        "base": 0.3,
+        "urban": 0.8,
+        "education": 0.5,
+        "trump": -1.0
+      },
+      "avg_swing": 0.058
+    },
+    {
+      "answer_pk": 82011,
+      "question_pk": 81002,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 2,
+      "letter": "C",
+      "effect": {
+        "base": 0.7,
+        "urban": 0.4,
+        "suburban": 0.2
+      },
+      "avg_swing": 0.778
+    },
+    {
+      "answer_pk": 82012,
+      "question_pk": 81002,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 2,
+      "letter": "D",
+      "effect": {
+        "base": -0.6,
+        "economy": 0.4,
+        "trump": -1.4,
+        "urban": 0.4
+      },
+      "avg_swing": -1.167
+    },
+    {
+      "answer_pk": 82013,
+      "question_pk": 81002,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 2,
+      "letter": "A",
+      "effect": {
+        "base": 0.8,
+        "trump": 1.1,
+        "rural": 0.4,
+        "approval": -0.6
+      },
+      "avg_swing": 1.508
+    },
+    {
+      "answer_pk": 82014,
+      "question_pk": 81002,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 2,
+      "letter": "B",
+      "effect": {
+        "base": 0.2,
+        "trump": 1.5,
+        "suburban": -1.0,
+        "urban": -0.7
+      },
+      "avg_swing": 0.829
+    },
+    {
+      "answer_pk": 82015,
+      "question_pk": 81002,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 2,
+      "letter": "C",
+      "effect": {
+        "base": 0.9,
+        "suburban": 0.4,
+        "trump": 0.3
+      },
+      "avg_swing": 1.146
+    },
+    {
+      "answer_pk": 82016,
+      "question_pk": 81002,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 2,
+      "letter": "D",
+      "effect": {
+        "base": 0.6,
+        "suburban": 0.7,
+        "trump": -0.4,
+        "economy": 0.3
+      },
+      "avg_swing": 0.646
+    },
+    {
+      "answer_pk": 82017,
+      "question_pk": 81003,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 3,
+      "letter": "A",
+      "effect": {
+        "base": 1.2,
+        "suburban": 1.0,
+        "urban": 0.7,
+        "social_high": -0.5
+      },
+      "avg_swing": 1.029
+    },
+    {
+      "answer_pk": 82018,
+      "question_pk": 81003,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 3,
+      "letter": "B",
+      "effect": {
+        "base": 0.1,
+        "urban": 1.1,
+        "suburban": 0.4,
+        "social_high": -1.5
+      },
+      "avg_swing": -0.975
+    },
+    {
+      "answer_pk": 82019,
+      "question_pk": 81003,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 3,
+      "letter": "C",
+      "effect": {
+        "base": 0.4,
+        "economy": 0.3,
+        "social_high": -0.1
+      },
+      "avg_swing": 0.474
+    },
+    {
+      "answer_pk": 82020,
+      "question_pk": 81003,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 3,
+      "letter": "D",
+      "effect": {
+        "base": -0.8,
+        "urban": -0.6,
+        "suburban": -0.5,
+        "social_high": 0.2
+      },
+      "avg_swing": -0.784
+    },
+    {
+      "answer_pk": 82021,
+      "question_pk": 81003,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 3,
+      "letter": "A",
+      "effect": {
+        "base": 0.0,
+        "social_high": 1.1,
+        "suburban": -0.9,
+        "urban": -0.8
+      },
+      "avg_swing": 0.683
+    },
+    {
+      "answer_pk": 82022,
+      "question_pk": 81003,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 3,
+      "letter": "B",
+      "effect": {
+        "base": 0.9,
+        "suburban": 0.9,
+        "social_high": -0.2
+      },
+      "avg_swing": 0.889
+    },
+    {
+      "answer_pk": 82023,
+      "question_pk": 81003,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 3,
+      "letter": "C",
+      "effect": {
+        "base": 0.2,
+        "economy": 0.4,
+        "suburban": -0.2
+      },
+      "avg_swing": 0.376
+    },
+    {
+      "answer_pk": 82024,
+      "question_pk": 81003,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 3,
+      "letter": "D",
+      "effect": {
+        "base": 0.1,
+        "social_high": 0.8,
+        "suburban": -0.7
+      },
+      "avg_swing": 0.652
+    },
+    {
+      "answer_pk": 82025,
+      "question_pk": 81004,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 4,
+      "letter": "A",
+      "effect": {
+        "base": 1.0,
+        "economy": 1.0,
+        "suburban": 0.4
+      },
+      "avg_swing": 1.597
+    },
+    {
+      "answer_pk": 82026,
+      "question_pk": 81004,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 4,
+      "letter": "B",
+      "effect": {
+        "base": 0.2,
+        "urban": 0.4,
+        "economy": 0.2,
+        "trump": -0.3
+      },
+      "avg_swing": 0.173
+    },
+    {
+      "answer_pk": 82027,
+      "question_pk": 81004,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 4,
+      "letter": "C",
+      "effect": {
+        "base": 0.6,
+        "suburban": 0.5,
+        "rural": 0.2
+      },
+      "avg_swing": 0.865
+    },
+    {
+      "answer_pk": 82028,
+      "question_pk": 81004,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 4,
+      "letter": "D",
+      "effect": {
+        "base": -0.7,
+        "economy": -0.3,
+        "rural": -0.4
+      },
+      "avg_swing": -1.214
+    },
+    {
+      "answer_pk": 82029,
+      "question_pk": 81004,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 4,
+      "letter": "A",
+      "effect": {
+        "base": 1.0,
+        "economy": 0.7,
+        "rural": 0.4,
+        "approval": -0.4
+      },
+      "avg_swing": 1.529
+    },
+    {
+      "answer_pk": 82030,
+      "question_pk": 81004,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 4,
+      "letter": "B",
+      "effect": {
+        "base": 0.6,
+        "trump": 0.6,
+        "economy": 0.3
+      },
+      "avg_swing": 1.11
+    },
+    {
+      "answer_pk": 82031,
+      "question_pk": 81004,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 4,
+      "letter": "C",
+      "effect": {
+        "base": 0.8,
+        "suburban": 0.6,
+        "education": 0.3
+      },
+      "avg_swing": 1.06
+    },
+    {
+      "answer_pk": 82032,
+      "question_pk": 81004,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 4,
+      "letter": "D",
+      "effect": {
+        "base": -0.5,
+        "trump": 0.4,
+        "economy": -1.2,
+        "suburban": -0.5
+      },
+      "avg_swing": -0.986
+    },
+    {
+      "answer_pk": 82033,
+      "question_pk": 81005,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 5,
+      "letter": "A",
+      "effect": {
+        "base": 0.9,
+        "education": 1.1,
+        "urban": 0.4
+      },
+      "avg_swing": 1.511
+    },
+    {
+      "answer_pk": 82034,
+      "question_pk": 81005,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 5,
+      "letter": "B",
+      "effect": {
+        "base": 0.5,
+        "education": 0.8,
+        "social_high": -0.4
+      },
+      "avg_swing": 0.576
+    },
+    {
+      "answer_pk": 82035,
+      "question_pk": 81005,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 5,
+      "letter": "C",
+      "effect": {
+        "base": 0.8,
+        "economy": 0.6,
+        "rural": 0.3
+      },
+      "avg_swing": 1.383
+    },
+    {
+      "answer_pk": 82036,
+      "question_pk": 81005,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 5,
+      "letter": "D",
+      "effect": {
+        "base": -0.7,
+        "education": -0.8
+      },
+      "avg_swing": -1.113
+    },
+    {
+      "answer_pk": 82037,
+      "question_pk": 81005,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 5,
+      "letter": "A",
+      "effect": {
+        "base": 0.7,
+        "social_high": 0.6,
+        "education": 0.3
+      },
+      "avg_swing": 1.361
+    },
+    {
+      "answer_pk": 82038,
+      "question_pk": 81005,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 5,
+      "letter": "B",
+      "effect": {
+        "base": 0.1,
+        "social_high": 0.5,
+        "rural": -0.6,
+        "suburban": 0.2
+      },
+      "avg_swing": 0.024
+    },
+    {
+      "answer_pk": 82039,
+      "question_pk": 81005,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 5,
+      "letter": "C",
+      "effect": {
+        "base": 0.9,
+        "education": 0.7,
+        "suburban": 0.4
+      },
+      "avg_swing": 1.332
+    },
+    {
+      "answer_pk": 82040,
+      "question_pk": 81005,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 5,
+      "letter": "D",
+      "effect": {
+        "base": 0.0,
+        "social_high": 1.0,
+        "suburban": -0.8,
+        "urban": -0.7
+      },
+      "avg_swing": 0.627
+    },
+    {
+      "answer_pk": 82041,
+      "question_pk": 81006,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 6,
+      "letter": "A",
+      "effect": {
+        "base": 1.0,
+        "disaster": 1.6,
+        "rural": 0.5,
+        "approval": 0.8
+      },
+      "avg_swing": 2.41
+    },
+    {
+      "answer_pk": 82042,
+      "question_pk": 81006,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 6,
+      "letter": "B",
+      "effect": {
+        "base": 0.8,
+        "approval": 1.0,
+        "urban": 0.2
+      },
+      "avg_swing": 1.31
+    },
+    {
+      "answer_pk": 82043,
+      "question_pk": 81006,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 6,
+      "letter": "C",
+      "effect": {
+        "base": 0.0,
+        "disaster": 0.4,
+        "approval": -0.3
+      },
+      "avg_swing": 0.009
+    },
+    {
+      "answer_pk": 82044,
+      "question_pk": 81006,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 6,
+      "letter": "D",
+      "effect": {
+        "base": -0.9,
+        "disaster": -1.5,
+        "rural": -0.4
+      },
+      "avg_swing": -1.838
+    },
+    {
+      "answer_pk": 82045,
+      "question_pk": 81006,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 6,
+      "letter": "A",
+      "effect": {
+        "base": 0.5,
+        "disaster": 0.4,
+        "suburban": 0.2
+      },
+      "avg_swing": 0.69
+    },
+    {
+      "answer_pk": 82046,
+      "question_pk": 81006,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 6,
+      "letter": "B",
+      "effect": {
+        "base": -0.6,
+        "disaster": -1.2,
+        "approval": -0.8
+      },
+      "avg_swing": -1.457
+    },
+    {
+      "answer_pk": 82047,
+      "question_pk": 81006,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 6,
+      "letter": "C",
+      "effect": {
+        "base": 0.4,
+        "economy": 0.4,
+        "disaster": 0.1
+      },
+      "avg_swing": 0.65
+    },
+    {
+      "answer_pk": 82048,
+      "question_pk": 81006,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 6,
+      "letter": "D",
+      "effect": {
+        "base": 0.7,
+        "disaster": 0.6,
+        "trump": 0.2
+      },
+      "avg_swing": 1.051
+    },
+    {
+      "answer_pk": 82049,
+      "question_pk": 81007,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 7,
+      "letter": "A",
+      "effect": {
+        "base": 0.7,
+        "suburban": 0.5,
+        "urban": 0.3,
+        "social_high": 0.1
+      },
+      "avg_swing": 0.904
+    },
+    {
+      "answer_pk": 82050,
+      "question_pk": 81007,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 7,
+      "letter": "B",
+      "effect": {
+        "base": 0.1,
+        "urban": 0.5,
+        "social_high": -0.5
+      },
+      "avg_swing": -0.267
+    },
+    {
+      "answer_pk": 82051,
+      "question_pk": 81007,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 7,
+      "letter": "C",
+      "effect": {
+        "base": 0.8,
+        "rural": 0.5,
+        "approval": 0.5
+      },
+      "avg_swing": 1.489
+    },
+    {
+      "answer_pk": 82052,
+      "question_pk": 81007,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 7,
+      "letter": "D",
+      "effect": {
+        "base": -0.6,
+        "suburban": -0.4,
+        "social_high": -0.4
+      },
+      "avg_swing": -1.007
+    },
+    {
+      "answer_pk": 82053,
+      "question_pk": 81007,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 7,
+      "letter": "A",
+      "effect": {
+        "base": 0.9,
+        "social_high": 0.6,
+        "suburban": 0.3
+      },
+      "avg_swing": 1.458
+    },
+    {
+      "answer_pk": 82054,
+      "question_pk": 81007,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 7,
+      "letter": "B",
+      "effect": {
+        "base": 0.4,
+        "trump": 0.8,
+        "urban": -0.3
+      },
+      "avg_swing": 0.837
+    },
+    {
+      "answer_pk": 82055,
+      "question_pk": 81007,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 7,
+      "letter": "C",
+      "effect": {
+        "base": 1.0,
+        "suburban": 0.5,
+        "rural": 0.3
+      },
+      "avg_swing": 1.354
+    },
+    {
+      "answer_pk": 82056,
+      "question_pk": 81007,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 7,
+      "letter": "D",
+      "effect": {
+        "base": -0.2,
+        "urban": -1.0,
+        "social_high": 0.4
+      },
+      "avg_swing": 0.029
+    },
+    {
+      "answer_pk": 82057,
+      "question_pk": 81008,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 8,
+      "letter": "A",
+      "effect": {
+        "base": 0.9,
+        "rural": 0.5,
+        "approval": 0.5
+      },
+      "avg_swing": 1.588
+    },
+    {
+      "answer_pk": 82058,
+      "question_pk": 81008,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 8,
+      "letter": "B",
+      "effect": {
+        "base": 0.4,
+        "social_high": 0.3
+      },
+      "avg_swing": 0.653
+    },
+    {
+      "answer_pk": 82059,
+      "question_pk": 81008,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 8,
+      "letter": "C",
+      "effect": {
+        "base": 0.9,
+        "rural": 0.6,
+        "social_high": 0.2
+      },
+      "avg_swing": 1.602
+    },
+    {
+      "answer_pk": 82060,
+      "question_pk": 81008,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 8,
+      "letter": "D",
+      "effect": {
+        "base": -0.4,
+        "rural": -0.4
+      },
+      "avg_swing": -0.755
+    },
+    {
+      "answer_pk": 82061,
+      "question_pk": 81008,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 8,
+      "letter": "A",
+      "effect": {
+        "base": 0.8,
+        "social_high": 0.5,
+        "rural": 0.3
+      },
+      "avg_swing": 1.488
+    },
+    {
+      "answer_pk": 82062,
+      "question_pk": 81008,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 8,
+      "letter": "B",
+      "effect": {
+        "base": 1.0,
+        "suburban": 0.5,
+        "rural": 0.3
+      },
+      "avg_swing": 1.354
+    },
+    {
+      "answer_pk": 82063,
+      "question_pk": 81008,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 8,
+      "letter": "C",
+      "effect": {
+        "base": 0.4,
+        "trump": 0.7,
+        "approval": -0.2
+      },
+      "avg_swing": 0.713
+    },
+    {
+      "answer_pk": 82064,
+      "question_pk": 81008,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 8,
+      "letter": "D",
+      "effect": {
+        "base": -0.6,
+        "rural": -0.4
+      },
+      "avg_swing": -0.955
+    },
+    {
+      "answer_pk": 82065,
+      "question_pk": 81009,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 9,
+      "letter": "A",
+      "effect": {
+        "base": 1.0,
+        "rural": 0.5,
+        "urban": 0.5
+      },
+      "avg_swing": 1.498
+    },
+    {
+      "answer_pk": 82066,
+      "question_pk": 81009,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 9,
+      "letter": "B",
+      "effect": {
+        "base": 0.1,
+        "urban": 0.7,
+        "social_high": -0.9
+      },
+      "avg_swing": -0.583
+    },
+    {
+      "answer_pk": 82067,
+      "question_pk": 81009,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 9,
+      "letter": "C",
+      "effect": {
+        "base": 0.7,
+        "suburban": 0.7,
+        "social_high": -0.3
+      },
+      "avg_swing": 0.57
+    },
+    {
+      "answer_pk": 82068,
+      "question_pk": 81009,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 9,
+      "letter": "D",
+      "effect": {
+        "base": -0.4,
+        "urban": -0.3,
+        "rural": -0.2
+      },
+      "avg_swing": -0.61
+    },
+    {
+      "answer_pk": 82069,
+      "question_pk": 81009,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 9,
+      "letter": "A",
+      "effect": {
+        "base": 0.3,
+        "social_high": 0.8,
+        "urban": -0.5
+      },
+      "avg_swing": 0.92
+    },
+    {
+      "answer_pk": 82070,
+      "question_pk": 81009,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 9,
+      "letter": "B",
+      "effect": {
+        "base": 0.9,
+        "rural": 0.4,
+        "suburban": 0.4
+      },
+      "avg_swing": 1.325
+    },
+    {
+      "answer_pk": 82071,
+      "question_pk": 81009,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 9,
+      "letter": "C",
+      "effect": {
+        "base": -0.7,
+        "rural": -0.8,
+        "trump": 0.2
+      },
+      "avg_swing": -1.293
+    },
+    {
+      "answer_pk": 82072,
+      "question_pk": 81009,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 9,
+      "letter": "D",
+      "effect": {
+        "base": 0.8,
+        "suburban": 0.5,
+        "rural": 0.2
+      },
+      "avg_swing": 1.065
+    },
+    {
+      "answer_pk": 82073,
+      "question_pk": 81010,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 10,
+      "letter": "A",
+      "effect": {
+        "base": 0.6,
+        "education": 0.5,
+        "suburban": 0.3
+      },
+      "avg_swing": 0.911
+    },
+    {
+      "answer_pk": 82074,
+      "question_pk": 81010,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 10,
+      "letter": "B",
+      "effect": {
+        "base": 0.3,
+        "urban": 0.5,
+        "rural": -0.2
+      },
+      "avg_swing": 0.176
+    },
+    {
+      "answer_pk": 82075,
+      "question_pk": 81010,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 10,
+      "letter": "C",
+      "effect": {
+        "base": 0.8,
+        "rural": 0.3,
+        "suburban": 0.4
+      },
+      "avg_swing": 1.137
+    },
+    {
+      "answer_pk": 82076,
+      "question_pk": 81010,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 10,
+      "letter": "D",
+      "effect": {
+        "base": -0.5,
+        "economy": -0.3
+      },
+      "avg_swing": -0.658
+    },
+    {
+      "answer_pk": 82077,
+      "question_pk": 81010,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 10,
+      "letter": "A",
+      "effect": {
+        "base": 0.7,
+        "trump": 0.6,
+        "economy": 0.4
+      },
+      "avg_swing": 1.263
+    },
+    {
+      "answer_pk": 82078,
+      "question_pk": 81010,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 10,
+      "letter": "B",
+      "effect": {
+        "base": 0.8,
+        "suburban": 0.4,
+        "trump": 0.4
+      },
+      "avg_swing": 1.105
+    },
+    {
+      "answer_pk": 82079,
+      "question_pk": 81010,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 10,
+      "letter": "C",
+      "effect": {
+        "base": 0.8,
+        "rural": 0.4,
+        "suburban": 0.4
+      },
+      "avg_swing": 1.225
+    },
+    {
+      "answer_pk": 82080,
+      "question_pk": 81010,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 10,
+      "letter": "D",
+      "effect": {
+        "base": -0.2,
+        "education": -0.7,
+        "trump": 0.4
+      },
+      "avg_swing": -0.327
+    },
+    {
+      "answer_pk": 82081,
+      "question_pk": 81011,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 11,
+      "letter": "A",
+      "effect": {
+        "base": 0.7,
+        "coal": 1.0,
+        "trump": 0.4
+      },
+      "avg_swing": 1.414
+    },
+    {
+      "answer_pk": 82082,
+      "question_pk": 81011,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 11,
+      "letter": "B",
+      "effect": {
+        "base": 0.4,
+        "economy": 0.8,
+        "coal": -0.5
+      },
+      "avg_swing": 0.582
+    },
+    {
+      "answer_pk": 82083,
+      "question_pk": 81011,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 11,
+      "letter": "C",
+      "effect": {
+        "base": 0.3,
+        "disaster": 0.5,
+        "coal": 0.2
+      },
+      "avg_swing": 0.59
+    },
+    {
+      "answer_pk": 82084,
+      "question_pk": 81011,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 11,
+      "letter": "D",
+      "effect": {
+        "base": -0.6,
+        "coal": -1.2,
+        "rural": -0.4
+      },
+      "avg_swing": -1.53
+    },
+    {
+      "answer_pk": 82085,
+      "question_pk": 81011,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 11,
+      "letter": "A",
+      "effect": {
+        "base": 0.8,
+        "coal": 1.2,
+        "trump": 0.6
+      },
+      "avg_swing": 1.727
+    },
+    {
+      "answer_pk": 82086,
+      "question_pk": 81011,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 11,
+      "letter": "B",
+      "effect": {
+        "base": 0.9,
+        "coal": 0.8,
+        "economy": 0.4
+      },
+      "avg_swing": 1.494
+    },
+    {
+      "answer_pk": 82087,
+      "question_pk": 81011,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 11,
+      "letter": "C",
+      "effect": {
+        "base": -0.4,
+        "economy": -0.9,
+        "coal": 0.4
+      },
+      "avg_swing": -0.683
+    },
+    {
+      "answer_pk": 82088,
+      "question_pk": 81011,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 11,
+      "letter": "D",
+      "effect": {
+        "base": -0.2,
+        "coal": -0.5
+      },
+      "avg_swing": -0.44
+    },
+    {
+      "answer_pk": 82089,
+      "question_pk": 81012,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 12,
+      "letter": "A",
+      "effect": {
+        "base": 1.0,
+        "approval": 0.9,
+        "suburban": 0.4
+      },
+      "avg_swing": 1.51
+    },
+    {
+      "answer_pk": 82090,
+      "question_pk": 81012,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 12,
+      "letter": "B",
+      "effect": {
+        "base": 0.4,
+        "suburban": 0.6,
+        "social_high": -0.3
+      },
+      "avg_swing": 0.252
+    },
+    {
+      "answer_pk": 82091,
+      "question_pk": 81012,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 12,
+      "letter": "C",
+      "effect": {
+        "base": 0.7,
+        "rural": 0.4,
+        "urban": 0.3
+      },
+      "avg_swing": 1.088
+    },
+    {
+      "answer_pk": 82092,
+      "question_pk": 81012,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 12,
+      "letter": "D",
+      "effect": {
+        "base": -0.1,
+        "urban": 0.8,
+        "rural": -0.8,
+        "suburban": -0.4
+      },
+      "avg_swing": -0.794
+    },
+    {
+      "answer_pk": 82093,
+      "question_pk": 81012,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 12,
+      "letter": "A",
+      "effect": {
+        "base": 1.0,
+        "suburban": 0.6,
+        "approval": -0.2
+      },
+      "avg_swing": 1.007
+    },
+    {
+      "answer_pk": 82094,
+      "question_pk": 81012,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 12,
+      "letter": "B",
+      "effect": {
+        "base": 0.3,
+        "trump": 0.8,
+        "suburban": -0.3
+      },
+      "avg_swing": 0.717
+    },
+    {
+      "answer_pk": 82095,
+      "question_pk": 81012,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 12,
+      "letter": "C",
+      "effect": {
+        "base": 0.7,
+        "trump": 0.7,
+        "rural": 0.5
+      },
+      "avg_swing": 1.555
+    },
+    {
+      "answer_pk": 82096,
+      "question_pk": 81012,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 12,
+      "letter": "D",
+      "effect": {
+        "base": -0.9,
+        "approval": -0.6
+      },
+      "avg_swing": -1.193
+    },
+    {
+      "answer_pk": 82097,
+      "question_pk": 81013,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 13,
+      "letter": "A",
+      "effect": {
+        "base": 1.0,
+        "suburban": 0.8,
+        "approval": 0.5
+      },
+      "avg_swing": 1.384
+    },
+    {
+      "answer_pk": 82098,
+      "question_pk": 81013,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 13,
+      "letter": "B",
+      "effect": {
+        "base": 0.2,
+        "urban": 0.5,
+        "approval": -0.4
+      },
+      "avg_swing": 0.059
+    },
+    {
+      "answer_pk": 82099,
+      "question_pk": 81013,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 13,
+      "letter": "C",
+      "effect": {
+        "base": 0.8,
+        "economy": 0.5,
+        "disaster": 0.5
+      },
+      "avg_swing": 1.258
+    },
+    {
+      "answer_pk": 82100,
+      "question_pk": 81013,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 13,
+      "letter": "D",
+      "effect": {
+        "base": -0.3,
+        "suburban": -0.2
+      },
+      "avg_swing": -0.335
+    },
+    {
+      "answer_pk": 82101,
+      "question_pk": 81013,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 13,
+      "letter": "A",
+      "effect": {
+        "base": 1.0,
+        "suburban": 0.7,
+        "economy": 0.5
+      },
+      "avg_swing": 1.386
+    },
+    {
+      "answer_pk": 82102,
+      "question_pk": 81013,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 13,
+      "letter": "B",
+      "effect": {
+        "base": 0.2,
+        "trump": 0.8,
+        "approval": -0.5
+      },
+      "avg_swing": 0.425
+    },
+    {
+      "answer_pk": 82103,
+      "question_pk": 81013,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 13,
+      "letter": "C",
+      "effect": {
+        "base": 1.1,
+        "suburban": 1.0,
+        "social_high": -0.2
+      },
+      "avg_swing": 1.106
+    },
+    {
+      "answer_pk": 82104,
+      "question_pk": 81013,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 13,
+      "letter": "D",
+      "effect": {
+        "base": -0.8,
+        "approval": -0.7,
+        "disaster": -0.7
+      },
+      "avg_swing": -1.414
+    },
+    {
+      "answer_pk": 82105,
+      "question_pk": 81014,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 14,
+      "letter": "A",
+      "effect": {
+        "base": 0.6,
+        "urban": 0.8,
+        "suburban": 0.3
+      },
+      "avg_swing": 0.739
+    },
+    {
+      "answer_pk": 82106,
+      "question_pk": 81014,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 14,
+      "letter": "B",
+      "effect": {
+        "base": 0.0,
+        "urban": 1.1,
+        "social_high": -0.7,
+        "suburban": -0.2
+      },
+      "avg_swing": -0.506
+    },
+    {
+      "answer_pk": 82107,
+      "question_pk": 81014,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 14,
+      "letter": "C",
+      "effect": {
+        "base": 0.5,
+        "suburban": 0.4,
+        "trump": -0.2
+      },
+      "avg_swing": 0.453
+    },
+    {
+      "answer_pk": 82108,
+      "question_pk": 81014,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 14,
+      "letter": "D",
+      "effect": {
+        "base": -0.2,
+        "urban": -0.2
+      },
+      "avg_swing": -0.222
+    },
+    {
+      "answer_pk": 82109,
+      "question_pk": 81014,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 14,
+      "letter": "A",
+      "effect": {
+        "base": 0.9,
+        "social_high": 0.5,
+        "trump": 0.3
+      },
+      "avg_swing": 1.498
+    },
+    {
+      "answer_pk": 82110,
+      "question_pk": 81014,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 14,
+      "letter": "B",
+      "effect": {
+        "base": 0.7,
+        "urban": 0.4,
+        "suburban": 0.3
+      },
+      "avg_swing": 0.796
+    },
+    {
+      "answer_pk": 82111,
+      "question_pk": 81014,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 14,
+      "letter": "C",
+      "effect": {
+        "base": -0.1,
+        "social_high": 0.7,
+        "urban": -1.2,
+        "suburban": -0.4
+      },
+      "avg_swing": 0.29
+    },
+    {
+      "answer_pk": 82112,
+      "question_pk": 81014,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 14,
+      "letter": "D",
+      "effect": {
+        "base": -0.4,
+        "suburban": -0.2
+      },
+      "avg_swing": -0.435
+    },
+    {
+      "answer_pk": 82113,
+      "question_pk": 81015,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 15,
+      "letter": "A",
+      "effect": {
+        "base": 0.2,
+        "approval": 0.4,
+        "social_high": -0.8
+      },
+      "avg_swing": -0.279
+    },
+    {
+      "answer_pk": 82114,
+      "question_pk": 81015,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 15,
+      "letter": "B",
+      "effect": {
+        "base": 0.8,
+        "suburban": 0.5,
+        "approval": 0.4
+      },
+      "avg_swing": 1.083
+    },
+    {
+      "answer_pk": 82115,
+      "question_pk": 81015,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 15,
+      "letter": "C",
+      "effect": {
+        "base": -0.1,
+        "urban": 0.5,
+        "social_high": -1.0
+      },
+      "avg_swing": -0.889
+    },
+    {
+      "answer_pk": 82116,
+      "question_pk": 81015,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 15,
+      "letter": "D",
+      "effect": {
+        "base": -0.4,
+        "approval": -0.3
+      },
+      "avg_swing": -0.547
+    },
+    {
+      "answer_pk": 82117,
+      "question_pk": 81015,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 15,
+      "letter": "A",
+      "effect": {
+        "base": 0.5,
+        "social_high": 0.9,
+        "rural": 0.4
+      },
+      "avg_swing": 1.614
+    },
+    {
+      "answer_pk": 82118,
+      "question_pk": 81015,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 15,
+      "letter": "B",
+      "effect": {
+        "base": 0.9,
+        "suburban": 0.6,
+        "social_high": 0.3
+      },
+      "avg_swing": 1.258
+    },
+    {
+      "answer_pk": 82119,
+      "question_pk": 81015,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 15,
+      "letter": "C",
+      "effect": {
+        "base": 0.1,
+        "education": 0.2,
+        "suburban": -0.2
+      },
+      "avg_swing": 0.168
+    },
+    {
+      "answer_pk": 82120,
+      "question_pk": 81015,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 15,
+      "letter": "D",
+      "effect": {
+        "base": 0.0
+      },
+      "avg_swing": 0.0
+    },
+    {
+      "answer_pk": 82121,
+      "question_pk": 81016,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 16,
+      "letter": "A",
+      "effect": {
+        "base": 0.7,
+        "suburban": 0.6,
+        "urban": 0.5,
+        "social_high": -0.5
+      },
+      "avg_swing": 0.437
+    },
+    {
+      "answer_pk": 82122,
+      "question_pk": 81016,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 16,
+      "letter": "B",
+      "effect": {
+        "base": 0.1,
+        "urban": 0.9,
+        "social_high": -1.2
+      },
+      "avg_swing": -0.814
+    },
+    {
+      "answer_pk": 82123,
+      "question_pk": 81016,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 16,
+      "letter": "C",
+      "effect": {
+        "base": 0.6,
+        "economy": 0.4,
+        "suburban": 0.3
+      },
+      "avg_swing": 0.863
+    },
+    {
+      "answer_pk": 82124,
+      "question_pk": 81016,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 16,
+      "letter": "D",
+      "effect": {
+        "base": -0.4,
+        "urban": -0.3
+      },
+      "avg_swing": -0.432
+    },
+    {
+      "answer_pk": 82125,
+      "question_pk": 81016,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 16,
+      "letter": "A",
+      "effect": {
+        "base": 0.4,
+        "social_high": 1.0,
+        "suburban": -0.5,
+        "urban": -0.7
+      },
+      "avg_swing": 1.08
+    },
+    {
+      "answer_pk": 82126,
+      "question_pk": 81016,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 16,
+      "letter": "B",
+      "effect": {
+        "base": 0.9,
+        "social_high": 0.5,
+        "suburban": 0.4
+      },
+      "avg_swing": 1.392
+    },
+    {
+      "answer_pk": 82127,
+      "question_pk": 81016,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 16,
+      "letter": "C",
+      "effect": {
+        "base": -0.1,
+        "social_high": 1.1,
+        "suburban": -0.9
+      },
+      "avg_swing": 0.67
+    },
+    {
+      "answer_pk": 82128,
+      "question_pk": 81016,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 16,
+      "letter": "D",
+      "effect": {
+        "base": 0.5,
+        "economy": 0.5,
+        "social_high": -0.2
+      },
+      "avg_swing": 0.595
+    },
+    {
+      "answer_pk": 82129,
+      "question_pk": 81017,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 17,
+      "letter": "A",
+      "effect": {
+        "base": 1.0,
+        "rural": 0.5,
+        "economy": 0.5,
+        "approval": 0.4
+      },
+      "avg_swing": 1.903
+    },
+    {
+      "answer_pk": 82130,
+      "question_pk": 81017,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 17,
+      "letter": "B",
+      "effect": {
+        "base": -0.3,
+        "urban": 0.4,
+        "trump": -0.9
+      },
+      "avg_swing": -0.785
+    },
+    {
+      "answer_pk": 82131,
+      "question_pk": 81017,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 17,
+      "letter": "C",
+      "effect": {
+        "base": 0.8,
+        "disaster": 0.6,
+        "rural": 0.4
+      },
+      "avg_swing": 1.389
+    },
+    {
+      "answer_pk": 82132,
+      "question_pk": 81017,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 17,
+      "letter": "D",
+      "effect": {
+        "base": -0.5,
+        "economy": -0.4
+      },
+      "avg_swing": -0.711
+    },
+    {
+      "answer_pk": 82133,
+      "question_pk": 81017,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 17,
+      "letter": "A",
+      "effect": {
+        "base": 0.6,
+        "economy": 0.4,
+        "suburban": 0.3
+      },
+      "avg_swing": 0.863
+    },
+    {
+      "answer_pk": 82134,
+      "question_pk": 81017,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 17,
+      "letter": "B",
+      "effect": {
+        "base": -0.6,
+        "trump": 0.4,
+        "economy": -0.9
+      },
+      "avg_swing": -0.84
+    },
+    {
+      "answer_pk": 82135,
+      "question_pk": 81017,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 17,
+      "letter": "C",
+      "effect": {
+        "base": 0.9,
+        "rural": 0.5,
+        "economy": 0.5
+      },
+      "avg_swing": 1.608
+    },
+    {
+      "answer_pk": 82136,
+      "question_pk": 81017,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 17,
+      "letter": "D",
+      "effect": {
+        "base": -0.4,
+        "suburban": -0.3
+      },
+      "avg_swing": -0.453
+    },
+    {
+      "answer_pk": 82137,
+      "question_pk": 81018,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 18,
+      "letter": "A",
+      "effect": {
+        "base": 0.5,
+        "suburban": 0.3,
+        "urban": 0.3
+      },
+      "avg_swing": 0.585
+    },
+    {
+      "answer_pk": 82138,
+      "question_pk": 81018,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 18,
+      "letter": "B",
+      "effect": {
+        "base": 0.0,
+        "urban": 0.2
+      },
+      "avg_swing": 0.022
+    },
+    {
+      "answer_pk": 82139,
+      "question_pk": 81018,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 18,
+      "letter": "C",
+      "effect": {
+        "base": 0.4,
+        "suburban": 0.3,
+        "social_high": -0.1
+      },
+      "avg_swing": 0.368
+    },
+    {
+      "answer_pk": 82140,
+      "question_pk": 81018,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 18,
+      "letter": "D",
+      "effect": {
+        "base": -0.2,
+        "social_high": -0.3
+      },
+      "avg_swing": -0.453
+    },
+    {
+      "answer_pk": 82141,
+      "question_pk": 81018,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 18,
+      "letter": "A",
+      "effect": {
+        "base": 0.3,
+        "economy": 0.2
+      },
+      "avg_swing": 0.406
+    },
+    {
+      "answer_pk": 82142,
+      "question_pk": 81018,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 18,
+      "letter": "B",
+      "effect": {
+        "base": 0.2,
+        "social_high": 0.2,
+        "suburban": -0.1
+      },
+      "avg_swing": 0.351
+    },
+    {
+      "answer_pk": 82143,
+      "question_pk": 81018,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 18,
+      "letter": "C",
+      "effect": {
+        "base": -0.2,
+        "social_high": 0.5,
+        "urban": -0.5,
+        "suburban": -0.3
+      },
+      "avg_swing": 0.115
+    },
+    {
+      "answer_pk": 82144,
+      "question_pk": 81018,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 18,
+      "letter": "D",
+      "effect": {
+        "base": 0.0
+      },
+      "avg_swing": 0.0
+    },
+    {
+      "answer_pk": 82145,
+      "question_pk": 81019,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 19,
+      "letter": "A",
+      "effect": {
+        "base": 0.8,
+        "education": 0.7,
+        "urban": 0.3,
+        "rural": 0.2
+      },
+      "avg_swing": 1.372
+    },
+    {
+      "answer_pk": 82146,
+      "question_pk": 81019,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 19,
+      "letter": "B",
+      "effect": {
+        "base": 0.0,
+        "urban": 0.6,
+        "trump": -0.6
+      },
+      "avg_swing": -0.287
+    },
+    {
+      "answer_pk": 82147,
+      "question_pk": 81019,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 19,
+      "letter": "C",
+      "effect": {
+        "base": 0.8,
+        "economy": 0.5,
+        "rural": 0.2
+      },
+      "avg_swing": 1.241
+    },
+    {
+      "answer_pk": 82148,
+      "question_pk": 81019,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 19,
+      "letter": "D",
+      "effect": {
+        "base": -0.5,
+        "education": -0.5,
+        "urban": -0.3
+      },
+      "avg_swing": -0.791
+    },
+    {
+      "answer_pk": 82149,
+      "question_pk": 81019,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 19,
+      "letter": "A",
+      "effect": {
+        "base": 0.5,
+        "trump": 0.5,
+        "economy": 0.3
+      },
+      "avg_swing": 0.952
+    },
+    {
+      "answer_pk": 82150,
+      "question_pk": 81019,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 19,
+      "letter": "B",
+      "effect": {
+        "base": 0.7,
+        "economy": 0.5,
+        "suburban": 0.2
+      },
+      "avg_swing": 0.999
+    },
+    {
+      "answer_pk": 82151,
+      "question_pk": 81019,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 19,
+      "letter": "C",
+      "effect": {
+        "base": -0.1,
+        "social_high": 0.3,
+        "education": -0.9
+      },
+      "avg_swing": -0.312
+    },
+    {
+      "answer_pk": 82152,
+      "question_pk": 81019,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 19,
+      "letter": "D",
+      "effect": {
+        "base": 0.1
+      },
+      "avg_swing": 0.1
+    },
+    {
+      "answer_pk": 82153,
+      "question_pk": 81020,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 20,
+      "letter": "A",
+      "effect": {
+        "base": 0.9,
+        "rural": 0.6,
+        "approval": 0.5,
+        "social_high": 0.1
+      },
+      "avg_swing": 1.762
+    },
+    {
+      "answer_pk": 82154,
+      "question_pk": 81020,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 20,
+      "letter": "B",
+      "effect": {
+        "base": 0.1,
+        "urban": 0.4,
+        "social_high": -0.8
+      },
+      "avg_swing": -0.531
+    },
+    {
+      "answer_pk": 82155,
+      "question_pk": 81020,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 20,
+      "letter": "C",
+      "effect": {
+        "base": -0.4,
+        "rural": -0.4,
+        "approval": -0.2
+      },
+      "avg_swing": -0.853
+    },
+    {
+      "answer_pk": 82156,
+      "question_pk": 81020,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 20,
+      "letter": "D",
+      "effect": {
+        "base": 0.8,
+        "disaster": 0.6,
+        "rural": 0.3
+      },
+      "avg_swing": 1.3
+    },
+    {
+      "answer_pk": 82157,
+      "question_pk": 81020,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 20,
+      "letter": "A",
+      "effect": {
+        "base": 0.8,
+        "social_high": 0.5,
+        "suburban": 0.3
+      },
+      "avg_swing": 1.274
+    },
+    {
+      "answer_pk": 82158,
+      "question_pk": 81020,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 20,
+      "letter": "B",
+      "effect": {
+        "base": 0.0,
+        "social_high": 1.0,
+        "suburban": -0.8,
+        "urban": -0.7
+      },
+      "avg_swing": 0.627
+    },
+    {
+      "answer_pk": 82159,
+      "question_pk": 81020,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 20,
+      "letter": "C",
+      "effect": {
+        "base": 0.8,
+        "rural": 0.4,
+        "social_high": 0.4
+      },
+      "avg_swing": 1.493
+    },
+    {
+      "answer_pk": 82160,
+      "question_pk": 81020,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 20,
+      "letter": "D",
+      "effect": {
+        "base": -0.1,
+        "social_high": -0.2
+      },
+      "avg_swing": -0.269
+    },
+    {
+      "answer_pk": 82161,
+      "question_pk": 81021,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 21,
+      "letter": "A",
+      "effect": {
+        "base": 0.6,
+        "education": 0.8,
+        "western": 0.3
+      },
+      "avg_swing": 1.066
+    },
+    {
+      "answer_pk": 82162,
+      "question_pk": 81021,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 21,
+      "letter": "B",
+      "effect": {
+        "base": 0.1
+      },
+      "avg_swing": 0.1
+    },
+    {
+      "answer_pk": 82163,
+      "question_pk": 81021,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 21,
+      "letter": "C",
+      "effect": {
+        "base": 0.2,
+        "urban": 0.4,
+        "suburban": 0.3,
+        "social_high": -0.4
+      },
+      "avg_swing": -0.041
+    },
+    {
+      "answer_pk": 82164,
+      "question_pk": 81021,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 21,
+      "letter": "D",
+      "effect": {
+        "base": 0.6,
+        "rural": 0.3,
+        "approval": 0.3
+      },
+      "avg_swing": 1.013
+    },
+    {
+      "answer_pk": 82165,
+      "question_pk": 81021,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 21,
+      "letter": "A",
+      "effect": {
+        "base": 0.5,
+        "western": 0.6,
+        "trump": 0.2
+      },
+      "avg_swing": 0.722
+    },
+    {
+      "answer_pk": 82166,
+      "question_pk": 81021,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 21,
+      "letter": "B",
+      "effect": {
+        "base": 0.0
+      },
+      "avg_swing": 0.0
+    },
+    {
+      "answer_pk": 82167,
+      "question_pk": 81021,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 21,
+      "letter": "C",
+      "effect": {
+        "base": 0.5,
+        "approval": -0.2,
+        "suburban": 0.2
+      },
+      "avg_swing": 0.437
+    },
+    {
+      "answer_pk": 82168,
+      "question_pk": 81021,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 21,
+      "letter": "D",
+      "effect": {
+        "base": 0.7,
+        "suburban": 0.4,
+        "trump": 0.2
+      },
+      "avg_swing": 0.887
+    },
+    {
+      "answer_pk": 82169,
+      "question_pk": 81022,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 22,
+      "letter": "A",
+      "effect": {
+        "base": 0.7,
+        "urban": 1.2,
+        "education": 0.4
+      },
+      "avg_swing": 1.037
+    },
+    {
+      "answer_pk": 82170,
+      "question_pk": 81022,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 22,
+      "letter": "B",
+      "effect": {
+        "base": -0.4,
+        "urban": -1.0,
+        "rural": 0.3
+      },
+      "avg_swing": -0.242
+    },
+    {
+      "answer_pk": 82171,
+      "question_pk": 81022,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 22,
+      "letter": "C",
+      "effect": {
+        "base": 0.6,
+        "urban": 0.7,
+        "suburban": 0.3
+      },
+      "avg_swing": 0.728
+    },
+    {
+      "answer_pk": 82172,
+      "question_pk": 81022,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 22,
+      "letter": "D",
+      "effect": {
+        "base": -0.5,
+        "urban": -0.3,
+        "trump": -0.5
+      },
+      "avg_swing": -0.826
+    },
+    {
+      "answer_pk": 82173,
+      "question_pk": 81022,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 22,
+      "letter": "A",
+      "effect": {
+        "base": 0.7,
+        "suburban": 0.8,
+        "urban": 0.1
+      },
+      "avg_swing": 0.851
+    },
+    {
+      "answer_pk": 82174,
+      "question_pk": 81022,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 22,
+      "letter": "B",
+      "effect": {
+        "base": -0.3,
+        "trump": 0.6,
+        "urban": -1.0
+      },
+      "avg_swing": -0.056
+    },
+    {
+      "answer_pk": 82175,
+      "question_pk": 81022,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 22,
+      "letter": "C",
+      "effect": {
+        "base": 0.6,
+        "urban": 0.5,
+        "suburban": 0.4
+      },
+      "avg_swing": 0.724
+    },
+    {
+      "answer_pk": 82176,
+      "question_pk": 81022,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 22,
+      "letter": "D",
+      "effect": {
+        "base": -0.2,
+        "urban": -0.6,
+        "trump": 0.3
+      },
+      "avg_swing": -0.089
+    },
+    {
+      "answer_pk": 82177,
+      "question_pk": 81023,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 23,
+      "letter": "A",
+      "effect": {
+        "base": 0.8,
+        "nky": 1.1,
+        "economy": 0.4
+      },
+      "avg_swing": 1.112
+    },
+    {
+      "answer_pk": 82178,
+      "question_pk": 81023,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 23,
+      "letter": "B",
+      "effect": {
+        "base": 0.5,
+        "nky": 0.7,
+        "suburban": 0.5
+      },
+      "avg_swing": 0.652
+    },
+    {
+      "answer_pk": 82179,
+      "question_pk": 81023,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 23,
+      "letter": "C",
+      "effect": {
+        "base": -0.5,
+        "nky": -1.2
+      },
+      "avg_swing": -0.61
+    },
+    {
+      "answer_pk": 82180,
+      "question_pk": 81023,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 23,
+      "letter": "D",
+      "effect": {
+        "base": 0.7,
+        "nky": 0.9,
+        "suburban": 0.4
+      },
+      "avg_swing": 0.852
+    },
+    {
+      "answer_pk": 82181,
+      "question_pk": 81023,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 23,
+      "letter": "A",
+      "effect": {
+        "base": 0.9,
+        "nky": 1.1,
+        "suburban": 0.5
+      },
+      "avg_swing": 1.088
+    },
+    {
+      "answer_pk": 82182,
+      "question_pk": 81023,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 23,
+      "letter": "B",
+      "effect": {
+        "base": 0.0,
+        "nky": -0.4,
+        "trump": 0.7
+      },
+      "avg_swing": 0.374
+    },
+    {
+      "answer_pk": 82183,
+      "question_pk": 81023,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 23,
+      "letter": "C",
+      "effect": {
+        "base": 0.5,
+        "nky": 0.5,
+        "trump": 0.3
+      },
+      "avg_swing": 0.722
+    },
+    {
+      "answer_pk": 82184,
+      "question_pk": 81023,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 23,
+      "letter": "D",
+      "effect": {
+        "base": -0.5,
+        "nky": -1.0
+      },
+      "avg_swing": -0.592
+    },
+    {
+      "answer_pk": 82185,
+      "question_pk": 81024,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 24,
+      "letter": "A",
+      "effect": {
+        "base": 1.0,
+        "east": 1.2,
+        "disaster": 1.0,
+        "coal": 0.5
+      },
+      "avg_swing": 1.847
+    },
+    {
+      "answer_pk": 82186,
+      "question_pk": 81024,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 24,
+      "letter": "B",
+      "effect": {
+        "base": 0.8,
+        "east": 0.8,
+        "approval": 0.5
+      },
+      "avg_swing": 1.231
+    },
+    {
+      "answer_pk": 82187,
+      "question_pk": 81024,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 24,
+      "letter": "C",
+      "effect": {
+        "base": -0.8,
+        "east": -1.4,
+        "coal": -0.5
+      },
+      "avg_swing": -1.366
+    },
+    {
+      "answer_pk": 82188,
+      "question_pk": 81024,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 24,
+      "letter": "D",
+      "effect": {
+        "base": 0.2,
+        "east": 0.3,
+        "approval": -0.2
+      },
+      "avg_swing": 0.172
+    },
+    {
+      "answer_pk": 82189,
+      "question_pk": 81024,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 24,
+      "letter": "A",
+      "effect": {
+        "base": 1.0,
+        "east": 1.1,
+        "coal": 0.8
+      },
+      "avg_swing": 1.64
+    },
+    {
+      "answer_pk": 82190,
+      "question_pk": 81024,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 24,
+      "letter": "B",
+      "effect": {
+        "base": 0.3,
+        "coal": 0.8,
+        "disaster": -0.7
+      },
+      "avg_swing": 0.411
+    },
+    {
+      "answer_pk": 82191,
+      "question_pk": 81024,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 24,
+      "letter": "C",
+      "effect": {
+        "base": 0.8,
+        "east": 0.7,
+        "disaster": 0.4
+      },
+      "avg_swing": 1.119
+    },
+    {
+      "answer_pk": 82192,
+      "question_pk": 81024,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 24,
+      "letter": "D",
+      "effect": {
+        "base": -0.6,
+        "east": -1.0,
+        "trump": -0.3
+      },
+      "avg_swing": -1.009
+    },
+    {
+      "answer_pk": 82193,
+      "question_pk": 81025,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 25,
+      "letter": "A",
+      "effect": {
+        "base": 1.3,
+        "approval": 1.0,
+        "suburban": 0.6,
+        "rural": 0.3
+      },
+      "avg_swing": 2.16
+    },
+    {
+      "answer_pk": 82194,
+      "question_pk": 81025,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 25,
+      "letter": "B",
+      "effect": {
+        "base": 0.8,
+        "urban": 0.7,
+        "suburban": 0.6,
+        "social_high": -0.4
+      },
+      "avg_swing": 0.644
+    },
+    {
+      "answer_pk": 82195,
+      "question_pk": 81025,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 25,
+      "letter": "C",
+      "effect": {
+        "base": 0.0,
+        "urban": 1.0,
+        "trump": -1.0
+      },
+      "avg_swing": -0.478
+    },
+    {
+      "answer_pk": 82196,
+      "question_pk": 81025,
+      "candidate_id": 201,
+      "opponent_id": 200,
+      "candidate": "Beshear",
+      "turn": 25,
+      "letter": "D",
+      "effect": {
+        "base": -0.6,
+        "approval": -0.2
+      },
+      "avg_swing": -0.698
+    },
+    {
+      "answer_pk": 82197,
+      "question_pk": 81025,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 25,
+      "letter": "A",
+      "effect": {
+        "base": 1.2,
+        "economy": 0.6,
+        "social_high": 0.4,
+        "suburban": 0.4
+      },
+      "avg_swing": 1.924
+    },
+    {
+      "answer_pk": 82198,
+      "question_pk": 81025,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 25,
+      "letter": "B",
+      "effect": {
+        "base": 0.5,
+        "trump": 1.2,
+        "approval": -0.7
+      },
+      "avg_swing": 0.862
+    },
+    {
+      "answer_pk": 82199,
+      "question_pk": 81025,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 25,
+      "letter": "C",
+      "effect": {
+        "base": 0.9,
+        "suburban": 0.6,
+        "urban": 0.2
+      },
+      "avg_swing": 1.027
+    },
+    {
+      "answer_pk": 82200,
+      "question_pk": 81025,
+      "candidate_id": 200,
+      "opponent_id": 201,
+      "candidate": "Cameron",
+      "turn": 25,
+      "letter": "D",
+      "effect": {
+        "base": -0.7,
+        "approval": -0.6,
+        "suburban": -0.4
+      },
+      "avg_swing": -1.063
+    }
+  ],
+  "estimated_answer_score_rows": 48000,
+  "selected_answer_score_rows": 24000,
+  "states_json": [
+    {
+      "model": "campaign_trail.state",
+      "pk": 21001,
+      "fields": {
+        "election": 20,
+        "name": "Adair County",
+        "abbr": "K001",
+        "electoral_votes": 5,
+        "popular_votes": 5285,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21003,
+      "fields": {
+        "election": 20,
+        "name": "Allen County",
+        "abbr": "K002",
+        "electoral_votes": 5,
+        "popular_votes": 5112,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21005,
+      "fields": {
+        "election": 20,
+        "name": "Anderson County",
+        "abbr": "K003",
+        "electoral_votes": 9,
+        "popular_votes": 9290,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21007,
+      "fields": {
+        "election": 20,
+        "name": "Ballard County",
+        "abbr": "K004",
+        "electoral_votes": 3,
+        "popular_votes": 2654,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "Western Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21009,
+      "fields": {
+        "election": 20,
+        "name": "Barren County",
+        "abbr": "K005",
+        "electoral_votes": 12,
+        "popular_votes": 11884,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21011,
+      "fields": {
+        "election": 20,
+        "name": "Bath County",
+        "abbr": "K006",
+        "electoral_votes": 3,
+        "popular_votes": 3428,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21013,
+      "fields": {
+        "election": 20,
+        "name": "Bell County",
+        "abbr": "K007",
+        "electoral_votes": 6,
+        "popular_votes": 5668,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21015,
+      "fields": {
+        "election": 20,
+        "name": "Boone County",
+        "abbr": "K008",
+        "electoral_votes": 40,
+        "popular_votes": 39978,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "Northern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21017,
+      "fields": {
+        "election": 20,
+        "name": "Bourbon County",
+        "abbr": "K009",
+        "electoral_votes": 6,
+        "popular_votes": 6051,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21019,
+      "fields": {
+        "election": 20,
+        "name": "Boyd County",
+        "abbr": "K010",
+        "electoral_votes": 12,
+        "popular_votes": 11778,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21021,
+      "fields": {
+        "election": 20,
+        "name": "Boyle County",
+        "abbr": "K011",
+        "electoral_votes": 10,
+        "popular_votes": 9529,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21023,
+      "fields": {
+        "election": 20,
+        "name": "Bracken County",
+        "abbr": "K012",
+        "electoral_votes": 2,
+        "popular_votes": 2356,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "Northern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21025,
+      "fields": {
+        "election": 20,
+        "name": "Breathitt County",
+        "abbr": "K013",
+        "electoral_votes": 3,
+        "popular_votes": 2882,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21027,
+      "fields": {
+        "election": 20,
+        "name": "Breckinridge County",
+        "abbr": "K014",
+        "electoral_votes": 6,
+        "popular_votes": 6215,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21029,
+      "fields": {
+        "election": 20,
+        "name": "Bullitt County",
+        "abbr": "K015",
+        "electoral_votes": 25,
+        "popular_votes": 24958,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "Louisville metro"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21031,
+      "fields": {
+        "election": 20,
+        "name": "Butler County",
+        "abbr": "K016",
+        "electoral_votes": 4,
+        "popular_votes": 3648,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21033,
+      "fields": {
+        "election": 20,
+        "name": "Caldwell County",
+        "abbr": "K017",
+        "electoral_votes": 4,
+        "popular_votes": 3798,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21035,
+      "fields": {
+        "election": 20,
+        "name": "Calloway County",
+        "abbr": "K018",
+        "electoral_votes": 11,
+        "popular_votes": 11265,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "Western Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21037,
+      "fields": {
+        "election": 20,
+        "name": "Campbell County",
+        "abbr": "K019",
+        "electoral_votes": 31,
+        "popular_votes": 31160,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "Northern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21039,
+      "fields": {
+        "election": 20,
+        "name": "Carlisle County",
+        "abbr": "K020",
+        "electoral_votes": 2,
+        "popular_votes": 1797,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "Western Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21041,
+      "fields": {
+        "election": 20,
+        "name": "Carroll County",
+        "abbr": "K021",
+        "electoral_votes": 2,
+        "popular_votes": 2319,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "Northern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21043,
+      "fields": {
+        "election": 20,
+        "name": "Carter County",
+        "abbr": "K022",
+        "electoral_votes": 6,
+        "popular_votes": 6300,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21045,
+      "fields": {
+        "election": 20,
+        "name": "Casey County",
+        "abbr": "K023",
+        "electoral_votes": 4,
+        "popular_votes": 4329,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21047,
+      "fields": {
+        "election": 20,
+        "name": "Christian County",
+        "abbr": "K024",
+        "electoral_votes": 12,
+        "popular_votes": 12030,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "Western Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21049,
+      "fields": {
+        "election": 20,
+        "name": "Clark County",
+        "abbr": "K025",
+        "electoral_votes": 12,
+        "popular_votes": 11502,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21051,
+      "fields": {
+        "election": 20,
+        "name": "Clay County",
+        "abbr": "K026",
+        "electoral_votes": 4,
+        "popular_votes": 4044,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21053,
+      "fields": {
+        "election": 20,
+        "name": "Clinton County",
+        "abbr": "K027",
+        "electoral_votes": 2,
+        "popular_votes": 2495,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21055,
+      "fields": {
+        "election": 20,
+        "name": "Crittenden County",
+        "abbr": "K028",
+        "electoral_votes": 3,
+        "popular_votes": 2518,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "Western Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21057,
+      "fields": {
+        "election": 20,
+        "name": "Cumberland County",
+        "abbr": "K029",
+        "electoral_votes": 2,
+        "popular_votes": 1903,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21059,
+      "fields": {
+        "election": 20,
+        "name": "Daviess County",
+        "abbr": "K030",
+        "electoral_votes": 30,
+        "popular_votes": 30469,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "Western coalfield"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21061,
+      "fields": {
+        "election": 20,
+        "name": "Edmonson County",
+        "abbr": "K031",
+        "electoral_votes": 4,
+        "popular_votes": 3633,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21063,
+      "fields": {
+        "election": 20,
+        "name": "Elliott County",
+        "abbr": "K032",
+        "electoral_votes": 2,
+        "popular_votes": 1636,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21065,
+      "fields": {
+        "election": 20,
+        "name": "Estill County",
+        "abbr": "K033",
+        "electoral_votes": 4,
+        "popular_votes": 3578,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21067,
+      "fields": {
+        "election": 20,
+        "name": "Fayette County",
+        "abbr": "K034",
+        "electoral_votes": 104,
+        "popular_votes": 103545,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21069,
+      "fields": {
+        "election": 20,
+        "name": "Fleming County",
+        "abbr": "K035",
+        "electoral_votes": 4,
+        "popular_votes": 4427,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21071,
+      "fields": {
+        "election": 20,
+        "name": "Floyd County",
+        "abbr": "K036",
+        "electoral_votes": 9,
+        "popular_votes": 8989,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21073,
+      "fields": {
+        "election": 20,
+        "name": "Franklin County",
+        "abbr": "K037",
+        "electoral_votes": 20,
+        "popular_votes": 19701,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21075,
+      "fields": {
+        "election": 20,
+        "name": "Fulton County",
+        "abbr": "K038",
+        "electoral_votes": 1,
+        "popular_votes": 1370,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "Western Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21077,
+      "fields": {
+        "election": 20,
+        "name": "Gallatin County",
+        "abbr": "K039",
+        "electoral_votes": 2,
+        "popular_votes": 2125,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "Northern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21079,
+      "fields": {
+        "election": 20,
+        "name": "Garrard County",
+        "abbr": "K040",
+        "electoral_votes": 6,
+        "popular_votes": 5680,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21081,
+      "fields": {
+        "election": 20,
+        "name": "Grant County",
+        "abbr": "K041",
+        "electoral_votes": 6,
+        "popular_votes": 6314,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "Northern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21083,
+      "fields": {
+        "election": 20,
+        "name": "Graves County",
+        "abbr": "K042",
+        "electoral_votes": 11,
+        "popular_votes": 10648,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "Western Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21085,
+      "fields": {
+        "election": 20,
+        "name": "Grayson County",
+        "abbr": "K043",
+        "electoral_votes": 7,
+        "popular_votes": 6969,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21087,
+      "fields": {
+        "election": 20,
+        "name": "Green County",
+        "abbr": "K044",
+        "electoral_votes": 4,
+        "popular_votes": 3652,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21089,
+      "fields": {
+        "election": 20,
+        "name": "Greenup County",
+        "abbr": "K045",
+        "electoral_votes": 10,
+        "popular_votes": 9834,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21091,
+      "fields": {
+        "election": 20,
+        "name": "Hancock County",
+        "abbr": "K046",
+        "electoral_votes": 3,
+        "popular_votes": 2963,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21093,
+      "fields": {
+        "election": 20,
+        "name": "Hardin County",
+        "abbr": "K047",
+        "electoral_votes": 29,
+        "popular_votes": 28847,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21095,
+      "fields": {
+        "election": 20,
+        "name": "Harlan County",
+        "abbr": "K048",
+        "electoral_votes": 6,
+        "popular_votes": 5606,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21097,
+      "fields": {
+        "election": 20,
+        "name": "Harrison County",
+        "abbr": "K049",
+        "electoral_votes": 6,
+        "popular_votes": 5653,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21099,
+      "fields": {
+        "election": 20,
+        "name": "Hart County",
+        "abbr": "K050",
+        "electoral_votes": 5,
+        "popular_votes": 4971,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21101,
+      "fields": {
+        "election": 20,
+        "name": "Henderson County",
+        "abbr": "K051",
+        "electoral_votes": 13,
+        "popular_votes": 12638,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "Western coalfield"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21103,
+      "fields": {
+        "election": 20,
+        "name": "Henry County",
+        "abbr": "K052",
+        "electoral_votes": 5,
+        "popular_votes": 5170,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21105,
+      "fields": {
+        "election": 20,
+        "name": "Hickman County",
+        "abbr": "K053",
+        "electoral_votes": 1,
+        "popular_votes": 1423,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "Western Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21107,
+      "fields": {
+        "election": 20,
+        "name": "Hopkins County",
+        "abbr": "K054",
+        "electoral_votes": 13,
+        "popular_votes": 12663,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "Western coalfield"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21109,
+      "fields": {
+        "election": 20,
+        "name": "Jackson County",
+        "abbr": "K055",
+        "electoral_votes": 3,
+        "popular_votes": 3243,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21111,
+      "fields": {
+        "election": 20,
+        "name": "Jefferson County",
+        "abbr": "K056",
+        "electoral_votes": 257,
+        "popular_votes": 256773,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "Louisville metro"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21113,
+      "fields": {
+        "election": 20,
+        "name": "Jessamine County",
+        "abbr": "K057",
+        "electoral_votes": 17,
+        "popular_votes": 17112,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21115,
+      "fields": {
+        "election": 20,
+        "name": "Johnson County",
+        "abbr": "K058",
+        "electoral_votes": 5,
+        "popular_votes": 5118,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21117,
+      "fields": {
+        "election": 20,
+        "name": "Kenton County",
+        "abbr": "K059",
+        "electoral_votes": 49,
+        "popular_votes": 49371,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "Northern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21119,
+      "fields": {
+        "election": 20,
+        "name": "Knott County",
+        "abbr": "K060",
+        "electoral_votes": 3,
+        "popular_votes": 3392,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21121,
+      "fields": {
+        "election": 20,
+        "name": "Knox County",
+        "abbr": "K061",
+        "electoral_votes": 7,
+        "popular_votes": 6619,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21123,
+      "fields": {
+        "election": 20,
+        "name": "LaRue County",
+        "abbr": "K062",
+        "electoral_votes": 5,
+        "popular_votes": 4553,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21125,
+      "fields": {
+        "election": 20,
+        "name": "Laurel County",
+        "abbr": "K063",
+        "electoral_votes": 16,
+        "popular_votes": 15837,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21127,
+      "fields": {
+        "election": 20,
+        "name": "Lawrence County",
+        "abbr": "K064",
+        "electoral_votes": 4,
+        "popular_votes": 3648,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21129,
+      "fields": {
+        "election": 20,
+        "name": "Lee County",
+        "abbr": "K065",
+        "electoral_votes": 2,
+        "popular_votes": 1522,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21131,
+      "fields": {
+        "election": 20,
+        "name": "Leslie County",
+        "abbr": "K066",
+        "electoral_votes": 2,
+        "popular_votes": 2197,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21133,
+      "fields": {
+        "election": 20,
+        "name": "Letcher County",
+        "abbr": "K067",
+        "electoral_votes": 4,
+        "popular_votes": 4214,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21135,
+      "fields": {
+        "election": 20,
+        "name": "Lewis County",
+        "abbr": "K068",
+        "electoral_votes": 3,
+        "popular_votes": 2879,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21137,
+      "fields": {
+        "election": 20,
+        "name": "Lincoln County",
+        "abbr": "K069",
+        "electoral_votes": 7,
+        "popular_votes": 6838,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21139,
+      "fields": {
+        "election": 20,
+        "name": "Livingston County",
+        "abbr": "K070",
+        "electoral_votes": 3,
+        "popular_votes": 2897,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "Western Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21141,
+      "fields": {
+        "election": 20,
+        "name": "Logan County",
+        "abbr": "K071",
+        "electoral_votes": 7,
+        "popular_votes": 6557,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21143,
+      "fields": {
+        "election": 20,
+        "name": "Lyon County",
+        "abbr": "K072",
+        "electoral_votes": 3,
+        "popular_votes": 2840,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "Western Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21151,
+      "fields": {
+        "election": 20,
+        "name": "Madison County",
+        "abbr": "K073",
+        "electoral_votes": 27,
+        "popular_votes": 27093,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21153,
+      "fields": {
+        "election": 20,
+        "name": "Magoffin County",
+        "abbr": "K074",
+        "electoral_votes": 3,
+        "popular_votes": 3130,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21155,
+      "fields": {
+        "election": 20,
+        "name": "Marion County",
+        "abbr": "K075",
+        "electoral_votes": 6,
+        "popular_votes": 5545,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21157,
+      "fields": {
+        "election": 20,
+        "name": "Marshall County",
+        "abbr": "K076",
+        "electoral_votes": 12,
+        "popular_votes": 11543,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "Western Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21159,
+      "fields": {
+        "election": 20,
+        "name": "Martin County",
+        "abbr": "K077",
+        "electoral_votes": 2,
+        "popular_votes": 1721,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21161,
+      "fields": {
+        "election": 20,
+        "name": "Mason County",
+        "abbr": "K078",
+        "electoral_votes": 5,
+        "popular_votes": 4814,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "Northern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21145,
+      "fields": {
+        "election": 20,
+        "name": "McCracken County",
+        "abbr": "K079",
+        "electoral_votes": 21,
+        "popular_votes": 20966,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "Western Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21147,
+      "fields": {
+        "election": 20,
+        "name": "McCreary County",
+        "abbr": "K080",
+        "electoral_votes": 3,
+        "popular_votes": 3024,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21149,
+      "fields": {
+        "election": 20,
+        "name": "McLean County",
+        "abbr": "K081",
+        "electoral_votes": 3,
+        "popular_votes": 2977,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "Western coalfield"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21163,
+      "fields": {
+        "election": 20,
+        "name": "Meade County",
+        "abbr": "K082",
+        "electoral_votes": 8,
+        "popular_votes": 8344,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21165,
+      "fields": {
+        "election": 20,
+        "name": "Menifee County",
+        "abbr": "K083",
+        "electoral_votes": 2,
+        "popular_votes": 1879,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21167,
+      "fields": {
+        "election": 20,
+        "name": "Mercer County",
+        "abbr": "K084",
+        "electoral_votes": 8,
+        "popular_votes": 7679,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21169,
+      "fields": {
+        "election": 20,
+        "name": "Metcalfe County",
+        "abbr": "K085",
+        "electoral_votes": 3,
+        "popular_votes": 3030,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21171,
+      "fields": {
+        "election": 20,
+        "name": "Monroe County",
+        "abbr": "K086",
+        "electoral_votes": 4,
+        "popular_votes": 4048,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21173,
+      "fields": {
+        "election": 20,
+        "name": "Montgomery County",
+        "abbr": "K087",
+        "electoral_votes": 8,
+        "popular_votes": 8035,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21175,
+      "fields": {
+        "election": 20,
+        "name": "Morgan County",
+        "abbr": "K088",
+        "electoral_votes": 3,
+        "popular_votes": 3455,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21177,
+      "fields": {
+        "election": 20,
+        "name": "Muhlenberg County",
+        "abbr": "K089",
+        "electoral_votes": 8,
+        "popular_votes": 8252,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "Western coalfield"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21179,
+      "fields": {
+        "election": 20,
+        "name": "Nelson County",
+        "abbr": "K090",
+        "electoral_votes": 15,
+        "popular_votes": 14937,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21181,
+      "fields": {
+        "election": 20,
+        "name": "Nicholas County",
+        "abbr": "K091",
+        "electoral_votes": 2,
+        "popular_votes": 2039,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21183,
+      "fields": {
+        "election": 20,
+        "name": "Ohio County",
+        "abbr": "K092",
+        "electoral_votes": 6,
+        "popular_votes": 6318,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "Western coalfield"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21185,
+      "fields": {
+        "election": 20,
+        "name": "Oldham County",
+        "abbr": "K093",
+        "electoral_votes": 26,
+        "popular_votes": 26130,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "Louisville metro"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21187,
+      "fields": {
+        "election": 20,
+        "name": "Owen County",
+        "abbr": "K094",
+        "electoral_votes": 4,
+        "popular_votes": 3684,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "Northern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21189,
+      "fields": {
+        "election": 20,
+        "name": "Owsley County",
+        "abbr": "K095",
+        "electoral_votes": 1,
+        "popular_votes": 933,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21191,
+      "fields": {
+        "election": 20,
+        "name": "Pendleton County",
+        "abbr": "K096",
+        "electoral_votes": 4,
+        "popular_votes": 3955,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "Northern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21193,
+      "fields": {
+        "election": 20,
+        "name": "Perry County",
+        "abbr": "K097",
+        "electoral_votes": 6,
+        "popular_votes": 5594,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21195,
+      "fields": {
+        "election": 20,
+        "name": "Pike County",
+        "abbr": "K098",
+        "electoral_votes": 13,
+        "popular_votes": 12751,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21197,
+      "fields": {
+        "election": 20,
+        "name": "Powell County",
+        "abbr": "K099",
+        "electoral_votes": 3,
+        "popular_votes": 3035,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21199,
+      "fields": {
+        "election": 20,
+        "name": "Pulaski County",
+        "abbr": "K100",
+        "electoral_votes": 19,
+        "popular_votes": 19097,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21201,
+      "fields": {
+        "election": 20,
+        "name": "Robertson County",
+        "abbr": "K101",
+        "electoral_votes": 1,
+        "popular_votes": 695,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "Northern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21203,
+      "fields": {
+        "election": 20,
+        "name": "Rockcastle County",
+        "abbr": "K102",
+        "electoral_votes": 4,
+        "popular_votes": 4273,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21205,
+      "fields": {
+        "election": 20,
+        "name": "Rowan County",
+        "abbr": "K103",
+        "electoral_votes": 6,
+        "popular_votes": 6431,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21207,
+      "fields": {
+        "election": 20,
+        "name": "Russell County",
+        "abbr": "K104",
+        "electoral_votes": 5,
+        "popular_votes": 5341,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21209,
+      "fields": {
+        "election": 20,
+        "name": "Scott County",
+        "abbr": "K105",
+        "electoral_votes": 19,
+        "popular_votes": 19377,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21211,
+      "fields": {
+        "election": 20,
+        "name": "Shelby County",
+        "abbr": "K106",
+        "electoral_votes": 17,
+        "popular_votes": 16701,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "Louisville metro"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21213,
+      "fields": {
+        "election": 20,
+        "name": "Simpson County",
+        "abbr": "K107",
+        "electoral_votes": 5,
+        "popular_votes": 4623,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21215,
+      "fields": {
+        "election": 20,
+        "name": "Spencer County",
+        "abbr": "K108",
+        "electoral_votes": 7,
+        "popular_votes": 7429,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21217,
+      "fields": {
+        "election": 20,
+        "name": "Taylor County",
+        "abbr": "K109",
+        "electoral_votes": 8,
+        "popular_votes": 7839,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21219,
+      "fields": {
+        "election": 20,
+        "name": "Todd County",
+        "abbr": "K110",
+        "electoral_votes": 3,
+        "popular_votes": 2662,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21221,
+      "fields": {
+        "election": 20,
+        "name": "Trigg County",
+        "abbr": "K111",
+        "electoral_votes": 4,
+        "popular_votes": 4123,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "Western Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21223,
+      "fields": {
+        "election": 20,
+        "name": "Trimble County",
+        "abbr": "K112",
+        "electoral_votes": 3,
+        "popular_votes": 2513,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21225,
+      "fields": {
+        "election": 20,
+        "name": "Union County",
+        "abbr": "K113",
+        "electoral_votes": 4,
+        "popular_votes": 3829,
+        "poll_closing_time": 150,
+        "winner_take_all_flg": 1,
+        "region": "Western Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21227,
+      "fields": {
+        "election": 20,
+        "name": "Warren County",
+        "abbr": "K114",
+        "electoral_votes": 35,
+        "popular_votes": 34855,
+        "poll_closing_time": 180,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21229,
+      "fields": {
+        "election": 20,
+        "name": "Washington County",
+        "abbr": "K115",
+        "electoral_votes": 4,
+        "popular_votes": 4119,
+        "poll_closing_time": 210,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21231,
+      "fields": {
+        "election": 20,
+        "name": "Wayne County",
+        "abbr": "K116",
+        "electoral_votes": 5,
+        "popular_votes": 4639,
+        "poll_closing_time": 240,
+        "winner_take_all_flg": 1,
+        "region": "South Central / rural"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21233,
+      "fields": {
+        "election": 20,
+        "name": "Webster County",
+        "abbr": "K117",
+        "electoral_votes": 3,
+        "popular_votes": 3449,
+        "poll_closing_time": 270,
+        "winner_take_all_flg": 1,
+        "region": "Western coalfield"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21235,
+      "fields": {
+        "election": 20,
+        "name": "Whitley County",
+        "abbr": "K118",
+        "electoral_votes": 8,
+        "popular_votes": 8237,
+        "poll_closing_time": 300,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21237,
+      "fields": {
+        "election": 20,
+        "name": "Wolfe County",
+        "abbr": "K119",
+        "electoral_votes": 2,
+        "popular_votes": 1764,
+        "poll_closing_time": 330,
+        "winner_take_all_flg": 1,
+        "region": "Eastern Kentucky"
+      }
+    },
+    {
+      "model": "campaign_trail.state",
+      "pk": 21239,
+      "fields": {
+        "election": 20,
+        "name": "Woodford County",
+        "abbr": "K120",
+        "electoral_votes": 11,
+        "popular_votes": 10825,
+        "poll_closing_time": 120,
+        "winner_take_all_flg": 1,
+        "region": "Bluegrass"
+      }
+    }
+  ],
+  "issues_json": [
+    {
+      "model": "campaign_trail.issue",
+      "pk": 9101,
+      "fields": {
+        "name": "Beshear Approval",
+        "description": "Personal approval and incumbent goodwill.",
+        "stance_1": "Strongly Cameron",
+        "stance_desc_1": "The county strongly favors the Republican frame.",
+        "stance_2": "Leans Cameron",
+        "stance_desc_2": "The county leans toward Cameron's argument.",
+        "stance_3": "Slight Cameron Tilt",
+        "stance_desc_3": "The county is only slightly right of neutral.",
+        "stance_4": "Neutral",
+        "stance_desc_4": "The county is close to neutral on this issue.",
+        "stance_5": "Slight Beshear Tilt",
+        "stance_desc_5": "The county is only slightly left of neutral.",
+        "stance_6": "Leans Beshear",
+        "stance_desc_6": "The county leans toward Beshear's argument.",
+        "stance_7": "Strongly Beshear",
+        "stance_desc_7": "The county strongly favors the Democratic/incumbent frame."
+      }
+    },
+    {
+      "model": "campaign_trail.issue",
+      "pk": 9102,
+      "fields": {
+        "name": "Federal Partisanship",
+        "description": "How much national Democratic or Republican branding shapes the county.",
+        "stance_1": "Strongly Cameron",
+        "stance_desc_1": "The county strongly favors the Republican frame.",
+        "stance_2": "Leans Cameron",
+        "stance_desc_2": "The county leans toward Cameron's argument.",
+        "stance_3": "Slight Cameron Tilt",
+        "stance_desc_3": "The county is only slightly right of neutral.",
+        "stance_4": "Neutral",
+        "stance_desc_4": "The county is close to neutral on this issue.",
+        "stance_5": "Slight Beshear Tilt",
+        "stance_desc_5": "The county is only slightly left of neutral.",
+        "stance_6": "Leans Beshear",
+        "stance_desc_6": "The county leans toward Beshear's argument.",
+        "stance_7": "Strongly Beshear",
+        "stance_desc_7": "The county strongly favors the Democratic/incumbent frame."
+      }
+    },
+    {
+      "model": "campaign_trail.issue",
+      "pk": 9103,
+      "fields": {
+        "name": "Economy and Jobs",
+        "description": "Economic development, inflation, taxes, and workforce concerns.",
+        "stance_1": "Strongly Cameron",
+        "stance_desc_1": "The county strongly favors the Republican frame.",
+        "stance_2": "Leans Cameron",
+        "stance_desc_2": "The county leans toward Cameron's argument.",
+        "stance_3": "Slight Cameron Tilt",
+        "stance_desc_3": "The county is only slightly right of neutral.",
+        "stance_4": "Neutral",
+        "stance_desc_4": "The county is close to neutral on this issue.",
+        "stance_5": "Slight Beshear Tilt",
+        "stance_desc_5": "The county is only slightly left of neutral.",
+        "stance_6": "Leans Beshear",
+        "stance_desc_6": "The county leans toward Beshear's argument.",
+        "stance_7": "Strongly Beshear",
+        "stance_desc_7": "The county strongly favors the Democratic/incumbent frame."
+      }
+    },
+    {
+      "model": "campaign_trail.issue",
+      "pk": 9104,
+      "fields": {
+        "name": "Social Issues",
+        "description": "Abortion, schools, LGBTQ policy, and broader culture-war salience.",
+        "stance_1": "Strongly Cameron",
+        "stance_desc_1": "The county strongly favors the Republican frame.",
+        "stance_2": "Leans Cameron",
+        "stance_desc_2": "The county leans toward Cameron's argument.",
+        "stance_3": "Slight Cameron Tilt",
+        "stance_desc_3": "The county is only slightly right of neutral.",
+        "stance_4": "Neutral",
+        "stance_desc_4": "The county is close to neutral on this issue.",
+        "stance_5": "Slight Beshear Tilt",
+        "stance_desc_5": "The county is only slightly left of neutral.",
+        "stance_6": "Leans Beshear",
+        "stance_desc_6": "The county leans toward Beshear's argument.",
+        "stance_7": "Strongly Beshear",
+        "stance_desc_7": "The county strongly favors the Democratic/incumbent frame."
+      }
+    },
+    {
+      "model": "campaign_trail.issue",
+      "pk": 9105,
+      "fields": {
+        "name": "Disaster Response",
+        "description": "Tornado and flood recovery, emergency management, and local presence.",
+        "stance_1": "Strongly Cameron",
+        "stance_desc_1": "The county strongly favors the Republican frame.",
+        "stance_2": "Leans Cameron",
+        "stance_desc_2": "The county leans toward Cameron's argument.",
+        "stance_3": "Slight Cameron Tilt",
+        "stance_desc_3": "The county is only slightly right of neutral.",
+        "stance_4": "Neutral",
+        "stance_desc_4": "The county is close to neutral on this issue.",
+        "stance_5": "Slight Beshear Tilt",
+        "stance_desc_5": "The county is only slightly left of neutral.",
+        "stance_6": "Leans Beshear",
+        "stance_desc_6": "The county leans toward Beshear's argument.",
+        "stance_7": "Strongly Beshear",
+        "stance_desc_7": "The county strongly favors the Democratic/incumbent frame."
+      }
+    },
+    {
+      "model": "campaign_trail.issue",
+      "pk": 9106,
+      "fields": {
+        "name": "Coal and Energy",
+        "description": "Coalfield identity, energy policy, and Biden-era climate politics.",
+        "stance_1": "Strongly Cameron",
+        "stance_desc_1": "The county strongly favors the Republican frame.",
+        "stance_2": "Leans Cameron",
+        "stance_desc_2": "The county leans toward Cameron's argument.",
+        "stance_3": "Slight Cameron Tilt",
+        "stance_desc_3": "The county is only slightly right of neutral.",
+        "stance_4": "Neutral",
+        "stance_desc_4": "The county is close to neutral on this issue.",
+        "stance_5": "Slight Beshear Tilt",
+        "stance_desc_5": "The county is only slightly left of neutral.",
+        "stance_6": "Leans Beshear",
+        "stance_desc_6": "The county leans toward Beshear's argument.",
+        "stance_7": "Strongly Beshear",
+        "stance_desc_7": "The county strongly favors the Democratic/incumbent frame."
+      }
+    },
+    {
+      "model": "campaign_trail.issue",
+      "pk": 9107,
+      "fields": {
+        "name": "Education and Teachers",
+        "description": "Public schools, teacher pay, pensions, and parent concerns.",
+        "stance_1": "Strongly Cameron",
+        "stance_desc_1": "The county strongly favors the Republican frame.",
+        "stance_2": "Leans Cameron",
+        "stance_desc_2": "The county leans toward Cameron's argument.",
+        "stance_3": "Slight Cameron Tilt",
+        "stance_desc_3": "The county is only slightly right of neutral.",
+        "stance_4": "Neutral",
+        "stance_desc_4": "The county is close to neutral on this issue.",
+        "stance_5": "Slight Beshear Tilt",
+        "stance_desc_5": "The county is only slightly left of neutral.",
+        "stance_6": "Leans Beshear",
+        "stance_desc_6": "The county leans toward Beshear's argument.",
+        "stance_7": "Strongly Beshear",
+        "stance_desc_7": "The county strongly favors the Democratic/incumbent frame."
+      }
+    }
+  ],
+  "state_issue_score_json": [
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87001,
+      "fields": {
+        "state": 21001,
+        "issue": 9101,
+        "state_issue_score": -0.276,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87002,
+      "fields": {
+        "state": 21001,
+        "issue": 9102,
+        "state_issue_score": -0.789,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87003,
+      "fields": {
+        "state": 21001,
+        "issue": 9103,
+        "state_issue_score": -0.028,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87004,
+      "fields": {
+        "state": 21001,
+        "issue": 9104,
+        "state_issue_score": 0.898,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87005,
+      "fields": {
+        "state": 21001,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87006,
+      "fields": {
+        "state": 21001,
+        "issue": 9106,
+        "state_issue_score": -0.426,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87007,
+      "fields": {
+        "state": 21001,
+        "issue": 9107,
+        "state_issue_score": -0.06,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87008,
+      "fields": {
+        "state": 21003,
+        "issue": 9101,
+        "state_issue_score": -0.34,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87009,
+      "fields": {
+        "state": 21003,
+        "issue": 9102,
+        "state_issue_score": -0.747,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87010,
+      "fields": {
+        "state": 21003,
+        "issue": 9103,
+        "state_issue_score": -0.058,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87011,
+      "fields": {
+        "state": 21003,
+        "issue": 9104,
+        "state_issue_score": 0.86,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87012,
+      "fields": {
+        "state": 21003,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87013,
+      "fields": {
+        "state": 21003,
+        "issue": 9106,
+        "state_issue_score": -0.436,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87014,
+      "fields": {
+        "state": 21003,
+        "issue": 9107,
+        "state_issue_score": -0.088,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87015,
+      "fields": {
+        "state": 21005,
+        "issue": 9101,
+        "state_issue_score": -0.032,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87016,
+      "fields": {
+        "state": 21005,
+        "issue": 9102,
+        "state_issue_score": -0.56,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87017,
+      "fields": {
+        "state": 21005,
+        "issue": 9103,
+        "state_issue_score": -0.002,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87018,
+      "fields": {
+        "state": 21005,
+        "issue": 9104,
+        "state_issue_score": 0.696,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87019,
+      "fields": {
+        "state": 21005,
+        "issue": 9105,
+        "state_issue_score": -0.466,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87020,
+      "fields": {
+        "state": 21005,
+        "issue": 9106,
+        "state_issue_score": -0.488,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87021,
+      "fields": {
+        "state": 21005,
+        "issue": 9107,
+        "state_issue_score": -0.038,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87022,
+      "fields": {
+        "state": 21007,
+        "issue": 9101,
+        "state_issue_score": -0.2,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87023,
+      "fields": {
+        "state": 21007,
+        "issue": 9102,
+        "state_issue_score": -0.705,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87024,
+      "fields": {
+        "state": 21007,
+        "issue": 9103,
+        "state_issue_score": -0.024,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87025,
+      "fields": {
+        "state": 21007,
+        "issue": 9104,
+        "state_issue_score": 0.822,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87026,
+      "fields": {
+        "state": 21007,
+        "issue": 9105,
+        "state_issue_score": -0.38,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87027,
+      "fields": {
+        "state": 21007,
+        "issue": 9106,
+        "state_issue_score": -0.248,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87028,
+      "fields": {
+        "state": 21007,
+        "issue": 9107,
+        "state_issue_score": -0.056,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87029,
+      "fields": {
+        "state": 21009,
+        "issue": 9101,
+        "state_issue_score": -0.112,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87030,
+      "fields": {
+        "state": 21009,
+        "issue": 9102,
+        "state_issue_score": -0.559,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87031,
+      "fields": {
+        "state": 21009,
+        "issue": 9103,
+        "state_issue_score": -0.028,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87032,
+      "fields": {
+        "state": 21009,
+        "issue": 9104,
+        "state_issue_score": 0.694,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87033,
+      "fields": {
+        "state": 21009,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87034,
+      "fields": {
+        "state": 21009,
+        "issue": 9106,
+        "state_issue_score": -0.488,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87035,
+      "fields": {
+        "state": 21009,
+        "issue": 9107,
+        "state_issue_score": -0.06,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87036,
+      "fields": {
+        "state": 21011,
+        "issue": 9101,
+        "state_issue_score": 0.19,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87037,
+      "fields": {
+        "state": 21011,
+        "issue": 9102,
+        "state_issue_score": -0.505,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87038,
+      "fields": {
+        "state": 21011,
+        "issue": 9103,
+        "state_issue_score": 0.056,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87039,
+      "fields": {
+        "state": 21011,
+        "issue": 9104,
+        "state_issue_score": 0.646,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87040,
+      "fields": {
+        "state": 21011,
+        "issue": 9105,
+        "state_issue_score": -0.394,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87041,
+      "fields": {
+        "state": 21011,
+        "issue": 9106,
+        "state_issue_score": -0.502,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87042,
+      "fields": {
+        "state": 21011,
+        "issue": 9107,
+        "state_issue_score": 0.014,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87043,
+      "fields": {
+        "state": 21013,
+        "issue": 9101,
+        "state_issue_score": -0.102,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87044,
+      "fields": {
+        "state": 21013,
+        "issue": 9102,
+        "state_issue_score": -0.744,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87045,
+      "fields": {
+        "state": 21013,
+        "issue": 9103,
+        "state_issue_score": -0.062,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87046,
+      "fields": {
+        "state": 21013,
+        "issue": 9104,
+        "state_issue_score": 0.998,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87047,
+      "fields": {
+        "state": 21013,
+        "issue": 9105,
+        "state_issue_score": -0.222,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87048,
+      "fields": {
+        "state": 21013,
+        "issue": 9106,
+        "state_issue_score": 0.842,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87049,
+      "fields": {
+        "state": 21013,
+        "issue": 9107,
+        "state_issue_score": -0.02,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87050,
+      "fields": {
+        "state": 21015,
+        "issue": 9101,
+        "state_issue_score": 0.004,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87051,
+      "fields": {
+        "state": 21015,
+        "issue": 9102,
+        "state_issue_score": -0.42,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87052,
+      "fields": {
+        "state": 21015,
+        "issue": 9103,
+        "state_issue_score": 0.526,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87053,
+      "fields": {
+        "state": 21015,
+        "issue": 9104,
+        "state_issue_score": -0.004,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87054,
+      "fields": {
+        "state": 21015,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87055,
+      "fields": {
+        "state": 21015,
+        "issue": 9106,
+        "state_issue_score": -0.526,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87056,
+      "fields": {
+        "state": 21015,
+        "issue": 9107,
+        "state_issue_score": 0.276,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87057,
+      "fields": {
+        "state": 21017,
+        "issue": 9101,
+        "state_issue_score": 0.112,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87058,
+      "fields": {
+        "state": 21017,
+        "issue": 9102,
+        "state_issue_score": -0.353,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87059,
+      "fields": {
+        "state": 21017,
+        "issue": 9103,
+        "state_issue_score": -0.004,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87060,
+      "fields": {
+        "state": 21017,
+        "issue": 9104,
+        "state_issue_score": 0.512,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87061,
+      "fields": {
+        "state": 21017,
+        "issue": 9105,
+        "state_issue_score": -0.468,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87062,
+      "fields": {
+        "state": 21017,
+        "issue": 9106,
+        "state_issue_score": -0.544,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87063,
+      "fields": {
+        "state": 21017,
+        "issue": 9107,
+        "state_issue_score": -0.038,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87064,
+      "fields": {
+        "state": 21019,
+        "issue": 9101,
+        "state_issue_score": 0.146,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87065,
+      "fields": {
+        "state": 21019,
+        "issue": 9102,
+        "state_issue_score": -0.39,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87066,
+      "fields": {
+        "state": 21019,
+        "issue": 9103,
+        "state_issue_score": 0.11,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87067,
+      "fields": {
+        "state": 21019,
+        "issue": 9104,
+        "state_issue_score": 0.544,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87068,
+      "fields": {
+        "state": 21019,
+        "issue": 9105,
+        "state_issue_score": -0.474,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87069,
+      "fields": {
+        "state": 21019,
+        "issue": 9106,
+        "state_issue_score": -0.534,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87070,
+      "fields": {
+        "state": 21019,
+        "issue": 9107,
+        "state_issue_score": 0.316,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87071,
+      "fields": {
+        "state": 21021,
+        "issue": 9101,
+        "state_issue_score": 0.074,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87072,
+      "fields": {
+        "state": 21021,
+        "issue": 9102,
+        "state_issue_score": -0.29,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87073,
+      "fields": {
+        "state": 21021,
+        "issue": 9103,
+        "state_issue_score": -0.03,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87074,
+      "fields": {
+        "state": 21021,
+        "issue": 9104,
+        "state_issue_score": 0.456,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87075,
+      "fields": {
+        "state": 21021,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87076,
+      "fields": {
+        "state": 21021,
+        "issue": 9106,
+        "state_issue_score": -0.56,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87077,
+      "fields": {
+        "state": 21021,
+        "issue": 9107,
+        "state_issue_score": -0.062,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87078,
+      "fields": {
+        "state": 21023,
+        "issue": 9101,
+        "state_issue_score": -0.116,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87079,
+      "fields": {
+        "state": 21023,
+        "issue": 9102,
+        "state_issue_score": -0.72,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87080,
+      "fields": {
+        "state": 21023,
+        "issue": 9103,
+        "state_issue_score": 0.308,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87081,
+      "fields": {
+        "state": 21023,
+        "issue": 9104,
+        "state_issue_score": 0.788,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87082,
+      "fields": {
+        "state": 21023,
+        "issue": 9105,
+        "state_issue_score": -0.454,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87083,
+      "fields": {
+        "state": 21023,
+        "issue": 9106,
+        "state_issue_score": -0.444,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87084,
+      "fields": {
+        "state": 21023,
+        "issue": 9107,
+        "state_issue_score": 0.11,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87085,
+      "fields": {
+        "state": 21025,
+        "issue": 9101,
+        "state_issue_score": 0.516,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87086,
+      "fields": {
+        "state": 21025,
+        "issue": 9102,
+        "state_issue_score": -0.616,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87087,
+      "fields": {
+        "state": 21025,
+        "issue": 9103,
+        "state_issue_score": 0.048,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87088,
+      "fields": {
+        "state": 21025,
+        "issue": 9104,
+        "state_issue_score": 0.884,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87089,
+      "fields": {
+        "state": 21025,
+        "issue": 9105,
+        "state_issue_score": 0.794,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87090,
+      "fields": {
+        "state": 21025,
+        "issue": 9106,
+        "state_issue_score": 0.808,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87091,
+      "fields": {
+        "state": 21025,
+        "issue": 9107,
+        "state_issue_score": 0.08,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87092,
+      "fields": {
+        "state": 21027,
+        "issue": 9101,
+        "state_issue_score": -0.094,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87093,
+      "fields": {
+        "state": 21027,
+        "issue": 9102,
+        "state_issue_score": -0.617,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87094,
+      "fields": {
+        "state": 21027,
+        "issue": 9103,
+        "state_issue_score": -0.01,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87095,
+      "fields": {
+        "state": 21027,
+        "issue": 9104,
+        "state_issue_score": 0.746,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87096,
+      "fields": {
+        "state": 21027,
+        "issue": 9105,
+        "state_issue_score": -0.474,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87097,
+      "fields": {
+        "state": 21027,
+        "issue": 9106,
+        "state_issue_score": -0.472,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87098,
+      "fields": {
+        "state": 21027,
+        "issue": 9107,
+        "state_issue_score": -0.044,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87099,
+      "fields": {
+        "state": 21029,
+        "issue": 9101,
+        "state_issue_score": 0.016,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87100,
+      "fields": {
+        "state": 21029,
+        "issue": 9102,
+        "state_issue_score": -0.565,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87101,
+      "fields": {
+        "state": 21029,
+        "issue": 9103,
+        "state_issue_score": 0.562,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87102,
+      "fields": {
+        "state": 21029,
+        "issue": 9104,
+        "state_issue_score": 0.124,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87103,
+      "fields": {
+        "state": 21029,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87104,
+      "fields": {
+        "state": 21029,
+        "issue": 9106,
+        "state_issue_score": -0.486,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87105,
+      "fields": {
+        "state": 21029,
+        "issue": 9107,
+        "state_issue_score": 0.308,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87106,
+      "fields": {
+        "state": 21031,
+        "issue": 9101,
+        "state_issue_score": -0.282,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87107,
+      "fields": {
+        "state": 21031,
+        "issue": 9102,
+        "state_issue_score": -0.745,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87108,
+      "fields": {
+        "state": 21031,
+        "issue": 9103,
+        "state_issue_score": -0.04,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87109,
+      "fields": {
+        "state": 21031,
+        "issue": 9104,
+        "state_issue_score": 0.858,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87110,
+      "fields": {
+        "state": 21031,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87111,
+      "fields": {
+        "state": 21031,
+        "issue": 9106,
+        "state_issue_score": -0.438,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87112,
+      "fields": {
+        "state": 21031,
+        "issue": 9107,
+        "state_issue_score": -0.072,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87113,
+      "fields": {
+        "state": 21033,
+        "issue": 9101,
+        "state_issue_score": 0.046,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87114,
+      "fields": {
+        "state": 21033,
+        "issue": 9102,
+        "state_issue_score": -0.635,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87115,
+      "fields": {
+        "state": 21033,
+        "issue": 9103,
+        "state_issue_score": -0.018,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87116,
+      "fields": {
+        "state": 21033,
+        "issue": 9104,
+        "state_issue_score": 0.762,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87117,
+      "fields": {
+        "state": 21033,
+        "issue": 9105,
+        "state_issue_score": 0.4,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87118,
+      "fields": {
+        "state": 21033,
+        "issue": 9106,
+        "state_issue_score": -0.468,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87119,
+      "fields": {
+        "state": 21033,
+        "issue": 9107,
+        "state_issue_score": -0.052,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87120,
+      "fields": {
+        "state": 21035,
+        "issue": 9101,
+        "state_issue_score": 0.026,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87121,
+      "fields": {
+        "state": 21035,
+        "issue": 9102,
+        "state_issue_score": -0.374,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87122,
+      "fields": {
+        "state": 21035,
+        "issue": 9103,
+        "state_issue_score": 0.068,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87123,
+      "fields": {
+        "state": 21035,
+        "issue": 9104,
+        "state_issue_score": 0.53,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87124,
+      "fields": {
+        "state": 21035,
+        "issue": 9105,
+        "state_issue_score": -0.38,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87125,
+      "fields": {
+        "state": 21035,
+        "issue": 9106,
+        "state_issue_score": -0.338,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87126,
+      "fields": {
+        "state": 21035,
+        "issue": 9107,
+        "state_issue_score": 0.278,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87127,
+      "fields": {
+        "state": 21037,
+        "issue": 9101,
+        "state_issue_score": 0.186,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87128,
+      "fields": {
+        "state": 21037,
+        "issue": 9102,
+        "state_issue_score": -0.219,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87129,
+      "fields": {
+        "state": 21037,
+        "issue": 9103,
+        "state_issue_score": 0.438,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87130,
+      "fields": {
+        "state": 21037,
+        "issue": 9104,
+        "state_issue_score": -0.182,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87131,
+      "fields": {
+        "state": 21037,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87132,
+      "fields": {
+        "state": 21037,
+        "issue": 9106,
+        "state_issue_score": -0.58,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87133,
+      "fields": {
+        "state": 21037,
+        "issue": 9107,
+        "state_issue_score": 0.286,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87134,
+      "fields": {
+        "state": 21039,
+        "issue": 9101,
+        "state_issue_score": -0.32,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87135,
+      "fields": {
+        "state": 21039,
+        "issue": 9102,
+        "state_issue_score": -0.756,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87136,
+      "fields": {
+        "state": 21039,
+        "issue": 9103,
+        "state_issue_score": -0.05,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87137,
+      "fields": {
+        "state": 21039,
+        "issue": 9104,
+        "state_issue_score": 0.868,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87138,
+      "fields": {
+        "state": 21039,
+        "issue": 9105,
+        "state_issue_score": -0.38,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87139,
+      "fields": {
+        "state": 21039,
+        "issue": 9106,
+        "state_issue_score": -0.234,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87140,
+      "fields": {
+        "state": 21039,
+        "issue": 9107,
+        "state_issue_score": -0.08,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87141,
+      "fields": {
+        "state": 21041,
+        "issue": 9101,
+        "state_issue_score": 0.018,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87142,
+      "fields": {
+        "state": 21041,
+        "issue": 9102,
+        "state_issue_score": -0.523,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87143,
+      "fields": {
+        "state": 21041,
+        "issue": 9103,
+        "state_issue_score": 0.306,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87144,
+      "fields": {
+        "state": 21041,
+        "issue": 9104,
+        "state_issue_score": 0.614,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87145,
+      "fields": {
+        "state": 21041,
+        "issue": 9105,
+        "state_issue_score": -0.456,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87146,
+      "fields": {
+        "state": 21041,
+        "issue": 9106,
+        "state_issue_score": -0.498,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87147,
+      "fields": {
+        "state": 21041,
+        "issue": 9107,
+        "state_issue_score": 0.11,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87148,
+      "fields": {
+        "state": 21043,
+        "issue": 9101,
+        "state_issue_score": 0.028,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87149,
+      "fields": {
+        "state": 21043,
+        "issue": 9102,
+        "state_issue_score": -0.623,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87150,
+      "fields": {
+        "state": 21043,
+        "issue": 9103,
+        "state_issue_score": -0.05,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87151,
+      "fields": {
+        "state": 21043,
+        "issue": 9104,
+        "state_issue_score": 0.89,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87152,
+      "fields": {
+        "state": 21043,
+        "issue": 9105,
+        "state_issue_score": -0.204,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87153,
+      "fields": {
+        "state": 21043,
+        "issue": 9106,
+        "state_issue_score": 0.81,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87154,
+      "fields": {
+        "state": 21043,
+        "issue": 9107,
+        "state_issue_score": -0.008,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87155,
+      "fields": {
+        "state": 21045,
+        "issue": 9101,
+        "state_issue_score": -0.39,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87156,
+      "fields": {
+        "state": 21045,
+        "issue": 9102,
+        "state_issue_score": -0.863,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87157,
+      "fields": {
+        "state": 21045,
+        "issue": 9103,
+        "state_issue_score": -0.048,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87158,
+      "fields": {
+        "state": 21045,
+        "issue": 9104,
+        "state_issue_score": 0.964,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87159,
+      "fields": {
+        "state": 21045,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87160,
+      "fields": {
+        "state": 21045,
+        "issue": 9106,
+        "state_issue_score": -0.406,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87161,
+      "fields": {
+        "state": 21045,
+        "issue": 9107,
+        "state_issue_score": -0.078,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87162,
+      "fields": {
+        "state": 21047,
+        "issue": 9101,
+        "state_issue_score": 0.036,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87163,
+      "fields": {
+        "state": 21047,
+        "issue": 9102,
+        "state_issue_score": -0.334,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87164,
+      "fields": {
+        "state": 21047,
+        "issue": 9103,
+        "state_issue_score": -0.17,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87165,
+      "fields": {
+        "state": 21047,
+        "issue": 9104,
+        "state_issue_score": 0.636,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87166,
+      "fields": {
+        "state": 21047,
+        "issue": 9105,
+        "state_issue_score": 0.5,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87167,
+      "fields": {
+        "state": 21047,
+        "issue": 9106,
+        "state_issue_score": 0.81,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87168,
+      "fields": {
+        "state": 21047,
+        "issue": 9107,
+        "state_issue_score": -0.116,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87169,
+      "fields": {
+        "state": 21049,
+        "issue": 9101,
+        "state_issue_score": 0.066,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87170,
+      "fields": {
+        "state": 21049,
+        "issue": 9102,
+        "state_issue_score": -0.377,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87171,
+      "fields": {
+        "state": 21049,
+        "issue": 9103,
+        "state_issue_score": -0.012,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87172,
+      "fields": {
+        "state": 21049,
+        "issue": 9104,
+        "state_issue_score": 0.532,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87173,
+      "fields": {
+        "state": 21049,
+        "issue": 9105,
+        "state_issue_score": -0.478,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87174,
+      "fields": {
+        "state": 21049,
+        "issue": 9106,
+        "state_issue_score": -0.538,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87175,
+      "fields": {
+        "state": 21049,
+        "issue": 9107,
+        "state_issue_score": -0.048,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87176,
+      "fields": {
+        "state": 21051,
+        "issue": 9101,
+        "state_issue_score": 0.014,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87177,
+      "fields": {
+        "state": 21051,
+        "issue": 9102,
+        "state_issue_score": -0.906,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87178,
+      "fields": {
+        "state": 21051,
+        "issue": 9103,
+        "state_issue_score": -0.046,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87179,
+      "fields": {
+        "state": 21051,
+        "issue": 9104,
+        "state_issue_score": 1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87180,
+      "fields": {
+        "state": 21051,
+        "issue": 9105,
+        "state_issue_score": 0.678,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87181,
+      "fields": {
+        "state": 21051,
+        "issue": 9106,
+        "state_issue_score": 0.886,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87182,
+      "fields": {
+        "state": 21051,
+        "issue": 9107,
+        "state_issue_score": -0.006,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87183,
+      "fields": {
+        "state": 21053,
+        "issue": 9101,
+        "state_issue_score": -0.426,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87184,
+      "fields": {
+        "state": 21053,
+        "issue": 9102,
+        "state_issue_score": -0.877,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87185,
+      "fields": {
+        "state": 21053,
+        "issue": 9103,
+        "state_issue_score": -0.056,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87186,
+      "fields": {
+        "state": 21053,
+        "issue": 9104,
+        "state_issue_score": 0.976,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87187,
+      "fields": {
+        "state": 21053,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87188,
+      "fields": {
+        "state": 21053,
+        "issue": 9106,
+        "state_issue_score": -0.402,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87189,
+      "fields": {
+        "state": 21053,
+        "issue": 9107,
+        "state_issue_score": -0.086,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87190,
+      "fields": {
+        "state": 21055,
+        "issue": 9101,
+        "state_issue_score": -0.238,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87191,
+      "fields": {
+        "state": 21055,
+        "issue": 9102,
+        "state_issue_score": -0.754,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87192,
+      "fields": {
+        "state": 21055,
+        "issue": 9103,
+        "state_issue_score": -0.104,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87193,
+      "fields": {
+        "state": 21055,
+        "issue": 9104,
+        "state_issue_score": 1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87194,
+      "fields": {
+        "state": 21055,
+        "issue": 9105,
+        "state_issue_score": -0.38,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87195,
+      "fields": {
+        "state": 21055,
+        "issue": 9106,
+        "state_issue_score": 0.926,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87196,
+      "fields": {
+        "state": 21055,
+        "issue": 9107,
+        "state_issue_score": -0.056,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87197,
+      "fields": {
+        "state": 21057,
+        "issue": 9101,
+        "state_issue_score": -0.396,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87198,
+      "fields": {
+        "state": 21057,
+        "issue": 9102,
+        "state_issue_score": -0.804,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87199,
+      "fields": {
+        "state": 21057,
+        "issue": 9103,
+        "state_issue_score": -0.064,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87200,
+      "fields": {
+        "state": 21057,
+        "issue": 9104,
+        "state_issue_score": 0.91,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87201,
+      "fields": {
+        "state": 21057,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87202,
+      "fields": {
+        "state": 21057,
+        "issue": 9106,
+        "state_issue_score": -0.422,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87203,
+      "fields": {
+        "state": 21057,
+        "issue": 9107,
+        "state_issue_score": -0.092,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87204,
+      "fields": {
+        "state": 21059,
+        "issue": 9101,
+        "state_issue_score": 0.222,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87205,
+      "fields": {
+        "state": 21059,
+        "issue": 9102,
+        "state_issue_score": -0.328,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87206,
+      "fields": {
+        "state": 21059,
+        "issue": 9103,
+        "state_issue_score": 0.188,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87207,
+      "fields": {
+        "state": 21059,
+        "issue": 9104,
+        "state_issue_score": 0.112,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87208,
+      "fields": {
+        "state": 21059,
+        "issue": 9105,
+        "state_issue_score": -0.38,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87209,
+      "fields": {
+        "state": 21059,
+        "issue": 9106,
+        "state_issue_score": 0.81,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87210,
+      "fields": {
+        "state": 21059,
+        "issue": 9107,
+        "state_issue_score": 0.516,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87211,
+      "fields": {
+        "state": 21061,
+        "issue": 9101,
+        "state_issue_score": -0.178,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87212,
+      "fields": {
+        "state": 21061,
+        "issue": 9102,
+        "state_issue_score": -0.691,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87213,
+      "fields": {
+        "state": 21061,
+        "issue": 9103,
+        "state_issue_score": -0.02,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87214,
+      "fields": {
+        "state": 21061,
+        "issue": 9104,
+        "state_issue_score": 0.81,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87215,
+      "fields": {
+        "state": 21061,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87216,
+      "fields": {
+        "state": 21061,
+        "issue": 9106,
+        "state_issue_score": -0.452,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87217,
+      "fields": {
+        "state": 21061,
+        "issue": 9107,
+        "state_issue_score": -0.052,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87218,
+      "fields": {
+        "state": 21063,
+        "issue": 9101,
+        "state_issue_score": 0.162,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87219,
+      "fields": {
+        "state": 21063,
+        "issue": 9102,
+        "state_issue_score": -0.603,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87220,
+      "fields": {
+        "state": 21063,
+        "issue": 9103,
+        "state_issue_score": -0.01,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87221,
+      "fields": {
+        "state": 21063,
+        "issue": 9104,
+        "state_issue_score": 0.872,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87222,
+      "fields": {
+        "state": 21063,
+        "issue": 9105,
+        "state_issue_score": -0.158,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87223,
+      "fields": {
+        "state": 21063,
+        "issue": 9106,
+        "state_issue_score": 0.804,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87224,
+      "fields": {
+        "state": 21063,
+        "issue": 9107,
+        "state_issue_score": 0.026,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87225,
+      "fields": {
+        "state": 21065,
+        "issue": 9101,
+        "state_issue_score": -0.076,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87226,
+      "fields": {
+        "state": 21065,
+        "issue": 9102,
+        "state_issue_score": -0.674,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87227,
+      "fields": {
+        "state": 21065,
+        "issue": 9103,
+        "state_issue_score": 0.01,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87228,
+      "fields": {
+        "state": 21065,
+        "issue": 9104,
+        "state_issue_score": 0.796,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87229,
+      "fields": {
+        "state": 21065,
+        "issue": 9105,
+        "state_issue_score": -0.45,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87230,
+      "fields": {
+        "state": 21065,
+        "issue": 9106,
+        "state_issue_score": -0.456,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87231,
+      "fields": {
+        "state": 21065,
+        "issue": 9107,
+        "state_issue_score": -0.026,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87232,
+      "fields": {
+        "state": 21067,
+        "issue": 9101,
+        "state_issue_score": 0.55,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87233,
+      "fields": {
+        "state": 21067,
+        "issue": 9102,
+        "state_issue_score": 0.244,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87234,
+      "fields": {
+        "state": 21067,
+        "issue": 9103,
+        "state_issue_score": 0.642,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87235,
+      "fields": {
+        "state": 21067,
+        "issue": 9104,
+        "state_issue_score": -0.592,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87236,
+      "fields": {
+        "state": 21067,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87237,
+      "fields": {
+        "state": 21067,
+        "issue": 9106,
+        "state_issue_score": -0.706,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87238,
+      "fields": {
+        "state": 21067,
+        "issue": 9107,
+        "state_issue_score": 0.632,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87239,
+      "fields": {
+        "state": 21069,
+        "issue": 9101,
+        "state_issue_score": -0.076,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87240,
+      "fields": {
+        "state": 21069,
+        "issue": 9102,
+        "state_issue_score": -0.676,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87241,
+      "fields": {
+        "state": 21069,
+        "issue": 9103,
+        "state_issue_score": 0.01,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87242,
+      "fields": {
+        "state": 21069,
+        "issue": 9104,
+        "state_issue_score": 0.798,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87243,
+      "fields": {
+        "state": 21069,
+        "issue": 9105,
+        "state_issue_score": -0.45,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87244,
+      "fields": {
+        "state": 21069,
+        "issue": 9106,
+        "state_issue_score": -0.456,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87245,
+      "fields": {
+        "state": 21069,
+        "issue": 9107,
+        "state_issue_score": -0.026,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87246,
+      "fields": {
+        "state": 21071,
+        "issue": 9101,
+        "state_issue_score": 0.424,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87247,
+      "fields": {
+        "state": 21071,
+        "issue": 9102,
+        "state_issue_score": -0.602,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87248,
+      "fields": {
+        "state": 21071,
+        "issue": 9103,
+        "state_issue_score": 0.016,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87249,
+      "fields": {
+        "state": 21071,
+        "issue": 9104,
+        "state_issue_score": 0.872,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87250,
+      "fields": {
+        "state": 21071,
+        "issue": 9105,
+        "state_issue_score": 0.754,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87251,
+      "fields": {
+        "state": 21071,
+        "issue": 9106,
+        "state_issue_score": 0.804,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87252,
+      "fields": {
+        "state": 21071,
+        "issue": 9107,
+        "state_issue_score": 0.05,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87253,
+      "fields": {
+        "state": 21073,
+        "issue": 9101,
+        "state_issue_score": 0.438,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87254,
+      "fields": {
+        "state": 21073,
+        "issue": 9102,
+        "state_issue_score": -0.011,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87255,
+      "fields": {
+        "state": 21073,
+        "issue": 9103,
+        "state_issue_score": 0.116,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87256,
+      "fields": {
+        "state": 21073,
+        "issue": 9104,
+        "state_issue_score": 0.21,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87257,
+      "fields": {
+        "state": 21073,
+        "issue": 9105,
+        "state_issue_score": -0.466,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87258,
+      "fields": {
+        "state": 21073,
+        "issue": 9106,
+        "state_issue_score": -0.636,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87259,
+      "fields": {
+        "state": 21073,
+        "issue": 9107,
+        "state_issue_score": 0.322,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87260,
+      "fields": {
+        "state": 21075,
+        "issue": 9101,
+        "state_issue_score": 0.1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87261,
+      "fields": {
+        "state": 21075,
+        "issue": 9102,
+        "state_issue_score": -0.394,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87262,
+      "fields": {
+        "state": 21075,
+        "issue": 9103,
+        "state_issue_score": -0.056,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87263,
+      "fields": {
+        "state": 21075,
+        "issue": 9104,
+        "state_issue_score": 0.548,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87264,
+      "fields": {
+        "state": 21075,
+        "issue": 9105,
+        "state_issue_score": 0.5,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87265,
+      "fields": {
+        "state": 21075,
+        "issue": 9106,
+        "state_issue_score": -0.332,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87266,
+      "fields": {
+        "state": 21075,
+        "issue": 9107,
+        "state_issue_score": -0.086,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87267,
+      "fields": {
+        "state": 21077,
+        "issue": 9101,
+        "state_issue_score": -0.112,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87268,
+      "fields": {
+        "state": 21077,
+        "issue": 9102,
+        "state_issue_score": -0.652,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87269,
+      "fields": {
+        "state": 21077,
+        "issue": 9103,
+        "state_issue_score": 0.292,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87270,
+      "fields": {
+        "state": 21077,
+        "issue": 9104,
+        "state_issue_score": 0.728,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87271,
+      "fields": {
+        "state": 21077,
+        "issue": 9105,
+        "state_issue_score": -0.472,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87272,
+      "fields": {
+        "state": 21077,
+        "issue": 9106,
+        "state_issue_score": -0.462,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87273,
+      "fields": {
+        "state": 21077,
+        "issue": 9107,
+        "state_issue_score": 0.098,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87274,
+      "fields": {
+        "state": 21079,
+        "issue": 9101,
+        "state_issue_score": -0.178,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87275,
+      "fields": {
+        "state": 21079,
+        "issue": 9102,
+        "state_issue_score": -0.665,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87276,
+      "fields": {
+        "state": 21079,
+        "issue": 9103,
+        "state_issue_score": -0.026,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87277,
+      "fields": {
+        "state": 21079,
+        "issue": 9104,
+        "state_issue_score": 0.788,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87278,
+      "fields": {
+        "state": 21079,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87279,
+      "fields": {
+        "state": 21079,
+        "issue": 9106,
+        "state_issue_score": -0.46,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87280,
+      "fields": {
+        "state": 21079,
+        "issue": 9107,
+        "state_issue_score": -0.058,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87281,
+      "fields": {
+        "state": 21081,
+        "issue": 9101,
+        "state_issue_score": -0.228,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87282,
+      "fields": {
+        "state": 21081,
+        "issue": 9102,
+        "state_issue_score": -0.691,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87283,
+      "fields": {
+        "state": 21081,
+        "issue": 9103,
+        "state_issue_score": 0.264,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87284,
+      "fields": {
+        "state": 21081,
+        "issue": 9104,
+        "state_issue_score": 0.762,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87285,
+      "fields": {
+        "state": 21081,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87286,
+      "fields": {
+        "state": 21081,
+        "issue": 9106,
+        "state_issue_score": -0.452,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87287,
+      "fields": {
+        "state": 21081,
+        "issue": 9107,
+        "state_issue_score": 0.072,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87288,
+      "fields": {
+        "state": 21083,
+        "issue": 9101,
+        "state_issue_score": -0.024,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87289,
+      "fields": {
+        "state": 21083,
+        "issue": 9102,
+        "state_issue_score": -0.667,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87290,
+      "fields": {
+        "state": 21083,
+        "issue": 9103,
+        "state_issue_score": -0.034,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87291,
+      "fields": {
+        "state": 21083,
+        "issue": 9104,
+        "state_issue_score": 0.79,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87292,
+      "fields": {
+        "state": 21083,
+        "issue": 9105,
+        "state_issue_score": 0.5,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87293,
+      "fields": {
+        "state": 21083,
+        "issue": 9106,
+        "state_issue_score": -0.258,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87294,
+      "fields": {
+        "state": 21083,
+        "issue": 9107,
+        "state_issue_score": -0.066,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87295,
+      "fields": {
+        "state": 21085,
+        "issue": 9101,
+        "state_issue_score": -0.208,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87296,
+      "fields": {
+        "state": 21085,
+        "issue": 9102,
+        "state_issue_score": -0.692,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87297,
+      "fields": {
+        "state": 21085,
+        "issue": 9103,
+        "state_issue_score": -0.028,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87298,
+      "fields": {
+        "state": 21085,
+        "issue": 9104,
+        "state_issue_score": 0.812,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87299,
+      "fields": {
+        "state": 21085,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87300,
+      "fields": {
+        "state": 21085,
+        "issue": 9106,
+        "state_issue_score": -0.452,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87301,
+      "fields": {
+        "state": 21085,
+        "issue": 9107,
+        "state_issue_score": -0.06,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87302,
+      "fields": {
+        "state": 21087,
+        "issue": 9101,
+        "state_issue_score": -0.328,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87303,
+      "fields": {
+        "state": 21087,
+        "issue": 9102,
+        "state_issue_score": -0.793,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87304,
+      "fields": {
+        "state": 21087,
+        "issue": 9103,
+        "state_issue_score": -0.044,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87305,
+      "fields": {
+        "state": 21087,
+        "issue": 9104,
+        "state_issue_score": 0.902,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87306,
+      "fields": {
+        "state": 21087,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87307,
+      "fields": {
+        "state": 21087,
+        "issue": 9106,
+        "state_issue_score": -0.424,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87308,
+      "fields": {
+        "state": 21087,
+        "issue": 9107,
+        "state_issue_score": -0.074,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87309,
+      "fields": {
+        "state": 21089,
+        "issue": 9101,
+        "state_issue_score": -0.03,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87310,
+      "fields": {
+        "state": 21089,
+        "issue": 9102,
+        "state_issue_score": -0.53,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87311,
+      "fields": {
+        "state": 21089,
+        "issue": 9103,
+        "state_issue_score": -0.008,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87312,
+      "fields": {
+        "state": 21089,
+        "issue": 9104,
+        "state_issue_score": 0.668,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87313,
+      "fields": {
+        "state": 21089,
+        "issue": 9105,
+        "state_issue_score": -0.474,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87314,
+      "fields": {
+        "state": 21089,
+        "issue": 9106,
+        "state_issue_score": -0.496,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87315,
+      "fields": {
+        "state": 21089,
+        "issue": 9107,
+        "state_issue_score": -0.044,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87316,
+      "fields": {
+        "state": 21091,
+        "issue": 9101,
+        "state_issue_score": 0.036,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87317,
+      "fields": {
+        "state": 21091,
+        "issue": 9102,
+        "state_issue_score": -0.46,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87318,
+      "fields": {
+        "state": 21091,
+        "issue": 9103,
+        "state_issue_score": -0.004,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87319,
+      "fields": {
+        "state": 21091,
+        "issue": 9104,
+        "state_issue_score": 0.606,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87320,
+      "fields": {
+        "state": 21091,
+        "issue": 9105,
+        "state_issue_score": -0.468,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87321,
+      "fields": {
+        "state": 21091,
+        "issue": 9106,
+        "state_issue_score": -0.514,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87322,
+      "fields": {
+        "state": 21091,
+        "issue": 9107,
+        "state_issue_score": -0.038,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87323,
+      "fields": {
+        "state": 21093,
+        "issue": 9101,
+        "state_issue_score": 0.1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87324,
+      "fields": {
+        "state": 21093,
+        "issue": 9102,
+        "state_issue_score": -0.282,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87325,
+      "fields": {
+        "state": 21093,
+        "issue": 9103,
+        "state_issue_score": 0.524,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87326,
+      "fields": {
+        "state": 21093,
+        "issue": 9104,
+        "state_issue_score": -0.126,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87327,
+      "fields": {
+        "state": 21093,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87328,
+      "fields": {
+        "state": 21093,
+        "issue": 9106,
+        "state_issue_score": -0.564,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87329,
+      "fields": {
+        "state": 21093,
+        "issue": 9107,
+        "state_issue_score": 0.274,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87330,
+      "fields": {
+        "state": 21095,
+        "issue": 9101,
+        "state_issue_score": -0.218,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87331,
+      "fields": {
+        "state": 21095,
+        "issue": 9102,
+        "state_issue_score": -0.844,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87332,
+      "fields": {
+        "state": 21095,
+        "issue": 9103,
+        "state_issue_score": -0.078,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87333,
+      "fields": {
+        "state": 21095,
+        "issue": 9104,
+        "state_issue_score": 1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87334,
+      "fields": {
+        "state": 21095,
+        "issue": 9105,
+        "state_issue_score": -0.24,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87335,
+      "fields": {
+        "state": 21095,
+        "issue": 9106,
+        "state_issue_score": 0.87,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87336,
+      "fields": {
+        "state": 21095,
+        "issue": 9107,
+        "state_issue_score": -0.034,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87337,
+      "fields": {
+        "state": 21097,
+        "issue": 9101,
+        "state_issue_score": 0.044,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87338,
+      "fields": {
+        "state": 21097,
+        "issue": 9102,
+        "state_issue_score": -0.522,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87339,
+      "fields": {
+        "state": 21097,
+        "issue": 9103,
+        "state_issue_score": 0.014,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87340,
+      "fields": {
+        "state": 21097,
+        "issue": 9104,
+        "state_issue_score": 0.662,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87341,
+      "fields": {
+        "state": 21097,
+        "issue": 9105,
+        "state_issue_score": -0.446,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87342,
+      "fields": {
+        "state": 21097,
+        "issue": 9106,
+        "state_issue_score": -0.498,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87343,
+      "fields": {
+        "state": 21097,
+        "issue": 9107,
+        "state_issue_score": -0.024,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87344,
+      "fields": {
+        "state": 21099,
+        "issue": 9101,
+        "state_issue_score": -0.166,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87345,
+      "fields": {
+        "state": 21099,
+        "issue": 9102,
+        "state_issue_score": -0.624,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87346,
+      "fields": {
+        "state": 21099,
+        "issue": 9103,
+        "state_issue_score": -0.032,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87347,
+      "fields": {
+        "state": 21099,
+        "issue": 9104,
+        "state_issue_score": 0.752,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87348,
+      "fields": {
+        "state": 21099,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87349,
+      "fields": {
+        "state": 21099,
+        "issue": 9106,
+        "state_issue_score": -0.47,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87350,
+      "fields": {
+        "state": 21099,
+        "issue": 9107,
+        "state_issue_score": -0.064,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87351,
+      "fields": {
+        "state": 21101,
+        "issue": 9101,
+        "state_issue_score": 0.138,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87352,
+      "fields": {
+        "state": 21101,
+        "issue": 9102,
+        "state_issue_score": -0.289,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87353,
+      "fields": {
+        "state": 21101,
+        "issue": 9103,
+        "state_issue_score": -0.09,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87354,
+      "fields": {
+        "state": 21101,
+        "issue": 9104,
+        "state_issue_score": 0.596,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87355,
+      "fields": {
+        "state": 21101,
+        "issue": 9105,
+        "state_issue_score": -0.374,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87356,
+      "fields": {
+        "state": 21101,
+        "issue": 9106,
+        "state_issue_score": 0.798,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87357,
+      "fields": {
+        "state": 21101,
+        "issue": 9107,
+        "state_issue_score": -0.044,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87358,
+      "fields": {
+        "state": 21103,
+        "issue": 9101,
+        "state_issue_score": -0.044,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87359,
+      "fields": {
+        "state": 21103,
+        "issue": 9102,
+        "state_issue_score": -0.537,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87360,
+      "fields": {
+        "state": 21103,
+        "issue": 9103,
+        "state_issue_score": -0.012,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87361,
+      "fields": {
+        "state": 21103,
+        "issue": 9104,
+        "state_issue_score": 0.674,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87362,
+      "fields": {
+        "state": 21103,
+        "issue": 9105,
+        "state_issue_score": -0.478,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87363,
+      "fields": {
+        "state": 21103,
+        "issue": 9106,
+        "state_issue_score": -0.494,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87364,
+      "fields": {
+        "state": 21103,
+        "issue": 9107,
+        "state_issue_score": -0.046,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87365,
+      "fields": {
+        "state": 21105,
+        "issue": 9101,
+        "state_issue_score": -0.28,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87366,
+      "fields": {
+        "state": 21105,
+        "issue": 9102,
+        "state_issue_score": -0.672,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87367,
+      "fields": {
+        "state": 21105,
+        "issue": 9103,
+        "state_issue_score": -0.056,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87368,
+      "fields": {
+        "state": 21105,
+        "issue": 9104,
+        "state_issue_score": 0.794,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87369,
+      "fields": {
+        "state": 21105,
+        "issue": 9105,
+        "state_issue_score": -0.38,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87370,
+      "fields": {
+        "state": 21105,
+        "issue": 9106,
+        "state_issue_score": -0.258,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87371,
+      "fields": {
+        "state": 21105,
+        "issue": 9107,
+        "state_issue_score": -0.086,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87372,
+      "fields": {
+        "state": 21107,
+        "issue": 9101,
+        "state_issue_score": 0.154,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87373,
+      "fields": {
+        "state": 21107,
+        "issue": 9102,
+        "state_issue_score": -0.564,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87374,
+      "fields": {
+        "state": 21107,
+        "issue": 9103,
+        "state_issue_score": -0.08,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87375,
+      "fields": {
+        "state": 21107,
+        "issue": 9104,
+        "state_issue_score": 0.838,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87376,
+      "fields": {
+        "state": 21107,
+        "issue": 9105,
+        "state_issue_score": 0.518,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87377,
+      "fields": {
+        "state": 21107,
+        "issue": 9106,
+        "state_issue_score": 0.874,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87378,
+      "fields": {
+        "state": 21107,
+        "issue": 9107,
+        "state_issue_score": -0.036,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87379,
+      "fields": {
+        "state": 21109,
+        "issue": 9101,
+        "state_issue_score": -0.444,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87380,
+      "fields": {
+        "state": 21109,
+        "issue": 9102,
+        "state_issue_score": -0.933,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87381,
+      "fields": {
+        "state": 21109,
+        "issue": 9103,
+        "state_issue_score": -0.13,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87382,
+      "fields": {
+        "state": 21109,
+        "issue": 9104,
+        "state_issue_score": 1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87383,
+      "fields": {
+        "state": 21109,
+        "issue": 9105,
+        "state_issue_score": -0.26,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87384,
+      "fields": {
+        "state": 21109,
+        "issue": 9106,
+        "state_issue_score": 0.894,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87385,
+      "fields": {
+        "state": 21109,
+        "issue": 9107,
+        "state_issue_score": -0.08,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87386,
+      "fields": {
+        "state": 21111,
+        "issue": 9101,
+        "state_issue_score": 0.512,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87387,
+      "fields": {
+        "state": 21111,
+        "issue": 9102,
+        "state_issue_score": 0.236,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87388,
+      "fields": {
+        "state": 21111,
+        "issue": 9103,
+        "state_issue_score": 0.632,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87389,
+      "fields": {
+        "state": 21111,
+        "issue": 9104,
+        "state_issue_score": -0.584,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87390,
+      "fields": {
+        "state": 21111,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87391,
+      "fields": {
+        "state": 21111,
+        "issue": 9106,
+        "state_issue_score": -0.704,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87392,
+      "fields": {
+        "state": 21111,
+        "issue": 9107,
+        "state_issue_score": 0.624,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87393,
+      "fields": {
+        "state": 21113,
+        "issue": 9101,
+        "state_issue_score": 0.06,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87394,
+      "fields": {
+        "state": 21113,
+        "issue": 9102,
+        "state_issue_score": -0.382,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87395,
+      "fields": {
+        "state": 21113,
+        "issue": 9103,
+        "state_issue_score": 0.534,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87396,
+      "fields": {
+        "state": 21113,
+        "issue": 9104,
+        "state_issue_score": -0.038,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87397,
+      "fields": {
+        "state": 21113,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87398,
+      "fields": {
+        "state": 21113,
+        "issue": 9106,
+        "state_issue_score": -0.536,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87399,
+      "fields": {
+        "state": 21113,
+        "issue": 9107,
+        "state_issue_score": 0.284,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87400,
+      "fields": {
+        "state": 21115,
+        "issue": 9101,
+        "state_issue_score": 0.018,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87401,
+      "fields": {
+        "state": 21115,
+        "issue": 9102,
+        "state_issue_score": -0.79,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87402,
+      "fields": {
+        "state": 21115,
+        "issue": 9103,
+        "state_issue_score": -0.072,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87403,
+      "fields": {
+        "state": 21115,
+        "issue": 9104,
+        "state_issue_score": 1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87404,
+      "fields": {
+        "state": 21115,
+        "issue": 9105,
+        "state_issue_score": 0.648,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87405,
+      "fields": {
+        "state": 21115,
+        "issue": 9106,
+        "state_issue_score": 0.854,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87406,
+      "fields": {
+        "state": 21115,
+        "issue": 9107,
+        "state_issue_score": -0.028,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87407,
+      "fields": {
+        "state": 21117,
+        "issue": 9101,
+        "state_issue_score": 0.156,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87408,
+      "fields": {
+        "state": 21117,
+        "issue": 9102,
+        "state_issue_score": -0.227,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87409,
+      "fields": {
+        "state": 21117,
+        "issue": 9103,
+        "state_issue_score": 0.53,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87410,
+      "fields": {
+        "state": 21117,
+        "issue": 9104,
+        "state_issue_score": -0.176,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87411,
+      "fields": {
+        "state": 21117,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87412,
+      "fields": {
+        "state": 21117,
+        "issue": 9106,
+        "state_issue_score": -0.578,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87413,
+      "fields": {
+        "state": 21117,
+        "issue": 9107,
+        "state_issue_score": 0.28,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87414,
+      "fields": {
+        "state": 21119,
+        "issue": 9101,
+        "state_issue_score": 0.37,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87415,
+      "fields": {
+        "state": 21119,
+        "issue": 9102,
+        "state_issue_score": -0.634,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87416,
+      "fields": {
+        "state": 21119,
+        "issue": 9103,
+        "state_issue_score": 0.006,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87417,
+      "fields": {
+        "state": 21119,
+        "issue": 9104,
+        "state_issue_score": 0.9,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87418,
+      "fields": {
+        "state": 21119,
+        "issue": 9105,
+        "state_issue_score": 0.742,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87419,
+      "fields": {
+        "state": 21119,
+        "issue": 9106,
+        "state_issue_score": 0.812,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87420,
+      "fields": {
+        "state": 21119,
+        "issue": 9107,
+        "state_issue_score": 0.04,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87421,
+      "fields": {
+        "state": 21121,
+        "issue": 9101,
+        "state_issue_score": -0.218,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87422,
+      "fields": {
+        "state": 21121,
+        "issue": 9102,
+        "state_issue_score": -0.789,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87423,
+      "fields": {
+        "state": 21121,
+        "issue": 9103,
+        "state_issue_score": -0.09,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87424,
+      "fields": {
+        "state": 21121,
+        "issue": 9104,
+        "state_issue_score": 1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87425,
+      "fields": {
+        "state": 21121,
+        "issue": 9105,
+        "state_issue_score": -0.256,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87426,
+      "fields": {
+        "state": 21121,
+        "issue": 9106,
+        "state_issue_score": 0.854,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87427,
+      "fields": {
+        "state": 21121,
+        "issue": 9107,
+        "state_issue_score": -0.044,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87428,
+      "fields": {
+        "state": 21123,
+        "issue": 9101,
+        "state_issue_score": -0.156,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87429,
+      "fields": {
+        "state": 21123,
+        "issue": 9102,
+        "state_issue_score": -0.674,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87430,
+      "fields": {
+        "state": 21123,
+        "issue": 9103,
+        "state_issue_score": -0.016,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87431,
+      "fields": {
+        "state": 21123,
+        "issue": 9104,
+        "state_issue_score": 0.796,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87432,
+      "fields": {
+        "state": 21123,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87433,
+      "fields": {
+        "state": 21123,
+        "issue": 9106,
+        "state_issue_score": -0.456,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87434,
+      "fields": {
+        "state": 21123,
+        "issue": 9107,
+        "state_issue_score": -0.05,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87435,
+      "fields": {
+        "state": 21125,
+        "issue": 9101,
+        "state_issue_score": -0.29,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87436,
+      "fields": {
+        "state": 21125,
+        "issue": 9102,
+        "state_issue_score": -0.785,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87437,
+      "fields": {
+        "state": 21125,
+        "issue": 9103,
+        "state_issue_score": -0.114,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87438,
+      "fields": {
+        "state": 21125,
+        "issue": 9104,
+        "state_issue_score": 1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87439,
+      "fields": {
+        "state": 21125,
+        "issue": 9105,
+        "state_issue_score": -0.26,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87440,
+      "fields": {
+        "state": 21125,
+        "issue": 9106,
+        "state_issue_score": 0.854,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87441,
+      "fields": {
+        "state": 21125,
+        "issue": 9107,
+        "state_issue_score": -0.066,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87442,
+      "fields": {
+        "state": 21127,
+        "issue": 9101,
+        "state_issue_score": -0.168,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87443,
+      "fields": {
+        "state": 21127,
+        "issue": 9102,
+        "state_issue_score": -0.743,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87444,
+      "fields": {
+        "state": 21127,
+        "issue": 9103,
+        "state_issue_score": -0.084,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87445,
+      "fields": {
+        "state": 21127,
+        "issue": 9104,
+        "state_issue_score": 0.998,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87446,
+      "fields": {
+        "state": 21127,
+        "issue": 9105,
+        "state_issue_score": -0.248,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87447,
+      "fields": {
+        "state": 21127,
+        "issue": 9106,
+        "state_issue_score": 0.842,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87448,
+      "fields": {
+        "state": 21127,
+        "issue": 9107,
+        "state_issue_score": -0.04,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87449,
+      "fields": {
+        "state": 21129,
+        "issue": 9101,
+        "state_issue_score": 0.036,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87450,
+      "fields": {
+        "state": 21129,
+        "issue": 9102,
+        "state_issue_score": -0.753,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87451,
+      "fields": {
+        "state": 21129,
+        "issue": 9103,
+        "state_issue_score": -0.016,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87452,
+      "fields": {
+        "state": 21129,
+        "issue": 9104,
+        "state_issue_score": 1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87453,
+      "fields": {
+        "state": 21129,
+        "issue": 9105,
+        "state_issue_score": -0.164,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87454,
+      "fields": {
+        "state": 21129,
+        "issue": 9106,
+        "state_issue_score": 0.844,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87455,
+      "fields": {
+        "state": 21129,
+        "issue": 9107,
+        "state_issue_score": 0.022,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87456,
+      "fields": {
+        "state": 21131,
+        "issue": 9101,
+        "state_issue_score": -0.094,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87457,
+      "fields": {
+        "state": 21131,
+        "issue": 9102,
+        "state_issue_score": -0.947,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87458,
+      "fields": {
+        "state": 21131,
+        "issue": 9103,
+        "state_issue_score": -0.072,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87459,
+      "fields": {
+        "state": 21131,
+        "issue": 9104,
+        "state_issue_score": 1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87460,
+      "fields": {
+        "state": 21131,
+        "issue": 9105,
+        "state_issue_score": 0.648,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87461,
+      "fields": {
+        "state": 21131,
+        "issue": 9106,
+        "state_issue_score": 0.898,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87462,
+      "fields": {
+        "state": 21131,
+        "issue": 9107,
+        "state_issue_score": -0.028,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87463,
+      "fields": {
+        "state": 21133,
+        "issue": 9101,
+        "state_issue_score": 0.338,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87464,
+      "fields": {
+        "state": 21133,
+        "issue": 9102,
+        "state_issue_score": -0.699,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87465,
+      "fields": {
+        "state": 21133,
+        "issue": 9103,
+        "state_issue_score": 0.01,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87466,
+      "fields": {
+        "state": 21133,
+        "issue": 9104,
+        "state_issue_score": 0.958,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87467,
+      "fields": {
+        "state": 21133,
+        "issue": 9105,
+        "state_issue_score": 0.748,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87468,
+      "fields": {
+        "state": 21133,
+        "issue": 9106,
+        "state_issue_score": 0.83,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87469,
+      "fields": {
+        "state": 21133,
+        "issue": 9107,
+        "state_issue_score": 0.046,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87470,
+      "fields": {
+        "state": 21135,
+        "issue": 9101,
+        "state_issue_score": -0.274,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87471,
+      "fields": {
+        "state": 21135,
+        "issue": 9102,
+        "state_issue_score": -0.832,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87472,
+      "fields": {
+        "state": 21135,
+        "issue": 9103,
+        "state_issue_score": -0.018,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87473,
+      "fields": {
+        "state": 21135,
+        "issue": 9104,
+        "state_issue_score": 0.936,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87474,
+      "fields": {
+        "state": 21135,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87475,
+      "fields": {
+        "state": 21135,
+        "issue": 9106,
+        "state_issue_score": -0.414,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87476,
+      "fields": {
+        "state": 21135,
+        "issue": 9107,
+        "state_issue_score": -0.052,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87477,
+      "fields": {
+        "state": 21137,
+        "issue": 9101,
+        "state_issue_score": -0.172,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87478,
+      "fields": {
+        "state": 21137,
+        "issue": 9102,
+        "state_issue_score": -0.672,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87479,
+      "fields": {
+        "state": 21137,
+        "issue": 9103,
+        "state_issue_score": -0.022,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87480,
+      "fields": {
+        "state": 21137,
+        "issue": 9104,
+        "state_issue_score": 0.794,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87481,
+      "fields": {
+        "state": 21137,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87482,
+      "fields": {
+        "state": 21137,
+        "issue": 9106,
+        "state_issue_score": -0.458,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87483,
+      "fields": {
+        "state": 21137,
+        "issue": 9107,
+        "state_issue_score": -0.056,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87484,
+      "fields": {
+        "state": 21139,
+        "issue": 9101,
+        "state_issue_score": -0.188,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87485,
+      "fields": {
+        "state": 21139,
+        "issue": 9102,
+        "state_issue_score": -0.722,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87486,
+      "fields": {
+        "state": 21139,
+        "issue": 9103,
+        "state_issue_score": -0.096,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87487,
+      "fields": {
+        "state": 21139,
+        "issue": 9104,
+        "state_issue_score": 0.978,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87488,
+      "fields": {
+        "state": 21139,
+        "issue": 9105,
+        "state_issue_score": -0.38,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87489,
+      "fields": {
+        "state": 21139,
+        "issue": 9106,
+        "state_issue_score": 0.916,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87490,
+      "fields": {
+        "state": 21139,
+        "issue": 9107,
+        "state_issue_score": -0.05,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87491,
+      "fields": {
+        "state": 21141,
+        "issue": 9101,
+        "state_issue_score": -0.208,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87492,
+      "fields": {
+        "state": 21141,
+        "issue": 9102,
+        "state_issue_score": -0.569,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87493,
+      "fields": {
+        "state": 21141,
+        "issue": 9103,
+        "state_issue_score": -0.056,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87494,
+      "fields": {
+        "state": 21141,
+        "issue": 9104,
+        "state_issue_score": 0.704,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87495,
+      "fields": {
+        "state": 21141,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87496,
+      "fields": {
+        "state": 21141,
+        "issue": 9106,
+        "state_issue_score": -0.486,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87497,
+      "fields": {
+        "state": 21141,
+        "issue": 9107,
+        "state_issue_score": -0.086,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87498,
+      "fields": {
+        "state": 21143,
+        "issue": 9101,
+        "state_issue_score": 0.096,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87499,
+      "fields": {
+        "state": 21143,
+        "issue": 9102,
+        "state_issue_score": -0.559,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87500,
+      "fields": {
+        "state": 21143,
+        "issue": 9103,
+        "state_issue_score": -0.02,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87501,
+      "fields": {
+        "state": 21143,
+        "issue": 9104,
+        "state_issue_score": 0.694,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87502,
+      "fields": {
+        "state": 21143,
+        "issue": 9105,
+        "state_issue_score": 0.5,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87503,
+      "fields": {
+        "state": 21143,
+        "issue": 9106,
+        "state_issue_score": -0.288,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87504,
+      "fields": {
+        "state": 21143,
+        "issue": 9107,
+        "state_issue_score": -0.052,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87505,
+      "fields": {
+        "state": 21151,
+        "issue": 9101,
+        "state_issue_score": 0.234,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87506,
+      "fields": {
+        "state": 21151,
+        "issue": 9102,
+        "state_issue_score": -0.315,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87507,
+      "fields": {
+        "state": 21151,
+        "issue": 9103,
+        "state_issue_score": 0.668,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87508,
+      "fields": {
+        "state": 21151,
+        "issue": 9104,
+        "state_issue_score": -0.098,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87509,
+      "fields": {
+        "state": 21151,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87510,
+      "fields": {
+        "state": 21151,
+        "issue": 9106,
+        "state_issue_score": -0.554,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87511,
+      "fields": {
+        "state": 21151,
+        "issue": 9107,
+        "state_issue_score": 0.656,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87512,
+      "fields": {
+        "state": 21153,
+        "issue": 9101,
+        "state_issue_score": 0.28,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87513,
+      "fields": {
+        "state": 21153,
+        "issue": 9102,
+        "state_issue_score": -0.639,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87514,
+      "fields": {
+        "state": 21153,
+        "issue": 9103,
+        "state_issue_score": -0.022,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87515,
+      "fields": {
+        "state": 21153,
+        "issue": 9104,
+        "state_issue_score": 0.906,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87516,
+      "fields": {
+        "state": 21153,
+        "issue": 9105,
+        "state_issue_score": 0.708,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87517,
+      "fields": {
+        "state": 21153,
+        "issue": 9106,
+        "state_issue_score": 0.814,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87518,
+      "fields": {
+        "state": 21153,
+        "issue": 9107,
+        "state_issue_score": 0.016,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87519,
+      "fields": {
+        "state": 21155,
+        "issue": 9101,
+        "state_issue_score": 0.094,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87520,
+      "fields": {
+        "state": 21155,
+        "issue": 9102,
+        "state_issue_score": -0.447,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87521,
+      "fields": {
+        "state": 21155,
+        "issue": 9103,
+        "state_issue_score": 0.012,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87522,
+      "fields": {
+        "state": 21155,
+        "issue": 9104,
+        "state_issue_score": 0.594,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87523,
+      "fields": {
+        "state": 21155,
+        "issue": 9105,
+        "state_issue_score": -0.448,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87524,
+      "fields": {
+        "state": 21155,
+        "issue": 9106,
+        "state_issue_score": -0.518,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87525,
+      "fields": {
+        "state": 21155,
+        "issue": 9107,
+        "state_issue_score": -0.024,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87526,
+      "fields": {
+        "state": 21157,
+        "issue": 9101,
+        "state_issue_score": 0.042,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87527,
+      "fields": {
+        "state": 21157,
+        "issue": 9102,
+        "state_issue_score": -0.617,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87528,
+      "fields": {
+        "state": 21157,
+        "issue": 9103,
+        "state_issue_score": -0.024,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87529,
+      "fields": {
+        "state": 21157,
+        "issue": 9104,
+        "state_issue_score": 0.746,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87530,
+      "fields": {
+        "state": 21157,
+        "issue": 9105,
+        "state_issue_score": 0.5,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87531,
+      "fields": {
+        "state": 21157,
+        "issue": 9106,
+        "state_issue_score": -0.272,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87532,
+      "fields": {
+        "state": 21157,
+        "issue": 9107,
+        "state_issue_score": -0.056,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87533,
+      "fields": {
+        "state": 21159,
+        "issue": 9101,
+        "state_issue_score": -0.112,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87534,
+      "fields": {
+        "state": 21159,
+        "issue": 9102,
+        "state_issue_score": -0.924,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87535,
+      "fields": {
+        "state": 21159,
+        "issue": 9103,
+        "state_issue_score": -0.082,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87536,
+      "fields": {
+        "state": 21159,
+        "issue": 9104,
+        "state_issue_score": 1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87537,
+      "fields": {
+        "state": 21159,
+        "issue": 9105,
+        "state_issue_score": 0.634,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87538,
+      "fields": {
+        "state": 21159,
+        "issue": 9106,
+        "state_issue_score": 0.892,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87539,
+      "fields": {
+        "state": 21159,
+        "issue": 9107,
+        "state_issue_score": -0.038,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87540,
+      "fields": {
+        "state": 21161,
+        "issue": 9101,
+        "state_issue_score": -0.024,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87541,
+      "fields": {
+        "state": 21161,
+        "issue": 9102,
+        "state_issue_score": -0.46,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87542,
+      "fields": {
+        "state": 21161,
+        "issue": 9103,
+        "state_issue_score": 0.278,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87543,
+      "fields": {
+        "state": 21161,
+        "issue": 9104,
+        "state_issue_score": 0.56,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87544,
+      "fields": {
+        "state": 21161,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87545,
+      "fields": {
+        "state": 21161,
+        "issue": 9106,
+        "state_issue_score": -0.514,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87546,
+      "fields": {
+        "state": 21161,
+        "issue": 9107,
+        "state_issue_score": 0.084,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87547,
+      "fields": {
+        "state": 21145,
+        "issue": 9101,
+        "state_issue_score": 0.042,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87548,
+      "fields": {
+        "state": 21145,
+        "issue": 9102,
+        "state_issue_score": -0.373,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87549,
+      "fields": {
+        "state": 21145,
+        "issue": 9103,
+        "state_issue_score": 0.072,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87550,
+      "fields": {
+        "state": 21145,
+        "issue": 9104,
+        "state_issue_score": 0.53,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87551,
+      "fields": {
+        "state": 21145,
+        "issue": 9105,
+        "state_issue_score": -0.38,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87552,
+      "fields": {
+        "state": 21145,
+        "issue": 9106,
+        "state_issue_score": -0.338,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87553,
+      "fields": {
+        "state": 21145,
+        "issue": 9107,
+        "state_issue_score": 0.282,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87554,
+      "fields": {
+        "state": 21147,
+        "issue": 9101,
+        "state_issue_score": -0.332,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87555,
+      "fields": {
+        "state": 21147,
+        "issue": 9102,
+        "state_issue_score": -0.903,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87556,
+      "fields": {
+        "state": 21147,
+        "issue": 9103,
+        "state_issue_score": -0.02,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87557,
+      "fields": {
+        "state": 21147,
+        "issue": 9104,
+        "state_issue_score": 0.998,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87558,
+      "fields": {
+        "state": 21147,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87559,
+      "fields": {
+        "state": 21147,
+        "issue": 9106,
+        "state_issue_score": -0.394,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87560,
+      "fields": {
+        "state": 21147,
+        "issue": 9107,
+        "state_issue_score": -0.054,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87561,
+      "fields": {
+        "state": 21149,
+        "issue": 9101,
+        "state_issue_score": -0.098,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87562,
+      "fields": {
+        "state": 21149,
+        "issue": 9102,
+        "state_issue_score": -0.63,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87563,
+      "fields": {
+        "state": 21149,
+        "issue": 9103,
+        "state_issue_score": -0.088,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87564,
+      "fields": {
+        "state": 21149,
+        "issue": 9104,
+        "state_issue_score": 0.896,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87565,
+      "fields": {
+        "state": 21149,
+        "issue": 9105,
+        "state_issue_score": -0.372,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87566,
+      "fields": {
+        "state": 21149,
+        "issue": 9106,
+        "state_issue_score": 0.892,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87567,
+      "fields": {
+        "state": 21149,
+        "issue": 9107,
+        "state_issue_score": -0.042,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87568,
+      "fields": {
+        "state": 21163,
+        "issue": 9101,
+        "state_issue_score": -0.084,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87569,
+      "fields": {
+        "state": 21163,
+        "issue": 9102,
+        "state_issue_score": -0.546,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87570,
+      "fields": {
+        "state": 21163,
+        "issue": 9103,
+        "state_issue_score": -0.022,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87571,
+      "fields": {
+        "state": 21163,
+        "issue": 9104,
+        "state_issue_score": 0.682,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87572,
+      "fields": {
+        "state": 21163,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87573,
+      "fields": {
+        "state": 21163,
+        "issue": 9106,
+        "state_issue_score": -0.492,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87574,
+      "fields": {
+        "state": 21163,
+        "issue": 9107,
+        "state_issue_score": -0.056,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87575,
+      "fields": {
+        "state": 21165,
+        "issue": 9101,
+        "state_issue_score": -0.01,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87576,
+      "fields": {
+        "state": 21165,
+        "issue": 9102,
+        "state_issue_score": -0.592,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87577,
+      "fields": {
+        "state": 21165,
+        "issue": 9103,
+        "state_issue_score": -0.068,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87578,
+      "fields": {
+        "state": 21165,
+        "issue": 9104,
+        "state_issue_score": 0.864,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87579,
+      "fields": {
+        "state": 21165,
+        "issue": 9105,
+        "state_issue_score": -0.228,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87580,
+      "fields": {
+        "state": 21165,
+        "issue": 9106,
+        "state_issue_score": 0.802,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87581,
+      "fields": {
+        "state": 21165,
+        "issue": 9107,
+        "state_issue_score": -0.026,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87582,
+      "fields": {
+        "state": 21167,
+        "issue": 9101,
+        "state_issue_score": -0.058,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87583,
+      "fields": {
+        "state": 21167,
+        "issue": 9102,
+        "state_issue_score": -0.549,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87584,
+      "fields": {
+        "state": 21167,
+        "issue": 9103,
+        "state_issue_score": -0.014,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87585,
+      "fields": {
+        "state": 21167,
+        "issue": 9104,
+        "state_issue_score": 0.684,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87586,
+      "fields": {
+        "state": 21167,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87587,
+      "fields": {
+        "state": 21167,
+        "issue": 9106,
+        "state_issue_score": -0.49,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87588,
+      "fields": {
+        "state": 21167,
+        "issue": 9107,
+        "state_issue_score": -0.048,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87589,
+      "fields": {
+        "state": 21169,
+        "issue": 9101,
+        "state_issue_score": -0.096,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87590,
+      "fields": {
+        "state": 21169,
+        "issue": 9102,
+        "state_issue_score": -0.7,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87591,
+      "fields": {
+        "state": 21169,
+        "issue": 9103,
+        "state_issue_score": 0.01,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87592,
+      "fields": {
+        "state": 21169,
+        "issue": 9104,
+        "state_issue_score": 0.82,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87593,
+      "fields": {
+        "state": 21169,
+        "issue": 9105,
+        "state_issue_score": -0.452,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87594,
+      "fields": {
+        "state": 21169,
+        "issue": 9106,
+        "state_issue_score": -0.45,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87595,
+      "fields": {
+        "state": 21169,
+        "issue": 9107,
+        "state_issue_score": -0.028,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87596,
+      "fields": {
+        "state": 21171,
+        "issue": 9101,
+        "state_issue_score": -0.406,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87597,
+      "fields": {
+        "state": 21171,
+        "issue": 9102,
+        "state_issue_score": -0.876,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87598,
+      "fields": {
+        "state": 21171,
+        "issue": 9103,
+        "state_issue_score": -0.05,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87599,
+      "fields": {
+        "state": 21171,
+        "issue": 9104,
+        "state_issue_score": 0.974,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87600,
+      "fields": {
+        "state": 21171,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87601,
+      "fields": {
+        "state": 21171,
+        "issue": 9106,
+        "state_issue_score": -0.402,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87602,
+      "fields": {
+        "state": 21171,
+        "issue": 9107,
+        "state_issue_score": -0.08,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87603,
+      "fields": {
+        "state": 21173,
+        "issue": 9101,
+        "state_issue_score": 0.042,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87604,
+      "fields": {
+        "state": 21173,
+        "issue": 9102,
+        "state_issue_score": -0.491,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87605,
+      "fields": {
+        "state": 21173,
+        "issue": 9103,
+        "state_issue_score": 0.006,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87606,
+      "fields": {
+        "state": 21173,
+        "issue": 9104,
+        "state_issue_score": 0.634,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87607,
+      "fields": {
+        "state": 21173,
+        "issue": 9105,
+        "state_issue_score": -0.456,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87608,
+      "fields": {
+        "state": 21173,
+        "issue": 9106,
+        "state_issue_score": -0.506,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87609,
+      "fields": {
+        "state": 21173,
+        "issue": 9107,
+        "state_issue_score": -0.03,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87610,
+      "fields": {
+        "state": 21175,
+        "issue": 9101,
+        "state_issue_score": 0.036,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87611,
+      "fields": {
+        "state": 21175,
+        "issue": 9102,
+        "state_issue_score": -0.663,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87612,
+      "fields": {
+        "state": 21175,
+        "issue": 9103,
+        "state_issue_score": -0.038,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87613,
+      "fields": {
+        "state": 21175,
+        "issue": 9104,
+        "state_issue_score": 0.926,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87614,
+      "fields": {
+        "state": 21175,
+        "issue": 9105,
+        "state_issue_score": -0.19,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87615,
+      "fields": {
+        "state": 21175,
+        "issue": 9106,
+        "state_issue_score": 0.82,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87616,
+      "fields": {
+        "state": 21175,
+        "issue": 9107,
+        "state_issue_score": 0.002,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87617,
+      "fields": {
+        "state": 21177,
+        "issue": 9101,
+        "state_issue_score": 0.178,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87618,
+      "fields": {
+        "state": 21177,
+        "issue": 9102,
+        "state_issue_score": -0.575,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87619,
+      "fields": {
+        "state": 21177,
+        "issue": 9103,
+        "state_issue_score": -0.07,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87620,
+      "fields": {
+        "state": 21177,
+        "issue": 9104,
+        "state_issue_score": 0.848,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87621,
+      "fields": {
+        "state": 21177,
+        "issue": 9105,
+        "state_issue_score": 0.53,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87622,
+      "fields": {
+        "state": 21177,
+        "issue": 9106,
+        "state_issue_score": 0.876,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87623,
+      "fields": {
+        "state": 21177,
+        "issue": 9107,
+        "state_issue_score": -0.026,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87624,
+      "fields": {
+        "state": 21179,
+        "issue": 9101,
+        "state_issue_score": 0.056,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87625,
+      "fields": {
+        "state": 21179,
+        "issue": 9102,
+        "state_issue_score": -0.431,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87626,
+      "fields": {
+        "state": 21179,
+        "issue": 9103,
+        "state_issue_score": -0.004,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87627,
+      "fields": {
+        "state": 21179,
+        "issue": 9104,
+        "state_issue_score": 0.58,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87628,
+      "fields": {
+        "state": 21179,
+        "issue": 9105,
+        "state_issue_score": -0.468,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87629,
+      "fields": {
+        "state": 21179,
+        "issue": 9106,
+        "state_issue_score": -0.522,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87630,
+      "fields": {
+        "state": 21179,
+        "issue": 9107,
+        "state_issue_score": -0.038,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87631,
+      "fields": {
+        "state": 21181,
+        "issue": 9101,
+        "state_issue_score": 0.194,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87632,
+      "fields": {
+        "state": 21181,
+        "issue": 9102,
+        "state_issue_score": -0.503,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87633,
+      "fields": {
+        "state": 21181,
+        "issue": 9103,
+        "state_issue_score": 0.058,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87634,
+      "fields": {
+        "state": 21181,
+        "issue": 9104,
+        "state_issue_score": 0.646,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87635,
+      "fields": {
+        "state": 21181,
+        "issue": 9105,
+        "state_issue_score": -0.392,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87636,
+      "fields": {
+        "state": 21181,
+        "issue": 9106,
+        "state_issue_score": -0.504,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87637,
+      "fields": {
+        "state": 21181,
+        "issue": 9107,
+        "state_issue_score": 0.016,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87638,
+      "fields": {
+        "state": 21183,
+        "issue": 9101,
+        "state_issue_score": -0.146,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87639,
+      "fields": {
+        "state": 21183,
+        "issue": 9102,
+        "state_issue_score": -0.653,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87640,
+      "fields": {
+        "state": 21183,
+        "issue": 9103,
+        "state_issue_score": -0.098,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87641,
+      "fields": {
+        "state": 21183,
+        "issue": 9104,
+        "state_issue_score": 0.918,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87642,
+      "fields": {
+        "state": 21183,
+        "issue": 9105,
+        "state_issue_score": -0.38,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87643,
+      "fields": {
+        "state": 21183,
+        "issue": 9106,
+        "state_issue_score": 0.898,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87644,
+      "fields": {
+        "state": 21183,
+        "issue": 9107,
+        "state_issue_score": -0.052,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87645,
+      "fields": {
+        "state": 21185,
+        "issue": 9101,
+        "state_issue_score": 0.09,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87646,
+      "fields": {
+        "state": 21185,
+        "issue": 9102,
+        "state_issue_score": -0.252,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87647,
+      "fields": {
+        "state": 21185,
+        "issue": 9103,
+        "state_issue_score": 0.514,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87648,
+      "fields": {
+        "state": 21185,
+        "issue": 9104,
+        "state_issue_score": -0.152,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87649,
+      "fields": {
+        "state": 21185,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87650,
+      "fields": {
+        "state": 21185,
+        "issue": 9106,
+        "state_issue_score": -0.572,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87651,
+      "fields": {
+        "state": 21185,
+        "issue": 9107,
+        "state_issue_score": 0.266,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87652,
+      "fields": {
+        "state": 21187,
+        "issue": 9101,
+        "state_issue_score": -0.108,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87653,
+      "fields": {
+        "state": 21187,
+        "issue": 9102,
+        "state_issue_score": -0.688,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87654,
+      "fields": {
+        "state": 21187,
+        "issue": 9103,
+        "state_issue_score": 0.302,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87655,
+      "fields": {
+        "state": 21187,
+        "issue": 9104,
+        "state_issue_score": 0.76,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87656,
+      "fields": {
+        "state": 21187,
+        "issue": 9105,
+        "state_issue_score": -0.46,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87657,
+      "fields": {
+        "state": 21187,
+        "issue": 9106,
+        "state_issue_score": -0.452,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87658,
+      "fields": {
+        "state": 21187,
+        "issue": 9107,
+        "state_issue_score": 0.106,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87659,
+      "fields": {
+        "state": 21189,
+        "issue": 9101,
+        "state_issue_score": 0.13,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87660,
+      "fields": {
+        "state": 21189,
+        "issue": 9102,
+        "state_issue_score": -0.903,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87661,
+      "fields": {
+        "state": 21189,
+        "issue": 9103,
+        "state_issue_score": -0.01,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87662,
+      "fields": {
+        "state": 21189,
+        "issue": 9104,
+        "state_issue_score": 1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87663,
+      "fields": {
+        "state": 21189,
+        "issue": 9105,
+        "state_issue_score": 0.724,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87664,
+      "fields": {
+        "state": 21189,
+        "issue": 9106,
+        "state_issue_score": 0.886,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87665,
+      "fields": {
+        "state": 21189,
+        "issue": 9107,
+        "state_issue_score": 0.026,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87666,
+      "fields": {
+        "state": 21191,
+        "issue": 9101,
+        "state_issue_score": -0.154,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87667,
+      "fields": {
+        "state": 21191,
+        "issue": 9102,
+        "state_issue_score": -0.712,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87668,
+      "fields": {
+        "state": 21191,
+        "issue": 9103,
+        "state_issue_score": 0.294,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87669,
+      "fields": {
+        "state": 21191,
+        "issue": 9104,
+        "state_issue_score": 0.782,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87670,
+      "fields": {
+        "state": 21191,
+        "issue": 9105,
+        "state_issue_score": -0.472,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87671,
+      "fields": {
+        "state": 21191,
+        "issue": 9106,
+        "state_issue_score": -0.446,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87672,
+      "fields": {
+        "state": 21191,
+        "issue": 9107,
+        "state_issue_score": 0.098,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87673,
+      "fields": {
+        "state": 21193,
+        "issue": 9101,
+        "state_issue_score": 0.402,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87674,
+      "fields": {
+        "state": 21193,
+        "issue": 9102,
+        "state_issue_score": -0.639,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87675,
+      "fields": {
+        "state": 21193,
+        "issue": 9103,
+        "state_issue_score": 0.018,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87676,
+      "fields": {
+        "state": 21193,
+        "issue": 9104,
+        "state_issue_score": 0.906,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87677,
+      "fields": {
+        "state": 21193,
+        "issue": 9105,
+        "state_issue_score": 0.756,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87678,
+      "fields": {
+        "state": 21193,
+        "issue": 9106,
+        "state_issue_score": 0.814,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87679,
+      "fields": {
+        "state": 21193,
+        "issue": 9107,
+        "state_issue_score": 0.05,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87680,
+      "fields": {
+        "state": 21195,
+        "issue": 9101,
+        "state_issue_score": 0.188,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87681,
+      "fields": {
+        "state": 21195,
+        "issue": 9102,
+        "state_issue_score": -0.714,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87682,
+      "fields": {
+        "state": 21195,
+        "issue": 9103,
+        "state_issue_score": -0.034,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87683,
+      "fields": {
+        "state": 21195,
+        "issue": 9104,
+        "state_issue_score": 0.972,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87684,
+      "fields": {
+        "state": 21195,
+        "issue": 9105,
+        "state_issue_score": 0.694,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87685,
+      "fields": {
+        "state": 21195,
+        "issue": 9106,
+        "state_issue_score": 0.834,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87686,
+      "fields": {
+        "state": 21195,
+        "issue": 9107,
+        "state_issue_score": 0.006,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87687,
+      "fields": {
+        "state": 21197,
+        "issue": 9101,
+        "state_issue_score": 0.076,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87688,
+      "fields": {
+        "state": 21197,
+        "issue": 9102,
+        "state_issue_score": -0.572,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87689,
+      "fields": {
+        "state": 21197,
+        "issue": 9103,
+        "state_issue_score": -0.044,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87690,
+      "fields": {
+        "state": 21197,
+        "issue": 9104,
+        "state_issue_score": 0.846,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87691,
+      "fields": {
+        "state": 21197,
+        "issue": 9105,
+        "state_issue_score": -0.2,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87692,
+      "fields": {
+        "state": 21197,
+        "issue": 9106,
+        "state_issue_score": 0.796,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87693,
+      "fields": {
+        "state": 21197,
+        "issue": 9107,
+        "state_issue_score": -0.004,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87694,
+      "fields": {
+        "state": 21199,
+        "issue": 9101,
+        "state_issue_score": -0.284,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87695,
+      "fields": {
+        "state": 21199,
+        "issue": 9102,
+        "state_issue_score": -0.737,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87696,
+      "fields": {
+        "state": 21199,
+        "issue": 9103,
+        "state_issue_score": -0.042,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87697,
+      "fields": {
+        "state": 21199,
+        "issue": 9104,
+        "state_issue_score": 0.852,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87698,
+      "fields": {
+        "state": 21199,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87699,
+      "fields": {
+        "state": 21199,
+        "issue": 9106,
+        "state_issue_score": -0.44,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87700,
+      "fields": {
+        "state": 21199,
+        "issue": 9107,
+        "state_issue_score": -0.074,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87701,
+      "fields": {
+        "state": 21201,
+        "issue": 9101,
+        "state_issue_score": -0.036,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87702,
+      "fields": {
+        "state": 21201,
+        "issue": 9102,
+        "state_issue_score": -0.648,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87703,
+      "fields": {
+        "state": 21201,
+        "issue": 9103,
+        "state_issue_score": 0.316,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87704,
+      "fields": {
+        "state": 21201,
+        "issue": 9104,
+        "state_issue_score": 0.724,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87705,
+      "fields": {
+        "state": 21201,
+        "issue": 9105,
+        "state_issue_score": -0.444,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87706,
+      "fields": {
+        "state": 21201,
+        "issue": 9106,
+        "state_issue_score": -0.464,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87707,
+      "fields": {
+        "state": 21201,
+        "issue": 9107,
+        "state_issue_score": 0.118,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87708,
+      "fields": {
+        "state": 21203,
+        "issue": 9101,
+        "state_issue_score": -0.332,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87709,
+      "fields": {
+        "state": 21203,
+        "issue": 9102,
+        "state_issue_score": -0.823,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87710,
+      "fields": {
+        "state": 21203,
+        "issue": 9103,
+        "state_issue_score": -0.118,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87711,
+      "fields": {
+        "state": 21203,
+        "issue": 9104,
+        "state_issue_score": 1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87712,
+      "fields": {
+        "state": 21203,
+        "issue": 9105,
+        "state_issue_score": -0.26,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87713,
+      "fields": {
+        "state": 21203,
+        "issue": 9106,
+        "state_issue_score": 0.864,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87714,
+      "fields": {
+        "state": 21203,
+        "issue": 9107,
+        "state_issue_score": -0.07,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87715,
+      "fields": {
+        "state": 21205,
+        "issue": 9101,
+        "state_issue_score": 0.32,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87716,
+      "fields": {
+        "state": 21205,
+        "issue": 9102,
+        "state_issue_score": -0.247,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87717,
+      "fields": {
+        "state": 21205,
+        "issue": 9103,
+        "state_issue_score": 0.052,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87718,
+      "fields": {
+        "state": 21205,
+        "issue": 9104,
+        "state_issue_score": 0.558,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87719,
+      "fields": {
+        "state": 21205,
+        "issue": 9105,
+        "state_issue_score": -0.228,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87720,
+      "fields": {
+        "state": 21205,
+        "issue": 9106,
+        "state_issue_score": 0.708,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87721,
+      "fields": {
+        "state": 21205,
+        "issue": 9107,
+        "state_issue_score": 0.336,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87722,
+      "fields": {
+        "state": 21207,
+        "issue": 9101,
+        "state_issue_score": -0.314,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87723,
+      "fields": {
+        "state": 21207,
+        "issue": 9102,
+        "state_issue_score": -0.813,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87724,
+      "fields": {
+        "state": 21207,
+        "issue": 9103,
+        "state_issue_score": -0.036,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87725,
+      "fields": {
+        "state": 21207,
+        "issue": 9104,
+        "state_issue_score": 0.918,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87726,
+      "fields": {
+        "state": 21207,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87727,
+      "fields": {
+        "state": 21207,
+        "issue": 9106,
+        "state_issue_score": -0.418,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87728,
+      "fields": {
+        "state": 21207,
+        "issue": 9107,
+        "state_issue_score": -0.066,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87729,
+      "fields": {
+        "state": 21209,
+        "issue": 9101,
+        "state_issue_score": 0.212,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87730,
+      "fields": {
+        "state": 21209,
+        "issue": 9102,
+        "state_issue_score": -0.292,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87731,
+      "fields": {
+        "state": 21209,
+        "issue": 9103,
+        "state_issue_score": 0.562,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87732,
+      "fields": {
+        "state": 21209,
+        "issue": 9104,
+        "state_issue_score": -0.118,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87733,
+      "fields": {
+        "state": 21209,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87734,
+      "fields": {
+        "state": 21209,
+        "issue": 9106,
+        "state_issue_score": -0.56,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87735,
+      "fields": {
+        "state": 21209,
+        "issue": 9107,
+        "state_issue_score": 0.308,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87736,
+      "fields": {
+        "state": 21211,
+        "issue": 9101,
+        "state_issue_score": -0.032,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87737,
+      "fields": {
+        "state": 21211,
+        "issue": 9102,
+        "state_issue_score": -0.349,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87738,
+      "fields": {
+        "state": 21211,
+        "issue": 9103,
+        "state_issue_score": 0.35,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87739,
+      "fields": {
+        "state": 21211,
+        "issue": 9104,
+        "state_issue_score": 0.46,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87740,
+      "fields": {
+        "state": 21211,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87741,
+      "fields": {
+        "state": 21211,
+        "issue": 9106,
+        "state_issue_score": -0.546,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87742,
+      "fields": {
+        "state": 21211,
+        "issue": 9107,
+        "state_issue_score": 0.06,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87743,
+      "fields": {
+        "state": 21213,
+        "issue": 9101,
+        "state_issue_score": -0.154,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87744,
+      "fields": {
+        "state": 21213,
+        "issue": 9102,
+        "state_issue_score": -0.432,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87745,
+      "fields": {
+        "state": 21213,
+        "issue": 9103,
+        "state_issue_score": -0.072,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87746,
+      "fields": {
+        "state": 21213,
+        "issue": 9104,
+        "state_issue_score": 0.582,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87747,
+      "fields": {
+        "state": 21213,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87748,
+      "fields": {
+        "state": 21213,
+        "issue": 9106,
+        "state_issue_score": -0.522,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87749,
+      "fields": {
+        "state": 21213,
+        "issue": 9107,
+        "state_issue_score": -0.098,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87750,
+      "fields": {
+        "state": 21215,
+        "issue": 9101,
+        "state_issue_score": -0.198,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87751,
+      "fields": {
+        "state": 21215,
+        "issue": 9102,
+        "state_issue_score": -0.639,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87752,
+      "fields": {
+        "state": 21215,
+        "issue": 9103,
+        "state_issue_score": -0.038,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87753,
+      "fields": {
+        "state": 21215,
+        "issue": 9104,
+        "state_issue_score": 0.764,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87754,
+      "fields": {
+        "state": 21215,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87755,
+      "fields": {
+        "state": 21215,
+        "issue": 9106,
+        "state_issue_score": -0.466,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87756,
+      "fields": {
+        "state": 21215,
+        "issue": 9107,
+        "state_issue_score": -0.07,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87757,
+      "fields": {
+        "state": 21217,
+        "issue": 9101,
+        "state_issue_score": 0.058,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87758,
+      "fields": {
+        "state": 21217,
+        "issue": 9102,
+        "state_issue_score": -0.603,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87759,
+      "fields": {
+        "state": 21217,
+        "issue": 9103,
+        "state_issue_score": -0.022,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87760,
+      "fields": {
+        "state": 21217,
+        "issue": 9104,
+        "state_issue_score": 0.732,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87761,
+      "fields": {
+        "state": 21217,
+        "issue": 9105,
+        "state_issue_score": 0.4,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87762,
+      "fields": {
+        "state": 21217,
+        "issue": 9106,
+        "state_issue_score": -0.476,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87763,
+      "fields": {
+        "state": 21217,
+        "issue": 9107,
+        "state_issue_score": -0.054,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87764,
+      "fields": {
+        "state": 21219,
+        "issue": 9101,
+        "state_issue_score": -0.266,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87765,
+      "fields": {
+        "state": 21219,
+        "issue": 9102,
+        "state_issue_score": -0.627,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87766,
+      "fields": {
+        "state": 21219,
+        "issue": 9103,
+        "state_issue_score": -0.062,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87767,
+      "fields": {
+        "state": 21219,
+        "issue": 9104,
+        "state_issue_score": 0.754,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87768,
+      "fields": {
+        "state": 21219,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87769,
+      "fields": {
+        "state": 21219,
+        "issue": 9106,
+        "state_issue_score": -0.47,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87770,
+      "fields": {
+        "state": 21219,
+        "issue": 9107,
+        "state_issue_score": -0.092,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87771,
+      "fields": {
+        "state": 21221,
+        "issue": 9101,
+        "state_issue_score": -0.208,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87772,
+      "fields": {
+        "state": 21221,
+        "issue": 9102,
+        "state_issue_score": -0.59,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87773,
+      "fields": {
+        "state": 21221,
+        "issue": 9103,
+        "state_issue_score": -0.052,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87774,
+      "fields": {
+        "state": 21221,
+        "issue": 9104,
+        "state_issue_score": 0.722,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87775,
+      "fields": {
+        "state": 21221,
+        "issue": 9105,
+        "state_issue_score": -0.38,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87776,
+      "fields": {
+        "state": 21221,
+        "issue": 9106,
+        "state_issue_score": -0.28,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87777,
+      "fields": {
+        "state": 21221,
+        "issue": 9107,
+        "state_issue_score": -0.082,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87778,
+      "fields": {
+        "state": 21223,
+        "issue": 9101,
+        "state_issue_score": -0.048,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87779,
+      "fields": {
+        "state": 21223,
+        "issue": 9102,
+        "state_issue_score": -0.603,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87780,
+      "fields": {
+        "state": 21223,
+        "issue": 9103,
+        "state_issue_score": 0.002,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87781,
+      "fields": {
+        "state": 21223,
+        "issue": 9104,
+        "state_issue_score": 0.734,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87782,
+      "fields": {
+        "state": 21223,
+        "issue": 9105,
+        "state_issue_score": -0.46,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87783,
+      "fields": {
+        "state": 21223,
+        "issue": 9106,
+        "state_issue_score": -0.476,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87784,
+      "fields": {
+        "state": 21223,
+        "issue": 9107,
+        "state_issue_score": -0.034,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87785,
+      "fields": {
+        "state": 21225,
+        "issue": 9101,
+        "state_issue_score": -0.026,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87786,
+      "fields": {
+        "state": 21225,
+        "issue": 9102,
+        "state_issue_score": -0.615,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87787,
+      "fields": {
+        "state": 21225,
+        "issue": 9103,
+        "state_issue_score": -0.068,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87788,
+      "fields": {
+        "state": 21225,
+        "issue": 9104,
+        "state_issue_score": 0.884,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87789,
+      "fields": {
+        "state": 21225,
+        "issue": 9105,
+        "state_issue_score": -0.348,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87790,
+      "fields": {
+        "state": 21225,
+        "issue": 9106,
+        "state_issue_score": 0.888,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87791,
+      "fields": {
+        "state": 21225,
+        "issue": 9107,
+        "state_issue_score": -0.026,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87792,
+      "fields": {
+        "state": 21227,
+        "issue": 9101,
+        "state_issue_score": 0.394,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87793,
+      "fields": {
+        "state": 21227,
+        "issue": 9102,
+        "state_issue_score": -0.198,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87794,
+      "fields": {
+        "state": 21227,
+        "issue": 9103,
+        "state_issue_score": 0.636,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87795,
+      "fields": {
+        "state": 21227,
+        "issue": 9104,
+        "state_issue_score": -0.202,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87796,
+      "fields": {
+        "state": 21227,
+        "issue": 9105,
+        "state_issue_score": 0.4,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87797,
+      "fields": {
+        "state": 21227,
+        "issue": 9106,
+        "state_issue_score": -0.586,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87798,
+      "fields": {
+        "state": 21227,
+        "issue": 9107,
+        "state_issue_score": 0.628,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87799,
+      "fields": {
+        "state": 21229,
+        "issue": 9101,
+        "state_issue_score": -0.088,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87800,
+      "fields": {
+        "state": 21229,
+        "issue": 9102,
+        "state_issue_score": -0.536,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87801,
+      "fields": {
+        "state": 21229,
+        "issue": 9103,
+        "state_issue_score": -0.026,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87802,
+      "fields": {
+        "state": 21229,
+        "issue": 9104,
+        "state_issue_score": 0.674,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87803,
+      "fields": {
+        "state": 21229,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87804,
+      "fields": {
+        "state": 21229,
+        "issue": 9106,
+        "state_issue_score": -0.494,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87805,
+      "fields": {
+        "state": 21229,
+        "issue": 9107,
+        "state_issue_score": -0.058,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87806,
+      "fields": {
+        "state": 21231,
+        "issue": 9101,
+        "state_issue_score": -0.16,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87807,
+      "fields": {
+        "state": 21231,
+        "issue": 9102,
+        "state_issue_score": -0.73,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87808,
+      "fields": {
+        "state": 21231,
+        "issue": 9103,
+        "state_issue_score": -0.004,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87809,
+      "fields": {
+        "state": 21231,
+        "issue": 9104,
+        "state_issue_score": 0.844,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87810,
+      "fields": {
+        "state": 21231,
+        "issue": 9105,
+        "state_issue_score": -0.468,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87811,
+      "fields": {
+        "state": 21231,
+        "issue": 9106,
+        "state_issue_score": -0.442,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87812,
+      "fields": {
+        "state": 21231,
+        "issue": 9107,
+        "state_issue_score": -0.04,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87813,
+      "fields": {
+        "state": 21233,
+        "issue": 9101,
+        "state_issue_score": -0.11,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87814,
+      "fields": {
+        "state": 21233,
+        "issue": 9102,
+        "state_issue_score": -0.607,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87815,
+      "fields": {
+        "state": 21233,
+        "issue": 9103,
+        "state_issue_score": -0.096,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87816,
+      "fields": {
+        "state": 21233,
+        "issue": 9104,
+        "state_issue_score": 0.876,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87817,
+      "fields": {
+        "state": 21233,
+        "issue": 9105,
+        "state_issue_score": -0.38,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87818,
+      "fields": {
+        "state": 21233,
+        "issue": 9106,
+        "state_issue_score": 0.886,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87819,
+      "fields": {
+        "state": 21233,
+        "issue": 9107,
+        "state_issue_score": -0.05,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87820,
+      "fields": {
+        "state": 21235,
+        "issue": 9101,
+        "state_issue_score": -0.264,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87821,
+      "fields": {
+        "state": 21235,
+        "issue": 9102,
+        "state_issue_score": -0.767,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87822,
+      "fields": {
+        "state": 21235,
+        "issue": 9103,
+        "state_issue_score": -0.11,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87823,
+      "fields": {
+        "state": 21235,
+        "issue": 9104,
+        "state_issue_score": 1,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87824,
+      "fields": {
+        "state": 21235,
+        "issue": 9105,
+        "state_issue_score": -0.26,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87825,
+      "fields": {
+        "state": 21235,
+        "issue": 9106,
+        "state_issue_score": 0.848,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87826,
+      "fields": {
+        "state": 21235,
+        "issue": 9107,
+        "state_issue_score": -0.062,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87827,
+      "fields": {
+        "state": 21237,
+        "issue": 9101,
+        "state_issue_score": 0.4,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87828,
+      "fields": {
+        "state": 21237,
+        "issue": 9102,
+        "state_issue_score": -0.497,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87829,
+      "fields": {
+        "state": 21237,
+        "issue": 9103,
+        "state_issue_score": -0.016,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87830,
+      "fields": {
+        "state": 21237,
+        "issue": 9104,
+        "state_issue_score": 0.78,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87831,
+      "fields": {
+        "state": 21237,
+        "issue": 9105,
+        "state_issue_score": 0.716,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87832,
+      "fields": {
+        "state": 21237,
+        "issue": 9106,
+        "state_issue_score": 0.776,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87833,
+      "fields": {
+        "state": 21237,
+        "issue": 9107,
+        "state_issue_score": 0.022,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87834,
+      "fields": {
+        "state": 21239,
+        "issue": 9101,
+        "state_issue_score": 0.18,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87835,
+      "fields": {
+        "state": 21239,
+        "issue": 9102,
+        "state_issue_score": -0.142,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87836,
+      "fields": {
+        "state": 21239,
+        "issue": 9103,
+        "state_issue_score": -0.03,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87837,
+      "fields": {
+        "state": 21239,
+        "issue": 9104,
+        "state_issue_score": 0.326,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87838,
+      "fields": {
+        "state": 21239,
+        "issue": 9105,
+        "state_issue_score": -0.48,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87839,
+      "fields": {
+        "state": 21239,
+        "issue": 9106,
+        "state_issue_score": -0.602,
+        "weight": 0.08
+      }
+    },
+    {
+      "model": "campaign_trail.state_issue_score",
+      "pk": 87840,
+      "fields": {
+        "state": 21239,
+        "issue": 9107,
+        "state_issue_score": -0.062,
+        "weight": 0.08
+      }
+    }
+  ],
+  "candidate_issue_score_json": [
+    {
+      "model": "campaign_trail.candidate_issue_score",
+      "pk": 86001,
+      "fields": {
+        "candidate": 201,
+        "issue": 9101,
+        "issue_score": 0.45
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_issue_score",
+      "pk": 86002,
+      "fields": {
+        "candidate": 201,
+        "issue": 9102,
+        "issue_score": -0.3
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_issue_score",
+      "pk": 86003,
+      "fields": {
+        "candidate": 201,
+        "issue": 9103,
+        "issue_score": 0.2
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_issue_score",
+      "pk": 86004,
+      "fields": {
+        "candidate": 201,
+        "issue": 9104,
+        "issue_score": -0.45
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_issue_score",
+      "pk": 86005,
+      "fields": {
+        "candidate": 201,
+        "issue": 9105,
+        "issue_score": 0.65
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_issue_score",
+      "pk": 86006,
+      "fields": {
+        "candidate": 201,
+        "issue": 9106,
+        "issue_score": 0.05
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_issue_score",
+      "pk": 86007,
+      "fields": {
+        "candidate": 201,
+        "issue": 9107,
+        "issue_score": 0.45
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_issue_score",
+      "pk": 86008,
+      "fields": {
+        "candidate": 200,
+        "issue": 9101,
+        "issue_score": -0.2
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_issue_score",
+      "pk": 86009,
+      "fields": {
+        "candidate": 200,
+        "issue": 9102,
+        "issue_score": 0.55
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_issue_score",
+      "pk": 86010,
+      "fields": {
+        "candidate": 200,
+        "issue": 9103,
+        "issue_score": 0.15
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_issue_score",
+      "pk": 86011,
+      "fields": {
+        "candidate": 200,
+        "issue": 9104,
+        "issue_score": 0.55
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_issue_score",
+      "pk": 86012,
+      "fields": {
+        "candidate": 200,
+        "issue": 9105,
+        "issue_score": 0.0
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_issue_score",
+      "pk": 86013,
+      "fields": {
+        "candidate": 200,
+        "issue": 9106,
+        "issue_score": 0.55
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_issue_score",
+      "pk": 86014,
+      "fields": {
+        "candidate": 200,
+        "issue": 9107,
+        "issue_score": 0.05
+      }
+    }
+  ],
+  "running_mate_issue_score_json": [
+    {
+      "model": "campaign_trail.running_mate_issue_score",
+      "pk": 86015,
+      "fields": {
+        "running_mate": 209,
+        "issue": 9101,
+        "issue_score": 0.35
+      }
+    },
+    {
+      "model": "campaign_trail.running_mate_issue_score",
+      "pk": 86016,
+      "fields": {
+        "running_mate": 209,
+        "issue": 9102,
+        "issue_score": -0.25
+      }
+    },
+    {
+      "model": "campaign_trail.running_mate_issue_score",
+      "pk": 86017,
+      "fields": {
+        "running_mate": 209,
+        "issue": 9103,
+        "issue_score": 0.1
+      }
+    },
+    {
+      "model": "campaign_trail.running_mate_issue_score",
+      "pk": 86018,
+      "fields": {
+        "running_mate": 209,
+        "issue": 9104,
+        "issue_score": -0.35
+      }
+    },
+    {
+      "model": "campaign_trail.running_mate_issue_score",
+      "pk": 86019,
+      "fields": {
+        "running_mate": 209,
+        "issue": 9105,
+        "issue_score": 0.45
+      }
+    },
+    {
+      "model": "campaign_trail.running_mate_issue_score",
+      "pk": 86020,
+      "fields": {
+        "running_mate": 209,
+        "issue": 9106,
+        "issue_score": 0.0
+      }
+    },
+    {
+      "model": "campaign_trail.running_mate_issue_score",
+      "pk": 86021,
+      "fields": {
+        "running_mate": 209,
+        "issue": 9107,
+        "issue_score": 0.65
+      }
+    },
+    {
+      "model": "campaign_trail.running_mate_issue_score",
+      "pk": 86022,
+      "fields": {
+        "running_mate": 204,
+        "issue": 9101,
+        "issue_score": -0.05
+      }
+    },
+    {
+      "model": "campaign_trail.running_mate_issue_score",
+      "pk": 86023,
+      "fields": {
+        "running_mate": 204,
+        "issue": 9102,
+        "issue_score": 0.45
+      }
+    },
+    {
+      "model": "campaign_trail.running_mate_issue_score",
+      "pk": 86024,
+      "fields": {
+        "running_mate": 204,
+        "issue": 9103,
+        "issue_score": 0.25
+      }
+    },
+    {
+      "model": "campaign_trail.running_mate_issue_score",
+      "pk": 86025,
+      "fields": {
+        "running_mate": 204,
+        "issue": 9104,
+        "issue_score": 0.45
+      }
+    },
+    {
+      "model": "campaign_trail.running_mate_issue_score",
+      "pk": 86026,
+      "fields": {
+        "running_mate": 204,
+        "issue": 9105,
+        "issue_score": 0.0
+      }
+    },
+    {
+      "model": "campaign_trail.running_mate_issue_score",
+      "pk": 86027,
+      "fields": {
+        "running_mate": 204,
+        "issue": 9106,
+        "issue_score": 0.5
+      }
+    },
+    {
+      "model": "campaign_trail.running_mate_issue_score",
+      "pk": 86028,
+      "fields": {
+        "running_mate": 204,
+        "issue": 9107,
+        "issue_score": 0.1
+      }
+    }
+  ],
+  "candidate_state_multiplier_json": [
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126002,
+      "fields": {
+        "candidate": 201,
+        "state": 21001,
+        "state_multiplier": 0.3194
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126003,
+      "fields": {
+        "candidate": 200,
+        "state": 21001,
+        "state_multiplier": 0.6806
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126006,
+      "fields": {
+        "candidate": 201,
+        "state": 21003,
+        "state_multiplier": 0.296
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126007,
+      "fields": {
+        "candidate": 200,
+        "state": 21003,
+        "state_multiplier": 0.704
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126010,
+      "fields": {
+        "candidate": 201,
+        "state": 21005,
+        "state_multiplier": 0.4534
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126011,
+      "fields": {
+        "candidate": 200,
+        "state": 21005,
+        "state_multiplier": 0.5466
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126014,
+      "fields": {
+        "candidate": 201,
+        "state": 21007,
+        "state_multiplier": 0.3628
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126015,
+      "fields": {
+        "candidate": 200,
+        "state": 21007,
+        "state_multiplier": 0.6372
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126018,
+      "fields": {
+        "candidate": 201,
+        "state": 21009,
+        "state_multiplier": 0.4178
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126019,
+      "fields": {
+        "candidate": 200,
+        "state": 21009,
+        "state_multiplier": 0.5821
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126022,
+      "fields": {
+        "candidate": 201,
+        "state": 21011,
+        "state_multiplier": 0.5581
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126023,
+      "fields": {
+        "candidate": 200,
+        "state": 21011,
+        "state_multiplier": 0.4419
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126026,
+      "fields": {
+        "candidate": 201,
+        "state": 21013,
+        "state_multiplier": 0.4024
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126027,
+      "fields": {
+        "candidate": 200,
+        "state": 21013,
+        "state_multiplier": 0.5974
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126030,
+      "fields": {
+        "candidate": 201,
+        "state": 21015,
+        "state_multiplier": 0.4396
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126031,
+      "fields": {
+        "candidate": 200,
+        "state": 21015,
+        "state_multiplier": 0.5603
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126034,
+      "fields": {
+        "candidate": 201,
+        "state": 21017,
+        "state_multiplier": 0.5396
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126035,
+      "fields": {
+        "candidate": 200,
+        "state": 21017,
+        "state_multiplier": 0.4604
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126038,
+      "fields": {
+        "candidate": 201,
+        "state": 21019,
+        "state_multiplier": 0.5152
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126039,
+      "fields": {
+        "candidate": 200,
+        "state": 21019,
+        "state_multiplier": 0.4848
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126042,
+      "fields": {
+        "candidate": 201,
+        "state": 21021,
+        "state_multiplier": 0.5289
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126043,
+      "fields": {
+        "candidate": 200,
+        "state": 21021,
+        "state_multiplier": 0.4711
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126046,
+      "fields": {
+        "candidate": 201,
+        "state": 21023,
+        "state_multiplier": 0.3986
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126047,
+      "fields": {
+        "candidate": 200,
+        "state": 21023,
+        "state_multiplier": 0.6014
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126050,
+      "fields": {
+        "candidate": 201,
+        "state": 21025,
+        "state_multiplier": 0.6117
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126051,
+      "fields": {
+        "candidate": 200,
+        "state": 21025,
+        "state_multiplier": 0.3883
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126054,
+      "fields": {
+        "candidate": 201,
+        "state": 21027,
+        "state_multiplier": 0.4196
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126055,
+      "fields": {
+        "candidate": 200,
+        "state": 21027,
+        "state_multiplier": 0.5804
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126058,
+      "fields": {
+        "candidate": 201,
+        "state": 21029,
+        "state_multiplier": 0.4296
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126059,
+      "fields": {
+        "candidate": 200,
+        "state": 21029,
+        "state_multiplier": 0.5704
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126062,
+      "fields": {
+        "candidate": 201,
+        "state": 21031,
+        "state_multiplier": 0.3215
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126063,
+      "fields": {
+        "candidate": 200,
+        "state": 21031,
+        "state_multiplier": 0.6785
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126066,
+      "fields": {
+        "candidate": 201,
+        "state": 21033,
+        "state_multiplier": 0.3999
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126067,
+      "fields": {
+        "candidate": 200,
+        "state": 21033,
+        "state_multiplier": 0.6001
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126070,
+      "fields": {
+        "candidate": 201,
+        "state": 21035,
+        "state_multiplier": 0.4626
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126071,
+      "fields": {
+        "candidate": 200,
+        "state": 21035,
+        "state_multiplier": 0.5374
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126074,
+      "fields": {
+        "candidate": 201,
+        "state": 21037,
+        "state_multiplier": 0.5419
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126075,
+      "fields": {
+        "candidate": 200,
+        "state": 21037,
+        "state_multiplier": 0.458
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126078,
+      "fields": {
+        "candidate": 201,
+        "state": 21039,
+        "state_multiplier": 0.3033
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126079,
+      "fields": {
+        "candidate": 200,
+        "state": 21039,
+        "state_multiplier": 0.6967
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126082,
+      "fields": {
+        "candidate": 201,
+        "state": 21041,
+        "state_multiplier": 0.4795
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126083,
+      "fields": {
+        "candidate": 200,
+        "state": 21041,
+        "state_multiplier": 0.5205
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126086,
+      "fields": {
+        "candidate": 201,
+        "state": 21043,
+        "state_multiplier": 0.4727
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126087,
+      "fields": {
+        "candidate": 200,
+        "state": 21043,
+        "state_multiplier": 0.5271
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126090,
+      "fields": {
+        "candidate": 201,
+        "state": 21045,
+        "state_multiplier": 0.2608
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126091,
+      "fields": {
+        "candidate": 200,
+        "state": 21045,
+        "state_multiplier": 0.7392
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126094,
+      "fields": {
+        "candidate": 201,
+        "state": 21047,
+        "state_multiplier": 0.4268
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126095,
+      "fields": {
+        "candidate": 200,
+        "state": 21047,
+        "state_multiplier": 0.573
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126098,
+      "fields": {
+        "candidate": 201,
+        "state": 21049,
+        "state_multiplier": 0.5163
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126099,
+      "fields": {
+        "candidate": 200,
+        "state": 21049,
+        "state_multiplier": 0.4835
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126102,
+      "fields": {
+        "candidate": 201,
+        "state": 21051,
+        "state_multiplier": 0.3563
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126103,
+      "fields": {
+        "candidate": 200,
+        "state": 21051,
+        "state_multiplier": 0.6437
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126106,
+      "fields": {
+        "candidate": 201,
+        "state": 21053,
+        "state_multiplier": 0.2433
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126107,
+      "fields": {
+        "candidate": 200,
+        "state": 21053,
+        "state_multiplier": 0.7567
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126110,
+      "fields": {
+        "candidate": 201,
+        "state": 21055,
+        "state_multiplier": 0.3407
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126111,
+      "fields": {
+        "candidate": 200,
+        "state": 21055,
+        "state_multiplier": 0.6593
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126114,
+      "fields": {
+        "candidate": 201,
+        "state": 21057,
+        "state_multiplier": 0.2643
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126115,
+      "fields": {
+        "candidate": 200,
+        "state": 21057,
+        "state_multiplier": 0.7357
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126118,
+      "fields": {
+        "candidate": 201,
+        "state": 21059,
+        "state_multiplier": 0.5111
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126119,
+      "fields": {
+        "candidate": 200,
+        "state": 21059,
+        "state_multiplier": 0.4889
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126122,
+      "fields": {
+        "candidate": 201,
+        "state": 21061,
+        "state_multiplier": 0.3738
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126123,
+      "fields": {
+        "candidate": 200,
+        "state": 21061,
+        "state_multiplier": 0.6254
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126126,
+      "fields": {
+        "candidate": 201,
+        "state": 21063,
+        "state_multiplier": 0.5348
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126127,
+      "fields": {
+        "candidate": 200,
+        "state": 21063,
+        "state_multiplier": 0.4652
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126130,
+      "fields": {
+        "candidate": 201,
+        "state": 21065,
+        "state_multiplier": 0.4217
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126131,
+      "fields": {
+        "candidate": 200,
+        "state": 21065,
+        "state_multiplier": 0.5783
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126134,
+      "fields": {
+        "candidate": 201,
+        "state": 21067,
+        "state_multiplier": 0.7175
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126135,
+      "fields": {
+        "candidate": 200,
+        "state": 21067,
+        "state_multiplier": 0.2824
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126138,
+      "fields": {
+        "candidate": 201,
+        "state": 21069,
+        "state_multiplier": 0.4213
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126139,
+      "fields": {
+        "candidate": 200,
+        "state": 21069,
+        "state_multiplier": 0.5787
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126142,
+      "fields": {
+        "candidate": 201,
+        "state": 21071,
+        "state_multiplier": 0.5714
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126143,
+      "fields": {
+        "candidate": 200,
+        "state": 21071,
+        "state_multiplier": 0.4285
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126146,
+      "fields": {
+        "candidate": 201,
+        "state": 21073,
+        "state_multiplier": 0.6852
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126147,
+      "fields": {
+        "candidate": 200,
+        "state": 21073,
+        "state_multiplier": 0.3148
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126150,
+      "fields": {
+        "candidate": 201,
+        "state": 21075,
+        "state_multiplier": 0.4489
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126151,
+      "fields": {
+        "candidate": 200,
+        "state": 21075,
+        "state_multiplier": 0.5511
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126154,
+      "fields": {
+        "candidate": 201,
+        "state": 21077,
+        "state_multiplier": 0.4071
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126155,
+      "fields": {
+        "candidate": 200,
+        "state": 21077,
+        "state_multiplier": 0.5929
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126158,
+      "fields": {
+        "candidate": 201,
+        "state": 21079,
+        "state_multiplier": 0.3769
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126159,
+      "fields": {
+        "candidate": 200,
+        "state": 21079,
+        "state_multiplier": 0.6231
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126162,
+      "fields": {
+        "candidate": 201,
+        "state": 21081,
+        "state_multiplier": 0.3516
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126163,
+      "fields": {
+        "candidate": 200,
+        "state": 21081,
+        "state_multiplier": 0.6482
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126166,
+      "fields": {
+        "candidate": 201,
+        "state": 21083,
+        "state_multiplier": 0.3649
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126167,
+      "fields": {
+        "candidate": 200,
+        "state": 21083,
+        "state_multiplier": 0.6351
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126170,
+      "fields": {
+        "candidate": 201,
+        "state": 21085,
+        "state_multiplier": 0.3607
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126171,
+      "fields": {
+        "candidate": 200,
+        "state": 21085,
+        "state_multiplier": 0.6391
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126174,
+      "fields": {
+        "candidate": 201,
+        "state": 21087,
+        "state_multiplier": 0.2963
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126175,
+      "fields": {
+        "candidate": 200,
+        "state": 21087,
+        "state_multiplier": 0.7035
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126178,
+      "fields": {
+        "candidate": 201,
+        "state": 21089,
+        "state_multiplier": 0.4574
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126179,
+      "fields": {
+        "candidate": 200,
+        "state": 21089,
+        "state_multiplier": 0.5426
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126182,
+      "fields": {
+        "candidate": 201,
+        "state": 21091,
+        "state_multiplier": 0.4941
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126183,
+      "fields": {
+        "candidate": 200,
+        "state": 21091,
+        "state_multiplier": 0.5059
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126186,
+      "fields": {
+        "candidate": 201,
+        "state": 21093,
+        "state_multiplier": 0.497
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126187,
+      "fields": {
+        "candidate": 200,
+        "state": 21093,
+        "state_multiplier": 0.503
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126190,
+      "fields": {
+        "candidate": 201,
+        "state": 21095,
+        "state_multiplier": 0.3396
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126191,
+      "fields": {
+        "candidate": 200,
+        "state": 21095,
+        "state_multiplier": 0.6604
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126194,
+      "fields": {
+        "candidate": 201,
+        "state": 21097,
+        "state_multiplier": 0.4909
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126195,
+      "fields": {
+        "candidate": 200,
+        "state": 21097,
+        "state_multiplier": 0.5091
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126198,
+      "fields": {
+        "candidate": 201,
+        "state": 21099,
+        "state_multiplier": 0.3862
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126199,
+      "fields": {
+        "candidate": 200,
+        "state": 21099,
+        "state_multiplier": 0.6138
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126202,
+      "fields": {
+        "candidate": 201,
+        "state": 21101,
+        "state_multiplier": 0.5577
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126203,
+      "fields": {
+        "candidate": 200,
+        "state": 21101,
+        "state_multiplier": 0.4422
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126206,
+      "fields": {
+        "candidate": 201,
+        "state": 21103,
+        "state_multiplier": 0.4497
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126207,
+      "fields": {
+        "candidate": 200,
+        "state": 21103,
+        "state_multiplier": 0.5501
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126210,
+      "fields": {
+        "candidate": 201,
+        "state": 21105,
+        "state_multiplier": 0.3303
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126211,
+      "fields": {
+        "candidate": 200,
+        "state": 21105,
+        "state_multiplier": 0.6697
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126214,
+      "fields": {
+        "candidate": 201,
+        "state": 21107,
+        "state_multiplier": 0.455
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126215,
+      "fields": {
+        "candidate": 200,
+        "state": 21107,
+        "state_multiplier": 0.545
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126218,
+      "fields": {
+        "candidate": 201,
+        "state": 21109,
+        "state_multiplier": 0.2291
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126219,
+      "fields": {
+        "candidate": 200,
+        "state": 21109,
+        "state_multiplier": 0.7706
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126222,
+      "fields": {
+        "candidate": 201,
+        "state": 21111,
+        "state_multiplier": 0.7004
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126223,
+      "fields": {
+        "candidate": 200,
+        "state": 21111,
+        "state_multiplier": 0.2995
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126226,
+      "fields": {
+        "candidate": 201,
+        "state": 21113,
+        "state_multiplier": 0.4679
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126227,
+      "fields": {
+        "candidate": 200,
+        "state": 21113,
+        "state_multiplier": 0.532
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126230,
+      "fields": {
+        "candidate": 201,
+        "state": 21115,
+        "state_multiplier": 0.3708
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126231,
+      "fields": {
+        "candidate": 200,
+        "state": 21115,
+        "state_multiplier": 0.6292
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126234,
+      "fields": {
+        "candidate": 201,
+        "state": 21117,
+        "state_multiplier": 0.528
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126235,
+      "fields": {
+        "candidate": 200,
+        "state": 21117,
+        "state_multiplier": 0.472
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126238,
+      "fields": {
+        "candidate": 201,
+        "state": 21119,
+        "state_multiplier": 0.5445
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126239,
+      "fields": {
+        "candidate": 200,
+        "state": 21119,
+        "state_multiplier": 0.4555
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126242,
+      "fields": {
+        "candidate": 201,
+        "state": 21121,
+        "state_multiplier": 0.3454
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126243,
+      "fields": {
+        "candidate": 200,
+        "state": 21121,
+        "state_multiplier": 0.6546
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126246,
+      "fields": {
+        "candidate": 201,
+        "state": 21123,
+        "state_multiplier": 0.3857
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126247,
+      "fields": {
+        "candidate": 200,
+        "state": 21123,
+        "state_multiplier": 0.6141
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126250,
+      "fields": {
+        "candidate": 201,
+        "state": 21125,
+        "state_multiplier": 0.3141
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126251,
+      "fields": {
+        "candidate": 200,
+        "state": 21125,
+        "state_multiplier": 0.6859
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126254,
+      "fields": {
+        "candidate": 201,
+        "state": 21127,
+        "state_multiplier": 0.3731
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126255,
+      "fields": {
+        "candidate": 200,
+        "state": 21127,
+        "state_multiplier": 0.6269
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126258,
+      "fields": {
+        "candidate": 201,
+        "state": 21129,
+        "state_multiplier": 0.4632
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126259,
+      "fields": {
+        "candidate": 200,
+        "state": 21129,
+        "state_multiplier": 0.5368
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126262,
+      "fields": {
+        "candidate": 201,
+        "state": 21131,
+        "state_multiplier": 0.3036
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126263,
+      "fields": {
+        "candidate": 200,
+        "state": 21131,
+        "state_multiplier": 0.6964
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126266,
+      "fields": {
+        "candidate": 201,
+        "state": 21133,
+        "state_multiplier": 0.5233
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126267,
+      "fields": {
+        "candidate": 200,
+        "state": 21133,
+        "state_multiplier": 0.4767
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126270,
+      "fields": {
+        "candidate": 201,
+        "state": 21135,
+        "state_multiplier": 0.3164
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126271,
+      "fields": {
+        "candidate": 200,
+        "state": 21135,
+        "state_multiplier": 0.6836
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126274,
+      "fields": {
+        "candidate": 201,
+        "state": 21137,
+        "state_multiplier": 0.3782
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126275,
+      "fields": {
+        "candidate": 200,
+        "state": 21137,
+        "state_multiplier": 0.6218
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126278,
+      "fields": {
+        "candidate": 201,
+        "state": 21139,
+        "state_multiplier": 0.3662
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126279,
+      "fields": {
+        "candidate": 200,
+        "state": 21139,
+        "state_multiplier": 0.6338
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126282,
+      "fields": {
+        "candidate": 201,
+        "state": 21141,
+        "state_multiplier": 0.3735
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126283,
+      "fields": {
+        "candidate": 200,
+        "state": 21141,
+        "state_multiplier": 0.626
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126286,
+      "fields": {
+        "candidate": 201,
+        "state": 21143,
+        "state_multiplier": 0.4299
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126287,
+      "fields": {
+        "candidate": 200,
+        "state": 21143,
+        "state_multiplier": 0.5701
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126302,
+      "fields": {
+        "candidate": 201,
+        "state": 21151,
+        "state_multiplier": 0.5172
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126303,
+      "fields": {
+        "candidate": 200,
+        "state": 21151,
+        "state_multiplier": 0.4828
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126306,
+      "fields": {
+        "candidate": 201,
+        "state": 21153,
+        "state_multiplier": 0.5038
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126307,
+      "fields": {
+        "candidate": 200,
+        "state": 21153,
+        "state_multiplier": 0.4962
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126310,
+      "fields": {
+        "candidate": 201,
+        "state": 21155,
+        "state_multiplier": 0.5214
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126311,
+      "fields": {
+        "candidate": 200,
+        "state": 21155,
+        "state_multiplier": 0.4784
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126314,
+      "fields": {
+        "candidate": 201,
+        "state": 21157,
+        "state_multiplier": 0.3994
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126315,
+      "fields": {
+        "candidate": 200,
+        "state": 21157,
+        "state_multiplier": 0.6005
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126318,
+      "fields": {
+        "candidate": 201,
+        "state": 21159,
+        "state_multiplier": 0.2981
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126319,
+      "fields": {
+        "candidate": 200,
+        "state": 21159,
+        "state_multiplier": 0.7019
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126322,
+      "fields": {
+        "candidate": 201,
+        "state": 21161,
+        "state_multiplier": 0.4668
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126323,
+      "fields": {
+        "candidate": 200,
+        "state": 21161,
+        "state_multiplier": 0.533
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126290,
+      "fields": {
+        "candidate": 201,
+        "state": 21145,
+        "state_multiplier": 0.4706
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126291,
+      "fields": {
+        "candidate": 200,
+        "state": 21145,
+        "state_multiplier": 0.5294
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126294,
+      "fields": {
+        "candidate": 201,
+        "state": 21147,
+        "state_multiplier": 0.2821
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126295,
+      "fields": {
+        "candidate": 200,
+        "state": 21147,
+        "state_multiplier": 0.7176
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126298,
+      "fields": {
+        "candidate": 201,
+        "state": 21149,
+        "state_multiplier": 0.4159
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126299,
+      "fields": {
+        "candidate": 200,
+        "state": 21149,
+        "state_multiplier": 0.5841
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126326,
+      "fields": {
+        "candidate": 201,
+        "state": 21163,
+        "state_multiplier": 0.4313
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126327,
+      "fields": {
+        "candidate": 200,
+        "state": 21163,
+        "state_multiplier": 0.5683
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126330,
+      "fields": {
+        "candidate": 201,
+        "state": 21165,
+        "state_multiplier": 0.4588
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126331,
+      "fields": {
+        "candidate": 200,
+        "state": 21165,
+        "state_multiplier": 0.5407
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126334,
+      "fields": {
+        "candidate": 201,
+        "state": 21167,
+        "state_multiplier": 0.4426
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126335,
+      "fields": {
+        "candidate": 200,
+        "state": 21167,
+        "state_multiplier": 0.5572
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126338,
+      "fields": {
+        "candidate": 201,
+        "state": 21169,
+        "state_multiplier": 0.4099
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126339,
+      "fields": {
+        "candidate": 200,
+        "state": 21169,
+        "state_multiplier": 0.5901
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126342,
+      "fields": {
+        "candidate": 201,
+        "state": 21171,
+        "state_multiplier": 0.2527
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126343,
+      "fields": {
+        "candidate": 200,
+        "state": 21171,
+        "state_multiplier": 0.7473
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126346,
+      "fields": {
+        "candidate": 201,
+        "state": 21173,
+        "state_multiplier": 0.4931
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126347,
+      "fields": {
+        "candidate": 200,
+        "state": 21173,
+        "state_multiplier": 0.5069
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126350,
+      "fields": {
+        "candidate": 201,
+        "state": 21175,
+        "state_multiplier": 0.4718
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126351,
+      "fields": {
+        "candidate": 200,
+        "state": 21175,
+        "state_multiplier": 0.5279
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126354,
+      "fields": {
+        "candidate": 201,
+        "state": 21177,
+        "state_multiplier": 0.4645
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126355,
+      "fields": {
+        "candidate": 200,
+        "state": 21177,
+        "state_multiplier": 0.5355
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126358,
+      "fields": {
+        "candidate": 201,
+        "state": 21179,
+        "state_multiplier": 0.5063
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126359,
+      "fields": {
+        "candidate": 200,
+        "state": 21179,
+        "state_multiplier": 0.4937
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126362,
+      "fields": {
+        "candidate": 201,
+        "state": 21181,
+        "state_multiplier": 0.5601
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126363,
+      "fields": {
+        "candidate": 200,
+        "state": 21181,
+        "state_multiplier": 0.4399
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126366,
+      "fields": {
+        "candidate": 201,
+        "state": 21183,
+        "state_multiplier": 0.3924
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126367,
+      "fields": {
+        "candidate": 200,
+        "state": 21183,
+        "state_multiplier": 0.6076
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126370,
+      "fields": {
+        "candidate": 201,
+        "state": 21185,
+        "state_multiplier": 0.4957
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126371,
+      "fields": {
+        "candidate": 200,
+        "state": 21185,
+        "state_multiplier": 0.5043
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126374,
+      "fields": {
+        "candidate": 201,
+        "state": 21187,
+        "state_multiplier": 0.4055
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126375,
+      "fields": {
+        "candidate": 200,
+        "state": 21187,
+        "state_multiplier": 0.5945
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126378,
+      "fields": {
+        "candidate": 201,
+        "state": 21189,
+        "state_multiplier": 0.4084
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126379,
+      "fields": {
+        "candidate": 200,
+        "state": 21189,
+        "state_multiplier": 0.5916
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126382,
+      "fields": {
+        "candidate": 201,
+        "state": 21191,
+        "state_multiplier": 0.382
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126383,
+      "fields": {
+        "candidate": 200,
+        "state": 21191,
+        "state_multiplier": 0.618
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126386,
+      "fields": {
+        "candidate": 201,
+        "state": 21193,
+        "state_multiplier": 0.5579
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126387,
+      "fields": {
+        "candidate": 200,
+        "state": 21193,
+        "state_multiplier": 0.4421
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126390,
+      "fields": {
+        "candidate": 201,
+        "state": 21195,
+        "state_multiplier": 0.4546
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126391,
+      "fields": {
+        "candidate": 200,
+        "state": 21195,
+        "state_multiplier": 0.5454
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126394,
+      "fields": {
+        "candidate": 201,
+        "state": 21197,
+        "state_multiplier": 0.5002
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126395,
+      "fields": {
+        "candidate": 200,
+        "state": 21197,
+        "state_multiplier": 0.4998
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126398,
+      "fields": {
+        "candidate": 201,
+        "state": 21199,
+        "state_multiplier": 0.3215
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126399,
+      "fields": {
+        "candidate": 200,
+        "state": 21199,
+        "state_multiplier": 0.6785
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126402,
+      "fields": {
+        "candidate": 201,
+        "state": 21201,
+        "state_multiplier": 0.4417
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126403,
+      "fields": {
+        "candidate": 200,
+        "state": 21201,
+        "state_multiplier": 0.5583
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126406,
+      "fields": {
+        "candidate": 201,
+        "state": 21203,
+        "state_multiplier": 0.2911
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126407,
+      "fields": {
+        "candidate": 200,
+        "state": 21203,
+        "state_multiplier": 0.7089
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126410,
+      "fields": {
+        "candidate": 201,
+        "state": 21205,
+        "state_multiplier": 0.6075
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126411,
+      "fields": {
+        "candidate": 200,
+        "state": 21205,
+        "state_multiplier": 0.3925
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126414,
+      "fields": {
+        "candidate": 201,
+        "state": 21207,
+        "state_multiplier": 0.3003
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126415,
+      "fields": {
+        "candidate": 200,
+        "state": 21207,
+        "state_multiplier": 0.6997
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126418,
+      "fields": {
+        "candidate": 201,
+        "state": 21209,
+        "state_multiplier": 0.5458
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126419,
+      "fields": {
+        "candidate": 200,
+        "state": 21209,
+        "state_multiplier": 0.4542
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126422,
+      "fields": {
+        "candidate": 201,
+        "state": 21211,
+        "state_multiplier": 0.4758
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126423,
+      "fields": {
+        "candidate": 200,
+        "state": 21211,
+        "state_multiplier": 0.524
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126426,
+      "fields": {
+        "candidate": 201,
+        "state": 21213,
+        "state_multiplier": 0.4121
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126427,
+      "fields": {
+        "candidate": 200,
+        "state": 21213,
+        "state_multiplier": 0.5879
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126430,
+      "fields": {
+        "candidate": 201,
+        "state": 21215,
+        "state_multiplier": 0.3704
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126431,
+      "fields": {
+        "candidate": 200,
+        "state": 21215,
+        "state_multiplier": 0.6296
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126434,
+      "fields": {
+        "candidate": 201,
+        "state": 21217,
+        "state_multiplier": 0.408
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126435,
+      "fields": {
+        "candidate": 200,
+        "state": 21217,
+        "state_multiplier": 0.592
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126438,
+      "fields": {
+        "candidate": 201,
+        "state": 21219,
+        "state_multiplier": 0.3407
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126439,
+      "fields": {
+        "candidate": 200,
+        "state": 21219,
+        "state_multiplier": 0.6585
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126442,
+      "fields": {
+        "candidate": 201,
+        "state": 21221,
+        "state_multiplier": 0.3716
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126443,
+      "fields": {
+        "candidate": 200,
+        "state": 21221,
+        "state_multiplier": 0.6284
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126446,
+      "fields": {
+        "candidate": 201,
+        "state": 21223,
+        "state_multiplier": 0.4409
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126447,
+      "fields": {
+        "candidate": 200,
+        "state": 21223,
+        "state_multiplier": 0.5591
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126450,
+      "fields": {
+        "candidate": 201,
+        "state": 21225,
+        "state_multiplier": 0.4497
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126451,
+      "fields": {
+        "candidate": 200,
+        "state": 21225,
+        "state_multiplier": 0.5503
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126454,
+      "fields": {
+        "candidate": 201,
+        "state": 21227,
+        "state_multiplier": 0.5212
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126455,
+      "fields": {
+        "candidate": 200,
+        "state": 21227,
+        "state_multiplier": 0.4787
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126458,
+      "fields": {
+        "candidate": 201,
+        "state": 21229,
+        "state_multiplier": 0.4302
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126459,
+      "fields": {
+        "candidate": 200,
+        "state": 21229,
+        "state_multiplier": 0.5696
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126462,
+      "fields": {
+        "candidate": 201,
+        "state": 21231,
+        "state_multiplier": 0.3781
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126463,
+      "fields": {
+        "candidate": 200,
+        "state": 21231,
+        "state_multiplier": 0.6219
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126466,
+      "fields": {
+        "candidate": 201,
+        "state": 21233,
+        "state_multiplier": 0.4132
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126467,
+      "fields": {
+        "candidate": 200,
+        "state": 21233,
+        "state_multiplier": 0.5868
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126470,
+      "fields": {
+        "candidate": 201,
+        "state": 21235,
+        "state_multiplier": 0.3274
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126471,
+      "fields": {
+        "candidate": 200,
+        "state": 21235,
+        "state_multiplier": 0.6726
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126474,
+      "fields": {
+        "candidate": 201,
+        "state": 21237,
+        "state_multiplier": 0.5726
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126475,
+      "fields": {
+        "candidate": 200,
+        "state": 21237,
+        "state_multiplier": 0.4274
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126478,
+      "fields": {
+        "candidate": 201,
+        "state": 21239,
+        "state_multiplier": 0.5925
+      }
+    },
+    {
+      "model": "campaign_trail.candidate_state_multiplier",
+      "pk": 126479,
+      "fields": {
+        "candidate": 200,
+        "state": 21239,
+        "state_multiplier": 0.4075
+      }
+    }
+  ],
+  "answer_score_global_json": [],
+  "answer_score_issue_json": [],
+  "global_parameter_json": [
+    {
+      "model": "campaign_trail.global_parameter",
+      "pk": 1,
+      "fields": {
+        "vote_variable": 1.125,
+        "max_swing": 0.12,
+        "start_point": 0.94,
+        "candidate_issue_weight": 10,
+        "running_mate_issue_weight": 3,
+        "issue_stance_1_max": -0.71,
+        "issue_stance_2_max": -0.3,
+        "issue_stance_3_max": -0.125,
+        "issue_stance_4_max": 0.125,
+        "issue_stance_5_max": 0.3,
+        "issue_stance_6_max": 0.71,
+        "global_variance": 0.01,
+        "state_variance": 0.005,
+        "question_count": 25,
+        "default_map_color_hex": "#C9C9C9",
+        "no_state_map_color_hex": "#999999",
+        "winning_electoral_vote_number": 664
+      }
+    }
+  ],
+  "candidate_dropout_json": [],
+  "endings": {
+    "beshear_landslide": "Beshear wins convincingly, proving that his personal brand, disaster response, and abortion-exceptions message can still cut through Kentucky's federal partisanship.",
+    "beshear_narrow": "Beshear survives a tense night with metro margins, suburban crossover votes, and enough eastern Kentucky goodwill to hold the governorship.",
+    "cameron_narrow": "Cameron edges ahead by making the race a referendum on Biden, inflation, and conservative change while limiting damage in Louisville, Lexington, and Northern Kentucky.",
+    "cameron_landslide": "Cameron breaks the Beshear coalition wide open, restoring federal-style Republican margins and giving Kentucky unified conservative government.",
+    "recount": "The margin is razor thin. County clerks, canvassing boards, and late absentees become the story as Kentucky relives another nail-biter."
+  },
+  "map_specs": [
+    {
+      "file": "ky_beshear_approval.svg",
+      "title": "Beshear Approval Model by County",
+      "subtitle": "Higher values mark counties where the mod gives the incumbent more personal-brand strength.",
+      "field": "beshear_approval",
+      "low": 0,
+      "high": 100,
+      "diverge": [
+        "#b2182b",
+        "#f7f7f7",
+        "#2166ac"
+      ]
+    },
+    {
+      "file": "ky_2020_presidential_margin.svg",
+      "title": "2020 Presidential Margin by County",
+      "subtitle": "Biden margin minus Trump margin, shown to set the federal-partisan floor under the race.",
+      "field": "pres_2020_margin",
+      "low": -85,
+      "high": 25,
+      "diverge": [
+        "#b2182b",
+        "#f7f7f7",
+        "#2166ac"
+      ],
+      "suffix": " pts"
+    },
+    {
+      "file": "ky_economy_jobs.svg",
+      "title": "Economy and Jobs Receptivity by County",
+      "subtitle": "A modelled score for economic-development, jobs, and infrastructure persuasion.",
+      "field": "economy",
+      "low": 0,
+      "high": 100,
+      "palette": [
+        "#f7fcf5",
+        "#c7e9c0",
+        "#74c476",
+        "#238b45",
+        "#00441b"
+      ]
+    },
+    {
+      "file": "ky_social_issues.svg",
+      "title": "Social-Conservative Issue Intensity by County",
+      "subtitle": "Higher values mean culture-war and abortion-ban messaging is more potent in the model.",
+      "field": "social_conservative",
+      "low": 0,
+      "high": 100,
+      "palette": [
+        "#fff5f0",
+        "#fcbba1",
+        "#fb6a4a",
+        "#cb181d",
+        "#67000d"
+      ]
+    },
+    {
+      "file": "ky_disaster_response.svg",
+      "title": "Disaster Response Salience by County",
+      "subtitle": "Flood and tornado recovery counties receive extra weight for executive-response campaigning.",
+      "field": "disaster_response",
+      "low": 0,
+      "high": 100,
+      "palette": [
+        "#f7fbff",
+        "#c6dbef",
+        "#6baed6",
+        "#2171b5",
+        "#08306b"
+      ]
+    },
+    {
+      "file": "ky_coal_energy.svg",
+      "title": "Coal and Energy Salience by County",
+      "subtitle": "Higher values mark eastern and western coalfield counties where energy messaging matters more.",
+      "field": "coal_energy",
+      "low": 0,
+      "high": 100,
+      "palette": [
+        "#ffffe5",
+        "#fee391",
+        "#fec44f",
+        "#cc4c02",
+        "#662506"
+      ]
+    },
+    {
+      "file": "ky_education_teachers.svg",
+      "title": "Education and Teacher Salience by County",
+      "subtitle": "A modelled score for public schools, teacher pay, pensions, and campus-community politics.",
+      "field": "education_teachers",
+      "low": 0,
+      "high": 100,
+      "palette": [
+        "#f7fcfd",
+        "#bfd3e6",
+        "#8c96c6",
+        "#8c6bb1",
+        "#4d004b"
+      ]
+    }
+  ]
+};
+  root.KY2023_MOD = KY2023_MOD;
+
+  function countyFactor(county, key) {
+    if (key === "urban") return county.urban_weight || 0;
+    if (key === "suburban") return county.suburban_weight || 0;
+    if (key === "rural") return (county.rural_score || 0) / 100;
+    if (key === "approval") return (county.beshear_approval || 0) / 100;
+    if (key === "economy") return (county.economy || 0) / 100;
+    if (key === "education") return (county.education_teachers || 0) / 100;
+    if (key === "social_high") return (county.social_conservative || 0) / 100;
+    if (key === "social_low") return 1 - (county.social_conservative || 0) / 100;
+    if (key === "disaster") return (county.disaster_response || 0) / 100;
+    if (key === "coal") return (county.coal_energy || 0) / 100;
+    if (key === "trump") return Math.max(0, -(county.biden_margin || 0)) / 85;
+    if (key === "nky") return county.region === "Northern Kentucky" ? 1 : 0;
+    if (key === "east") return county.region === "Eastern Kentucky" ? 1 : 0;
+    if (key === "western") return county.region === "Western Kentucky" || county.region === "Western coalfield" ? 1 : 0;
+    return 0;
+  }
+
+  function swingForCounty(effect, county) {
+    let swing = effect.base || 0;
+    Object.keys(effect).forEach((key) => {
+      if (key !== "base") swing += effect[key] * countyFactor(county, key);
+    });
+    return Math.max(-3, Math.min(3, swing));
+  }
+
+  function buildAnswerScoreStateJson(mod, selectedCandidate) {
+    const rows = [];
+    let pk = 83001;
+    mod.answer_effects.filter((effect) => effect.candidate_id === selectedCandidate).forEach((effect) => {
+      mod.counties.forEach((county) => {
+        const swing = Number(swingForCounty(effect.effect, county).toFixed(3));
+        const state = Number(county.fips);
+        rows.push({
+          model: "campaign_trail.answer_score_state",
+          pk: pk++,
+          fields: {
+            answer: effect.answer_pk,
+            candidate: effect.candidate_id,
+            affected_candidate: effect.candidate_id,
+            state,
+            state_multiplier: Number((swing / 100).toFixed(5))
+          }
+        });
+        rows.push({
+          model: "campaign_trail.answer_score_state",
+          pk: pk++,
+          fields: {
+            answer: effect.answer_pk,
+            candidate: effect.candidate_id,
+            affected_candidate: effect.opponent_id,
+            state,
+            state_multiplier: Number((-swing / 100).toFixed(5))
+          }
+        });
+      });
+    });
+    return rows;
+  }
+
+  const selectedCandidate = Number(campaignTrail_temp.candidate_id || KY2023_MOD.candidates.beshear);
+  const defaultRunningMate = selectedCandidate === KY2023_MOD.candidates.cameron ? KY2023_MOD.running_mates.cameron : KY2023_MOD.running_mates.beshear;
+  const selectedRunningMate = Number(campaignTrail_temp.running_mate_id || defaultRunningMate);
+  const candidateRow = campaignTrail_temp.candidate_json.find((row) => row.pk === selectedCandidate);
+  const runningMateRow = campaignTrail_temp.candidate_json.find((row) => row.pk === selectedRunningMate);
+  const opponent = selectedCandidate === KY2023_MOD.candidates.cameron ? KY2023_MOD.candidates.beshear : KY2023_MOD.candidates.cameron;
+
+  campaignTrail_temp.global_parameter_json = KY2023_MOD.global_parameter_json;
+  campaignTrail_temp.states_json = KY2023_MOD.states_json;
+  campaignTrail_temp.issues_json = KY2023_MOD.issues_json;
+  campaignTrail_temp.state_issue_score_json = KY2023_MOD.state_issue_score_json;
+  campaignTrail_temp.candidate_issue_score_json = KY2023_MOD.candidate_issue_score_json;
+  campaignTrail_temp.running_mate_issue_score_json = KY2023_MOD.running_mate_issue_score_json;
+  campaignTrail_temp.candidate_state_multiplier_json = KY2023_MOD.candidate_state_multiplier_json;
+  campaignTrail_temp.questions_json = KY2023_MOD.questions_json;
+  campaignTrail_temp.answers_json = KY2023_MOD.answers_json.filter((row) => row.fields.candidate === selectedCandidate);
+  campaignTrail_temp.answer_feedback_json = KY2023_MOD.answer_feedback_json.filter((row) => row.fields.candidate === selectedCandidate);
+  campaignTrail_temp.answer_score_global_json = KY2023_MOD.answer_score_global_json || [];
+  campaignTrail_temp.answer_score_issue_json = KY2023_MOD.answer_score_issue_json || [];
+  campaignTrail_temp.answer_score_state_json = buildAnswerScoreStateJson(KY2023_MOD, selectedCandidate);
+  KY2023_MOD.answer_score_state_json = campaignTrail_temp.answer_score_state_json;
+  campaignTrail_temp.candidate_dropout_json = KY2023_MOD.candidate_dropout_json || [];
+  campaignTrail_temp.endings = KY2023_MOD.endings;
+  campaignTrail_temp.opponents_list = [opponent];
+
+  campaignTrail_temp.candidate_image_url = candidateRow ? candidateRow.fields.image_url : "";
+  campaignTrail_temp.running_mate_image_url = runningMateRow ? runningMateRow.fields.image_url : "";
+  campaignTrail_temp.candidate_last_name = candidateRow ? candidateRow.fields.last_name : "";
+  campaignTrail_temp.running_mate_last_name = runningMateRow ? runningMateRow.fields.last_name : "";
+  campaignTrail_temp.running_mate_state_id = selectedRunningMate === KY2023_MOD.running_mates.cameron ? 21051 : 21167;
+  campaignTrail_temp.player_answers = [];
+  campaignTrail_temp.player_visits = [];
+  campaignTrail_temp.answer_feedback_flg = 1;
+  campaignTrail_temp.game_start_logging_id = "20231107";
+  campaignTrail_temp.answer_count = 4;
+  campaignTrail_temp.finalPercentDigits = 2;
+  campaignTrail_temp.statePercentDigits = 2;
+
+  // Compatibility aliases used by some custom loaders.
+  campaignTrail_temp.question_json = campaignTrail_temp.questions_json;
+  campaignTrail_temp.answer_json = campaignTrail_temp.answers_json;
+  campaignTrail_temp.state_json = campaignTrail_temp.states_json;
+  campaignTrail_temp.county_json = KY2023_MOD.counties;
+
+  campaignTrail_temp.issue_map_svgs = KY2023_MOD.map_specs.map((map) => ({
+    title: map.title,
+    field: map.field,
+    url: `maps/${map.file}`
+  }));
+
+  campaignTrail_temp.custom_result_description = function (result) {
+    const beshear = result && result.candidates ? result.candidates[201] : null;
+    const cameron = result && result.candidates ? result.candidates[200] : null;
+    if (!beshear || !cameron) return KY2023_MOD.endings.recount;
+    const margin = (beshear.percent || 0) - (cameron.percent || 0);
+    if (Math.abs(margin) < 0.5) return KY2023_MOD.endings.recount;
+    if (margin >= 6) return KY2023_MOD.endings.beshear_landslide;
+    if (margin > 0) return KY2023_MOD.endings.beshear_narrow;
+    if (margin <= -6) return KY2023_MOD.endings.cameron_landslide;
+    return KY2023_MOD.endings.cameron_narrow;
+  };
+})();
