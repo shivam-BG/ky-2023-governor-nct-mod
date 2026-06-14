@@ -24698,65 +24698,242 @@
     return rows;
   }
 
-  const selectedCandidate = Number(campaignTrail_temp.candidate_id || KY2023_MOD.candidates.beshear);
-  const defaultRunningMate = selectedCandidate === KY2023_MOD.candidates.cameron ? KY2023_MOD.running_mates.cameron : KY2023_MOD.running_mates.beshear;
-  const selectedRunningMate = Number(campaignTrail_temp.running_mate_id || defaultRunningMate);
-  const candidateRow = campaignTrail_temp.candidate_json.find((row) => row.pk === selectedCandidate);
-  const runningMateRow = campaignTrail_temp.candidate_json.find((row) => row.pk === selectedRunningMate);
-  const opponent = selectedCandidate === KY2023_MOD.candidates.cameron ? KY2023_MOD.candidates.beshear : KY2023_MOD.candidates.cameron;
+  function escapeHtml(value) {
+    return String(value == null ? "" : value).replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      "\"": "&quot;",
+      "'": "&#39;"
+    }[char]));
+  }
 
-  campaignTrail_temp.global_parameter_json = KY2023_MOD.global_parameter_json;
-  campaignTrail_temp.states_json = KY2023_MOD.states_json;
-  campaignTrail_temp.issues_json = KY2023_MOD.issues_json;
-  campaignTrail_temp.state_issue_score_json = KY2023_MOD.state_issue_score_json;
-  campaignTrail_temp.candidate_issue_score_json = KY2023_MOD.candidate_issue_score_json;
-  campaignTrail_temp.running_mate_issue_score_json = KY2023_MOD.running_mate_issue_score_json;
-  campaignTrail_temp.candidate_state_multiplier_json = KY2023_MOD.candidate_state_multiplier_json;
-  campaignTrail_temp.questions_json = KY2023_MOD.questions_json;
-  campaignTrail_temp.answers_json = KY2023_MOD.answers_json.filter((row) => row.fields.candidate === selectedCandidate);
-  campaignTrail_temp.answer_feedback_json = KY2023_MOD.answer_feedback_json.filter((row) => row.fields.candidate === selectedCandidate);
-  campaignTrail_temp.answer_score_global_json = KY2023_MOD.answer_score_global_json || [];
-  campaignTrail_temp.answer_score_issue_json = KY2023_MOD.answer_score_issue_json || [];
-  campaignTrail_temp.answer_score_state_json = buildAnswerScoreStateJson(KY2023_MOD, selectedCandidate);
-  KY2023_MOD.answer_score_state_json = campaignTrail_temp.answer_score_state_json;
-  campaignTrail_temp.candidate_dropout_json = KY2023_MOD.candidate_dropout_json || [];
-  campaignTrail_temp.endings = KY2023_MOD.endings;
-  campaignTrail_temp.opponents_list = [opponent];
+  function assetUrl(file) {
+    const base = String(root.KY2023_ASSET_BASE || "https://raw.githubusercontent.com/shivam-BG/ky-2023-governor-nct-mod/main").replace(/\/$/, "");
+    return base + "/maps/" + file;
+  }
 
-  campaignTrail_temp.candidate_image_url = candidateRow ? candidateRow.fields.image_url : "";
-  campaignTrail_temp.running_mate_image_url = runningMateRow ? runningMateRow.fields.image_url : "";
-  campaignTrail_temp.candidate_last_name = candidateRow ? candidateRow.fields.last_name : "";
-  campaignTrail_temp.running_mate_last_name = runningMateRow ? runningMateRow.fields.last_name : "";
-  campaignTrail_temp.running_mate_state_id = selectedRunningMate === KY2023_MOD.running_mates.cameron ? 21051 : 21167;
-  campaignTrail_temp.player_answers = [];
-  campaignTrail_temp.player_visits = [];
-  campaignTrail_temp.answer_feedback_flg = 1;
-  campaignTrail_temp.game_start_logging_id = "20231107";
-  campaignTrail_temp.answer_count = 4;
-  campaignTrail_temp.finalPercentDigits = 2;
-  campaignTrail_temp.statePercentDigits = 2;
+  function rowForCandidate(candidateId) {
+    return (campaignTrail_temp.candidate_json || []).find((row) => row.pk === candidateId);
+  }
 
-  // Compatibility aliases used by some custom loaders.
-  campaignTrail_temp.question_json = campaignTrail_temp.questions_json;
-  campaignTrail_temp.answer_json = campaignTrail_temp.answers_json;
-  campaignTrail_temp.state_json = campaignTrail_temp.states_json;
-  campaignTrail_temp.county_json = KY2023_MOD.counties;
+  function ticketLabel() {
+    const candidate = Number(campaignTrail_temp.candidate_id || KY2023_MOD.candidates.beshear);
+    return candidate === KY2023_MOD.candidates.cameron ? "Cameron / Mills" : "Beshear / Coleman";
+  }
 
-  campaignTrail_temp.issue_map_svgs = KY2023_MOD.map_specs.map((map) => ({
-    title: map.title,
-    field: map.field,
-    url: `maps/${map.file}`
-  }));
+  function currentSupport() {
+    let totalVotes = 0;
+    let beshearVotes = 0;
+    let cameronVotes = 0;
+    KY2023_MOD.counties.forEach((county) => {
+      const total = Number(county.total_2023 || 0);
+      totalVotes += total;
+      beshearVotes += total * Number(county.beshear_pct || 0) / 100;
+      cameronVotes += total * Number(county.cameron_pct || 0) / 100;
+    });
+    return {
+      beshear: totalVotes ? beshearVotes / totalVotes * 100 : 0,
+      cameron: totalVotes ? cameronVotes / totalVotes * 100 : 0
+    };
+  }
 
-  campaignTrail_temp.custom_result_description = function (result) {
-    const beshear = result && result.candidates ? result.candidates[201] : null;
-    const cameron = result && result.candidates ? result.candidates[200] : null;
-    if (!beshear || !cameron) return KY2023_MOD.endings.recount;
-    const margin = (beshear.percent || 0) - (cameron.percent || 0);
-    if (Math.abs(margin) < 0.5) return KY2023_MOD.endings.recount;
-    if (margin >= 6) return KY2023_MOD.endings.beshear_landslide;
-    if (margin > 0) return KY2023_MOD.endings.beshear_narrow;
-    if (margin <= -6) return KY2023_MOD.endings.cameron_landslide;
-    return KY2023_MOD.endings.cameron_narrow;
+  function renderVisibleQuestion() {
+    const gameWindow = root.document && root.document.getElementById("game_window");
+    const questionBox = root.document && root.document.querySelector(".inner_inner_window h3");
+    const answerForm = root.document && root.document.querySelector("form[name='question']");
+    if (!gameWindow || !questionBox || !answerForm || !campaignTrail_temp.questions_json) return;
+
+    const questionNumber = Number(campaignTrail_temp.question_number || 0);
+    const question = campaignTrail_temp.questions_json[questionNumber] || campaignTrail_temp.questions_json[0];
+    if (!question || !question.fields) return;
+    const answers = (campaignTrail_temp.answers_json || []).filter((row) => row.fields.question === question.pk).slice(0, 4);
+    questionBox.textContent = question.fields.description;
+    answerForm.innerHTML = answers.map((answer, index) => {
+      const id = "game_answers[" + index + "]";
+      return '<input type="radio" name="game_answers" class="game_answers" id="' + id + '" value="' + answer.pk + '"/> ' +
+        '<label for="' + id + '">' + escapeHtml(answer.fields.description) + '</label><br>';
+    }).join("");
+
+    const candidatePic = root.document.getElementById("candidate_pic");
+    const runningMatePic = root.document.getElementById("running_mate_pic");
+    if (candidatePic) candidatePic.src = campaignTrail_temp.candidate_image_url || "";
+    if (runningMatePic) runningMatePic.src = campaignTrail_temp.running_mate_image_url || "";
+    const progress = root.document.querySelector("#progress_bar h3");
+    if (progress) progress.textContent = "Question " + (questionNumber + 1) + " of " + campaignTrail_temp.global_parameter_json[0].fields.question_count;
+    const signNames = root.document.querySelectorAll("#campaign_sign p");
+    if (signNames[0]) signNames[0].textContent = campaignTrail_temp.candidate_last_name || "";
+    if (signNames[1]) signNames[1].textContent = campaignTrail_temp.running_mate_last_name || "";
+  }
+
+  function topCountyList(key, count) {
+    return KY2023_MOD.counties.slice().sort((a, b) => Number(b[key] || 0) - Number(a[key] || 0)).slice(0, count);
+  }
+
+  function showKyCountyMap() {
+    const doc = root.document;
+    const gameWindow = doc && doc.getElementById("game_window");
+    if (!gameWindow) return;
+    const existing = doc.getElementById("ky2023_map_view");
+    if (existing) return;
+
+    Array.from(gameWindow.children).forEach((child) => {
+      if (child.id !== "ky2023_map_view" && child.className !== "game_header") {
+        child.setAttribute("data-ky2023-hidden-display", child.style.display || "");
+        child.style.display = "none";
+      }
+    });
+
+    const maps = campaignTrail_temp.issue_map_svgs || [];
+    const selected = maps[0] || { title: "Beshear Approval Model by County", url: assetUrl("ky_beshear_approval.svg") };
+    const support = currentSupport();
+    const beshearTop = topCountyList("beshear_pct", 5).map((county) => "<li>" + escapeHtml(county.county) + " - " + Number(county.beshear_pct).toFixed(1) + "%</li>").join("");
+    const cameronTop = topCountyList("cameron_pct", 5).map((county) => "<li>" + escapeHtml(county.county) + " - " + Number(county.cameron_pct).toFixed(1) + "%</li>").join("");
+    const tabs = maps.map((map, index) => '<button type="button" class="ky2023-map-tab" data-map-index="' + index + '">' + escapeHtml(map.title.replace(" by County", "").replace(" Model", "")) + '</button>').join("");
+
+    const panel = doc.createElement("div");
+    panel.id = "ky2023_map_view";
+    panel.innerHTML = '<style>' +
+      '#ky2023_map_view{background:#f8fafc;color:#111827;border:2px solid #d1d5db;margin:12px auto;padding:14px;max-width:1120px;font-family:Arial,Helvetica,sans-serif;}' +
+      '#ky2023_map_view h2{margin:0 0 8px;font-size:24px;text-align:center;}' +
+      '#ky2023_map_grid{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:14px;align-items:start;}' +
+      '#ky2023_map_frame{background:#eaf6f8;border:1px solid #cbd5e1;padding:8px;min-height:420px;display:flex;align-items:center;justify-content:center;}' +
+      '#ky2023_map_img{width:100%;max-height:560px;object-fit:contain;}' +
+      '#ky2023_map_side{background:#ffffff;border:1px solid #cbd5e1;padding:12px;}' +
+      '#ky2023_map_side h3{margin:8px 0 6px;font-size:18px;}' +
+      '#ky2023_map_side p,#ky2023_map_side li{font-size:14px;line-height:1.35;}' +
+      '#ky2023_map_tabs{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:10px 0;}' +
+      '.ky2023-map-tab,#ky2023_map_back{font-size:13px;padding:4px 8px;cursor:pointer;}' +
+      '.ky2023-map-tab.active{font-weight:bold;background:#263b63;color:#ffffff;}' +
+      '@media(max-width:850px){#ky2023_map_grid{grid-template-columns:1fr;}}' +
+      '</style>' +
+      '<h2 id="ky2023_map_title">' + escapeHtml(selected.title) + '</h2>' +
+      '<div id="ky2023_map_tabs">' + tabs + '</div>' +
+      '<div id="ky2023_map_grid">' +
+      '<div id="ky2023_map_frame"><img id="ky2023_map_img" alt="Kentucky county issue map" src="' + escapeHtml(selected.url) + '"></div>' +
+      '<aside id="ky2023_map_side">' +
+      '<h3>Estimated Support</h3>' +
+      '<p><strong>Beshear:</strong> ' + support.beshear.toFixed(1) + '%<br><strong>Cameron:</strong> ' + support.cameron.toFixed(1) + '%</p>' +
+      '<h3>Current Ticket</h3><p>' + escapeHtml(ticketLabel()) + '</p>' +
+      '<h3>Beshear Counties</h3><ul>' + beshearTop + '</ul>' +
+      '<h3>Cameron Counties</h3><ul>' + cameronTop + '</ul>' +
+      '</aside></div>' +
+      '<p style="text-align:center;margin:12px 0 0;"><button type="button" id="ky2023_map_back">Back to the game</button></p>';
+
+    gameWindow.appendChild(panel);
+    const tabButtons = Array.from(panel.querySelectorAll(".ky2023-map-tab"));
+    if (tabButtons[0]) tabButtons[0].classList.add("active");
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const map = maps[Number(button.getAttribute("data-map-index"))];
+        if (!map) return;
+        tabButtons.forEach((other) => other.classList.remove("active"));
+        button.classList.add("active");
+        panel.querySelector("#ky2023_map_title").textContent = map.title;
+        panel.querySelector("#ky2023_map_img").src = map.url;
+      });
+    });
+    panel.querySelector("#ky2023_map_back").addEventListener("click", () => {
+      panel.remove();
+      Array.from(gameWindow.children).forEach((child) => {
+        if (child.hasAttribute("data-ky2023-hidden-display")) {
+          child.style.display = child.getAttribute("data-ky2023-hidden-display");
+          child.removeAttribute("data-ky2023-hidden-display");
+        }
+      });
+      installKyMapOverride();
+    });
+  }
+
+  function installKyMapOverride() {
+    const doc = root.document;
+    if (!doc) return;
+    const button = doc.getElementById("view_electoral_map");
+    if (!button || button.getAttribute("data-ky2023-map") === "1") return;
+    const replacement = button.cloneNode(true);
+    replacement.setAttribute("data-ky2023-map", "1");
+    replacement.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      showKyCountyMap();
+    });
+    button.parentNode.replaceChild(replacement, button);
+  }
+
+  root.KY2023_applyMod = function (options) {
+    options = options || {};
+    const selectedCandidate = Number(campaignTrail_temp.candidate_id || KY2023_MOD.candidates.beshear);
+    const defaultRunningMate = selectedCandidate === KY2023_MOD.candidates.cameron ? KY2023_MOD.running_mates.cameron : KY2023_MOD.running_mates.beshear;
+    const selectedRunningMate = Number(campaignTrail_temp.running_mate_id || defaultRunningMate);
+    const candidateRow = rowForCandidate(selectedCandidate);
+    const runningMateRow = rowForCandidate(selectedRunningMate);
+    const opponent = selectedCandidate === KY2023_MOD.candidates.cameron ? KY2023_MOD.candidates.beshear : KY2023_MOD.candidates.cameron;
+
+    campaignTrail_temp.global_parameter_json = KY2023_MOD.global_parameter_json;
+    campaignTrail_temp.states_json = KY2023_MOD.states_json;
+    campaignTrail_temp.issues_json = KY2023_MOD.issues_json;
+    campaignTrail_temp.state_issue_score_json = KY2023_MOD.state_issue_score_json;
+    campaignTrail_temp.candidate_issue_score_json = KY2023_MOD.candidate_issue_score_json;
+    campaignTrail_temp.running_mate_issue_score_json = KY2023_MOD.running_mate_issue_score_json;
+    campaignTrail_temp.candidate_state_multiplier_json = KY2023_MOD.candidate_state_multiplier_json;
+    campaignTrail_temp.questions_json = KY2023_MOD.questions_json;
+    campaignTrail_temp.answers_json = KY2023_MOD.answers_json.filter((row) => row.fields.candidate === selectedCandidate);
+    campaignTrail_temp.answer_feedback_json = KY2023_MOD.answer_feedback_json.filter((row) => row.fields.candidate === selectedCandidate);
+    campaignTrail_temp.answer_score_global_json = KY2023_MOD.answer_score_global_json || [];
+    campaignTrail_temp.answer_score_issue_json = KY2023_MOD.answer_score_issue_json || [];
+    campaignTrail_temp.answer_score_state_json = buildAnswerScoreStateJson(KY2023_MOD, selectedCandidate);
+    KY2023_MOD.answer_score_state_json = campaignTrail_temp.answer_score_state_json;
+    campaignTrail_temp.candidate_dropout_json = KY2023_MOD.candidate_dropout_json || [];
+    campaignTrail_temp.endings = KY2023_MOD.endings;
+    campaignTrail_temp.opponents_list = [opponent];
+
+    campaignTrail_temp.candidate_image_url = candidateRow ? candidateRow.fields.image_url : "";
+    campaignTrail_temp.running_mate_image_url = runningMateRow ? runningMateRow.fields.image_url : "";
+    campaignTrail_temp.candidate_last_name = candidateRow ? candidateRow.fields.last_name : "";
+    campaignTrail_temp.running_mate_last_name = runningMateRow ? runningMateRow.fields.last_name : "";
+    campaignTrail_temp.running_mate_state_id = selectedRunningMate === KY2023_MOD.running_mates.cameron ? 21051 : 21167;
+    campaignTrail_temp.player_answers = Array.isArray(campaignTrail_temp.player_answers) ? campaignTrail_temp.player_answers : [];
+    campaignTrail_temp.player_visits = Array.isArray(campaignTrail_temp.player_visits) ? campaignTrail_temp.player_visits : [];
+    campaignTrail_temp.answer_feedback_flg = campaignTrail_temp.answer_feedback_flg == null ? 1 : campaignTrail_temp.answer_feedback_flg;
+    campaignTrail_temp.game_start_logging_id = "20231107";
+    campaignTrail_temp.answer_count = 4;
+    campaignTrail_temp.finalPercentDigits = 2;
+    campaignTrail_temp.statePercentDigits = 2;
+
+    // Compatibility aliases used by some custom loaders.
+    campaignTrail_temp.question_json = campaignTrail_temp.questions_json;
+    campaignTrail_temp.answer_json = campaignTrail_temp.answers_json;
+    campaignTrail_temp.state_json = campaignTrail_temp.states_json;
+    campaignTrail_temp.county_json = KY2023_MOD.counties;
+
+    campaignTrail_temp.issue_map_svgs = KY2023_MOD.map_specs.map((map) => ({
+      title: map.title,
+      field: map.field,
+      url: assetUrl(map.file)
+    }));
+
+    campaignTrail_temp.custom_result_description = function (result) {
+      const beshear = result && result.candidates ? result.candidates[201] : null;
+      const cameron = result && result.candidates ? result.candidates[200] : null;
+      if (!beshear || !cameron) return KY2023_MOD.endings.recount;
+      const margin = (beshear.percent || 0) - (cameron.percent || 0);
+      if (Math.abs(margin) < 0.5) return KY2023_MOD.endings.recount;
+      if (margin >= 6) return KY2023_MOD.endings.beshear_landslide;
+      if (margin > 0) return KY2023_MOD.endings.beshear_narrow;
+      if (margin <= -6) return KY2023_MOD.endings.cameron_landslide;
+      return KY2023_MOD.endings.cameron_narrow;
+    };
+
+    campaignTrail_temp.KY2023_ACTIVE = true;
+    installKyMapOverride();
+    if (options.rerender) renderVisibleQuestion();
+    return true;
   };
+
+  if (campaignTrail_temp.candidate_id) root.KY2023_applyMod({ rerender: true });
+  if (!root.KY2023_MAP_GUARD) {
+    root.KY2023_MAP_GUARD = root.setInterval(function () {
+      if (campaignTrail_temp.KY2023_ACTIVE) installKyMapOverride();
+    }, 600);
+  }
 })();

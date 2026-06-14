@@ -7,6 +7,14 @@ Playable New Campaign Trail custom mod for the 2023 Kentucky gubernatorial elect
 
 The mod includes 25 questions, candidate-specific answer sets, Kentucky county scoring, issue maps, endings, and 2023 soundtrack metadata/search cues.
 
+## Latest Fix
+
+This version fixes the two common loader issues:
+
+- Candidate/election images now use inline SVG data images, so the selection screens should not show broken image boxes.
+- The `Latest Polls/Electoral Map` button now opens a Kentucky county-map panel with issue-map tabs instead of the stock national 2016 US map.
+- Code 1 includes a fallback that fetches this repo's hosted Code 2 if NCT leaves you on the base 2016 Clinton/Booker question.
+
 ## How To Play
 
 1. Open [The New Campaign Trail](https://www.newcampaigntrail.com/campaign-trail/index.html).
@@ -36,6 +44,8 @@ Internal IDs:
 - Beshear/Coleman: `201/209`
 - Cameron/Mills: `200/204`
 
+If you still see the 2016 Clinton/Booker question, hard-refresh NCT, reopen the Mod Loader, and paste the newest Code 1 and Code 2 from this repo. The fallback should repair that screen automatically once the updated Code 1 is loaded.
+
 ## Maps
 
 The included SVG maps cover:
@@ -47,6 +57,8 @@ The included SVG maps cover:
 - Disaster response
 - Coal/energy
 - Education/teachers
+
+In-game map SVGs load from this repository's raw GitHub URLs. The map files are also included locally in `maps/`.
 
 ## Notes
 
