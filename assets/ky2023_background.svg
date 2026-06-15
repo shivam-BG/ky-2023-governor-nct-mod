@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#13294b"/>
+<stop offset="0.52" stop-color="#224b70"/>
+<stop offset="1" stop-color="#f8fafc"/>
+</linearGradient>
+<pattern id="crosshatch" width="80" height="80" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+<rect width="80" height="80" fill="none"/>
+<rect width="8" height="80" fill="rgba(255,255,255,0.08)"/>
+</pattern>
+</defs>
+<rect width="1600" height="1200" fill="url(#bg)"/>
+<rect width="1600" height="1200" fill="url(#crosshatch)"/>
+<path d="M0 760 C190 690 360 760 545 705 C725 652 875 723 1065 660 C1260 596 1400 650 1600 598 L1600 1200 L0 1200 Z" fill="#1f7a5a" opacity="0.34"/>
+<path d="M0 880 C215 815 370 884 570 832 C780 776 930 854 1135 800 C1325 750 1460 790 1600 760 L1600 1200 L0 1200 Z" fill="#f2c14e" opacity="0.28"/>
+<path d="M0 1020 C260 968 430 1025 665 982 C870 944 1040 996 1265 952 C1420 922 1510 944 1600 930 L1600 1200 L0 1200 Z" fill="#ffffff" opacity="0.72"/>
+</svg>
