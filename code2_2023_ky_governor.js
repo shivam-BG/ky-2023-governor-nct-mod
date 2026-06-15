@@ -24713,6 +24713,16 @@
     return base + "/maps/" + file;
   }
 
+  function imageAssetUrl(file) {
+    const base = String(root.KY2023_ASSET_BASE || "https://raw.githubusercontent.com/shivam-BG/ky-2023-governor-nct-mod/main").replace(/\/$/, "");
+    return base + "/assets/images/" + file;
+  }
+
+  function signAssetUrl(candidateId) {
+    const base = String(root.KY2023_ASSET_BASE || "https://raw.githubusercontent.com/shivam-BG/ky-2023-governor-nct-mod/main").replace(/\/$/, "");
+    return base + (Number(candidateId) === KY2023_MOD.candidates.cameron ? "/assets/ky2023_cameron_sign.svg" : "/assets/ky2023_beshear_sign.svg");
+  }
+
   function rowForCandidate(candidateId) {
     return (campaignTrail_temp.candidate_json || []).find((row) => row.pk === candidateId);
   }
@@ -24764,6 +24774,42 @@
     const signNames = root.document.querySelectorAll("#campaign_sign p");
     if (signNames[0]) signNames[0].textContent = campaignTrail_temp.candidate_last_name || "";
     if (signNames[1]) signNames[1].textContent = campaignTrail_temp.running_mate_last_name || "";
+    installTicketPanel();
+  }
+
+  function installTicketPanel() {
+    const doc = root.document;
+    const gameWindow = doc && doc.getElementById("game_window");
+    if (!gameWindow || doc.getElementById("ky2023_map_view")) return;
+    const questionText = gameWindow.innerText || "";
+    if (!/Question\s+\d+\s+of\s+25/i.test(questionText) || !campaignTrail_temp.KY2023_ACTIVE) return;
+
+    const selectedCandidate = Number(campaignTrail_temp.candidate_id || KY2023_MOD.candidates.beshear);
+    const selectedRunningMate = Number(campaignTrail_temp.running_mate_id || (selectedCandidate === KY2023_MOD.candidates.cameron ? KY2023_MOD.running_mates.cameron : KY2023_MOD.running_mates.beshear));
+    const candidateRow = rowForCandidate(selectedCandidate);
+    const runningMateRow = rowForCandidate(selectedRunningMate);
+    const candidateName = candidateRow ? candidateRow.fields.last_name : "Beshear";
+    const runningMateName = runningMateRow ? runningMateRow.fields.last_name : "Coleman";
+    const partyClass = selectedCandidate === KY2023_MOD.candidates.cameron ? " republican" : " democratic";
+    let panel = doc.getElementById("ky2023_ticket_panel");
+    if (!panel) {
+      panel = doc.createElement("div");
+      panel.id = "ky2023_ticket_panel";
+      gameWindow.appendChild(panel);
+    }
+    panel.className = "ky2023-ticket-panel" + partyClass;
+    panel.innerHTML = '<style>' +
+      '#ky2023_ticket_panel{max-width:930px;margin:8px auto 0;display:grid;grid-template-columns:220px minmax(260px,1fr) 220px;gap:8px;align-items:stretch;background:#8b4e52;padding:6px;border-top:3px solid #ffffff;font-family:Arial,Helvetica,sans-serif;}' +
+      '#ky2023_ticket_panel img{display:block;width:100%;height:190px;object-fit:cover;border:2px solid #d8d8d8;background:#eee;}' +
+      '#ky2023_ticket_panel .ky2023-sign{min-height:190px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;border:2px solid #d8d8d8;background:#172b8f;}' +
+      '#ky2023_ticket_panel.republican .ky2023-sign{background:#9b1c1c;}' +
+      '#ky2023_ticket_panel .ky2023-sign strong{font-family:Arial Black,Impact,Arial,sans-serif;font-size:42px;line-height:.92;letter-spacing:0;}' +
+      '#ky2023_ticket_panel .ky2023-sign span{font-size:18px;color:#f2c14e;font-weight:700;margin-top:8px;}' +
+      '@media(max-width:760px){#ky2023_ticket_panel{grid-template-columns:1fr;}#ky2023_ticket_panel img{height:230px;}}' +
+      '</style>' +
+      '<img alt="' + escapeHtml(candidateName) + ' portrait" src="' + escapeHtml(candidateRow ? candidateRow.fields.image_url : imageAssetUrl("beshear.jpg")) + '">' +
+      '<div class="ky2023-sign"><strong>' + escapeHtml(candidateName).toUpperCase() + '<br>FOR GOVERNOR</strong><span>' + escapeHtml(candidateName + " / " + runningMateName) + '</span></div>' +
+      '<img alt="' + escapeHtml(runningMateName) + ' portrait" src="' + escapeHtml(runningMateRow ? runningMateRow.fields.image_url : imageAssetUrl("coleman.jpg")) + '">';
   }
 
   function topCountyList(key, count) {
@@ -24784,57 +24830,48 @@
       }
     });
 
-    const maps = campaignTrail_temp.issue_map_svgs || [];
-    const selected = maps[0] || { title: "Beshear Approval Model by County", url: assetUrl("ky_beshear_approval.svg") };
+    const maps = [
+      { title: "2023 Governor Baseline", url: assetUrl("ky_county_results_map.svg") }
+    ].concat(campaignTrail_temp.issue_map_svgs || []);
+    const selected = maps[0];
     const support = currentSupport();
-    const beshearTop = topCountyList("beshear_pct", 5).map((county) => "<li>" + escapeHtml(county.county) + " - " + Number(county.beshear_pct).toFixed(1) + "%</li>").join("");
-    const cameronTop = topCountyList("cameron_pct", 5).map((county) => "<li>" + escapeHtml(county.county) + " - " + Number(county.cameron_pct).toFixed(1) + "%</li>").join("");
-    const tabs = maps.map((map, index) => '<button type="button" class="ky2023-map-tab" data-map-index="' + index + '">' + escapeHtml(map.title.replace(" by County", "").replace(" Model", "")) + '</button>').join("");
+    const beshearTop = topCountyList("beshear_pct", 3).map((county) => escapeHtml(county.county)).join(", ");
+    const cameronTop = topCountyList("cameron_pct", 3).map((county) => escapeHtml(county.county)).join(", ");
 
     const panel = doc.createElement("div");
     panel.id = "ky2023_map_view";
     panel.innerHTML = '<style>' +
-      '#ky2023_map_view{background:#f8fafc;color:#111827;border:2px solid #d1d5db;margin:12px auto;padding:14px;max-width:1120px;font-family:Arial,Helvetica,sans-serif;}' +
-      '#ky2023_map_view h2{margin:0;font-size:24px;text-align:center;letter-spacing:0;}' +
-      '#ky2023_map_title{margin:4px 0 8px;text-align:center;font-size:14px;color:#374151;}' +
-      '#ky2023_map_grid{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:14px;align-items:start;}' +
-      '#ky2023_map_frame{background:#eaf6f8;border:1px solid #cbd5e1;padding:8px;min-height:420px;display:flex;align-items:center;justify-content:center;}' +
-      '#ky2023_map_img{width:100%;max-height:560px;object-fit:contain;}' +
-      '#ky2023_map_side{background:#ffffff;border:1px solid #cbd5e1;padding:12px;}' +
-      '#ky2023_map_side h3{margin:8px 0 6px;font-size:18px;}' +
-      '#ky2023_map_side p,#ky2023_map_side li{font-size:14px;line-height:1.35;}' +
-      '#ky2023_map_tabs{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:10px 0;}' +
-      '.ky2023-map-tab,#ky2023_map_back{font-size:13px;padding:4px 8px;cursor:pointer;}' +
-      '.ky2023-map-tab.active{font-weight:bold;background:#263b63;color:#ffffff;}' +
-      '@media(max-width:850px){#ky2023_map_grid{grid-template-columns:1fr;}}' +
+      '#ky2023_map_view{background:#8b4e52;color:#000;margin:0 auto;padding:20px 22px 14px;max-width:1220px;font-family:Arial,Helvetica,sans-serif;}' +
+      '#ky2023_map_grid{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:18px;align-items:start;}' +
+      '#ky2023_map_frame{background:#e9fbff;border:2px solid #b7b7b7;padding:6px;min-height:520px;display:flex;align-items:center;justify-content:center;}' +
+      '#ky2023_map_img{width:100%;height:520px;object-fit:contain;display:block;}' +
+      '#ky2023_map_title{font-size:16px;font-weight:bold;text-align:center;margin:8px 0 0;color:#f4f4f4;}' +
+      '#ky2023_map_side{display:flex;flex-direction:column;gap:22px;}' +
+      '.ky2023-map-box{background:#f4f4f4;border:2px solid #b7b7b7;text-align:center;min-height:170px;}' +
+      '.ky2023-map-box h3{background:#dedede;font-size:24px;line-height:1;margin:0 0 16px;padding:4px 6px;text-transform:uppercase;}' +
+      '.ky2023-map-box p{font-size:18px;line-height:1.35;margin:12px 14px;font-weight:bold;}' +
+      '#ky2023_map_controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0 0;}' +
+      '#ky2023_map_controls button{font-size:18px;padding:4px 10px;border-radius:0;cursor:pointer;}' +
+      '@media(max-width:900px){#ky2023_map_grid{grid-template-columns:1fr;}#ky2023_map_img{height:auto;}}' +
       '</style>' +
-      '<h2>KENTUCKY COUNTY MAP</h2>' +
-      '<p id="ky2023_map_title">' + escapeHtml(selected.title) + '</p>' +
-      '<div id="ky2023_map_tabs">' + tabs + '</div>' +
       '<div id="ky2023_map_grid">' +
-      '<div id="ky2023_map_frame"><img id="ky2023_map_img" alt="Kentucky county issue map" src="' + escapeHtml(selected.url) + '"></div>' +
+      '<div><div id="ky2023_map_frame"><img id="ky2023_map_img" alt="Kentucky county SVG map" src="' + escapeHtml(selected.url) + '"></div><div id="ky2023_map_title">' + escapeHtml(selected.title) + '</div></div>' +
       '<aside id="ky2023_map_side">' +
-      '<h3>Estimated Support</h3>' +
-      '<p><strong>Beshear:</strong> ' + support.beshear.toFixed(1) + '%<br><strong>Cameron:</strong> ' + support.cameron.toFixed(1) + '%</p>' +
-      '<h3>Current Ticket</h3><p>' + escapeHtml(ticketLabel()) + '</p>' +
-      '<h3>County Baseline</h3><p>Actual 2023 returns are converted into county-level NCT states, with issue tabs layered on top.</p>' +
-      '<h3>Beshear Counties</h3><ul>' + beshearTop + '</ul>' +
-      '<h3>Cameron Counties</h3><ul>' + cameronTop + '</ul>' +
+      '<div class="ky2023-map-box"><h3>Estimated Support</h3><p>Beshear - ' + support.beshear.toFixed(0) + '%<br>Cameron - ' + support.cameron.toFixed(0) + '%</p><p><button type="button">PV Estimate</button><br><button type="button">Electoral Vote Estimate</button></p></div>' +
+      '<div class="ky2023-map-box"><h3>State Summary</h3><p>Ticket: ' + escapeHtml(ticketLabel()) + '</p><p>Beshear counties: ' + beshearTop + '</p><p>Cameron counties: ' + cameronTop + '</p><p>Switch layers for issue-score maps.</p></div>' +
       '</aside></div>' +
-      '<p style="text-align:center;margin:12px 0 0;"><button type="button" id="ky2023_map_back">Back to the game</button></p>';
+      '<div id="ky2023_map_controls"><button type="button" id="ky2023_map_back">Back to the game</button><button type="button" id="ky2023_map_switch">Switch margin colouring gradient</button><button type="button" id="ky2023_map_advisor">Enable/Disable Advisor Feedback</button></div>';
 
     gameWindow.appendChild(panel);
-    const tabButtons = Array.from(panel.querySelectorAll(".ky2023-map-tab"));
-    if (tabButtons[0]) tabButtons[0].classList.add("active");
-    tabButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const map = maps[Number(button.getAttribute("data-map-index"))];
-        if (!map) return;
-        tabButtons.forEach((other) => other.classList.remove("active"));
-        button.classList.add("active");
-        panel.querySelector("#ky2023_map_title").textContent = map.title;
-        panel.querySelector("#ky2023_map_img").src = map.url;
-      });
+    let layerIndex = 0;
+    panel.querySelector("#ky2023_map_switch").addEventListener("click", () => {
+      layerIndex = (layerIndex + 1) % maps.length;
+      const map = maps[layerIndex];
+      panel.querySelector("#ky2023_map_title").textContent = map.title;
+      panel.querySelector("#ky2023_map_img").src = map.url;
+    });
+    panel.querySelector("#ky2023_map_advisor").addEventListener("click", () => {
+      campaignTrail_temp.answer_feedback_flg = campaignTrail_temp.answer_feedback_flg ? 0 : 1;
     });
     panel.querySelector("#ky2023_map_back").addEventListener("click", () => {
       panel.remove();
@@ -24929,6 +24966,7 @@
 
     campaignTrail_temp.KY2023_ACTIVE = true;
     installKyMapOverride();
+    installTicketPanel();
     if (options.rerender) renderVisibleQuestion();
     return true;
   };
@@ -24936,7 +24974,10 @@
   if (campaignTrail_temp.candidate_id) root.KY2023_applyMod({ rerender: true });
   if (!root.KY2023_MAP_GUARD) {
     root.KY2023_MAP_GUARD = root.setInterval(function () {
-      if (campaignTrail_temp.KY2023_ACTIVE) installKyMapOverride();
+      if (campaignTrail_temp.KY2023_ACTIVE) {
+        installKyMapOverride();
+        installTicketPanel();
+      }
     }, 600);
   }
 })();

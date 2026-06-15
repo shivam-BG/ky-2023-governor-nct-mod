@@ -11,6 +11,8 @@ Latest update:
 
 - Added a drop-style `static_mod/` package modeled after released governor mods such as `2022AZGov`, `2022PAGov`, `2016NC`, and `1990 MI`.
 - Added generated banner/background/icon assets and state-mod globals for `THE KENTUCKY TRAIL`, credits, historical result colors, and theme styling.
+- Added actual Beshear, Coleman, Cameron, and Mills portrait assets for the intro, candidate selection, running-mate selection, and in-game ticket panel.
+- Replaced the stock national map view with a PA Gov-style Kentucky county SVG panel using `maps/ky_county_results_map.svg`, plus switchable issue-score SVGs.
 - Kept the custom-loader Code 1 + Code 2 flow working for normal NCT players.
 
 Files:
@@ -18,8 +20,9 @@ Files:
 - `code1_2023_ky_governor.js`: election metadata, candidates, running mates, theme, credits, and soundtrack metadata.
 - `code2_2023_ky_governor.js`: 25 questions, answers for both Andy Beshear and Daniel Cameron, county baselines, answer effects, endings, and map hooks.
 - `static_mod/`: drop-style `_init.html` and candidate-running-mate HTML files using the `2023KYGov` naming convention.
+- `assets/images/*.jpg`: generated real portrait assets used by Code 1 and Code 2.
 - `assets/*.svg`: generated banner, background, icon, and ticket-card art used by the drop-style theme.
-- `maps/*.svg`: Kentucky county issue maps using real county boundaries.
+- `maps/*.svg`: Kentucky county baseline and issue maps using real county boundaries.
 - `ky2023_county_issue_scores.csv` / `.json`: source county scores used by the mod and maps.
 - `ky2023_preview.html`: local preview page for the SVG maps.
 
@@ -47,8 +50,8 @@ Compatibility notes:
 - Beshear/Coleman use the stock-safe internal IDs `201/209`, and Cameron/Mills use `200/204`. The visible names, descriptions, questions, answers, scoring, and results are all Kentucky 2023 content.
 - Code 2 filters the shared answer bank to the selected candidate, so the same Code 2 works for both Beshear and Cameron.
 - Code 1 includes a fallback that fetches the GitHub-hosted Code 2 if the NCT loader leaves you on the stock 2016 base question.
-- Candidate and election images are inline SVG data images, so the selection screens should not show broken image boxes.
-- The `Latest Polls/Electoral Map` button is overridden with a Kentucky county-map panel and issue-map tabs. It does not use the stock national US map.
+- Candidate and election images are GitHub-hosted portrait files in `assets/images/`, so the selection screens and in-game ticket panel should not show broken image boxes after the repo is pushed.
+- The `Latest Polls/Electoral Map` button is overridden with a PA Gov-style Kentucky county-map panel. It does not use the stock national US map.
 
 Notes:
 
